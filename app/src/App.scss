@@ -1,0 +1,80 @@
+@import './sass/settings';
+@import './sass/mixins/mixins';
+// @import './sass/bootstrap';
+@import './sass/global';
+@import './sass/typography';
+@import './sass/stitches';
+
+@font-face {
+  font-family: "N-Black";
+  src: url("/fonts/NeuzeitGro-Bla.otf");
+}
+
+@font-face {
+  font-family: "N-Light";
+  src: url("/fonts/NeuzeitGro-Lig.otf");
+}
+
+// Box Model Hack
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/white-velvet-bg.jpg);
+	padding: 7.7% 10%;
+  font-family: "N-Light";
+
+  .flex {
+    margin-top: 0;
+  }
+
+  .decolines {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .decolines--fixed {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 500;
+  }
+  
+  .decoline {
+    position: absolute;
+  }
+
+  h1, h2, h3 {
+    font-family: "N-Black";
+  }
+  p {
+    font-family: "N-Light";
+  }
+  ul {
+    list-style: none;
+  }
+  .App {
+    font-family: "N-Light";
+    }
+
+    li {
+      font-weight: lighter;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-family: "N-Light";
+      
+    }
+}
+

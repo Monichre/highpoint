@@ -1,0 +1,60 @@
+$font_BlackHan: 'Black Han Sans', sans-serif;
+$font_Robotto: 'Roboto', sans-serif;
+
+.home {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-image: url(/white-velvet-bg.jpg);
+
+  
+
+  main {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .wrapper {
+      // height: 500px;
+      width: 100%;
+      // /* margin: 50px auto 0; */
+      display: block;
+      position: relative;
+
+ 
+    
+      .clipping-paths {
+        width: 0;
+        height: 0;
+        position: absolute;
+      }
+      .backgroundVideo {
+        width: 100% !important;
+        // padding-top: 550px;
+        // padding-left: 375px;
+        margin: 200px auto 0;
+        position: relative;
+        video {
+          width: 100% !important;
+          margin: auto;
+          display: block;
+          transform: translateX(20%);
+          display: block;
+          clip-path: url(#clip-00);
+        }
+        
+        position: relative;
+        
+      }
+    } 
+  }
+}

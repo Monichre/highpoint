@@ -1,0 +1,162 @@
+aside.panel {
+  &.regular,
+  &.initial  {
+    width: 40vw;
+    height: auto;
+    max-height: 70vh;
+    overflow: scroll;
+    top: auto;
+    color: white;
+    box-shadow: 5px 0 25px 0 rgba(0, 0, 0, 0.6);
+    transition: background 500ms ease-in-out;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    h2.panel-header,
+    p.panel-info {
+      color: white;
+      margin: 0;
+      padding: 1.3rem 3.5rem;
+    }
+    h2.panel-header {
+      padding-top: 2em;
+      font: {
+        weight: normal;
+        size: 2.5rem;
+      }
+      text-transform: capitalize;
+    }
+    p.panel-info {
+      color: white;
+      font-size: 1.3rem;
+      line-height: 1.8em;
+    }
+    button.panel-button {
+      margin: 1.3rem 3.5rem;
+      padding: 0.8em 1.3em;
+      background: none;
+      border: 1px solid black;
+      color: black;
+      cursor: pointer;
+      font: {
+        family: 'Montserrat';
+        size: 0.8rem;
+        weight: 700;
+      }
+      text-transform: uppercase;
+      transition: box-shadow 0.5s ease-in-out, color 0.5s ease-in-out;
+      &:hover {
+        box-shadow: inset 0 0 1.5em 1.5em white;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &.process {
+      width: 40%;
+      height: 100%;
+      opacity: 0.9;
+      color: black !important;
+      box-shadow: none;
+      transition: background 500ms ease-in-out;
+      background: none;
+      position: absolute;
+      top: 0;
+      right: 50px;
+      left: auto;
+      padding: 10px;
+      bottom: auto;
+
+      .process_timeline_menu {
+        margin: 40px auto;
+      }
+
+      h2.panel-header {
+        padding-top: 2em;
+        text-align: center;
+        font: {
+          weight: normal;
+          size: 2.5rem;
+        }
+        text-transform: capitalize;
+      }
+
+      h2,
+      p {
+        color: black !important;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.8em;
+      }
+    }
+  
+  &.initial {
+    width: 40vw;
+    height: auto;
+    opacity: 0.9;
+    color: black !important;
+    box-shadow: none;
+    transition: background 500ms ease-in-out;
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 50px;
+    left: auto;
+    bottom: auto;
+
+    h2 {
+      // text-align: center!important;
+      // display: block!important;
+      // margin: auto!important;
+    }
+
+    h2,
+    p {
+      color: black !important;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.portrait {
+  aside.panel {
+    &.regular,
+    &.initial {
+      width: 40vw;
+      height: auto;
+      opacity: 0.9;
+      color: black !important;
+      box-shadow: none;
+      transition: background 500ms ease-in-out;
+      background: none;
+      position: absolute;
+      top: 0;
+      right: 50px;
+      left: auto;
+      bottom: auto;
+
+      h2 {
+        // text-align: center!important;
+        // display: block!important;
+        // margin: auto!important;
+      }
+
+      h2,
+      p {
+        color: black !important;
+      }
+    }
+  }
+}

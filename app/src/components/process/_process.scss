@@ -1,0 +1,71 @@
+
+
+main.component.process_component {
+	// background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-image: url(/white-velvet-bg.jpg);
+	// padding: 7.7% 10%;
+	-webkit-animation: fadeAllIn 2s;
+	animation: fadeAllIn 2s;
+
+	section.wrapper {
+		width: 100%;
+		overflow: hidden;
+    height: 70vh;
+    background-size: 100% 100%;
+    -webkit-transition: background-image 500ms ease-in-out;
+    transition: background-image 500ms ease-in-out;
+		position: relative;
+		.process_side_nav {
+			width: 50px;
+			position: absolute;
+			top: 0;
+			padding: 20px 0;
+			right: 0;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+
+			a {
+				margin: 0 auto;
+			}
+
+			.flex {
+				margin-top: 0;
+			}
+		}
+
+		.wrapper_inner {
+			height: 100%;
+			width: 100%;
+			// position: absolute;
+			// top: 0;
+			// left: 0;
+			
+			// img {
+			// 	object-fit: cover;
+			// 	object-position: center;
+			// 	height: 100%;
+			// 	width: 100%;
+			// }
+
+		
+		}
+
+	}
+}
+
+
+
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+

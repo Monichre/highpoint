@@ -1,0 +1,62 @@
+main.portfolio.component.portfolio_component {
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-image: url(/white-velvet-bg.jpg);
+  overflow: hidden;
+  height: 100vh;
+  // padding: 7.7% 10%;
+  -webkit-animation: fadeAllIn 2s;
+  animation: fadeAllIn 2s;
+
+  section.wrapper {
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    background-size: 100% 100%;
+    -webkit-transition: background-image 500ms ease-in-out;
+    transition: background-image 500ms ease-in-out;
+    position: relative;
+
+    .wrapper_inner {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .about_us_video {
+        padding: 20px;
+        width: 50% !important;
+        height: 100%;
+      }
+
+      img {
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      &.portrait {
+        img {
+          object-fit: contain;
+          object-position: left;
+					 margin-left: 4em;
+					 padding: 10px;
+        }
+      }
+    }
+
+
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

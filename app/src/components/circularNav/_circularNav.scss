@@ -1,0 +1,1363 @@
+// ===================================
+// Global vars
+//
+
+// Prefix key
+//
+// $c-       colour variables
+// $b-       base variables
+// $enable-  feature toggle
+
+// Color
+$c-base: #222 !default;
+$c-primary: darken(skyBlue, 8) !default;
+$c-secondary: salmon !default;
+$bg: #fff !default;
+
+// Type
+$enable-fontSmoothing: true !default;
+$b-fontSize: 1.6rem !default;
+$b-fontFamily: Helvetica, Arial, sans-serif !default;
+$b-fontWeight: normal !default;
+$b-letterSpacing: false !default;
+$b-lineHeight: 1.5 !default;
+
+// Layout
+$base-unit: 0.8 !default;
+
+// ===================================
+// Basic
+//
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: $bg;
+}
+
+a,
+a:hover {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// ===================================
+// Type
+//
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $c-base;
+  font-size: $b-fontSize;
+  font-family: $b-fontFamily;
+  font-weight: $b-fontWeight;
+  line-height: $b-lineHeight;
+  @if ($b-letterSpacing) {
+    letter-spacing: $b-letterSpacing;
+  }
+  @if ($enable-fontSmoothing) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.xx-Demo body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//
+// Layout
+//
+
+%visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+%clearfix {
+  &:before,
+  &:after {
+    content: ' '; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//
+// Buttons
+//
+
+%resetBtn {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  &::-moz-focus-inner,
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+%resetList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+@mixin visuallyhidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+%visuallyhidden {
+  @include visuallyhidden();
+}
+
+// ==================================================
+// z-index Management
+//
+// Source: https://medium.com/alistapart/sassier-z-index-management-for-complex-layouts-4540717a9488
+
+$z-indexes: (
+  main: (
+    foo,
+    bar,
+    tooltip
+  ),
+  header: (),
+  modal: ()
+) !default;
+
+@function z-index($key1, $key2: null) {
+  $map: $z-indexes;
+  $found-index: null;
+  @if (map-has-key($map, $key1)) {
+    $found-index: index(map-keys($map), $key1);
+    @if ($key2) {
+      $map: map-get($map, $key1);
+      $found-index: index($map, $key2);
+    }
+  }
+  @return $found-index;
+}
+
+@function z($key1, $key2: null) {
+  @return z-index($key1, $key2);
+}
+
+// ==================================================
+// String to number converter
+//
+
+// Source: http://www.sassmeister.com/gist/9fa19d254864f33d4a80
+// http://hugogiraudel.com/2014/01/15/sass-string-to-number/
+
+////
+/// String to number converter
+/// @author Hugo Giraudel
+/// @access private
+////
+
+///
+/// Casts a string into a number
+///
+/// @param {String | Number} $value - Value to be parsed
+///
+/// @return {Number}
+///
+@function to-number($value) {
+  @if type-of($value) == 'number' {
+    @return $value;
+  } @else if type-of($value) != 'string' {
+    $_: log('Value for `to-number` should be a number or a string.');
+  }
+
+  $result: 0;
+  $digits: 0;
+  $minus: str-slice($value, 1, 1) == '-';
+  $numbers: (
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9
+  );
+
+  @for $i from if($minus, 2, 1) through str-length($value) {
+    $character: str-slice($value, $i, $i);
+
+    @if not(index(map-keys($numbers), $character) or $character == '.') {
+      @return to-length(if($minus, -$result, $result), str-slice($value, $i));
+    }
+
+    @if $character == '.' {
+      $digits: 1;
+    } @else if $digits == 0 {
+      $result: $result * 10 + map-get($numbers, $character);
+    } @else {
+      $digits: $digits * 10;
+      $result: $result + map-get($numbers, $character) / $digits;
+    }
+  }
+
+  @return if($minus, -$result, $result);
+}
+
+///
+/// Add `$unit` to `$value`
+///
+/// @param {Number} $value - Value to add unit to
+/// @param {String} $unit - String representation of the unit
+///
+/// @return {Number} - `$value` expressed in `$unit`
+///
+@function to-length($value, $unit) {
+  $units: (
+    'px': 1px,
+    'cm': 1cm,
+    'mm': 1mm,
+    '%': 1%,
+    'ch': 1ch,
+    'pc': 1pc,
+    'in': 1in,
+    'em': 1em,
+    'rem': 1rem,
+    'pt': 1pt,
+    'ex': 1ex,
+    'vw': 1vw,
+    'vh': 1vh,
+    'vmin': 1vmin,
+    'vmax': 1vmax
+  );
+
+  @if not index(map-keys($units), $unit) {
+    $_: log('Invalid unit `#{$unit}`.');
+  }
+
+  @return $value * map-get($units, $unit);
+}
+
+// ==================================================
+// Responsive font-size
+//
+
+// Source: https://codepen.io/eduardoboucas/pen/YXxmwv?editors=0110
+// https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/
+//
+// Viewport sized typography with minimum and maximum values
+//
+// @author Eduardo Boucas (@eduardoboucas)
+//
+// @param {Number}   $responsive  - Viewport-based size
+// @param {Number}   $min         - Minimum font size (px)
+// @param {Number}   $max         - Maximum font size (px)
+//                                  (optional)
+// @param {Number}   $fallback    - Fallback for viewport-
+//                                  based units (optional)
+//
+// @example scss - 5vw font size (with 50px fallback),
+//                 minumum of 35px and maximum of 150px
+//  @include responsive-font(5vw, 35px, 150px, 50px);
+//
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+  font-size: $responsive;
+}
+
+// ==================================================
+// Font smoothing
+//
+
+@mixin type-fontSmoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+// ==================================================
+// unitSize
+//
+// Use this function to set sizes with proportions.
+//
+// @param {String} $multiplier - times the base unit ($base-unit by default)
+// @param {Number} $offset - A value in pixels which will be added to the
+//                  result, can be positive for addition or negative for
+//                  subtraction
+//
+// @return {Number} Value in rem, equal to the number of times the base unit
+//                  plus the offset
+
+$base-unit: 0.8 !default;
+
+@function unitSize($multiplier, $offset: 0) {
+  @return to-number(($base-unit * $multiplier + $offset) + rem);
+}
+
+// ==================================================
+// Breakpoints
+//
+
+// Grid breakpoints
+//
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xxs: 0,
+  // Extra small screen / phone
+    xs: 320px,
+  // Extra small screen / phone
+    sm: 544px,
+  // Small screen / phone
+    md: 768px,
+  // Medium screen / tablet
+    lg: 992px,
+  // Large screen / desktop
+    xl: 1200px// Extra large screen / wide desktop
+) !default;
+
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//
+//    (xs: 0, sm: 544px, md: 768px)
+//
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 544px, md: 768px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 544px, md: 768px))
+//    544px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.1.
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 544px, md: 768px))
+//    767px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  @include media-breakpoint-up($name, $breakpoints) {
+    @include media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+/// ==================================================
+/// Function to generate long shadows (because flat is so has-been).
+/// Property-agnostic: works for both `box-shadow` and `text-shadow`.
+/// `cos` and `sin` might need to be polyfilled if Compass or any
+/// equivalent such as SassyMath is not in use.
+///
+/// @author Hugo Giraudel
+///
+/// @link https://unindented.org/articles/trigonometry-in-sass/ Pure Sass `cos` and `sin`
+///
+/// @param {Direction} $direction
+///     Shadow's direction (angle or keyword)
+/// @param {Length} $length
+///     Shadow's length
+/// @param {Color} $color
+///     Shadow's color
+/// @param {Bool | Color} $fade [false]
+///     Whether or not shadow should fade:
+///     - `false` means no fading, shadow is `$color`
+///     - `true`  means fading from `$color` to transparent
+///     - a color means fading from `$color` to `$fade`
+/// @param {Number} $shadow-count [100]
+///     Number of computed shadows
+///
+/// @return {List} - List of shadows
+///
+/// @require {function} Compass/helpers/math/cos
+///     http://compass-style.org/reference/compass/helpers/math/#cos
+/// @require {function} Compass/helpers/math/sin
+///     http://compass-style.org/reference/compass/helpers/math/#sin
+///
+/// @example scss - Usage
+/// .foo {
+///   text-shadow: long-shadow(42deg, 1em, #16a085);
+/// }
+/// .bar {
+///   box-shadow: long-shadow(to top left, 150px, hotpink, tomato);
+/// }
+@function long-shadow($direction, $length, $color, $fade: false, $shadow-count: 100) {
+  $shadows: ();
+  $conversion-map: (
+    to top: 180deg,
+    to top right: 135deg,
+    to right top: 135deg,
+    to right: 90deg,
+    to bottom right: 45deg,
+    to right bottom: 45deg,
+    to bottom: 0deg,
+    to bottom left: 315deg,
+    to left bottom: 315deg,
+    to left: 270deg,
+    to left top: 225deg,
+    to top left: 225deg
+  );
+
+  @if map-has-key($conversion-map, $direction) {
+    $direction: map-get($conversion-map, $direction);
+  }
+
+  @for $i from 1 through $shadow-count {
+    $current-step: ($i * $length / $shadow-count);
+    $current-color: if(
+      not $fade,
+      $color,
+      if(
+        type-of($fade) == 'color',
+        mix($fade, $color, ($i / $shadow-count * 100)),
+        rgba($color, 1 - $i / $shadow-count)
+      )
+    );
+
+    $shadows: append(
+      $shadows,
+      (sin(0deg + $direction) * $current-step) (cos(0deg + $direction) * $current-step) 0 $current-color,
+      'comma'
+    );
+  }
+
+  @return $shadows;
+}
+
+//
+// Circular nav
+$CircleMenu-count: 8;
+$CircleMenu-size: 20vmin;
+$CircleMenu-offset: 9%; // >>> remember to update svg mask radius too :( <<<
+$CircleMenu-color: #000;
+$CircleMenu-lineHeight: 2em;
+$CircleMenu-keyline: rgba($CircleMenu-color, 1);
+//
+// Cover
+$Cover-color: #000;
+$Cover-titleWidth: $CircleMenu-size + 8vmin;
+//
+// Icon
+$Ico-size: unitSize(3);
+$Ico-color: currentColor;
+//
+// Base
+$bg: 'https://images.unsplash.com/photo-1490260933405-2d50861204d1?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=';
+$z-indexes: (
+  cover: (
+    overlay,
+    content
+  ),
+  header: (),
+  modal: (),
+  skip: ()
+);
+// ========================================
+// Base
+//
+@at-root {
+  .dev {
+    body {
+      &:after,
+      &:before {
+        content: '';
+        position: fixed;
+        z-index: 1;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        border-top: 1px dashed rgba(yellow, 0.1);
+        pointer-events: none;
+      }
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  body {
+    letter-spacing: 0.04em;
+  }
+  .Skip {
+    &:focus,
+    &:active {
+      color: inherit;
+      font-size: 75%;
+      font-style: italic;
+      display: block;
+      text-decoration: none;
+      position: relative;
+      z-index: z(skip);
+      width: 100%;
+      height: auto;
+      text-align: center;
+      clip-path: none;
+      background-color: color(background);
+    }
+  }
+}
+
+// ========================================
+// Typography
+//
+@at-root {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 0;
+    margin-bottom: unitSize(2.5);
+  }
+  .MegaTitle {
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .MegaTitle-sub {
+    font-size: 0.333em;
+    letter-spacing: 0.42em;
+    display: block;
+    margin-top: unitSize(2.5);
+  }
+  .MegaTitle--cover {
+    font-size: $CircleMenu-size / 6.45;
+    margin-bottom: $CircleMenu-size / 21;
+    .MegaTitle-sub {
+      margin-top: $CircleMenu-size / 21;
+    }
+  }
+  .Subtext {
+    letter-spacing: 0.42em;
+  }
+  .Subtext--cover {
+    @include responsive-font(2vmin, 12px, 16px, 16px);
+  }
+}
+
+// ========================================
+// Utilities
+//
+@at-root {
+  //
+  // Wrapper - Responsive media
+  //
+  .u-responsiveSquare {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    margin: 0 auto;
+    overflow: hidden; //
+    // extendable with img, video, ...
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+  } //
+  // SVG masks
+  //
+  .u-svgMaskRingSm {
+    mask: url(#RingSm);
+  }
+  .u-svgMaskRingLg {
+    mask: url(#RingLg);
+  } //
+  // Visually hidden
+  //
+  .u-vh {
+    @extend %visuallyHidden;
+  } //
+  // Hidden xs down
+  //
+  @include media-breakpoint-down(xs) {
+    .u-hidden-xs-down {
+      display: none;
+    }
+  }
+}
+
+// ========================================
+// Layout
+//
+@at-root {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+}
+
+// ========================================
+// Icon
+//
+@at-root {
+  .Ico {
+    display: inline-block;
+    width: $Ico-size;
+    height: $Ico-size;
+    vertical-align: middle;
+    box-sizing: content-box;
+    fill: $Ico-color;
+  }
+}
+
+// ========================================
+// Circle Menu
+//
+@at-root {
+  %CircleMenu-ringPseudo {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    border: 1px dashed $CircleMenu-keyline;
+  }
+  .CircleMenu {
+    position: relative;
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 50%; //
+    // Inner ring 2 and 3
+    &:before {
+      @extend %CircleMenu-ringPseudo;
+      width: 100% - $CircleMenu-offset * 6;
+      height: 100% - $CircleMenu-offset * 6;
+    }
+    &:after {
+      @extend %CircleMenu-ringPseudo;
+      width: 100% - $CircleMenu-offset * 4;
+      height: 100% - $CircleMenu-offset * 4;
+    } //
+    // Breakpoint - hide on small viewports
+    @media (max-width: 550px), (max-height: 400px) {
+      display: none;
+    }
+    .anchor_tab {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 10;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .circle_nav__anchor {
+        height: 20px;
+        width: 20px;
+      }
+
+      &.hide_anchor {
+        .circle_nav__anchor {
+          // animation-name: spin;
+          // animation-duration: 5000ms;
+          // animation-iteration-count: infinite;
+          // animation-timing-function: linear;
+        }
+        // animation-name: spin;
+        // animation-duration: 5000ms;
+        // animation-iteration-count: infinite;
+        // animation-timing-function: linear;
+        // @keyframes spin {
+        //   from {
+        //     transform: rotate(0deg);
+        //   }
+        //   to {
+        //     transform: rotate(360deg);
+        //   }
+        // }
+      }
+    }
+  }
+  .CircleMenu-nav {
+    color: $CircleMenu-color;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: $CircleMenu-lineHeight;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding-left: 0;
+    border-radius: 50%;
+    border: 1px solid $CircleMenu-keyline;
+    list-style: none; //
+    // Inner ring 1
+    &:before {
+      @extend %CircleMenu-ringPseudo;
+      width: 100% - $CircleMenu-offset * 2;
+      height: 100% - $CircleMenu-offset * 2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+      position: relative;
+      display: block; //
+  
+    } 
+    li {
+      position: absolute;
+      z-index: 10; // 1
+      top: 50%;
+      left: 50%;
+      padding-left: 50%;
+      font-weight: bolder;
+      margin-top: -$CircleMenu-lineHeight / 2;
+      transform-origin: 0 50%;
+      font-size: 10px;
+      &:hover {
+        z-index: 5; // 1
+      } //
+
+      &:nth-child(2) {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        &:before {
+        }
+        .CircleMenu-nav-itemImg {
+          transform: rotate(-180deg) translateX(-50%) translateY(-50%);
+        }
+        a {
+          transform-origin: 54% 50%;
+          transform: rotate(180deg);
+          &:not(.CircleMenu-nav-itemIco) {
+            &:before {
+              content: '';
+            }
+            &:after {
+              content: '\00a0\00B7';
+              font-size: 2em;
+              line-height: 0;
+              vertical-align: middle;
+              // right: -5px;
+              position: relative;
+            }
+          }
+        }
+      }
+      &:nth-child(3) {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        .CircleMenu-nav-itemImg {
+          transform: rotate(-90deg) translateX(-50%) translateY(-50%);
+        }
+        a {
+          transform-origin: 50% 49%;
+          transform: rotate(90deg);
+          &:not(.CircleMenu-nav-itemIco) {
+            &:before {
+              content: '';
+            }
+            &:after {
+              content: '\A0\B7';
+              font-size: 2em;
+              line-height: 0;
+              vertical-align: middle;
+              bottom: -100%;
+              left: 35%;
+              position: absolute;
+            }
+          }
+        }
+      }
+
+      &:nth-child(4) {
+        padding-left: 53%;
+        .CircleMenu-nav-itemImg {
+          transform: rotate(0) translateX(-50%) translateY(-50%);
+        }
+        a {
+          &:not(.CircleMenu-nav-itemIco) {
+            &:before {
+              content: '\00a0\00B7';
+              font-size: 2em;
+              line-height: 0;
+              vertical-align: middle;
+              left: -5px;
+              position: relative;
+            }
+            &:after {
+              content: '';
+            }
+          }
+        }
+      }
+    }
+  } //
+  // Menu item image
+  //
+  .CircleMenu-nav-itemImg {
+    // display: none;
+    position: absolute;
+    z-index: 10;
+    top: $CircleMenu-lineHeight / 2;
+    // top: 0;
+    left: 0;
+    width: $CircleMenu-size;
+    height: $CircleMenu-size;
+    // height: 100%;
+    // width: 100%;
+    transform-origin: 0 0;
+    pointer-events: none;
+    // filter: brightness(70%) saturate(80%) grayscale(40%);
+  } //
+  // Menu icon items (scroll, logo)
+  //
+  .CircleMenu-nav-itemIco {
+    transform: rotate(-90deg) translateY(-50%) !important;
+  }
+  .CircleMenu-nav-itemIco-text {
+    font-size: 0.7em;
+    position: absolute;
+    left: 50%;
+    top: -90%;
+    transform: translateX(-50%);
+  }
+}
+
+// ========================================
+// Cover
+//
+@at-root {
+  #CircularNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    transition: all 0.6s ease-in-out;
+    .CircleMenu-nav {
+      transition: all 0.6s ease-in-out;
+    }
+    li {
+      transition: all 0.6s ease-in-out;
+    }
+    &.animating {
+      .CircleMenu-nav {
+        transform: scale(0.8);
+        li {
+          top: 100%;
+        }
+      }
+    }
+  }
+  .Cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 5vh;
+    bottom: -50px;
+    width: 100%;
+    background: transparent;
+    // Transparent image overlay
+    .minor_anchor_tab {
+      display: none;
+      position: absolute;
+      top: 40px;
+      height: 150px;
+      transition: all 0.6s;
+      width: 100px;
+      border: 2px solid #333;
+      /* border-radius */
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      /* box-shadow */
+      -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 0 3px;
+      -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 3px;
+      box-shadow: rgba(0, 0, 0, 0.8) 0 0 3px;
+      z-index: 10;
+      padding: 30px 20px 20px;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      img {
+        height: 15px;
+        width: 15px;
+        transition: all 0.6s;
+      }
+
+      &.show_minor_anchor {
+        display: flex;
+        position: relative;
+        -webkit-animation: tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+        animation: tracking-in-expand-fwd-bottom 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+        &:hover {
+          top: -10px;
+        }
+        &:after {
+          position: relative;
+          display: block;
+          margin: -22px auto;
+          height: 30px;
+          content: '';
+          width: 30px;
+          border: 2px solid #333;
+          border-radius: 50%;
+          z-index: 10;
+          -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 0 5px;
+          -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+          box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+        }
+        img {
+          height: 15px;
+          width: 15px;
+          animation-name: spin;
+          animation-duration: 5000ms;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          position: relative;
+        }
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background-size: cover;
+      background-position: center center;
+      opacity: 0.12;
+    }
+  }
+  .Cover-content {
+    color: $Cover-color;
+    text-align: center;
+    position: relative;
+    z-index: z(cover, content);
+    max-width: $Cover-titleWidth;
+
+    .title {
+      width: 450px;
+      display: block;
+      margin: auto;
+      flex: 0 0 auto;
+      padding: 30px 0 0;
+      // background: #000;
+      width: 450px;
+      p {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 12px !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      h2 {
+        font-family: 'N-Black';
+        text-align: center;
+        text-transform: uppercase;
+        margin: auto;
+        color: transparent;
+        font-size: 35px;
+        position: relative;
+        transform: skew(45deg);
+        &:after {
+          position: absolute;
+          content: '';
+          bottom: -5px;
+          width: 40px;
+          height: 1.5px;
+          left: 40%;
+          background: #000;
+        }
+        span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          color: transparent;
+          overflow: hidden;
+          transition: all 200ms linear;
+          &:first-child {
+            width: 40%;
+            margin-left: 0em;
+            /* -webkit-transform: translate(55px, 4px); */
+            /* transform: translate(55px, 4px); */
+          }
+          &:last-child {
+            width: 60%;
+            left: 25%;
+            text-indent: -48%;
+            -webkit-transform: translate(50px, 3px);
+            transform: translate(50px, 0px);
+          }
+          &:before {
+            position: absolute;
+            color: #000;
+            top: 0;
+            left: 0;
+            content: attr(data-text);
+
+            transform: skew(-45deg);
+            padding-left: 0.25em;
+            padding-right: 0.25em;
+          }
+        }
+      }
+    }
+  }
+  .Cover-overlay {
+    position: absolute;
+    z-index: z(cover, overlay);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// ========================================
+// Animation
+//
+@at-root {
+  .anim-trigger:hover,
+  .anim-triggerCircleMenu:hover + .CircleMenu-nav-itemImg {
+    .anim-shiftOut {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .anim-shiftIn {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  .anim-shiftOut {
+    opacity: 0;
+    transform: scale(0.64);
+    transform-origin: 50% 50%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  .anim-shiftIn {
+    opacity: 0;
+    transform: scale(1.56);
+    transform-origin: 50% 50%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+}
+
+.scale-out-ver-bottom {
+  -webkit-animation: scale-out-ver-bottom 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: scale-out-ver-bottom 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2018-7-17 12:47:22
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation scale-out-ver-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes scale-out-ver-bottom {
+  0% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-out-ver-bottom {
+  0% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2018-7-17 13:2:16
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation heartbeat
+ * ----------------------------------------
+ */
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+/* ----------------------------------------------
+* Generated by Animista on 2018-7-17 12:59:52
+* w: http://animista.net, t: @cssanimista
+* ---------------------------------------------- */
+
+/**
+* ----------------------------------------
+* animation tracking-in-expand-fwd-bottom
+* ----------------------------------------
+*/
+@-webkit-keyframes tracking-in-expand-fwd-bottom {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px) translateY(500px);
+    transform: translateZ(-700px) translateY(500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand-fwd-bottom {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px) translateY(500px);
+    transform: translateZ(-700px) translateY(500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}

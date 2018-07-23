@@ -1,0 +1,84 @@
+.right_nav {
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  width: auto;
+  top: 0;
+  right: 0;
+  .inner {
+    height: 100vh;
+    .logo {
+      z-index: 10;
+    }
+    ul {
+      top: 0;
+      right: 0;
+      width: 84px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      padding: 0;
+      position: relative;
+      li {
+        position: relative;
+
+        font-weight: bolder !important;
+        position: relative;
+        width: max-content;
+        transform: rotate(90deg);
+        letter-spacing: 2px;
+        left: -120px;
+
+          
+        img {
+          position: relative;
+          top: -3px;
+        }
+
+        &:after,
+        &:before {
+          content: '\00a0\00B7';
+          font-size: 1.5em;
+          top: auto;
+          line-height: 1;
+          vertical-align: middle;
+          position: relative;
+        }
+        &:before {
+          left: -5px;
+          top: auto;
+        }
+        span {
+          height: auto;
+          width: auto;
+        }
+        .phone {
+          position: absolute;
+          bottom: 130px;
+          right: 70px;
+        }
+        .mail {
+          position: absolute;
+          top: 120px;
+          right: 70px;
+        }
+        svg {
+          position: absolute;
+          height: 13px;
+          width: 13px;
+          transform: rotate(90deg);
+        }
+        // position: relative;
+        // z-index: 10;
+        // margin: 15px;
+        // transform: rotate(-90deg);
+        // transform-origin: left bottom 0;
+        // margin: 0;
+        // display: block;
+      }
+    }
+  }
+}

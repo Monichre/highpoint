@@ -1,0 +1,54 @@
+	
+	   .selectors {
+      width: 50px;
+      position: absolute;
+      top: 0;
+      padding: 20px 0;
+      right: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      background: transparent;
+      background-image: none;
+      transition: all .8s ease-in;
+
+      &:hover {
+        // background-position: center;
+        background-size: auto;
+        // background-repeat: no-repeat;
+        background-image: url(/white-velvet-bg.jpg);
+      }
+   
+
+      a {
+        margin: 0 auto;
+      }
+
+      .flex {
+        margin-top: 0;
+      }
+      .selector {
+        position: relative;
+       div {
+        position: relative;
+        opacity: 0.9;
+        background: transparent;
+        border: 2px solid #333;
+       }
+        label {
+          position: absolute;
+          left: -10px;
+          top: 0;
+        }
+        &:hover,
+        &.active {
+          div {
+            position: relative;
+            background: black;
+            border: 1px solid #333;
+            opacity: 1;
+           }
+        }
+      }
+    }
