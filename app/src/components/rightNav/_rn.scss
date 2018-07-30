@@ -59,4 +59,29 @@ $Title-color: $c-dark;
     }
   }
 }
+
+&.non_homepage_route {
+  right: 2%;
+  position: fixed;
+  .inner {
+    ul {
+      li {
+        font-size: 9px!important;
+        line-height: 1.5!important;
+
+        .slash {
+          display: none;
+        }
+
+        &:last-of-type {
+          font-size: 8px!important;
+          font-style: italic;
+          font-weight: 400;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+}
 }

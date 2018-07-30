@@ -28,10 +28,7 @@ const about = {
 
 class PortfolioPage extends Component {
   render() {
-    console.log(AppStore)
     const {properties} = AppStore.data
-    properties.unshift(about)
-    
     console.log(properties)
     return (
       <animated.div  style={{ ...this.props.style }}v className="portfolio">

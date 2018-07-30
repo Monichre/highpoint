@@ -1,18 +1,11 @@
 main.portfolio.component.portfolio_component {
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-image: url(/white-velvet-bg.jpg);
-  overflow: hidden;
-  height: 100vh;
-  // padding: 7.7% 10%;
+  height: 100%;
   -webkit-animation: fadeAllIn 2s;
   animation: fadeAllIn 2s;
 
   section.wrapper {
     width: 100%;
-    height: 70vh;
-    overflow: hidden;
+    height: 100%;
     background-size: 100% 100%;
     -webkit-transition: background-image 500ms ease-in-out;
     transition: background-image 500ms ease-in-out;

@@ -29,12 +29,12 @@ export const Header = props => {
     <span data-text={text.text}>{text.data_text}</span>{' '}
   </h2>
   )
- 
+  // <Header />
   return (
     <nav className={`header ${header_class} `}>
     
       <div className="title">
-        <Header />
+        
       </div>
     </nav>
   )

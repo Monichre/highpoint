@@ -37,15 +37,21 @@ class App extends Component {
   }
   render() {
     const location = window.location 
-    console.log(location)
-    return (
+    const {ready} = AppStore.data 
+    if (ready) {
+      return (
         <div className="App">
         <Header location={location} />
           <LeftNav />
           {routes}
-          <RightNav />
+          <RightNav location={location} />
         </div>
     )
+    } else {
+      this.getStore()
+      return <div>LOADING</div>
+    }
+   
   }
 }
 

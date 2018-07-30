@@ -1,28 +1,16 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
 import { processPortfolioLines } from '../lines'
-import Selectors from '../selectors'
-import Panel from '../panel'
-
+import {PortfolioGrid} from '../grid/portfolio'
+import {PortfolioCard} from './portfolioCard'
 import './_portfolio.scss'
 
 export default class Portfolio extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeID: 0,
-      img: this.props.properties[0].featuredImage,
-      video: this.props.properties[0].video ? this.props.properties[0].video : null
+    
     }
-  }
-  changeActive = id => {
-    console.log(id)
-    console.log(this.props)
-    this.setState({
-      activeID: id,
-      img: this.props.properties[id].featuredImage,
-      video: this.props.properties[id].video ? this.props.properties[id].video : null
-    })
   }
 
   componentDidMount() {
@@ -30,7 +18,9 @@ export default class Portfolio extends Component {
   }
 
   render() {
-    const { img, video } = this.state
+    
+    const {properties} = this.props
+    console.log(properties)
     const imageOrVideo = ({ video, img }) =>
       video === null ? (
         <img src={img.file.url} />
@@ -47,25 +37,17 @@ export default class Portfolio extends Component {
         />
       )
 
-    console.log(this.state)
+      // className={`wrapper ${
+      //   img.resolutions.height > img.resolutions.width && video === null ? 'portrait' : 'landscape'
+      // }`}
     return (
       <main className="portfolio component portfolio_component">
-        <section
-          className={`wrapper ${
-            img.resolutions.height > img.resolutions.width && video === null ? 'portrait' : 'landscape'
-          }`}>
-          <div
-            className={`wrapper_inner ${
-              img.resolutions.height > img.resolutions.width && video === null ? 'portrait' : 'landscape'
-            }`}>
-            {imageOrVideo(this.state)}
-          </div>
-          <Selectors items={this.props.properties} activeID={this.state.activeID} _changeActive={this.changeActive} />
-          <Panel
-            item={this.props.properties[this.state.activeID]}
-            className={this.state.activeID === 0 ? 'initial' : 'regular'}
-            type={'portfolio'}
-          />
+        <section className={`wrapper`}>
+        <PortfolioGrid>
+          {properties.map((property) => (
+            <PortfolioCard property={property} />
+          ))}
+        </PortfolioGrid>
         </section>
       </main>
     )

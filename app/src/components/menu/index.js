@@ -7,21 +7,21 @@ export default () => (
     <div className="inner">
       <ul>
         <li className="menu_link">
-          <Link to="/gallery/">
+          <Link to="/gallery">
            <span className="u-shadow">
           Gallery
           </span>
           </Link>
         </li>
         <li className="menu_link">
-          <Link to="/portfolio2/">
+          <Link to="/portfolio">
            <span className="u-shadow">
           Portfolio
           </span>
           </Link>
         </li>
         <li className="menu_link">
-          <Link to="/process/">
+          <Link to="/process">
            <span className="u-shadow">
           Process
           </span>

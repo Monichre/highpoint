@@ -27,6 +27,9 @@ body {
   font-family: "N-Light";
   height: 100%;
   width: 100%;
+  // background: #ebebeb;
+  // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 
   .flex {
     margin-top: 0;
@@ -65,8 +68,7 @@ body {
   .App {
     font-family: "N-Light";
     padding: 7.7% 10%;
-    height: 100vh;
-    overflow: hidden;
+ 
     }
 
     li {
@@ -77,4 +79,30 @@ body {
       
     }
 }
+
+
+/*
+
+  Gradients 
+  =====================================
+  1. Everlasting Sky
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+
+  2. Premium Dark
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+
+  3. Balanced Dark
+  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+ background-blend-mode: multiply;
+
+  3. Deep Blue:
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+
+  4. Deep Gray
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+
+  5. Glass Water
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+
+*/ 
 
