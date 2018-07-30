@@ -12,6 +12,7 @@ class Video extends Component {
       <ReactPlayer
         playing
         playsinline
+        onMouseEnter={this.props.borderAnimation}
         volume={0}
         muted
         ref={this.ref.bind(this)}

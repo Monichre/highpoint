@@ -3,7 +3,7 @@ $font_Robotto: 'Roboto', sans-serif;
 
 .home {
   display: flex;
-  height: 100vh;
+  // height: 100vh;
   overflow: hidden;
   width: 100%;
   position: relative;
@@ -11,8 +11,6 @@ $font_Robotto: 'Roboto', sans-serif;
   // background-size: cover;
   // background-repeat: no-repeat;
   // background-image: url(/white-velvet-bg.jpg);
-
-  
 
   main {
     width: 100%;
@@ -33,21 +31,124 @@ $font_Robotto: 'Roboto', sans-serif;
         height: 0;
         position: absolute;
       }
+      .border {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &.active {
+          z-index: -5;
+        }
+
+        .inner {
+          transition: color 0.25s;
+          background: transparent;
+          border: 0;
+          -webkit-box-shadow: inset 0 0 0 2px #ddd;
+          box-shadow: inset 0 0 0 1px #ddd;
+          position: relative;
+          width: 50vh;
+          z-index: -5;
+          height: 50vh;
+          -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(135deg);
+          vertical-align: middle;
+          // clip-path: url(#clip-00);
+
+          &::before,
+          &::after {
+            box-sizing: inherit;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            width: 0;
+            height: 0;
+          }
+  
+          // This covers the top & right borders (expands right, then down)
+          &::before {
+            top: 0;
+            left: 0;
+          }
+  
+          // And this the bottom & left borders (expands left, then up)
+          &::after {
+            bottom: 0;
+            right: 0;
+          }
+          &.active {
+            color: #333;
+            // Hover styles
+            &::before,
+            &::after {
+              width: 100%;
+              height: 100%;
+            }
+            &::before {
+              border-top-color: #333; // Make borders visible
+              border-right-color: #333;
+              transition: width .25s ease-out,
+                // Width expands first
+                  height .25s ease-out .25s; // And then height
+            }
+  
+            &::after {
+              border-bottom-color: #333; // Make borders visible
+              border-left-color: #333;
+              transition: border-color 0s ease-out 0.5s,
+                // Wait for ::before to finish before showing border
+                  width .25s ease-out .5s,
+                // And then exanding width
+                  height .25s ease-out .75s; // And finally height
+            }
+          }
+
+          svg {
+            position: relative;
+            transform: rotate(-135deg) scale(1); 
+            top: 100px; 
+            right: auto;
+            opacity: 1;
+            transition: top .4s ease-in, right .4s ease-in, transform .8s ease-in, opacity 1s ease-in;
+
+            &.scale_up {
+              top: 120px;
+            right: 15px;
+            transform: rotate(-135deg) scale(1.8);
+            opacity: 0;
+            }
+          }
+  
+        } 
+    }
       .backgroundVideo {
         width: 100% !important;
         position: relative;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+        
         video {
           width: 100% !important;
           margin: auto;
           display: block;
-          transform: translateX(20%);
+          transform: translateX(20%) translateY(20%);
           display: block;
           clip-path: url(#clip-00);
         }
-        
-        position: relative;
+        &.fadeIn {
+          opacity: 1;
+        }
         
       }
-    } 
+    }
   }
 }

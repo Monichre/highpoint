@@ -55,7 +55,54 @@ export const homePageLines = () => {
     console.log('in the callback')
   })
 }
-
+export const cornerLines = () => {
+  const lines = new LineMaker({
+    position: 'fixed',
+    lines: [
+      {
+        top: 0,
+        left: '10%',
+        width: 3,
+        height: '30vh',
+        color: '#333',
+        hidden: true,
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
+      },
+      {
+        top: '20%',
+        left: 0,
+        width: '20vw',
+        height: 3,
+        color: '#333',
+        hidden: true,
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
+      },
+      {
+        
+        top: '80%',
+        left: '70%',
+        width: 3,
+        height: '20vh',
+        color: '#333',
+        hidden: true,
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
+      },
+      {
+        top: '87%',
+        left: '65%',
+        width: '35vw',
+        height: 3,
+        color: '#333',
+        hidden: true,
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
+      },
+    
+    ]
+  })
+  lines.animateLinesIn(() => {
+    console.log('in the callback')
+  })
+}
 export const processPortfolioLines = () => {
   const lines = new LineMaker({
     position: 'fixed',

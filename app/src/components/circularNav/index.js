@@ -13,7 +13,6 @@ export default class CircularNav extends Component {
   }
 
   anchorAnimation = (e) => {
-
     document.querySelector('.anchor_tab').classList.add('hide_anchor')
     document.getElementById('CircularNav').classList.add('animating')
     document.querySelector('.CircleMenu').classList.add('scale-out-ver-bottom')
@@ -21,12 +20,10 @@ export default class CircularNav extends Component {
   }
 
   anchorTabAnimation = (e) => {
-    document.getElementById('developer_owner_operator').style.opacity = 0
     document.querySelector('.minor_anchor_tab').classList.add('scale-out-ver-bottom')
     document.querySelector('.minor_anchor_tab').classList.remove('show_minor_anchor')
     document.getElementById('CircularNav').classList.remove('animating')
     document.querySelector('.CircleMenu').classList.remove('scale-out-ver-bottom')
- 
   }
 
   render() {
