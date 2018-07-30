@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
 import { processPortfolioLines } from '../lines'
 import { ProcessPieceDefault } from '../processPiece'
-// import PointsMap from '../pointsMap'
-import Selectors from '../selectors'
-import Panel from '../panel'
+
 import './_process.scss'
-
-// if (typeof window !== 'undefined') {
-//   const PointsMap = require('../pointsMap')
-// }
-
 
 export default class Process extends Component {
   constructor(props) {
@@ -84,13 +77,7 @@ export default class Process extends Component {
           <div className="wrapper_inner">
             <ProcessPieceDefault process={activeProcess} />
           </div>
-          <Selectors items={processes} activeID={this.state.activeID} type={'process'} changeActive={this.changeActive.bind(this)} /> 
-          <Panel
-						type={'process'}
-            item={processes[this.state.activeID]}
-            panelStyle={this.state.panelStyle}
-            buttonStyle={this.state.buttonStyle}
-            buttonColour={this.buttonColour.bind(this)}
+
           />
         </section>
       </main>

@@ -106,3 +106,173 @@ body {
 
 */ 
 
+
+$grey1:#e8e8ee;
+$grey2:#9497aa;
+$grey3:#5a5863;
+$brown:#ab816b;
+$blue:#1a7fa8;
+
+body{
+  height:100vh;
+  background:#f5f5f5;
+}
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+  /* e.g. font-size: #{randomNum(5, 10)}px; */
+}
+
+.process_page .grid{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:100%;
+  padding:0 20%;
+  
+  @media (max-width:968px){
+    flex-wrap:wrap;
+  }
+  
+  .item{
+    position:relative;
+    width:340px;
+    height:340px;
+    cursor:pointer;
+    z-index:0;
+    margin:20px;
+    
+    @media (max-width:968px){
+      width:100%;
+    }
+        
+    .content{
+      height:100%;
+      width:100%;
+      border:2px solid $grey1;
+      display:flex;
+      align-items:flex-end;
+      padding:10px 15px;
+      border-radius:4px;
+      // background:#fff;
+      background-size: cover;
+      background-position: center;
+      transform:rotate(0) scale(1);
+      transition:all .2s cubic-bezier(.28,.05,.65,.97);
+      box-shadow:0 0 0 0 rgba(0,0,0,0.3);
+      
+      h2{
+        font-weight:600;
+        color:$grey3;
+        transition:all .3s cubic-bezier(.28,.05,.65,.97);
+      }
+      
+      &:after{
+        position:absolute;
+        bottom:-2px;
+        right:-2px;
+        content:"";
+        width:calc(100% + 4px);
+        height:4px;
+        background-color: rgba(0,0,0,0.3);
+
+        border-radius:0 0 4px 4px;
+        transition:all .3s cubic-bezier(.28,.05,.65,.97);
+      }
+    }
+    
+    .previews{
+      position:relative;
+      bottom:0;
+      left:0;
+      z-index:-1;
+      
+      &:nth-child(2){
+        .preview-image{
+          right:0;
+        }
+      }
+      
+      .preview-image{
+        width:160px;
+        height:110px;
+        transition:all .2s cubic-bezier(.28,.05,.65,.97);
+        position:absolute;
+        bottom:10px;
+        left:0;
+        overflow:hidden;
+        border-radius:4px;
+        box-shadow:0 0 0 0 rgba(0,0,0,0.3);
+        
+        img{
+          width:140%;
+        }
+      }
+    }
+    
+    &:hover{
+      z-index:5;
+      
+      .content{
+        background-color: rgba(0,0,0,0.6);
+        border:2px solid $grey3;
+        transform:rotate(0) scale(1.2);
+        animation:shake .4s 1;
+        animation-delay:.4s;
+        box-shadow:-27px 18px 80px 0 rgba(0,0,0,0.3);
+        transition:all .3s cubic-bezier(.28,.05,.65,.97);
+        
+        &:after{
+          width:0;
+          transition:all .3s cubic-bezier(.28,.05,.65,.97);
+          background-color: rgba(0,0,0,0.6);
+        }
+        
+        h2{
+          
+          transition:all .3s cubic-bezier(.28,.05,.65,.97);
+        }
+      }
+
+      .previews{
+        .preview-image{
+          transition:all .2s cubic-bezier(.28,.05,.65,.97);
+          box-shadow:-8px 5px 30px 0 rgba(0,0,0,0.2);
+          
+          &:nth-child(1){
+            transform:rotate(#{randomNum(-10, 10)}deg) translate(-150px, -100px);
+            transition-delay:.4s;
+          }
+          &:nth-child(2){
+            transform:rotate(#{randomNum(-10, 10)}deg) translate(-120px, 0);
+            transition-delay:.45s;
+          }
+          &:nth-child(3){
+            transform:rotate(#{randomNum(-10, 10)}deg) translate(-40px, 100px);
+            transition-delay:.55s;
+          }
+          &:nth-child(4){
+            transform:rotate(#{randomNum(-10, 10)}deg) translate(130px, 70px);
+            transition-delay:.5s;
+          }
+          &:nth-child(5){
+            transform:rotate(#{randomNum(-10, 10)}deg) translate(180px, -40px);
+            transition-delay:.6s;
+          }
+        }
+      }
+    }
+    
+    @keyframes shake{
+      0%{ transform:rotate(3deg) scale(1.2) }
+      20%{ transform:rotate(-3deg) scale(1.2) }
+      40%{ transform:rotate(3deg) scale(1.2) }
+      60%{ transform:rotate(-3deg) scale(1.2) }
+      80%{ transform:rotate(3deg) scale(1.2) }
+      100%{ transform:rotate(0) scale(1.2) }
+    }
+  }
+}
