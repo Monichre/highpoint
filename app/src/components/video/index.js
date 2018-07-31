@@ -12,9 +12,11 @@ class Video extends Component {
       <ReactPlayer
         playing
         playsinline
+        loop={true}
         onMouseEnter={this.props.borderAnimation}
         volume={0}
         muted
+        playbackRate={.5}
         ref={this.ref.bind(this)}
         url={this.props.url}
         className="backgroundVideo"

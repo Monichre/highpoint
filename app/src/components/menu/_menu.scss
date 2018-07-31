@@ -1,9 +1,9 @@
 $c-base: #444;
 $c-dark: #111;
-$c-primary: #6fd1bd;
-// $c-primary: #ddd;
+// $c-primary: #6fd1bd;
+$c-primary: #f6e6cf;
 $c-secondary: salmon;
-
+// $c-secondary: #646464;
 $b-fontSize: 1.6rem;
 $b-lineHeight: 1.5;
 $b-animType: ease-in-out; 
@@ -15,43 +15,50 @@ $Title-color: $c-dark;
 
 
 .menu {
-  height: auto;
+  height: 100%;
   position: fixed;
   z-index: 10;
   width: auto;
   top: 0;
   left: 0;
   .inner {
-    ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 10vw;
+    .top {
+      padding-left: 0;
+      li {
+        svg {
+          margin: 50px auto;
+          width: 100%;
+          height: 40px;
+        }
+      }
+    }
+    .bottom {
+      flex-basis: 70%;
+      height: auto;
       list-style: none;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      height: 100%;
+      // justify-content: flex-end;
+      
       width: auto;
-      padding: 25px;
+      padding: 25px 25px 25px 30px;
       position: relative;
-
-      li {
+      li:not(.cinder_logo_link) {
         font-size: 13px;
         letter-spacing: 2px;
         font-weight: 700;
         color: rgb(51, 51, 51);
         font-family: N-Black;
-        margin: 0;
-        width: 100%;
+        margin: 40px 0;
+        width: max-content;
         text-align: right;
-        line-height: 2;
+        transform: translateX(-15%) rotate(-90deg);
 
-        &.sign_up {
-          border-top: 1px solid black;
-          border-bottom: 1px solid black;
-        }
-
-        &.menu_link {
-          position: relative;
-        }
-     
         a {
           color: inherit;
           text-decoration: none;
@@ -70,5 +77,6 @@ $Title-color: $c-dark;
         }
       }
     }
+ 
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import Video from '../video'
 import { cornerLines } from '../lines'
 import anime from 'animejs'
@@ -10,31 +11,42 @@ export default class Home extends Component {
   }
   componentDidMount() {
     cornerLines()
+    const logo_rects = Array.from(document.querySelectorAll('.clip__path__line'))
+    const inner_logo_rects = Array.from(document.querySelectorAll('.inner_logo_line'))
     const lines = document.querySelector('.lines')
     const backgroundVideo = document.querySelector('.backgroundVideo')
-    const video = document.querySelector('.backgroundVideo video')
     const border = document.querySelector('.border')
     const inner = document.querySelector('.border .inner')
     const inner_svg = document.querySelector('.border .inner svg')
-    video.playbackRate = 0.5
     
+    backgroundVideo.addEventListener('click', () => {
+      window.location = '/gallery'
+    })
+
     const lineDrawing = anime({
       targets: '.inner .lines path',
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: 'easeInOutSine',
-      duration: 1000,
+      duration: 200,
       delay: function(el, i) {
         return i * 250
       },
       loop: 1
     })
-
+    lineDrawing.begin = ()=> {
+      inner_logo_rects.forEach(rect => rect.classList.add('active'))
+    }
     lineDrawing.complete = () => {
       border.classList.add('active')
-      inner.classList.add('active')
-      lines.setAttribute('fill', '#000')
-      inner_svg.classList.add('scale_up')
+      lines.classList.add('active')
+      // inner.classList.add('active')
+      
+    setTimeout(() => {
+      // inner_svg.classList.add('scale_up')
+      inner_svg.classList.add('fadeOut')
       backgroundVideo.classList.add('fadeIn')
+      logo_rects.forEach(rect => rect.classList.add('active'))
+    }, 1500)
     }
   }
 
@@ -79,6 +91,7 @@ const Main = () => (
               <path d="M861.92,239.25a30,30,0,0,1-30.52,30.26c-17.29,0-30.52-13.32-30.52-30.26a30.52,30.52,0,0,1,61,0Zm-4.06,0c0-15.09-11.29-26.82-26.47-26.82s-26.46,11.73-26.46,26.82S816.22,266,831.39,266,857.86,254.25,857.86,239.25Z" />
               <path d="M887.61,209.7v36.79c0,5.56.26,9.17,2.47,12.7,3.44,5.56,9.88,6.79,13.67,6.79s10.23-1.24,13.67-6.79c2.21-3.53,2.47-7.15,2.47-12.7V209.7h3.88v36.79c0,6.44-.35,10.67-3.35,15.08C916,268,909,269.51,903.75,269.51s-12.26-1.5-16.67-7.94c-3-4.41-3.35-8.64-3.35-15.08V209.7Z" />
               <path d="M952.63,240.58v28h-3.88V209.7h11.38c9.62,0,17.2,5.29,17.2,15.35,0,9.79-7,15.53-17.11,15.53Zm0-3.53h7.76c7.67,0,12.88-4.5,12.88-11.91s-4.94-11.91-13.49-11.91h-7.15Z" />
+              <rect className='logo_line_rect inner_logo_line inner_logo_line_1' y="169.39" fill='#000' width="553.69" height="3.22"/><rect className='logo_line_rect inner_logo_line inner_logo_line_2' x="567.22" y="1.5" width="631.92" fill='#000' height="3.23"/>
             </g>
           </svg>
         </div>
@@ -111,12 +124,11 @@ const Main = () => (
             <path d="M849.64,169.39h18.49V33.75H849.64V30.52h63.41v3.23h-18.7V169.39h18.7v3.22H849.64Z" />
             <path d="M927,169.39h6.45c9.46,0,12.9-4.73,12.9-12.9V45.14l-1.07-1.51c-4.3-6-7.52-9.89-16.55-9.89h-3.87V30.52h42.56L1045,133.7V46.64c0-8.17-3.44-12.9-12.9-12.9h-6.45V30.52h41.92v3.23h-6.66c-9.46,0-12.68,4.73-12.68,12.9V173.47h-5.8l-92.86-124V156.49c0,8.17,3.23,12.9,12.68,12.9h6.67v3.22H927Z" />
             <path d="M1107.14,169.39h18.49V33.75H1099.4c-11,0-15.48,5.8-17.19,21.49l-1.72,15.48h-3.22s1.29-19.34,1.29-26.65V30.52h120.59V44.06c0,7.31.86,26.65.86,26.65h-3.23l-1.5-15.91c-1.29-14.62-5.38-21.06-16.55-21.06h-26.87V169.39h18.7v3.22h-63.41Z" /> 
-            
+            <rect className='' y="169.39" width="553.69" height="3.22"/><rect className='' x="567.22" y="1.5" width="631.92" height="3.23"/>
           </clipPath>
         </defs>
       </svg>
     </div>
   </main>
 )
-
 

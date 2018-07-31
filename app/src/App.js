@@ -51,7 +51,7 @@ class App extends Component {
     const {removeLoader} = this.state
     const {ready} = AppStore.data 
 
-    if (removeLoader) {
+    if (removeLoader || ready) {
       return (
         <div className="App">
         <Header location={location} />

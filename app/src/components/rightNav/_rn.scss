@@ -1,9 +1,9 @@
 $c-base: #444;
 $c-dark: #111;
-$c-primary: #6fd1bd;
-// $c-primary: #ddd;
+// $c-primary: #6fd1bd;
+$c-primary: #f6e6cf;
 $c-secondary: salmon;
-
+// $c-secondary: #646464;
 $b-fontSize: 1.6rem;
 $b-lineHeight: 1.5;
 $b-animType: ease-in-out; 
@@ -27,6 +27,7 @@ $Title-color: $c-dark;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 
     ul {
       list-style: none;
@@ -34,6 +35,8 @@ $Title-color: $c-dark;
       flex-direction: column;
       justify-content: center;
       padding: 25px;
+      width: 100%;
+      align-items: flex-end;
       
       li {
         font-size: 13px;
@@ -42,7 +45,7 @@ $Title-color: $c-dark;
         color: #333333;
         font-family: N-Black;
         margin: 0;
-        width: 100%;
+        width: 100%!important;
         text-align: right;
         line-height: 2;
 

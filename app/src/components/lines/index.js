@@ -7,6 +7,24 @@ export const homePageLines = () => {
       {
         top: 0,
         left: '10%',
+        width: 3,
+        height: '30vh',
+        color: '#333',
+        hidden: true,
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
+      },
+      {
+        top: '20%',
+        left: 0,
+        width: '20vw',
+        height: 3,
+        color: '#333',
+        hidden: true,
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
+      },
+      {
+        top: 0,
+        left: '10%',
         width: 1,
         height: '100vh',
         color: '#c7c6c6',
