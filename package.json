@@ -1,12 +1,23 @@
 {
   "name": "highpoint-fullstack",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/index.js",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "express": "^4.16.3",
-    "nodemailer": "^4.6.7"
+    "nodemailer": "^4.6.7",
+    "nodemon": "^1.18.3"
+  },
+  "scripts": {
+    "dev": "nodemon server/index.js",
+    "start": "node server/index.js",
+    "deploy-prod": "npm run alias",
+    "alias": "now alias"
+  },
+  "now": {
+    "name": "Highpoint Property Group",
+    "alias": ["someting"]
   }
 }

@@ -6,13 +6,15 @@ import { Header } from './components/header'
 import LeftNav from './components/leftNav'
 import RightNav from './components/rightNav'
 import routes from './routes'
-
+import Loader from './components/loader'
 import './App.scss'
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      removeLoader: false
+    }
   }
 
   componentDidMount() {
@@ -33,12 +35,23 @@ class App extends Component {
   }
 
   _onChange() {
-    this.setState(AppStore)
+    this.setState({...AppStore.data})
   }
+
+  removeLoader = (siteIsReady) => {
+    if(siteIsReady) {
+      this.setState({
+        removeLoader: true
+      })
+    }
+  }
+
   render() {
     const location = window.location 
+    const {removeLoader} = this.state
     const {ready} = AppStore.data 
-    if (ready) {
+
+    if (removeLoader) {
       return (
         <div className="App">
         <Header location={location} />
@@ -49,7 +62,7 @@ class App extends Component {
     )
     } else {
       this.getStore()
-      return <div>LOADING</div>
+      return <Loader endLoader={this.removeLoader}/>
     }
    
   }

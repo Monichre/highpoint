@@ -34,7 +34,7 @@ body {
   .flex {
     margin-top: 0;
   }
-
+  
   .decolines {
     pointer-events: none;
     position: absolute;
@@ -275,4 +275,16 @@ body{
       100%{ transform:rotate(0) scale(1.2) }
     }
   }
+}
+
+// LOADERS
+
+
+// CINDERBLOCK
+.cinder {
+  transition: all .4s ease-in-out;
+}
+// UTILITY CLASSES
+.add_fill {
+  fill: #000;
 }

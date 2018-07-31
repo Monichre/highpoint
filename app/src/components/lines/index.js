@@ -78,25 +78,24 @@ export const cornerLines = () => {
         animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
       },
       {
-        
-        top: '80%',
-        left: '70%',
+        top: 0,
+        left: '90%',
         width: 3,
-        height: '20vh',
+        height: '100%',
         color: '#333',
         hidden: true,
-        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
+        animation: { duration: 1000, easing: 'easeInOutExpo', delay: 200, direction: 'BottomTop' }
       },
+   
       {
-        top: '87%',
-        left: '65%',
-        width: '35vw',
+        top: '80%',
+        left: '80%',
+        width: '20vw',
         height: 3,
         color: '#333',
         hidden: true,
         animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
-      },
-    
+      }
     ]
   })
   lines.animateLinesIn(() => {
