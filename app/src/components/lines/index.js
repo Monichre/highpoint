@@ -96,10 +96,10 @@ export const cornerLines = () => {
         animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
       },
       {
-        top: 0,
+        top: "70%",
         left: '90%',
         width: 3,
-        height: '100%',
+        height: '30vh',
         color: '#333',
         hidden: true,
         animation: { duration: 1000, easing: 'easeInOutExpo', delay: 200, direction: 'BottomTop' }
@@ -125,10 +125,10 @@ export const processPortfolioLines = () => {
     position: 'fixed',
     lines: [
       {
-        top: 0,
+        bottom: 0,
         left: '85%',
         width: 3,
-        height: '100%',
+        height: '30vh',
         color: '#333',
         hidden: true,
         animation: { duration: 1000, easing: 'easeInOutExpo', delay: 200, direction: 'BottomTop' }

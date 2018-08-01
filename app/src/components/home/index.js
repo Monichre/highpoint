@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Video from '../video'
-import { cornerLines } from '../lines'
+import { cornerLines, homePageLines } from '../lines'
 import anime from 'animejs'
 import './_home.scss'
 
@@ -10,6 +10,7 @@ export default class Home extends Component {
     super(props)
   }
   componentDidMount() {
+    homePageLines()
     cornerLines()
     const logo_rects = Array.from(document.querySelectorAll('.clip__path__line'))
     const inner_logo_rects = Array.from(document.querySelectorAll('.inner_logo_line'))
@@ -33,16 +34,16 @@ export default class Home extends Component {
       },
       loop: 1
     })
+    
     lineDrawing.begin = ()=> {
       inner_logo_rects.forEach(rect => rect.classList.add('active'))
     }
+
     lineDrawing.complete = () => {
       border.classList.add('active')
       lines.classList.add('active')
-      // inner.classList.add('active')
-      
+    
     setTimeout(() => {
-      // inner_svg.classList.add('scale_up')
       inner_svg.classList.add('fadeOut')
       backgroundVideo.classList.add('fadeIn')
       logo_rects.forEach(rect => rect.classList.add('active'))

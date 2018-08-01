@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CinderBlock from '../cinderblock'
+import { Search } from '../search'
 import './_menu.scss'
 
 export default () => (
   <section className="menu">
     <div className="inner">
       <ul style={{ listStyle: 'none' }} className="top">
-        <li className='cinder_logo_link'>
+        <li className="cinder_logo_link">
           <CinderBlock />
         </li>
       </ul>
@@ -27,6 +28,9 @@ export default () => (
           <Link to="/process">
             <span className="u-shadow">Process</span>
           </Link>
+        </li>
+        <li className="menu_link">
+          <Search />
         </li>
       </ul>
     </div>

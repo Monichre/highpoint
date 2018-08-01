@@ -13,6 +13,14 @@ $b-shadowSize: 2px;
 
 $Title-color: $c-dark;
 
+$dark-gray: #3c3c3c;
+$light-gray: #a6a6a6;
+$UIblue: #3CBBF7;
+$UIred: #E74C3C;
+$UIyellow: #F8E71C;
+$UIgreen: #13bf11;
+$dark-brown: #542900;
+
 
 .menu {
   height: 100%;
@@ -57,7 +65,91 @@ $Title-color: $c-dark;
         margin: 40px 0;
         width: max-content;
         text-align: right;
-        transform: translateX(-15%) rotate(-90deg);
+        // transform: translateX(-15%) rotate(-90deg);
+
+        .button-container {
+          display: inline-block;
+          margin: 10px 10px;
+          cursor: pointer;
+          font-weight: 400;
+          letter-spacing: 2px;
+          height: 45px;
+          width: 200px;
+          -webkit-perspective: 1000;
+          -ms-perspective: 1000;
+          perspective: 1000; 
+           
+          .filler {
+            transition: all .5s ease-in-out;
+            -webkit-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            
+            position: relative;
+          }
+
+          .button-water-fill {
+            .button {
+              background-position: 0 -50%;
+              background-repeat: repeat-x;
+                transition: background-position .75s ease;
+          
+                 &:hover {
+                background-position: 100% 60%;
+                color: white !important;
+              }
+            }
+            
+         
+            &.wave-white .button {
+              background-color: black;
+              color: white;
+              background-image: url('/icons/wave-white.png');	
+              
+              &:hover {
+                color: black !important;
+              }
+            }
+            
+            &.wave-black .button {
+              color: black;
+              background-image: url('/icons/wave-black.png');	
+            }
+          }
+          
+          
+          .button {
+            height: 45px;
+            width: 200px;
+            border-radius: 3px;
+            backface-visibility: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            -webkit-box-shadow: 1px 2px 4px -1px rgba(60,60,60,0.64);
+            box-shadow: 1px 2px 4px -1px rgba(60,60,60,0.64);
+            
+            i.fa {
+              color: white;
+              font-size: 20px;
+              margin: auto;
+              text-shadow: .5px 1px 2px #3c3c3c;
+            }
+            
+            &.front {
+              z-index: 10;
+            }
+        
+            &.back {
+              color: white;
+              font-size: 15px;
+              text-transform: uppercase;
+            }
+          }
+        }
 
         a {
           color: inherit;
