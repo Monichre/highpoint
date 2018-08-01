@@ -37,12 +37,12 @@ $dark-brown: #542900;
     width: 10vw;
     .top {
       padding-left: 0;
+      height: 20vh;
+       display: flex;
+    flex-direction: column;
+    justify-content:center;
       li {
-        svg {
-          margin: 50px auto;
-          width: 100%;
-          height: 40px;
-        }
+      
       }
     }
     .bottom {

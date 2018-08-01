@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AppStore from './flux/stores'
 import AppDispatcher from './flux/dispatchers'
 import CircularNav from './components/circularNav'
+import Footer from './components/footer'
 import { Header } from './components/header'
 import LeftNav from './components/leftNav'
 import RightNav from './components/rightNav'
@@ -58,6 +59,7 @@ class App extends Component {
           <LeftNav />
           {routes}
           <RightNav location={location} />
+          <Footer />
         </div>
     )
     } else {

@@ -3,11 +3,19 @@ import './_search.scss'
 
 export const Search = () => {
   const clickAnimation = e => {
+    console.log("search is clicked")
     e.preventDefault()
-    document.querySelector('.search').classList.add('open')
-    setTimeout(() => {
-      document.querySelector('.search').classList.add('loading')
-    }, 750)
+    e.stopPropagation()
+
+    if (document.querySelector('.search').classList.contains('open')) {
+      document.querySelector('.search').classList.remove('open')
+      document.querySelector('.search').classList.remove('loading') 
+    } else {
+      document.querySelector('.search').classList.add('open')
+      setTimeout(() => {
+        document.querySelector('.search').classList.contains('open') ? document.querySelector('.search').classList.add('loading') : document.querySelector('.search').classList.remove('loading')
+      }, 750)
+    }
   }
 
   return (

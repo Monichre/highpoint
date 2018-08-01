@@ -8,14 +8,20 @@ $textColor: #212533;
     transition: all .3s ease .5s;
     background: #fff;
     box-shadow: 0 3px 14px -1px rgba(#000, .18);
-    position: absolute;
-    bottom: 40px;
+    width: max-content;
+    height: 100%;
+    padding: 15px 5px;
+    margin: auto;
+    position: relative;
     z-index: 3000;
+
+    
     .icon {
         width: 20px;
         cursor: pointer;
         height: 20px;
-        margin: 20px;
+        margin: 0 10px;
+
         position: relative;
         transform: rotate(90deg);
         transition: all .3s ease .6s;

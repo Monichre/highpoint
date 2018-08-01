@@ -23,6 +23,22 @@ html {
   box-sizing: inherit;
 }
 
+// COLORS
+$c-base: #444;
+$c-dark: #111;
+// $c-primary: #6fd1bd;
+$c-primary: #f6e6cf;
+$c-secondary: salmon;
+// $c-secondary: #646464;
+$b-fontSize: 1.6rem;
+$b-lineHeight: 1.5;
+$b-animType: ease-in-out; 
+$b-animSpeed: 0.2s;
+// $b-shadowSize: 4px;
+$b-shadowSize: 2px;
+
+$Title-color: $c-dark;
+
 body {
   font-family: "N-Light";
   height: 100%;
@@ -67,7 +83,7 @@ body {
   }
   .App {
     font-family: "N-Light";
-    padding: 7.7% 10%;
+    padding: 7.7% 10% 0;
  
     }
 

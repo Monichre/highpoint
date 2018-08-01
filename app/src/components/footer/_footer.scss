@@ -1,0 +1,179 @@
+// COLORS
+$c-base: #444;
+$c-dark: #111;
+// $c-primary: #6fd1bd;
+$c-primary: #f6e6cf;
+$c-secondary: salmon;
+// $c-secondary: #646464;
+$b-fontSize: 1.6rem;
+$b-lineHeight: 1.5;
+$b-animType: ease-in-out; 
+$b-animSpeed: 0.2s;
+// $b-shadowSize: 4px;
+$b-shadowSize: 2px;
+
+$Title-color: $c-dark;
+
+.footer {
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  height: 105px;
+
+  .footer_nav {
+    // position: relative;
+    // height: 60vh;
+    // width: 300px;
+    // top: 68vh;
+    // left: 50%;
+    // transform: translatex(-50%) scale(0);
+    // transition: 0.5s ease-in-out;
+
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translatex(-50%) scale(0);
+    -ms-transform: translatex(-50%) scale(0);
+    transform: translatex(-50%) scale(0);
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    &.showing {
+      transform: translatex(-50%) scale(1) !important;
+      .skew {
+        -webkit-transform: rotate(0) skew(40deg);
+        -ms-transform: rotate(0) skew(40deg);
+        transform: rotate(0) skew(40deg);
+        &:nth-of-type(2) {
+          -webkit-transform: rotate(33deg) skew(40deg);
+          -ms-transform: rotate(33deg) skew(40deg);
+          transform: rotate(50deg) skew(10deg);
+        }
+
+        &:nth-of-type(3) {
+          -webkit-transform: rotate(66deg) skew(40deg);
+          -ms-transform: rotate(66deg) skew(40deg);
+          transform: rotate(130deg) skew(40deg);
+        }
+      }
+    }
+    .container {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #000;
+      p {
+        position: absolute;
+        color: white;
+        cursor: pointer;
+        &:first-of-type {
+          top: 51px;
+          left: 8px;
+          transform: rotate(-80deg);
+        }
+        &:nth-of-type(2) {
+          top: 12px;
+          left: 35px;
+          transform: rotate(-39deg);
+        }
+        &:nth-of-type(3) {
+          top: -5px;
+          left: 82px;
+          transform: rotate(0deg);
+        }
+      }
+    }
+    .skew {
+      width: 200px;
+      height: 100px;
+      border-left: 1px solid $c-primary;
+      border-bottom: 1px solid $c-primary;
+      position: absolute;
+      top: 0;
+      right: 50%;
+      transform-origin: right bottom;
+      transition: 0.4s ease-in-out;
+      cursor: pointer;
+      background-color: #000;
+      &:hover {
+        background-color: $c-primary;
+      }
+      &:last-of-type {
+        border-right: 1px solid #000;
+      }
+    }
+
+    /* --------------- */
+    /* my button style */
+    .white-mode {
+      text-decoration: none;
+      padding: 7px 10px;
+      background-color: #122;
+      border-radius: 3px;
+      color: #fff;
+      transition: 0.35s ease-in-out;
+      position: fixed;
+      left: 15px;
+      bottom: 15px;
+    }
+
+    .white-mode:hover {
+      background-color: transparent;
+      color: #122;
+    }
+  }
+  .burger {
+    // width: 50px;
+    // height: 50px;
+    // position: absolute;
+    // bottom: 5px;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // border-radius: 50%;
+    // left: 50%;
+    // transform: translatex(-50%);
+    // cursor: pointer;
+    // color: whitesmoke;
+    // box-shadow: 0px 0px 20px #000;
+    // background-color: #000;
+
+    width: 50px;
+    height: 50px;
+    position: absolute;
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 50%;
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translatex(-50%);
+    -ms-transform: translatex(-50%);
+    transform: translatex(-50%);
+    cursor: pointer;
+    color: whitesmoke;
+    -webkit-box-shadow: 0px 0px 20px #000;
+    box-shadow: 0px 0px 20px #000;
+    background-color: #fff;
+
+    .cinderblock_container {
+      svg {
+        margin-top: 5px;
+        width: 100%;
+        fill: #000;
+        height: 20px;
+      }
+    }
+  }
+}

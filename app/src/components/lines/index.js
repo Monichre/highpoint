@@ -125,17 +125,8 @@ export const processPortfolioLines = () => {
     position: 'fixed',
     lines: [
       {
-        bottom: 0,
-        left: '85%',
-        width: 3,
-        height: '30vh',
-        color: '#333',
-        hidden: true,
-        animation: { duration: 1000, easing: 'easeInOutExpo', delay: 200, direction: 'BottomTop' }
-      },
-      {
         top: 0,
-        left: '15%',
+        left: '10%',
         width: 3,
         height: '30vh',
         color: '#333',
@@ -153,23 +144,22 @@ export const processPortfolioLines = () => {
       },
       {
         top: 0,
-        left: '15%',
-        width: 2,
-        height: '100%',
-        color: 'rgba(0,0,0,.2)',
+        left: '10%',
+        width: 1,
+        height: '100vh',
+        color: '#c7c6c6',
         hidden: true,
-        animation: { duration: 1000, easing: 'easeInOutExpo', delay: 300, direction: 'TopBottom' }
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
       },
-   
       {
-        top: '87%',
-        left: '80%',
-        width: '20vw',
-        height: 3,
-        color: '#333',
+        top: 0,
+        left: '90%',
+        width: 1,
+        height: '100vh',
+        color: '#c7c6c6',
         hidden: true,
-        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
-      },
+        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
+      }
     ]
   })
 

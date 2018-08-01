@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
-import { processPortfolioLines } from '../lines'
+import { processPortfolioLines, cornerLines } from '../lines'
 import {PortfolioGrid} from '../grid/portfolio'
 import {PortfolioCard} from './portfolioCard'
 import './_portfolio.scss'
@@ -15,6 +15,7 @@ export default class Portfolio extends Component {
 
   componentDidMount() {
     processPortfolioLines()
+    cornerLines()
   }
 
   render() {

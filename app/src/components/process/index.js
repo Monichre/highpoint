@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { processPortfolioLines } from '../lines'
+import { processPortfolioLines, cornerLines } from '../lines'
 import { ProcessPieceDefault } from '../processPiece'
 
 import './_process.scss'
@@ -21,6 +21,9 @@ export default class Process extends Component {
   }
 
   componentDidMount() {
+    processPortfolioLines()
+    cornerLines()
+    
     const interactiveMap = document.getElementById('interactive-1')
     const body = document.querySelector('body')
     let PointsMap
@@ -34,7 +37,7 @@ export default class Process extends Component {
       activeOn: 90
     })
 
-    processPortfolioLines()
+    
   }
 
   changeActive(id, e) {
