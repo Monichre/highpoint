@@ -5,7 +5,6 @@ import './_footer.scss'
 export default props => {
   const clickHandler = (e) => {
     const skews  = Array.from(document.querySelectorAll('.skew'))
-    // skews.forEach((el, i) => el.style.transform = `rotate(${i * 33}deg) skew(40deg))`)
     const nav = document.querySelector('.footer_nav')
     nav.classList.contains('showing') ? nav.classList.remove('showing') : nav.classList.add('showing')
   }
@@ -16,16 +15,14 @@ export default props => {
         <div className="skew" />
         <div className="skew" />
         <div className="skew" />
-     
-
         <p>
-          1
+          Gallery
         </p>
         <p>
-          1
+          Portfolio
         </p>
         <p>
-          1
+          Process
         </p>
     
       </div>

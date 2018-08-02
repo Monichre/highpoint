@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CinderBlock from '../cinderblock'
 import { Search } from '../search'
 import './_menu.scss'
 
@@ -7,8 +8,8 @@ export default () => (
   <section className="menu">
     <div className="inner">
       <ul style={{ listStyle: 'none' }} className="top">
-        <li className="search_link" style={{ width: '100%' }}>
-        <Search />
+        <li className="logo_link" style={{ width: '100%' }}>
+          <CinderBlock />
         </li>
       </ul>
 
@@ -27,6 +28,9 @@ export default () => (
           <Link to="/process">
             <span className="u-shadow">Process</span>
           </Link>
+        </li>
+        <li className="search_link" style={{ width: '100%' }}>
+          <Search />
         </li>
       </ul>
     </div>

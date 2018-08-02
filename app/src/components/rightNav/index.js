@@ -13,7 +13,8 @@ export default (props) => {
             <span className="line line01" />
             <span className="line line02" />
             <span className="line line03" />
-            <span className="text u-shadow">Contact</span>
+            <span className="text u-shadow">
+            <a href="mailto:info@highpointgroup.com">Contact</a></span>
           </div>
         </li>
     </ul>

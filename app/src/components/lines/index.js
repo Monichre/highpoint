@@ -16,7 +16,7 @@ export const homePageLines = () => {
       {
         top: '20%',
         left: 0,
-        width: '20vw',
+        width: '15vw',
         height: 3,
         color: '#333',
         hidden: true,
@@ -89,7 +89,7 @@ export const cornerLines = () => {
       {
         top: '20%',
         left: 0,
-        width: '20vw',
+        width: '15vw',
         height: 3,
         color: '#333',
         hidden: true,
@@ -107,8 +107,8 @@ export const cornerLines = () => {
    
       {
         top: '80%',
-        left: '80%',
-        width: '20vw',
+        left: '85%',
+        width: '15vw',
         height: 3,
         color: '#333',
         hidden: true,
@@ -136,7 +136,7 @@ export const processPortfolioLines = () => {
       {
         top: '20%',
         left: 0,
-        width: '20vw',
+        width: '15vw',
         height: 3,
         color: '#333',
         hidden: true,

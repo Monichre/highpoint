@@ -21,16 +21,8 @@ $Title-color: $c-dark;
   height: 105px;
 
   .footer_nav {
-    // position: relative;
-    // height: 60vh;
-    // width: 300px;
-    // top: 68vh;
-    // left: 50%;
-    // transform: translatex(-50%) scale(0);
-    // transition: 0.5s ease-in-out;
-
     position: absolute;
-    height: 200px;
+    height: 205px;
     width: 300px;
     top: 0;
     left: 50%;
@@ -65,32 +57,48 @@ $Title-color: $c-dark;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 200px;
-      height: 200px;
+      height: 203px;
       border-radius: 50%;
-      overflow: hidden;
       border: 1px solid #000;
+      overflow: hidden;
+      border: 2px solid #000;
+      
       p {
         position: absolute;
-        color: white;
+        transition: all .4s ease-in-out;
+        font-size: 8px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: N-Light;
+    
+    color: #fff;
         cursor: pointer;
         &:first-of-type {
-          top: 51px;
-          left: 8px;
-          transform: rotate(-80deg);
+          top: 70px;
+          left: 15px;
+          transform: rotate(0);
         }
         &:nth-of-type(2) {
-          top: 12px;
-          left: 35px;
-          transform: rotate(-39deg);
-        }
-        &:nth-of-type(3) {
-          top: -5px;
-          left: 82px;
+          top: 20px;
+          left: 70px;
           transform: rotate(0deg);
         }
+        &:nth-of-type(3) {
+          top: 70px;
+          left: 140px;
+          /* bottom: 0; */
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+      }
+      
+      
+        
       }
     }
     .skew {
+      transition: all .4s ease-in-out;
       width: 200px;
       height: 100px;
       border-left: 1px solid $c-primary;
@@ -104,9 +112,12 @@ $Title-color: $c-dark;
       background-color: #000;
       &:hover {
         background-color: $c-primary;
+        p {
+          color: black;
+        }
       }
       &:last-of-type {
-        border-right: 1px solid #000;
+        border-right: 1px solid #f6e6cf;
       }
     }
 
@@ -130,21 +141,6 @@ $Title-color: $c-dark;
     }
   }
   .burger {
-    // width: 50px;
-    // height: 50px;
-    // position: absolute;
-    // bottom: 5px;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // border-radius: 50%;
-    // left: 50%;
-    // transform: translatex(-50%);
-    // cursor: pointer;
-    // color: whitesmoke;
-    // box-shadow: 0px 0px 20px #000;
-    // background-color: #000;
-
     width: 50px;
     height: 50px;
     position: absolute;
@@ -157,7 +153,7 @@ $Title-color: $c-dark;
     align-items: center;
     border-radius: 50%;
     left: 50%;
-    bottom: 0;
+    bottom: 2px;
     -webkit-transform: translatex(-50%);
     -ms-transform: translatex(-50%);
     transform: translatex(-50%);

@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import AppStore from './flux/stores'
 import GalleryPage from './pages/gallery'
 import ProcessPage from './pages/process'
+import Process from './components/process'
 import PortfolioPage from './pages/portfolio'
 import HomePage from './pages/home'
 import { Transition, config, animated } from 'react-spring'
@@ -22,6 +23,11 @@ const routeWithComponents = [
     path: '/process',
     exact: true,
     component: ProcessPage
+  },
+  {
+    path: '/process/:title',
+    exact: true,
+    component: Process
   },
   {
     path: '/gallery',

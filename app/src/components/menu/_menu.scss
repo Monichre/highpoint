@@ -41,12 +41,24 @@ $dark-brown: #542900;
        display: flex;
     flex-direction: column;
     justify-content:center;
+
       li {
-      
+        width: 100%;
+        .cinderblock_container {
+          margin: auto;
+          display: block;
+          svg {
+            height: 30px;
+            margin: auto;
+            display: block;
+            
+          }
+        }
+   
       }
     }
     .bottom {
-      flex-basis: 70%;
+      flex-basis: 75%;
       height: auto;
       list-style: none;
       display: flex;
@@ -54,7 +66,7 @@ $dark-brown: #542900;
       // justify-content: flex-end;
       
       width: auto;
-      padding: 25px 25px 25px 30px;
+      padding: 0 25px 25px 30px;
       position: relative;
       li:not(.cinder_logo_link) {
         font-size: 13px;

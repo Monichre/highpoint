@@ -72,18 +72,25 @@ body {
     position: absolute;
   }
 
-  h1, h2, h3 {
+  h1, h2 {
     font-family: "N-Black";
   }
-  p {
+
+  h3, h4, p {
     font-family: "N-Light";
+  }
+  h3 {
+    font-weight: bolder;
+  }
+  h4 {
+    font-weight: 500;
   }
   ul {
     list-style: none;
   }
   .App {
     font-family: "N-Light";
-    padding: 7.7% 10% 0;
+    padding: 6% 10% 0;
  
     }
 
@@ -141,13 +148,15 @@ body{
   @return $randomNum;
   /* e.g. font-size: #{randomNum(5, 10)}px; */
 }
-
+.process_page {
+  height: 100vh;
+}
 .process_page .grid{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  height:100%;
-  padding:0 20%;
+  height:auto!important;
+  padding: 2% 10%;
   
   @media (max-width:968px){
     flex-wrap:wrap;
@@ -159,7 +168,7 @@ body{
     height:340px;
     cursor:pointer;
     z-index:0;
-    margin:20px;
+    margin: 0 20px;
     
     @media (max-width:968px){
       width:100%;
@@ -168,7 +177,7 @@ body{
     .content{
       height:100%;
       width:100%;
-      border:2px solid $grey1;
+      border-bottom:6px solid #f6e6cf;
       display:flex;
       align-items:flex-end;
       padding:10px 15px;
@@ -181,8 +190,14 @@ body{
       box-shadow:0 0 0 0 rgba(0,0,0,0.3);
       
       h2{
-        font-weight:600;
-        color:$grey3;
+        margin: 20px 0 10px;
+          font-size: 1.5rem;
+          color: black;
+          font-weight: bolder;
+          font-family: N-Light;
+          text-transform: uppercase;
+          text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+          transition: text-shadow $b-animSpeed $b-animType;
         transition:all .3s cubic-bezier(.28,.05,.65,.97);
       }
       
@@ -193,9 +208,10 @@ body{
         content:"";
         width:calc(100% + 4px);
         height:4px;
-        background-color: rgba(0,0,0,0.3);
+        border-radius:4px;
+        // background-color: rgba(0,0,0,0.3);
 
-        border-radius:0 0 4px 4px;
+        border-bottom:2px solid #000;
         transition:all .3s cubic-bezier(.28,.05,.65,.97);
       }
     }
@@ -234,7 +250,7 @@ body{
       
       .content{
         background-color: rgba(0,0,0,0.6);
-        border:2px solid $grey3;
+        // border:2px solid $grey3;
         transform:rotate(0) scale(1.2);
         animation:shake .4s 1;
         animation-delay:.4s;
@@ -245,6 +261,7 @@ body{
           width:0;
           transition:all .3s cubic-bezier(.28,.05,.65,.97);
           background-color: rgba(0,0,0,0.6);
+          border:2px solid $c-primary;
         }
         
         h2{

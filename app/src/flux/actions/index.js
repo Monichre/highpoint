@@ -34,6 +34,12 @@ export const getStore = (callback) => {
     AppStore.data.properties = properties
     AppStore.data.galleryItems = galleryItems
     AppStore.data.ready = true
+
+    const appCache = {
+      ...AppStore.data
+    }
+    localStorage.setItem('appCache', JSON.stringify(appCache))
+    
     AppStore.emitChange()
   })
 }

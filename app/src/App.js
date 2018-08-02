@@ -20,6 +20,13 @@ class App extends Component {
 
   componentDidMount() {
     AppStore.addChangeListener(this._onChange.bind(this))
+    window.addEventListener('click', () => {
+      if (document.querySelector('.search').classList.contains('open')) {
+        document.querySelector('.search').classList.remove('open')
+        document.querySelector('.search').classList.remove('loading')
+      } 
+      
+    })
   }
 
   componentWillUnmount() {
@@ -32,10 +39,27 @@ class App extends Component {
     })
   }
   componentWillMount() {
+    // const appCache = localStorage.getItem('appCache')
+    // console.log(appCache)
+    // if(appCache) {
+    //   this.setState({appCache})
+    //   return
+    // } else {
+    //   this.getStore()
+    // }
     this.getStore()
+    
   }
 
   _onChange() {
+    // const appCache = localStorage.getItem('appCache')
+    // console.log(appCache)
+    // if(appCache) {
+    //   this.setState({appCache})
+    //   return
+    // } else {
+    //   this.getStore()
+    // }
     this.setState({...AppStore.data})
   }
 
@@ -50,7 +74,8 @@ class App extends Component {
   render() {
     const location = window.location 
     const {removeLoader} = this.state
-    const {ready} = AppStore.data 
+    const appCache = localStorage.getItem('appCache')
+    const ready =  AppStore.data.ready 
 
     if (removeLoader || ready) {
       return (
