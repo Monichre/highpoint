@@ -2,7 +2,13 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 
 export const trim = (str) => {
-  console.log(str)
+  if(str.length > 250) {
+    let trimmed = str.split('')
+    trimmed.length = 250
+    trimmed.push('...')
+    trimmed.join('')
+    return trimmed
+  }
 }
 
 const imageOrVideo = ({ video, img }) =>

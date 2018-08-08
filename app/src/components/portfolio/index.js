@@ -18,7 +18,7 @@ export default class Portfolio extends Component {
   
     return (
       <main className="portfolio component portfolio_component">
-      <h1 style={{textAlign: 'center', textTransform: 'uppercase', letterSpacing: '2px'}}>Portfolio</h1>
+      <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px'}}>Portfolio</h1>
         <section className={`wrapper`}>
         <PortfolioGrid>
           {properties.map((property) => (

@@ -14,10 +14,10 @@ class ProcessPage extends Component {
     const { processes } = AppStore.data
     return (
       <animated.div style={{ ...this.props.style }} className="process_page component">
-      <h1 style={{textAlign: 'center', textTransform: 'uppercase', letterSpacing: '2px'}}>Our Processes</h1>
+      <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px'}}>Process</h1>
         <QuiltedGrid>
           {processes.map(process => (
-            <Link  to={`/process/${process.title}`}className="item">
+            <Link  to={`/process/${process.title}`} className="item">
               <div className="content" style={{backgroundImage: `url(${process.afterImages[0].fields.file.url})`}}>
                 <h2>{process.address}</h2>
               </div>
