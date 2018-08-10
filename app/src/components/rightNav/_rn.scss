@@ -6,7 +6,7 @@ $c-secondary: salmon;
 // $c-secondary: #646464;
 $b-fontSize: 1.6rem;
 $b-lineHeight: 1.5;
-$b-animType: ease-in-out; 
+$b-animType: ease-in-out;
 $b-animSpeed: 0.2s;
 // $b-shadowSize: 4px;
 $b-shadowSize: 2px;
@@ -14,21 +14,20 @@ $b-shadowSize: 2px;
 $Title-color: $c-dark;
 @mixin transform($transforms) {
   -moz-transform: $transforms;
-    -o-transform: $transforms;
-   -ms-transform: $transforms;
--webkit-transform: $transforms;
-       transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
 }
 
-@mixin rotate($deg){
-@include transform(rotate(#{$deg}deg));
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
 }
 
-@mixin translate($x, $y){
-@include transform(translate($x, $y));
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
 }
 .right_nav {
-  
   z-index: 10;
   width: 10vw;
   bottom: 0;
@@ -54,90 +53,106 @@ $Title-color: $c-dark;
 
       &.top {
         li {
-position:relative;
-font-size: 13px;
-        letter-spacing: 2px;
-        font-weight: 700;
-        color: rgb(51, 51, 51);
-        font-family: N-Black;
-       
-        
-        
-        
-.u-shadow {
-  text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-  transition: text-shadow $b-animSpeed $b-animType;
-}
+          position: relative;
+          font-size: 13px;
+          letter-spacing: 2px;
+          font-weight: 700;
+          color: rgb(51, 51, 51);
+          font-family: N-Black;
 
-&:hover {
-  .u-shadow {
-    text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
-  }
-  
- }
-     #contact-btn-container{
-       display: block;
-       height: 60px;
-       width: 60px;
-       position: relative;
-      //  position: fixed;
-      //  top: 20px;
-      //  right: 20px;
-       
-       .text{
-         font-family: sans-serif;
-         text-align: center;
-         margin: 40px 0;
-         width: max-content;
-         position: absolute;
-         bottom: -100px;
-         transform: rotate(90deg);
-       }
-       
-       .line{
-         display: block;
-         position: absolute;
-         background-color: black;
-         height: 3px;
-         width: 30px;
-         transition: all .7s;
-         bottom: 20px;
-         left: 15px;
-       }
-     
-       .line01{
-         transform-origin: 0 0;
-         @include rotate(-60);
-       }
-     
-       .line02{
-         transform-origin: 100% 100%;
-         @include rotate(60);
-       }
-     
-       .line01-active{
-         margin-left: 4px;
-         @include rotate(-45);
-       }
-     
-       .line02-active{
-         margin-left: -4px;
-         @include rotate(45);
-       }
-     
-       .line03-active{
-         margin-bottom: 40px;
-         background-color: rgba(255,255,255,0);
-       }
-     }
-     
-     #contact-btn-container:hover{
-       cursor: pointer;
-       letter-spacing: 0.8px;
-     }
-     
-     
+          .u-shadow {
+            text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+            transition: text-shadow $b-animSpeed $b-animType;
+          }
 
+          &:hover {
+            .u-shadow {
+              text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+            }
+          }
+          #contact-btn-container {
+            display: block;
+            height: 60px;
+            width: 60px;
+            position: relative;
+            //  position: fixed;
+            //  top: 20px;
+            //  right: 20px;
+
+            .text {
+              font-family: sans-serif;
+              text-align: center;
+              margin: 40px 0;
+              width: max-content;
+              position: absolute;
+              bottom: -100px;
+              transform: rotate(90deg);
+            }
+
+            .line {
+              transition: all 0.4s ease-in-out;
+              display: block;
+              position: absolute;
+              background-color: black;
+              height: 3px;
+              width: 30px;
+              transition: all 0.7s;
+              bottom: 20px;
+              left: 15px;
+            }
+
+            .line01 {
+              transition: all 0.4s ease-in-out;
+              transform-origin: 0 0;
+              @include rotate(-60);
+            }
+
+            .line02 {
+              transition: all 0.4s ease-in-out;
+              transform-origin: 100% 100%;
+              @include rotate(60);
+            }
+
+            .line01-active {
+              transition: all 0.4s ease-in-out;
+              margin-left: 4px;
+              @include rotate(-45);
+            }
+
+            .line02-active {
+              transition: all 0.4s ease-in-out;
+              margin-left: -4px;
+              @include rotate(45);
+            }
+
+            .line03-active {
+              transition: all 0.4s ease-in-out;
+              margin-bottom: 40px;
+              background-color: rgba(255, 255, 255, 0);
+            }
+
+            &:hover {
+              letter-spacing: 0.8px;
+              .line01 {
+                @include rotate(0);
+              }
+
+              .line02 {
+                @include rotate(0);
+              }
+
+              .line01-active {
+                @include rotate(0);
+              }
+
+              .line02-active {
+                @include rotate(0);
+              }
+
+              .line03-active {
+              }
+            }
+          }
         }
       }
 
@@ -157,7 +172,6 @@ font-size: 13px;
           line-height: 2;
         }
       }
-   
+    }
   }
-}
 }

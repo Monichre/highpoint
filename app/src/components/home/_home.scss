@@ -182,22 +182,44 @@ $font_Robotto: 'Roboto', sans-serif;
       .backgroundVideo {
         width: 100% !important;
         position: relative;
-        cursor: pointer;
+        cursor: url(/icons/maximize.svg), auto;
         opacity: 0;
-        transition: opacity 2s ease-in-out;
+        transition: opacity 4s ease-in-out;
 
         video {
           width: 100% !important;
           margin: auto;
           display: block;
           transform: translateX(20%) translateY(20%);
+          transition: all .4s ease-in-out;
           display: block;
           filter: saturate(1.2) grayscale(0.7);
           clip-path: url(#clip-00);
+
+          &.launch__full {
+            transform: translateX(0%) translateY(0%);
+            clip-path: none;
+            position: relative;
+              z-index: 1001;
+          }
         }
         &.fadeIn {
           opacity: 1;
+          &.launch__full {
+            &:after {
+              cursor: url(/icons/minimize.svg), auto;
+              content: '';
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              background: rgba(0,0,0,0.8);
+              position: fixed;
+              z-index: 1000;
+            }
+          }
         }
+       
       }
     }
   }

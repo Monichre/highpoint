@@ -11,9 +11,14 @@ export default class Process extends Component {
   }
 
   componentWillMount() {
-    const { processes } = AppStore.data
+    const { processes, properties } = AppStore.data
     const title = decodeURIComponent(window.location.pathname.split('/').pop())
-    const process = processes.find(process => process.title === title)
+    console.log(properties)
+    console.log(title)
+    const property = properties.find(property => property.title === title) 
+    console.log(property)
+    const process = property ? {...property.process.fields} : processes.find(process => process.title === title) 
+    console.log(process)
     this.setState({
       process: process
     })
@@ -26,13 +31,12 @@ export default class Process extends Component {
 
   render() {
     const { process } = this.state
-    console.log(process)
     return (
       <main className="component process_component">
         <h1 style={{ textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px' }}>
           Process
         </h1>
-        <section className="inner">
+        <section className="inner" style={{paddingBottom: '100px'}}>
           <ProcessCard process={process} />
         </section>
       </main>

@@ -43,9 +43,9 @@ export default (
     native
     config={{ tension: 1, friction: 10 }}
     keys={window.location.pathname.split('/').filter(a => a)[0]}
-    from={{ transform: 'translateY(500px)', opacity: 0 }}
-    enter={{ transform: 'translateY(0px)', opacity: 1 }}
-    leave={{ transform: 'translateY(500px)', opacity: 0 }}>
+    from={{ transform: 'translateY(100%)', opacity: .25 }}
+    enter={{ transform: 'translateY(0%)', opacity: 1 }}
+    leave={{ transform: 'translateY(-100%)', opacity: .25 }}>
     {style => (
       <Switch>
         {routeWithComponents.map((route, i) => (

@@ -74,6 +74,9 @@ $Title-color: $c-dark;
     font-family: N-Light;
     
     color: #fff;
+    &.hovering {
+      color: black;
+    }
         cursor: pointer;
         &:first-of-type {
           top: 70px;
@@ -113,9 +116,6 @@ $Title-color: $c-dark;
       background-color: #000;
       &:hover {
         background-color: $c-primary;
-        p {
-          color: black;
-        }
       }
       &:last-of-type {
         border-right: 1px solid #f6e6cf;
@@ -171,6 +171,12 @@ $Title-color: $c-dark;
         fill: #000;
         height: 20px;
       }
+    }
+  }
+
+  &.launch__full {
+    .burger {
+      z-index: 1001;
     }
   }
 }

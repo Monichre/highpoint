@@ -20,13 +20,6 @@ class App extends Component {
 
   componentDidMount() {
     AppStore.addChangeListener(this._onChange.bind(this))
-    window.addEventListener('click', () => {
-      if (document.querySelector('.search').classList.contains('open')) {
-        document.querySelector('.search').classList.remove('open')
-        document.querySelector('.search').classList.remove('loading')
-      } 
-      
-    })
   }
 
   componentWillUnmount() {
@@ -73,6 +66,7 @@ class App extends Component {
 
   render() {
     const location = window.location 
+    const conditionalFooter = location.pathname !== '/' ? null : <Footer /> 
     const {removeLoader} = this.state
     const appCache = localStorage.getItem('appCache')
     const ready =  AppStore.data.ready 
@@ -84,7 +78,7 @@ class App extends Component {
           <LeftNav />
           {routes}
           <RightNav location={location} />
-          <Footer />
+          {conditionalFooter}
         </div>
     )
     } else {

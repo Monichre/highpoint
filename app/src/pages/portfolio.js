@@ -28,11 +28,11 @@ const about = {
 
 class PortfolioPage extends Component {
   render() {
-    const {properties} = AppStore.data
-    console.log(properties)
+    const {properties, companyContent} = AppStore.data
+    const aboutUsContent = companyContent.find(content => content.title === 'About Us')
     return (
       <animated.div  style={{ ...this.props.style }}v className="portfolio">
-      <Portfolio properties={properties} />
+        <Portfolio properties={properties} aboutUsContent={aboutUsContent} />
       </animated.div>
     )
   }

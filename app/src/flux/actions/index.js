@@ -24,15 +24,27 @@ export const getStore = (callback) => {
       }
     })
 
-    const galleryItems = await cms.getAssets().then((res) => res.items.map(item => {
-      return {
-        ...item.fields
-      }
-    }))
+    let galleryItems =  []
+    let itemsArray = response.items.filter((item) => item.sys.contentType.sys.id === 'process').map((item) => item.fields.afterImages)
+    itemsArray.forEach(item => {
+      galleryItems = [...galleryItems, ...item]
+    })
+    
+
+    // const galleryItems = await cms.getAssets().then((res) => res.items.map(item => {
+    //   return {
+    //     ...item.fields
+    //   }
+    // }))
+
+    const companyContent = response.items.filter(item => item.sys.contentType.sys.id === 'companyContent').map(item => {
+      return item.fields
+    })
 
     AppStore.data.processes = processes
     AppStore.data.properties = properties
     AppStore.data.galleryItems = galleryItems
+    AppStore.data.companyContent = companyContent
     AppStore.data.ready = true
 
     const appCache = {

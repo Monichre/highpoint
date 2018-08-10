@@ -8,6 +8,9 @@ import './_home.scss'
 export default class Home extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      muted: true
+    }
   }
   componentDidMount() {
     homePageLines()
@@ -21,7 +24,8 @@ export default class Home extends Component {
     const inner_svg = document.querySelector('.border .inner svg')
     
     backgroundVideo.addEventListener('click', () => {
-      window.location = '/gallery'
+      // window.location = '/gallery'
+      this.launchFullVideo()
     })
 
     const mainLineDrawing = anime({
@@ -62,20 +66,34 @@ export default class Home extends Component {
     }
   }
 
+  launchFullVideo = () => {
+    // e.preventDefault()
+    const video = document.querySelector('.backgroundVideo video')
+    const footer = document.querySelector('.footer')
+    const background = document.querySelector('.backgroundVideo')
+
+    video.classList.toggle('launch__full')
+    footer.classList.add('launch__full')
+    background.classList.toggle('launch__full')
+
+   this.setState({
+     muted: false
+   })
+  }
 
   render() {
     return (
       <div className="home component">
-        <Main />
+        <Main muted={this.state.muted} />
       </div>
     )
   }
 }
 
-const Main = () => (
+const Main = (props) => (
   <main>
     <div className="wrapper">
-      <Video url={'/video/construction-video.mp4'} />
+      <Video url={'/video/construction-video.mp4'} muted={props.muted} />
       <div className="border">
         <div className="inner">
           <svg viewBox="0 0 1200 269.51">

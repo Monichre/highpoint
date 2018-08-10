@@ -10,12 +10,13 @@ class Video extends Component {
   render() {
     return (
       <ReactPlayer
+        onClick={this.props.launchFullVideo}
         playing
         playsinline
         loop={true}
         onMouseEnter={this.props.borderAnimation}
-        volume={0}
-        muted
+        volume={this.props.muted ? 0 : 1}
+        muted={this.props.muted}
         playbackRate={.5}
         ref={this.ref.bind(this)}
         url={this.props.url}

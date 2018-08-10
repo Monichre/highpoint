@@ -12,6 +12,7 @@
     "gsap": "^2.0.1",
     "imagesloaded": "^4.1.4",
     "lodash": "^4.17.10",
+    "rc-tooltip": "^3.7.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-player": "^1.6.4",
