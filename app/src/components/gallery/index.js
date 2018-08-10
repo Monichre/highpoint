@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { processPortfolioLines, cornerLines } from '../lines'
-import ReactPlayer from 'react-player'
+import {Thumb} from '../thumb'
 import ScrollReveal from 'scrollreveal'
 import AppStore from '../../flux/stores'
 import './_gallery.scss'
@@ -41,24 +41,4 @@ export default class Gallery extends Component {
   }
 }
 
-const Thumb = props =>
-  props.item.fields.file.url.includes('mp4') ? (
-    <div className={`grid__item__thumb `}>
-      <ReactPlayer
-        playing
-        playsinline
-        volume={0}
-        url={props.item.fields.file.url}
-        muted
-        className={`gallery_video `}
-        height={'100%'}
-      />
-    </div>
-  ) : (
-    <div className="grid__item__thumb" data-revealer-color="#8779d2">
-      <img src={props.item.fields.file.url} alt="Some image" />
-      <div className="bg__wrap">
-        <div className="grid__item__bg" style={{ backgroundImage: `url(${props.item.fields.file.url})` }} />
-      </div>
-    </div>
-  )
+

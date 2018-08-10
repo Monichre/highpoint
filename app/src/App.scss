@@ -265,7 +265,7 @@ body{
       .content{
         // background-color: rgba(0,0,0,0.6);
         // border:2px solid $grey3;
-        transform:rotate(0) scale(1.2);
+        transform:rotate(0) scale(1.1);
         animation:shake .4s 1;
         animation-delay:.4s;
         box-shadow:-27px 18px 80px 0 rgba(0,0,0,0.3);
@@ -314,12 +314,12 @@ body{
     }
     
     @keyframes shake{
-      0%{ transform:rotate(3deg) scale(1.2) }
-      20%{ transform:rotate(-3deg) scale(1.2) }
-      40%{ transform:rotate(3deg) scale(1.2) }
-      60%{ transform:rotate(-3deg) scale(1.2) }
-      80%{ transform:rotate(3deg) scale(1.2) }
-      100%{ transform:rotate(0) scale(1.2) }
+      0%{ transform:rotate(3deg) scale(1.1) }
+      20%{ transform:rotate(-3deg) scale(1.1) }
+      40%{ transform:rotate(3deg) scale(1.1) }
+      60%{ transform:rotate(-3deg) scale(1.1) }
+      80%{ transform:rotate(3deg) scale(1.1) }
+      100%{ transform:rotate(0) scale(1.1) }
     }
   }
 }

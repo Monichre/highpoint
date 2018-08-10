@@ -13,12 +13,9 @@ export default class Process extends Component {
   componentWillMount() {
     const { processes, properties } = AppStore.data
     const title = decodeURIComponent(window.location.pathname.split('/').pop())
-    console.log(properties)
-    console.log(title)
     const property = properties.find(property => property.title === title) 
-    console.log(property)
     const process = property ? {...property.process.fields} : processes.find(process => process.title === title) 
-    console.log(process)
+    
     this.setState({
       process: process
     })

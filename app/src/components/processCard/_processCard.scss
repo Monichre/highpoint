@@ -50,6 +50,12 @@ $Title-color: $c-dark;
 			text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
 			transition: text-shadow $b-animSpeed $b-animType;
 			border-bottom: 1px solid #000;
+			a {
+				svg {
+					height: 20px!important;
+					width: 20px!important;
+				}
+			}
 		}
 		.process_card__grid {
  
@@ -119,25 +125,30 @@ $Title-color: $c-dark;
 					height: 100%;
 					// transform: translateX(-100%);
 					position: relative;
-					&:after {
-						content: '';
-						position: absolute;
-						top: 80px;
-						right: 10px;
-						width: 2px;
-						height: 80%;
-						background: #000;
-					}
+				
 
 					h3 {
 						font-size: 2rem;
 						color: black;
 						opacity: 0;
-						text-align: left;
+						text-align: right;
 						font-weight: bolder;
 						transition: all .4s ease-in-out;
 						position: relative;
+						border: none;
 						// border-bottom: 2px solid #000;
+				
+				
+
+						&:after {
+							content: '';
+							position: absolute;
+							top: 10px;
+							left: 0;
+							height: 2px;
+							width: 25%;
+							background: #000;
+						}
 
 					
 					}
