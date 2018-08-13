@@ -30,7 +30,7 @@ export default class Process extends Component {
     const { process } = this.state
     return (
       <main className="component process_component">
-        <h1 style={{ textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px' }}>
+        <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px', marginTop: '40px'}}>
           Process
         </h1>
         <section className="inner" style={{paddingBottom: '100px'}}>

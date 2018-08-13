@@ -22,7 +22,7 @@ export const Thumb = props =>
     </div>
   ) : (
     <div className="grid__item__thumb" data-revealer-color="#8779d2">
-      <img src={`${props.item.image}?fit=thumb`} alt="Some image" />
+      <img src={`${props.item.image}?w=500&h=500&fit=thumb`} alt="Some image" />
       <div className="bg__wrap">
         <div className="grid__item__bg" style={{ backgroundImage: `url(${props.item.image})` }} />
       </div>

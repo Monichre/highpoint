@@ -26,7 +26,7 @@ export default class Gallery extends Component {
     console.log(galleryItems)
     return (
       <main className="gallery loading component gallery_component">
-        <h1 style={{ textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px' }}>
+        <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px', marginTop: '50px'}}>
           Gallery
         </h1>
         <section className="wrapper">

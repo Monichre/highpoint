@@ -4,6 +4,11 @@ import CinderBlock from '../../cinderblock'
 import ReactPlayer from 'react-player'
 import './_portfolioCard.scss'
 
+const isAVenture = (property) => {
+  const titles = ['Highpoint Ventures', 'McCallister Management', 'Latch', 'Compass', 'Reonomy']
+  return titles.includes(property.title) ? true : false 
+}
+
 export const PortfolioCard = props => {
   return props.property ? (
     <div className="portfolio_card portfolio_card--full featured">
@@ -11,12 +16,12 @@ export const PortfolioCard = props => {
         <h3>{props.property.title}</h3>
         <div className="img_cont">
           <div className="img_inner">
-            <img src={props.property.featuredImage.fields.file.url} alt="" />
+            <img src={props.property.featuredImage.fields.file.url} alt="" className={isAVenture(props.property) ? 'is_venture' : ''}/>
           </div>
         </div>
         <div className="content">
           <div className="sub_title">
-            <h4>{props.property.address.split(',')[0]}</h4>
+            <h4>{props.property.address}</h4>
           </div>
           <div className="text">
             <p>{props.property.description}</p>

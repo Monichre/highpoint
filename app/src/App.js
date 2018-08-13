@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import AppStore from './flux/stores'
 import AppDispatcher from './flux/dispatchers'
-import CircularNav from './components/circularNav'
-import Footer from './components/footer'
 import { Header } from './components/header'
 import LeftNav from './components/leftNav'
 import RightNav from './components/rightNav'
@@ -32,27 +30,12 @@ class App extends Component {
     })
   }
   componentWillMount() {
-    // const appCache = localStorage.getItem('appCache')
-    // console.log(appCache)
-    // if(appCache) {
-    //   this.setState({appCache})
-    //   return
-    // } else {
-    //   this.getStore()
-    // }
+
     this.getStore()
     
   }
 
   _onChange() {
-    // const appCache = localStorage.getItem('appCache')
-    // console.log(appCache)
-    // if(appCache) {
-    //   this.setState({appCache})
-    //   return
-    // } else {
-    //   this.getStore()
-    // }
     this.setState({...AppStore.data})
   }
 
@@ -66,9 +49,7 @@ class App extends Component {
 
   render() {
     const location = window.location 
-    const conditionalFooter = location.pathname !== '/' ? null : <Footer /> 
     const {removeLoader} = this.state
-    const appCache = localStorage.getItem('appCache')
     const ready =  AppStore.data.ready 
 
     if (removeLoader || ready) {
@@ -78,7 +59,6 @@ class App extends Component {
           <LeftNav />
           {routes}
           <RightNav location={location} />
-          {conditionalFooter}
         </div>
     )
     } else {

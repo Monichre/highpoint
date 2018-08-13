@@ -1,6 +1,5 @@
 @import './sass/settings';
 @import './sass/mixins/mixins';
-// @import './sass/bootstrap';
 @import './sass/global';
 @import './sass/typography';
 @import './sass/stitches';
@@ -21,6 +20,11 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 // COLORS
@@ -90,7 +94,7 @@ body {
   }
   .App {
     font-family: "N-Light";
-    padding: 4% 10% 0;
+    padding: 0 10% 0;
  
     }
 

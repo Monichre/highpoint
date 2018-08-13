@@ -15,20 +15,27 @@ export default class Portfolio extends Component {
 
     return (
       <main className="portfolio component portfolio_component">
-        <h1 style={{ textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px' }}>
+        <h1
+          style={{
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            fontSize: '45px',
+            letterSpacing: '4px',
+            marginTop: '50px'
+          }}>
           Portfolio
         </h1>
-        <div className='about_us'>
-        <h4>
-          {properties.map(property => (
-            <span>{property.title} / </span>
-          ))}
-        </h4>
-        <div className="text">
-          <p>{aboutUsContent.content}</p>
+        <div className="about_us">
+          <h4>
+            {properties.map(property => (
+              <span>{property.title} / </span>
+            ))}
+          </h4>
+          <div className="text">
+            <p>{aboutUsContent.content}</p>
+          </div>
         </div>
-        </div>
-      
+
         <section className={`wrapper`}>
           <PortfolioGrid>
             {properties.sort(property => !property.isAProcessItem - property.isAProcessItem).map(property => (

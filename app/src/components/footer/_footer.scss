@@ -19,7 +19,7 @@ $Title-color: $c-dark;
   overflow: hidden;
   height: 105px;
   bottom: 0;
-  width: 80%;
+  width: 100%;
 
   .footer_nav {
     position: absolute;
@@ -72,8 +72,11 @@ $Title-color: $c-dark;
     font-weight: 700;
     text-transform: uppercase;
     font-family: N-Light;
-    
     color: #fff;
+    svg {
+      height: 15px;
+      width: 15px;
+    }
     &.hovering {
       color: black;
     }
@@ -175,6 +178,33 @@ $Title-color: $c-dark;
   }
 
   &.launch__full {
+    .footer_nav {
+      z-index: 1001;
+
+      p {
+        &:first-of-type {
+          top: 70px;
+          left: 35px;
+          transform: rotate(0);
+        }
+        &:nth-of-type(2) {
+          top: 20px;
+          left: 90px;
+          transform: rotate(0deg);
+        }
+        &:nth-of-type(3) {
+          top: 70px;
+          left: 140px;
+          /* bottom: 0; */
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+      }
+        svg {
+
+        }
+      }
+    }
     .burger {
       z-index: 1001;
     }

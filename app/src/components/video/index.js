@@ -10,6 +10,7 @@ class Video extends Component {
   render() {
     return (
       <ReactPlayer
+        title="Watch the full video"
         onClick={this.props.launchFullVideo}
         playing
         playsinline

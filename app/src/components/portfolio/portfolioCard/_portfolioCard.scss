@@ -103,6 +103,10 @@ $Title-color: $c-dark;
           object-fit: cover;
           height: 100%;
           width: 100%;
+
+          &.is_venture {
+            object-fit: contain;
+          }
         }
       }
     

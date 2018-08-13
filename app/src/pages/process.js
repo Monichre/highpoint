@@ -15,7 +15,7 @@ class ProcessPage extends Component {
     const { processes } = AppStore.data
     return (
       <animated.div style={{ ...this.props.style }} className="process_page component">
-      <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px'}}>Process</h1>
+      <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px', marginTop: '50px'}}>Process</h1>
         <QuiltedGrid>
           {processes.map(process => <ProcessCardPreview process={process} /> )}
         </QuiltedGrid>
