@@ -27,9 +27,11 @@ export const getStore = callback => {
       }
       const propertyImage = properties
         .filter(property => property.isAProcessItem && property.process)
-        .find(property => property.process.sys.id === mutated.id).featuredImage.fields.file.url
-      mutated.propertyImage = propertyImage
+        .find(property => property.process.sys.id === mutated.id)
+
+      mutated.propertyImage = propertyImage ? propertyImage.featuredImage.fields.file.url : null 
       return mutated
+
     })
 
     let galleryItems = []

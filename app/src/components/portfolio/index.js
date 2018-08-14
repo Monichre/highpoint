@@ -12,6 +12,12 @@ export default class Portfolio extends Component {
 
   render() {
     const { properties, aboutUsContent } = this.props
+    const isAVenture = (property) => {
+      const titles = ['Highpoint Ventures', 'McCallister Management', 'Latch', 'Compass', 'Reonomy','Lexington Avenue Development']
+      return titles.includes(property.title)
+    }
+    const ventures = properties.filter(prop => isAVenture(prop))
+    const filtered = properties.filter(prop => !isAVenture(prop))
 
     return (
       <main className="portfolio component portfolio_component">
@@ -35,12 +41,13 @@ export default class Portfolio extends Component {
             <p>{aboutUsContent.content}</p>
           </div>
         </div>
-
         <section className={`wrapper`}>
           <PortfolioGrid>
-            {properties.sort(property => !property.isAProcessItem - property.isAProcessItem).map(property => (
+            {filtered.sort(property => !property.isAProcessItem - property.isAProcessItem)
+            .map(property => (
               <PortfolioCard property={property} />
             ))}
+            {ventures.map(property => <PortfolioCard property={property} />)}
           </PortfolioGrid>
         </section>
       </main>

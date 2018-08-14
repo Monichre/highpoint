@@ -33,6 +33,14 @@ $font_Robotto: 'Roboto', sans-serif;
       fill: #000;
     }
   }
+#tooltip {
+  opacity: 0;
+  position: absolute;
+  width: max-content;
+  // left: 45%;
+  height: max-content;
+}
+
 
   main {
     width: 100%;
@@ -190,7 +198,7 @@ $font_Robotto: 'Roboto', sans-serif;
           width: 100% !important;
           margin: auto;
           display: block;
-          transform: translateX(20%) translateY(20%);
+          transform: translateX(20%) translateY(40%);
           transition: all .4s ease-in-out;
           display: block;
           filter: saturate(1.2) grayscale(0.7);
