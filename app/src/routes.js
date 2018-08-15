@@ -6,7 +6,6 @@ import ProcessPage from './pages/process'
 import Process from './components/process'
 import PortfolioPage from './pages/portfolio'
 import HomePage from './pages/home'
-import { Transition, config, animated } from 'react-spring'
 
 const routeWithComponents = [
   {
@@ -39,24 +38,14 @@ const routeWithComponents = [
 const { data } = AppStore
 
 export default (
-  <Transition
-    native
-    config={{ tension: 1, friction: 10 }}
-    keys={window.location.pathname.split('/').filter(a => a)[0]}
-    from={{ transform: 'translateY(100%)', opacity: .25 }}
-    enter={{ transform: 'translateY(0%)', opacity: 1 }}
-    leave={{ transform: 'translateY(-100%)', opacity: .25 }}>
-    {style => (
-      <Switch>
-        {routeWithComponents.map((route, i) => (
-          <Route
-            exact={route.exact}
-            key={'route-' + i}
-            path={route.path}
-            render={({ location }, props) => <route.component key={i} {...data} {...props} />}
-          />
-        ))}
-      </Switch>
-    )}
-  </Transition>
+  <Switch>
+    {routeWithComponents.map((route, i) => (
+      <Route
+        exact={route.exact}
+        key={'route-' + i}
+        path={route.path}
+        render={props => <route.component key={i} {...data} {...props} />}
+      />
+    ))}
+  </Switch>
 )

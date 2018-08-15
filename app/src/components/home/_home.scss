@@ -1,3 +1,239 @@
+// $font_BlackHan: 'Black Han Sans', sans-serif;
+// $font_Robotto: 'Roboto', sans-serif;
+
+// .home {
+//   display: flex;
+//   width: 100%;
+//   position: relative;
+//   height: 100vh;
+//   overflow: hidden;
+
+//   .inner_logo_line.logo_line_rect {
+//     width: 0;
+//     transition: width 2s ease-in-out, fill 4s ease-in-out;
+//     &.active {
+//       width: 100%;
+//       fill: #000;
+//     }
+//     &.inner_logo_line_1.active {
+//       &.active {
+//         width: 553px;
+//       }
+//     }
+//     &.inner_logo_line_2.active {
+//       &.active {
+//         width: 567px;
+//       }
+//     }
+//   }
+
+//   .lines {
+//     transition: all 2s ease-in-out;
+//     &.active {
+//       fill: #000;
+//     }
+//   }
+// #tooltip {
+//   opacity: 0;
+//   position: absolute;
+//   width: max-content;
+//   // left: 45%;
+//   height: max-content;
+// }
+
+
+//   main {
+//     width: 100%;
+//     margin: 0 auto;
+//     position: relative;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+
+//     .wrapper {
+//       width: 100%;
+//       display: block;
+//       position: relative;
+
+//       .clipping-paths {
+//         width: 0;
+//         height: 0;
+//         position: absolute;
+//       }
+//       .border {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         height: 100%;
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+
+//         &.active {
+//           z-index: -5;
+//         }
+
+//         #meta_svg_link {
+//           position: absolute;
+//           height: 50vh;
+//           width: 50vh;
+//           left: 25%;
+//           top: 25%;
+//         }
+
+//         .inner {
+//           transition: color 0.25s;
+//           background: transparent;
+//           border: 0;
+//           // -webkit-box-shadow: inset 0 0 0 2px #ddd;
+//           // box-shadow: inset 0 0 0 1px #ddd;
+//           position: relative;
+//           width: 50vh;
+//           z-index: -5;
+//           // height: 50vh;
+//           height: 8vh;
+//           // -webkit-transform: rotate(180deg);
+//           // -ms-transform: rotate(180deg);
+//           // transform: rotate(135deg);
+//           vertical-align: middle;
+//           // clip-path: url(#clip-00);
+
+//           &::before,
+//           &::after {
+//             box-sizing: inherit;
+//             content: '';
+//             position: absolute;
+//             width: 100%;
+//             height: 100%;
+//             // border: 2px solid transparent;
+//             width: 0;
+//             height: 0;
+//           }
+
+//           // This covers the top & right borders (expands right, then down)
+//           &::before {
+//             top: 0;
+//             left: 0;
+//           }
+
+//           // And this the bottom & left borders (expands left, then up)
+//           &::after {
+//             bottom: 0;
+//             right: 0;
+//           }
+//           &.active {
+//             color: #333;
+//             // Hover styles
+//             &::before,
+//             &::after {
+//               width: 100%;
+//               height: 100%;
+//             }
+//             &::before {
+//               border-top-color: #333; // Make borders visible
+//               border-right-color: #333;
+//               transition: width 0.25s ease-out,
+//                 // Width expands first
+//                   height0.25s ease-out 0.25s; // And then height
+//             }
+
+//             &::after {
+//               border-bottom-color: #333; // Make borders visible
+//               border-left-color: #333;
+//               transition: border-color 0s ease-out 0.5s,
+//                 // Wait for ::before to finish before showing border
+//                   width0.25s ease-out 0.5s,
+//                 // And then exanding width
+//                   height0.25s ease-out 0.75s; // And finally height
+//             }
+//           }
+
+//           svg {
+//             // top: 120px;
+//             top: -20px;
+//             right: -10px;
+//             // right: 15px;
+//             // -webkit-transform: rotate(-135deg) scale(1.8);
+//             // -ms-transform: rotate(-135deg) scale(1.8);
+//             // transform: rotate(-135deg) scale(1.89) translateX(-.8rem) translateY(1px);
+//             position: relative;
+//             -webkit-transform: scale(1.8);
+//             -ms-transform: scale(1.8);
+//             transform: scale(1.89) translateX(-0.8rem) translateY(1px);
+//             opacity: 1;
+//             transition: all 0.8s ease-in-out;
+
+//             &.fadeOut {
+//               opacity: 0;
+//               // top: -20px;
+//               // right: -10px;
+//             }
+//             // position: relative;
+//             // transform: rotate(-135deg) scale(1);
+//             // top: 100px;
+//             // right: auto;
+//             // opacity: 1;
+//             // transition: top .4s ease-in, right .4s ease-in, transform .8s ease-in, opacity 1s ease-in;
+
+//             // &.scale_up {
+//             //   top: 120px;
+//             // right: 15px;
+//             // transform: rotate(-135deg) scale(1.8);
+//             // opacity: 0;
+//             // }
+//           }
+//         }
+//       }
+//       .backgroundVideo {
+//         width: 100% !important;
+//         position: relative;
+//         cursor: url(/icons/maximize.svg), auto;
+//         opacity: 0;
+//         transition: opacity 4s ease-in-out;
+
+//         video {
+//           width: 100% !important;
+//           margin: auto;
+//           display: block;
+//           transform: translateX(20%) translateY(40%);
+//           transition: all .4s ease-in-out;
+//           display: block;
+//           filter: saturate(1.2) grayscale(0.7);
+//           clip-path: url(#clip-00);
+
+//           &.launch__full {
+//             transform: translateX(0%) translateY(0%);
+//             clip-path: none;
+//             position: relative;
+//               z-index: 1001;
+//           }
+//         }
+//         &.fadeIn {
+//           opacity: 1;
+//           &.launch__full {
+//             &:after {
+//               cursor: url(/icons/minimize.svg), auto;
+//               content: '';
+//               top: 0;
+//               left: 0;
+//               height: 100%;
+//               width: 100%;
+//               background: rgba(0,0,0,0.8);
+//               position: fixed;
+//               z-index: 1000;
+//             }
+//           }
+//         }
+       
+//       }
+//     }
+//   }
+// }
+
+
 $font_BlackHan: 'Black Han Sans', sans-serif;
 $font_Robotto: 'Roboto', sans-serif;
 
@@ -12,8 +248,8 @@ $font_Robotto: 'Roboto', sans-serif;
     width: 0;
     transition: width 2s ease-in-out, fill 4s ease-in-out;
     &.active {
-      width: 100%;
-      fill: #000;
+      width: 10%;
+      fill: #fff;
     }
     &.inner_logo_line_1.active {
       &.active {
@@ -22,7 +258,7 @@ $font_Robotto: 'Roboto', sans-serif;
     }
     &.inner_logo_line_2.active {
       &.active {
-        width: 567px;
+        width: 640px;
       }
     }
   }
@@ -30,17 +266,9 @@ $font_Robotto: 'Roboto', sans-serif;
   .lines {
     transition: all 2s ease-in-out;
     &.active {
-      fill: #000;
+      fill: #fff;
     }
   }
-#tooltip {
-  opacity: 0;
-  position: absolute;
-  width: max-content;
-  // left: 45%;
-  height: max-content;
-}
-
 
   main {
     width: 100%;
@@ -73,7 +301,7 @@ $font_Robotto: 'Roboto', sans-serif;
         align-items: center;
 
         &.active {
-          z-index: -5;
+          // z-index: -5;
         }
 
         #meta_svg_link {
@@ -167,7 +395,7 @@ $font_Robotto: 'Roboto', sans-serif;
             transition: all 0.8s ease-in-out;
 
             &.fadeOut {
-              opacity: 0;
+              // opacity: 0;
               // top: -20px;
               // right: -10px;
             }
@@ -188,8 +416,11 @@ $font_Robotto: 'Roboto', sans-serif;
         }
       }
       .backgroundVideo {
-        width: 100% !important;
+        width: 79vw !important;
+        height: 65vh !important;
+        overflow: hidden;
         position: relative;
+        display: block; margin: auto;
         cursor: url(/icons/maximize.svg), auto;
         opacity: 0;
         transition: opacity 4s ease-in-out;
@@ -198,11 +429,10 @@ $font_Robotto: 'Roboto', sans-serif;
           width: 100% !important;
           margin: auto;
           display: block;
-          transform: translateX(20%) translateY(40%);
           transition: all .4s ease-in-out;
           display: block;
+          transform: scale(1.2);
           filter: saturate(1.2) grayscale(0.7);
-          clip-path: url(#clip-00);
 
           &.launch__full {
             transform: translateX(0%) translateY(0%);
@@ -213,6 +443,15 @@ $font_Robotto: 'Roboto', sans-serif;
         }
         &.fadeIn {
           opacity: 1;
+          width: 80vw !important;
+          height: 70vh !important;
+          overflow: hidden!important;
+          video {
+            transform: scale(1.6) !important;
+            width: 100% !important;
+            height: 100%!important;
+        
+          }
           &.launch__full {
             &:after {
               cursor: url(/icons/minimize.svg), auto;

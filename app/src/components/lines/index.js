@@ -13,15 +13,15 @@ export const homePageLines = () => {
         hidden: true,
         animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
       },
-      {
-        top: '20%',
-        left: 0,
-        width: '15vw',
-        height: 3,
-        color: '#333',
-        hidden: true,
-        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
-      },
+      // {
+      //   top: '15%',
+      //   left: 0,
+      //   width: '15vw',
+      //   height: 3,
+      //   color: '#333',
+      //   hidden: true,
+      //   animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
+      // },
       {
         top: 0,
         left: '10%',
@@ -87,7 +87,7 @@ export const cornerLines = () => {
         animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
       },
       {
-        top: '20%',
+        top: '15%',
         left: 0,
         width: '15vw',
         height: 3,
@@ -106,7 +106,7 @@ export const cornerLines = () => {
       },
    
       {
-        top: '80%',
+        top: '85%',
         left: '85%',
         width: '15vw',
         height: 3,
@@ -133,15 +133,15 @@ export const processPortfolioLines = () => {
         hidden: true,
         animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
       },
-      {
-        top: '20%',
-        left: 0,
-        width: '15vw',
-        height: 3,
-        color: '#333',
-        hidden: true,
-        animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
-      },
+      // {
+      //   top: '20%',
+      //   left: 0,
+      //   width: '15vw',
+      //   height: 3,
+      //   color: '#333',
+      //   hidden: true,
+      //   animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'LeftRight' }
+      // },
       {
         top: 0,
         left: '10%',

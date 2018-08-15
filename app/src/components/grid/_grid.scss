@@ -1,9 +1,10 @@
 
 .grid.portfolio_grid {
- padding: 4rem 8rem 15rem 8rem;
+ padding: .5rem 4rem;
  display: flex;
- /* grid-gap: 30px; */
- flex-direction: column;
+//  flex-direction: column;
  height: 100%;
- justify-content: space-evenly;
+//  justify-content: space-evenly;
+ overflow: hidden;
+
 }

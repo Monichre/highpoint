@@ -37,16 +37,15 @@ $dark-brown: #542900;
     width: 10vw;
     .top {
       padding-left: 0;
-      height: 20vh;
+      height: 15vh;
        display: flex;
     flex-direction: column;
     justify-content:center;
+    align-items: center;
 
       li {
         width: 100%;
         .cinderblock_container {
-          margin: auto;
-          display: block;
           svg {
             height: 30px;
             margin: auto;
@@ -58,16 +57,18 @@ $dark-brown: #542900;
       }
     }
     .bottom {
-      flex-basis: 75%;
+      flex-basis: 85%;
       height: auto;
       list-style: none;
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-direction: column;
       flex-direction: column;
-      // justify-content: flex-end;
-      
+      justify-content: center;
       width: auto;
       padding: 0 25px 25px 30px;
       position: relative;
+      align-items: center;
       li:not(.cinder_logo_link) {
         font-size: 13px;
         letter-spacing: 2px;

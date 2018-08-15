@@ -29,40 +29,49 @@ export const getStore = callback => {
         .filter(property => property.isAProcessItem && property.process)
         .find(property => property.process.sys.id === mutated.id)
 
-      mutated.propertyImage = propertyImage ? propertyImage.featuredImage.fields.file.url : null 
+      mutated.propertyImage = propertyImage ? propertyImage.featuredImage.fields.file.url : null
       return mutated
-
     })
-
-    let galleryItems = []
-    let itemsArray = response.items
-      .filter(item => item.sys.contentType.sys.id === 'process')
-      .map(item => item.fields.afterImages)
-    itemsArray.forEach(item =>
-      item.forEach(inner_item =>
-        galleryItems.push({
-          title: inner_item.fields.title,
-          description: 'Lorem Ipsum',
-          image: inner_item.fields.file.url
-        })
-      )
-    )
 
     const companyContent = response.items.filter(item => item.sys.contentType.sys.id === 'companyContent').map(item => {
       return item.fields
     })
 
+    const galleryItems = [...processes, ...properties].map(item => {
+      if (item.afterImages) {
+        console.log(item)
+        const {id} = item
+        const property = properties
+          .filter(property => property.isAProcessItem && property.process)
+          .find(_property => _property.process.sys.id === id)
+        return item.afterImages.map(image => {
+          return {
+            property: property.title,
+            address: property.address,
+            image: image.fields.file.url + '?w=500&h=500&fit=thumb'
+          }
+        })
+      }
+      if (item.featuredImage) {
+        return {
+          property: item.title,
+          address: item.address,
+          image: item.featuredImage.fields.file.url + '?w=500&h=500&fit=thumb'
+        }
+      }
+    })
+
     AppStore.data.processes = processes
     AppStore.data.properties = properties
-    AppStore.data.galleryItems = galleryItems
+    AppStore.data.galleryItems = _.flatten(galleryItems)
     AppStore.data.companyContent = companyContent
     AppStore.data.ready = true
 
     const appCache = {
       ...AppStore.data
     }
-    localStorage.setItem('appCache', JSON.stringify(appCache))
 
+    localStorage.setItem('appCache', JSON.stringify(appCache))
     AppStore.emitChange()
   })
 }

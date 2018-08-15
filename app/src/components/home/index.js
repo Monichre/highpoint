@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { emitter } from '../../eventEmitter'
 import { VideoLogo } from '../videoLogo'
 import Footer from '../footer'
-import tippy from 'tippy.js'
 import { cornerLines, homePageLines } from '../lines'
 import anime from 'animejs'
 import './_home.scss'
@@ -13,8 +12,8 @@ export default class Home extends Component {
     this.state = {
       muted: true,
       launchFullVideo: false,
-      url: '/video/construction-video.mp4',
-      videos: ['/video/construction-video.mp4', '/video/iron-branding.mp4']
+      url: 'https://player.vimeo.com/external/285014911.hd.mp4?s=b54412138c16c77670c289e53e4e53376f9fa51c&profile_id=175',
+      videos: ['https://player.vimeo.com/external/285014911.hd.mp4?s=b54412138c16c77670c289e53e4e53376f9fa51c&profile_id=175', '/video/iron-branding.mp4']
     }
   }
   componentDidMount() {
@@ -28,7 +27,7 @@ export default class Home extends Component {
     const border = document.querySelector('.border')
     const inner_svg = document.querySelector('.border .inner svg')
 
-    tippy(backgroundVideo)
+    
     backgroundVideo.addEventListener('click', e => {
       e.preventDefault()
       e.stopPropagation()

@@ -1,0 +1,171 @@
+$c-base: #444;
+$c-dark: #111;
+// $c-primary: #6fd1bd;
+$c-primary: #f6e6cf;
+$c-secondary: salmon;
+// $c-secondary: #646464;
+$b-fontSize: 1.6rem;
+$b-lineHeight: 1.5;
+$b-animType: ease-in-out;
+$b-animSpeed: 0.2s;
+// $b-shadowSize: 4px;
+$b-shadowSize: 2px;
+$Title-color: $c-dark;
+
+.portfolio_card.featured {
+  position: relative;
+  display: flex;
+  background: #fff;
+  max-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+  // height: 80vh;
+
+  .inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 60px 0 40px;
+
+    &:after {
+      content: '';
+      right: 30px;
+      top: 20px;
+      position: absolute;
+      width: 1.5px;
+      height: 92%;
+      background: #000;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 5px;
+      text-align: right;
+      // text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+      // transition: text-shadow $b-animSpeed $b-animType;
+    }
+
+    .img_cont {
+      height: 300px;
+      position: relative;
+      .img_inner {
+        height: 100%;
+        height: 300px;
+
+        .aboutUsVideo {
+          background: rgba(0, 0, 0, 0.4);
+          height: max-content;
+          video {
+            filter: grayscale(1);
+          }
+        }
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+
+          &.is_venture {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    .content {
+      position: relative;
+      z-index: 10;
+      .sub_title {
+        h4 {
+          margin: 15px 0 5px;
+          font-size: .8rem;
+          color: black;
+          font-weight: bolder;
+          text-transform: uppercase;
+          text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+          transition: text-shadow $b-animSpeed $b-animType;
+        }
+      }
+
+      .text {
+        // width: 50%;
+
+        p {
+          font-size: 12px;
+          line-height: 1.7;
+          width: 100%;
+          padding-right: 20px;
+          text-align: justify;
+          font-weight: 300;
+        }
+      }
+    }
+  } // End of inner
+
+  .portfolio_card__details {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 10px 30px;
+
+    .cinderblock_container {
+      bottom: 5px;
+    /* display: inline-block; */
+    width: 4%;
+    position: relative;
+      svg {
+        height: 20px;
+        vertical-align: -webkit-baseline-middle;
+      }
+    }
+
+    .view_process_button {
+      padding-top: 5px;
+      .button__link {
+        position: relative;
+        font-size: 13px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: rgb(51, 51, 51);
+        text-transform: capitalize;
+        font-family: N-Black;
+        margin: 0;
+        // width: max-content;
+        text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+        transition: text-shadow $b-animSpeed $b-animType;
+
+        &:hover {
+          text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+        }
+      }
+    }
+
+    .portfolio_card__footer {
+      flex-basis: 90%;
+      position: relative;
+
+      &.process_true {
+        flex-basis: 70%;
+      }
+
+      &:after {
+        content: '';
+        left: 0;
+        top: 10px;
+        position: absolute;
+        width: 100%;
+        height: 1.5px;
+        background: #000;
+      }
+    }
+  } // End of details/footer
+}

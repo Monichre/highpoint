@@ -31,32 +31,42 @@ $Title-color: $c-dark;
 	.inner {
 		position: relative;
 
-		&:after {
-      // content: '';
-      // right: -30px;
-      // top: 0;
-      // position: absolute;
-      // width: 1px;
-      // height: 95%;
-      // background: #000;
-    }
-		h3 {
-			margin: 20px 0 10px;
-			font-size: 1.5rem;
-			color: black;
-			text-align: right;
-			font-weight: bolder;
-			text-transform: uppercase;
-			text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-			transition: text-shadow $b-animSpeed $b-animType;
-			border-bottom: 1px solid #000;
-			a {
-				svg {
-					height: 20px!important;
-					width: 20px!important;
+		header {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			hr {
+				height: 2px;
+				background: #000;
+				margin: 20px 0 10px;
+				width: 100%;
+				width: -moz-available;          /* WebKit-based browsers will ignore this. */
+				width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+				width: fill-available;
+			}
+			h3 {
+				margin: 20px 0 10px;
+				font-size: 1.5rem;
+				color: black;
+				text-align: left!important;
+				font-weight: bolder;
+				position: relative;
+				text-transform: uppercase;
+				text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+				transition: text-shadow $b-animSpeed $b-animType;
+				// border-bottom: 1px solid #000;
+				width: max-content;
+		
+				a {
+					svg {
+						height: 20px!important;
+						width: 20px!important;
+					}
 				}
 			}
 		}
+
+	
 		.process_card__grid {
  
 
