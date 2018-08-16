@@ -1,0 +1,66 @@
+.four_rows_grid_container {
+  
+  height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+
+  .blueprint, .before, .after {
+    height: 80vh;
+  }
+  
+  .blueprint {
+    grid-column: span 6 / auto;
+    // grid-column: span 6 / auto;
+    // grid-row: unset;
+    height: 95%;
+    img {
+      margin-top: 40px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  
+  .before {
+    grid-column: span 3 / auto;
+    display: flex;
+			flex-direction: column;
+			.img__wrapper {
+				height: 25%;
+        width: 100%;
+        margin-top: 10px;
+				&:nth-of-type(1) {
+          margin-top: 0px;
+				}
+		
+				img {
+					object-fit: cover;
+					height: 100%;
+					width: 100%;
+        }
+      }
+  }
+  
+  .after {
+    grid-column: span 3 / auto;
+    display: flex;
+			flex-direction: column;
+			.img__wrapper {
+				height: 25%;
+        width: 100%;
+        margin-top: 10px;
+				&:nth-of-type(1) {
+          margin-top: 0px;
+				}
+				
+				img {
+					object-fit: cover;
+					height: 100%;
+					width: 100%;
+        }
+      }
+  }
+}
+  

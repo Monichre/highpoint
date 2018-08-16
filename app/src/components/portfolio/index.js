@@ -51,7 +51,7 @@ export default class Portfolio extends Component {
         <div className="about_us">
           <h4>
             {allVentures.map((property, i) => (
-              <span style={{cursor: 'pointer'}} onClick={e => this.goToPage(e, i)}>{property.title} / </span>
+              <span style={{cursor: 'pointer'}} onClick={e => this.goToPage(e, i)}>{property.title} {(i === 0 || i === allVentures.length - 1) ? '' : '/'} </span>
             ))}
           </h4>
           <div className="text">

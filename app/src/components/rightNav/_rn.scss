@@ -59,7 +59,7 @@ $Title-color: $c-dark;
 
         li {
           position: relative;
-          font-size: 13px;
+          font-size: .8rem;
           letter-spacing: 2px;
           font-weight: 700;
           color: rgb(51, 51, 51);
@@ -86,17 +86,14 @@ $Title-color: $c-dark;
             height: 60px;
             width: 60px;
             position: relative;
-            //  position: fixed;
-            //  top: 20px;
-            //  right: 20px;
-
+   
             .text {
               font-family: sans-serif;
               text-align: center;
               margin: 40px 0;
               width: max-content;
               position: absolute;
-              bottom: -100px;
+              bottom: -150px;
               transform: rotate(90deg);
             }
 

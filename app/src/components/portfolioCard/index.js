@@ -21,11 +21,16 @@ export const PortfolioCard = props => (
       <div className='inner'>
         <h3>{props.property.title}</h3>
         <div className='img_cont'>
-          <div className='img_inner'>
+          <div className={`img_inner ${props.property.logos && props.property.logos.length > 0 ? 'img_logos' : ''}`}>
             <img
               src={props.property.featuredImage.fields.file.url}
               className={isAVenture(props.property) ? 'is_venture' : ''}
             />
+            <div className='logos'>
+              {props.property.logos && props.property.logos.length > 0
+                ? props.property.logos.map(logo => <img src={logo.fields.file.url} className={`venture_logo__thumb`} />)
+                : null}
+            </div>
           </div>
         </div>
         <div className='content'>

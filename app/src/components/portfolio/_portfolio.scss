@@ -47,10 +47,19 @@ main.portfolio.component.portfolio_component {
       color: rgb(92, 90, 90);
       text-align: center;
       line-height: 1.5;
+      padding: 0 30px;
       font-weight: bolder;
       text-transform: uppercase;
       text-shadow: 1px 1px 0 $c-primary;
       transition: text-shadow $b-animSpeed $b-animType;
+
+      span {
+        &:hover {
+          text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+        }
+      }
+
+       
     }
   }
 

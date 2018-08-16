@@ -27,10 +27,11 @@ $Title-color: $c-dark;
 		 position: relative;
 		 z-index: 10;
 		 padding: 10px 60px 20px 40px;
+		//  height: 90vh;
 
 	.inner {
 		position: relative;
-
+		height: 100%;
 		header {
 			display: flex;
 			justify-content: space-around;
@@ -69,11 +70,14 @@ $Title-color: $c-dark;
 	
 		.process_card__grid {
  
-
+			height: 100%;
 			display: grid;
 			grid-template-columns: repeat(12, 1fr);
 			grid-gap: 10px;
 			
+			.col-1, .col-2, .col-3  {
+				height: 100%;
+			}
 			.col-1 {
 				// grid-row: span 9 / auto;
 				grid-column: span 6 / auto;
