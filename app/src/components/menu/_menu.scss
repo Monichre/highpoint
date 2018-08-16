@@ -6,7 +6,7 @@ $c-secondary: salmon;
 // $c-secondary: #646464;
 $b-fontSize: 1.6rem;
 $b-lineHeight: 1.5;
-$b-animType: ease-in-out; 
+$b-animType: ease-in-out;
 $b-animSpeed: 0.2s;
 // $b-shadowSize: 4px;
 $b-shadowSize: 2px;
@@ -15,12 +15,11 @@ $Title-color: $c-dark;
 
 $dark-gray: #3c3c3c;
 $light-gray: #a6a6a6;
-$UIblue: #3CBBF7;
-$UIred: #E74C3C;
-$UIyellow: #F8E71C;
+$UIblue: #3cbbf7;
+$UIred: #e74c3c;
+$UIyellow: #f8e71c;
 $UIgreen: #13bf11;
 $dark-brown: #542900;
-
 
 .menu {
   height: 100%;
@@ -38,10 +37,10 @@ $dark-brown: #542900;
     .top {
       padding-left: 0;
       height: 15vh;
-       display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       li {
         width: 100%;
@@ -50,10 +49,8 @@ $dark-brown: #542900;
             height: 30px;
             margin: auto;
             display: block;
-            
           }
         }
-   
       }
     }
     .bottom {
@@ -90,14 +87,14 @@ $dark-brown: #542900;
           width: 200px;
           -webkit-perspective: 1000;
           -ms-perspective: 1000;
-          perspective: 1000; 
-           
+          perspective: 1000;
+
           .filler {
-            transition: all .5s ease-in-out;
+            transition: all 0.5s ease-in-out;
             -webkit-transform-style: preserve-3d;
             -ms-transform-style: preserve-3d;
             transform-style: preserve-3d;
-            
+
             position: relative;
           }
 
@@ -105,57 +102,55 @@ $dark-brown: #542900;
             .button {
               background-position: 0 -50%;
               background-repeat: repeat-x;
-                transition: background-position .75s ease;
-          
-                 &:hover {
+              transition: background-position 0.75s ease;
+
+              &:hover {
                 background-position: 100% 60%;
                 color: white !important;
               }
             }
-            
-         
+
             &.wave-white .button {
               background-color: black;
               color: white;
-              background-image: url('/icons/wave-white.png');	
-              
+              background-image: url('/icons/wave-white.png');
+
               &:hover {
                 color: black !important;
               }
             }
-            
+
             &.wave-black .button {
               color: black;
-              background-image: url('/icons/wave-black.png');	
+              background-image: url('/icons/wave-black.png');
             }
           }
-          
-          
+
           .button {
             height: 45px;
             width: 200px;
             border-radius: 3px;
             backface-visibility: hidden;
-          position: absolute;
-          top: 0;
-          left: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            -webkit-box-shadow: 1px 2px 4px -1px rgba(60,60,60,0.64);
-            box-shadow: 1px 2px 4px -1px rgba(60,60,60,0.64);
-            
+            -webkit-box-shadow: 1px 2px 4px -1px rgba(60, 60, 60, 0.64);
+            box-shadow: 1px 2px 4px -1px rgba(60, 60, 60, 0.64);
+
             i.fa {
               color: white;
               font-size: 20px;
               margin: auto;
-              text-shadow: .5px 1px 2px #3c3c3c;
+              text-shadow: 0.5px 1px 2px #3c3c3c;
             }
-            
+
             &.front {
               z-index: 10;
             }
-        
+
             &.back {
               color: white;
               font-size: 15px;
@@ -176,12 +171,9 @@ $dark-brown: #542900;
             .u-shadow {
               text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
             }
-            
-           }
-          
+          }
         }
       }
     }
- 
   }
 }

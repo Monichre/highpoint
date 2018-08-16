@@ -25,7 +25,7 @@ $Title-color: $c-dark;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   overflow: hidden;
-  width: 100%;
+  width: 95%;
   margin: auto;
   // height: 80vh;
 
@@ -50,7 +50,7 @@ $Title-color: $c-dark;
     }
 
     h3 {
-      font-size: 1.15rem;
+      font-size: 1.125rem;
       margin-bottom: 5px;
       text-align: right;
       // text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
@@ -98,10 +98,9 @@ $Title-color: $c-dark;
       }
 
       .text {
-        // width: 50%;
 
         p {
-          font-size: 12px;
+          font-size: .8rem;
           line-height: 1.7;
           width: 100%;
           padding-right: 20px;

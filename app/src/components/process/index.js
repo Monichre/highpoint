@@ -2,38 +2,44 @@ import React, { Component } from 'react'
 import { processPortfolioLines, cornerLines } from '../lines'
 import { ProcessCard } from '../processCard'
 import AppStore from '../../flux/stores'
-import './_process.scss'
 
 export default class Process extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
   }
 
-  componentWillMount() {
+  componentWillMount () {
     const { processes, properties } = AppStore.data
     const title = decodeURIComponent(window.location.pathname.split('/').pop())
-    const property = properties.find(property => property.title === title) 
-    const process = property ? {...property.process.fields} : processes.find(process => process.title === title) 
-    
+    const property = properties.find(property => property.title === title)
+    const process = property ? { ...property.process.fields } : processes.find(process => process.title === title)
+
     this.setState({
       process: process
     })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     processPortfolioLines()
     cornerLines()
   }
 
-  render() {
+  render () {
     const { process } = this.state
     return (
-      <main className="component process_component">
-        <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '45px', letterSpacing: '4px', marginTop: '40px'}}>
+      <main className='component process_component'>
+        <h1
+          style={{
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            fontSize: '45px',
+            letterSpacing: '4px',
+            marginTop: '40px'
+          }}>
           Process
         </h1>
-        <section className="inner" style={{paddingBottom: '100px'}}>
+        <section className='inner' style={{ paddingBottom: '100px' }}>
           <ProcessCard process={process} />
         </section>
       </main>

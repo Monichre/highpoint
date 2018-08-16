@@ -20,11 +20,14 @@ export default class Portfolio extends Component {
     console.log(this)
   }
 
-  goToPage = eventKey => {
-    this._pageScroller.goToPage(eventKey)
+  goToPage = (e, i) => {
+    console.log(i)
+    console.log(e)
+    e.preventDefault()
+    this._pageScroller.goToPage(i)
   }
 
-  pageOnChange = number => {
+  pageOnChange = (number) => {
     console.log(number)
     this.setState({ currentPage: number })
   }
@@ -33,7 +36,7 @@ export default class Portfolio extends Component {
     const { properties, aboutUsContent } = this.props
     const allVentures = _.sortBy(properties, item => item.order)
     const FirstSlide = () => (
-      <div style={{ height: '100vh' }}>
+      <div style={{ height: '100vh', overflow: 'hidden' }}>
         <h1
           style={{
             textAlign: 'center',
@@ -41,14 +44,14 @@ export default class Portfolio extends Component {
             fontSize: '45px',
             letterSpacing: '4px',
             position: 'relative',
-            top: '50px'
+            top: '20px'
           }}>
           Portfolio
         </h1>
         <div className="about_us">
           <h4>
-            {allVentures.map(property => (
-              <span>{property.title} / </span>
+            {allVentures.map((property, i) => (
+              <span style={{cursor: 'pointer'}} onClick={e => this.goToPage(e, i)}>{property.title} / </span>
             ))}
           </h4>
           <div className="text">

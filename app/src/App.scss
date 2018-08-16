@@ -1,8 +1,7 @@
 @import './sass/settings';
 @import './sass/mixins/mixins';
 @import './sass/global';
-@import './sass/typography';
-@import './sass/stitches';
+
 
 @font-face {
   font-family: 'N-Black';
@@ -53,6 +52,7 @@ body {
   // background: #ebebeb;
   // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
   background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  font-size: 150%;
 
   .flex {
     margin-top: 0;
@@ -101,6 +101,7 @@ body {
   .App {
     font-family: 'N-Light';
     padding: 0 10% 0;
+    font-size: 100%;
   }
 
   li {
@@ -184,7 +185,7 @@ body {
       border-radius: 4px;
       position: relative;
       // background:#fff;
-      background-size: 90%;
+      background-size: cover;
       background-color: white;
       background-repeat: no-repeat;
       background-position: top left;
@@ -208,8 +209,8 @@ body {
 
         &:after {
           position: absolute;
-          top: 0;
-          right: 55px;
+          top: 2px;
+          right: 50px;
           content: '';
           width: 15%;
           height: 2px;
@@ -219,6 +220,20 @@ body {
           background: #000;
           transition: all 0.3s cubic-bezier(0.28, 0.05, 0.65, 0.97);
         }
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: '';
+        width: 40px;
+        height: 100%;
+        // border-radius:4px;
+        // background-color: rgba(0,0,0,0.3);
+
+        background: #fff;
+        transition: all 0.3s cubic-bezier(0.28, 0.05, 0.65, 0.97);
       }
 
       &:after {
@@ -293,7 +308,7 @@ body {
         .preview-image {
           transition: all 0.2s cubic-bezier(0.28, 0.05, 0.65, 0.97);
           box-shadow: -8px 5px 30px 0 rgba(0, 0, 0, 0.2);
-          z-index: 1999;
+          z-index: 1998;
           img {
             height: 100%;
             width: 100%;
@@ -302,6 +317,7 @@ body {
           &:nth-child(1) {
             transform: rotate(#{randomNum(-10, 10)}deg) translate(-150px, -100px);
             transition-delay: 0.4s;
+            z-index: 1999;
           }
           &:nth-child(2) {
             transform: rotate(#{randomNum(-10, 10)}deg) translate(-120px, 0);
@@ -312,11 +328,11 @@ body {
             transition-delay: 0.55s;
           }
           &:nth-child(4) {
-            transform: rotate(#{randomNum(-10, 10)}deg) translate(130px, 70px);
+            transform: rotate(#{randomNum(-10, 10)}deg) translate(130px, 90px);
             transition-delay: 0.5s;
           }
           &:nth-child(5) {
-            transform: rotate(#{randomNum(-10, 10)}deg) translate(180px, -40px);
+            transform: rotate(#{randomNum(-10, 10)}deg) translate(180px, 0);
             transition-delay: 0.6s;
           }
         }

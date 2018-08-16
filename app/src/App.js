@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import AppStore from './flux/stores'
 import AppDispatcher from './flux/dispatchers'
-import { Header } from './components/header'
 import LeftNav from './components/leftNav'
 import RightNav from './components/rightNav'
 import routes from './routes'
@@ -55,7 +54,6 @@ class App extends Component {
     if (removeLoader || ready) {
       return (
         <div className="App">
-        <Header location={location} />
           <LeftNav />
           {routes}
           <RightNav location={location} />
