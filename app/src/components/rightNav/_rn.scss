@@ -47,15 +47,17 @@ $Title-color: $c-dark;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 25px;
+      padding: 0;
       width: 100%;
-      align-items: flex-end;
+      // align-items: flex-end;
 
       &.top {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 15vh;
+        padding: 0;
 
         li {
           position: relative;
@@ -66,14 +68,40 @@ $Title-color: $c-dark;
           font-family: N-Black;
           height: 100%;
           width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          align-content: center;
 
           svg {
             height: 6.5vh;
             display: block;
-            margin: auto;
+            margin: auto;   
+            
           }
-
         }
+      }
+
+      &.sidebar {
+        position: relative;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          height: 70vh;
+          width: 100%;
+          justify-content: flex-start;
+          align-items: center;
+
+          li {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.55rem !important;
+
+            @media only screen  and (min-width : 1224px) {
+              font-size: 0.75rem !important;
+            }
+          }
+       
       }
 
       &.bottom {
@@ -97,7 +125,7 @@ $Title-color: $c-dark;
           line-height: 2;
 
           @media only screen  and (min-width : 1224px) {
-            font-size: 0.45rem !important;
+            font-size: 0.55rem !important;
           }
         }
       }

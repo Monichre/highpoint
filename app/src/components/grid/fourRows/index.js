@@ -9,7 +9,7 @@ export default props => (
       </div>
     </div>
     <div className='before'>
-      <h4 style={{ fontSize: '14px', textAlign: 'center', margin: '10px 0' }}>BEFORE </h4>
+      <h4 style={{ fontSize: '16px', textAlign: 'center', margin: '10px 0' }}>BEFORE </h4>
       {props.process.beforeImages.map(image => (
         <div className='img__wrapper'>
           <img src={image.fields.file.url + '?w=300&h=400&fit=thumb'} />
@@ -17,7 +17,7 @@ export default props => (
       ))}
     </div>
     <div className='after'>
-      <h4 style={{ fontSize: '14px', textAlign: 'center', margin: '10px 0' }}>AFTER </h4>
+      <h4 style={{ fontSize: '16px', textAlign: 'center', margin: '10px 0' }}>AFTER </h4>
       {props.process.afterImages.map(image => (
         <div className='img__wrapper'>
           <img src={image.fields.file.url + '?w=300&h=400&fit=thumb'} />

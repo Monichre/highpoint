@@ -1,38 +1,129 @@
-import React, { Component } from 'react'
-import { MorphReplace } from 'react-svg-morph'
+import React, { Component, Fragment } from 'react'
+import { MorphReplaceResize } from 'react-svg-morph'
+import Hamburger from '../hamburger'
+import CompassRuler from '../compassRuler'
+import CloseMenu from '../closeMenu'
+import { Keyframes, animated, config } from 'react-spring'
+import { sleep } from '../../utils'
 import './_rn.scss'
 
+const fast = { ...config.stiff, restSpeedThreshold: 1, restDisplacementThreshold: 0.01 }
+
+const Sidebar = Keyframes.Spring({
+  peek: [
+    { delay: 500, from: { x: 200 }, to: { x: 0 }, config: fast },
+    { delay: 800, to: { x: 200 }, config: config.slow }
+  ],
+  open: { to: { x: 0 }, config: config.default },
+  // or async functions with side-effects
+  close: async call => {
+    await sleep(400)
+    await call({ to: { x: 200 }, config: config.gentle })
+  }
+})
+
+// Creates a keyframed trail
+const Content = Keyframes.Trail({
+  peek: [{ delay: 600, from: { x: 200, opacity: 0 }, to: { x: 0, opacity: 1 } }, { to: { x: 200, opacity: 0 } }],
+  open: { delay: 100, to: { x: 0, opacity: 1 } },
+  close: { to: { x: 200, opacity: 0 } }
+})
+
+const items = properties => properties.map(property => <li>{property.title}</li>)
+
 export default class RightNav extends Component {
-  state = {
-    activeComponent: <CompassRuler />
+  constructor(props) {
+    super(props)
+    this.state = {
+      activeComponent: 'compass',
+      open: false
+    }
   }
 
-  compassHover = () => {
-   
+  toggleMenu = e => {
+    console.log(e)
+    e.preventDefault()
+    const { open, activeComponent } = this.state
+
+    if (!open && activeComponent === 'hamburger') {
+      this.setState({
+        open: true,
+        activeComponent: 'close'
+      })
+    }
+    if (open && activeComponent === 'close') {
+      this.setState({
+        open: false,
+        activeComponent: 'hamburger'
+      })
+    }
     this.setState({
-      activeComponent: <Hamburger />
+      open: false,
+      activeComponent: 'compass'
     })
   }
 
+  toggleCompass = () =>
+    this.state.activeComponent === 'close'
+      ? null
+      : this.setState({
+          activeComponent: this.state.activeComponent === 'compass' ? 'hamburger' : 'compass'
+        })
 
-  render () {
+  setCompass = () => (this.state.activeComponent === 'close' ? null : this.setState({ activeComponent: 'compass' }))
+
+  compassClick = () =>
+    this.state.activeComponent !== 'close' ? this.setState({ activeComponent: 'close' }) : 'hamburger'
+
+  render() {
+    const componentMap = {
+      hamburger: <Hamburger key="hamburger" />,
+      close: <CloseMenu key="close" />,
+      compass: <CompassRuler key="compass" />
+    }
+    const { activeComponent, open } = this.state
+    const { properties } = this.props
+    const sideBarState = open ? 'open' : 'close'
+    const active = comp => componentMap[comp]
+
     return (
       <section className={`right_nav`}>
-        <div className='inner' style={{ position: 'relative' }}>
-          <ul style={{ listStyle: 'none' }} className='top'>
-            <li onMouseEnter={this.compassHovered}>
-              {this.state.activeComponent}
+        <div className="inner" style={{ position: 'relative' }}>
+          <ul style={{ listStyle: 'none' }} className="top">
+            <li onMouseEnter={this.toggleCompass} onMouseLeave={this.setCompass} onClick={this.toggleMenu}>
+              <MorphReplaceResize>{active(activeComponent)}</MorphReplaceResize>
             </li>
           </ul>
-          <ul style={{ listStyle: 'none' }} className='bottom'>
+          <Sidebar native state={sideBarState}>
+            {({ x }) => (
+              <animated.ul className="sidebar" style={{ transform: x.interpolate(x => `translate3d(${x}%,0,0)`) }}>
+                <Content
+                  native
+                  keys={items(properties).map((_, i) => i)}
+                  config={{ tension: 200, friction: 20 }}
+                  state={sideBarState}>
+                  {items(properties).map((item, i) => ({ x, ...props }) => (
+                    <animated.div
+                      style={{
+                        transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
+                        ...props
+                      }}>
+                      <div className={i === 0 ? 'middle' : ''}>{item}</div>
+                    </animated.div>
+                  ))}
+                </Content>
+              </animated.ul>
+            )}
+          </Sidebar>
+          <ul style={{ listStyle: 'none' }} className="bottom">
             <li>
-              <span className=''>Developer</span>
+              <span className="">Developer</span>
             </li>
             <li>
-              <span className=''>Owner</span>
+              <span className="">Owner</span>
             </li>
             <li>
-              <span className=''>Operator</span>
+              <span className="">Operator</span>
             </li>
           </ul>
         </div>
@@ -40,37 +131,3 @@ export default class RightNav extends Component {
     )
   }
 }
-
-
-const CompassRuler = () => (
-  <svg
-    width='90px'
-    height='80px'
-    viewBox='0 0 90 80'
-    version='1.1'
-    xmlns='http://www.w3.org/2000/svg'
-    xmlnsXlink='http://www.w3.org/1999/xlink'>
-    <g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
-      <g id='noun_Architecture_795297' fill-rule='nonzero' fill='#000000'>
-        <g id='Group' transform='translate(0.000000, 0.637840)'>
-          <path
-            d='M45,0.11193 C42.7670679,0.111765539 40.6255457,0.998731247 39.0466376,2.57766601 C37.4677295,4.15660077 36.5807999,6.29813789 36.581002,8.53107 C36.5808635,10.7639605 37.4678212,12.905436 39.0467225,14.4843188 C40.6256237,16.0632017 42.7671095,16.9501345 45,16.94997 C47.2328905,16.9501345 49.3743763,16.0632017 50.9532775,14.4843188 C52.5321788,12.905436 53.4191365,10.7639605 53.418998,8.53107 C53.4192001,6.29813789 52.5322705,4.15660077 50.9533624,2.57766601 C49.3744543,0.998731247 47.2329321,0.111765539 45,0.11193 L45,0.11193 Z M38.27854,16.25618 L18.814922,69.7274 C17.906309,72.2239 17.781949,72.7144 18.059678,74.3159 C18.561221,76.6335 19.0982,78.4528 19.49915,78.5986 C19.9001,78.7457 21.478235,77.6966 23.351129,76.2429 C24.593281,75.1947 24.812447,74.7381 25.721059,72.2417 L45,19.2773 L64.27894,72.2417 C65.18755,74.7381 65.40672,75.1947 66.64887,76.2429 C68.52286,77.6959 70.10467,78.7448 70.50557,78.5986 C70.90652,78.4516 71.43989,76.633 71.94032,74.3159 C72.21791,72.7144 72.09355,72.2239 71.18508,69.7274 L51.726204,16.26828 C50.7780466,17.0921767 49.686652,17.7349531 48.506319,18.16463 C47.3391888,18.5851258 46.1054713,18.7904586 44.865061,18.77066 C43.7152469,18.7590064 42.5755724,18.5541416 41.493681,18.16463 C40.3141195,17.7307806 39.2243125,17.0838907 38.27854,16.25618 L38.27854,16.25618 Z M11.14168,18.35178 L0,29.49585 L7.959698,37.4553 L10.559278,34.85355 L11.861416,36.15313 L9.259465,38.7554 L17.219187,46.7151 L22.425415,41.5111 L23.725205,42.8109 L18.521349,48.0172 L23.095459,52.5913 L29.042747,36.25251 L11.14168,18.35178 L11.14168,18.35178 Z M78.85832,18.35378 L60.95965,36.25499 L66.90454,52.5911 L71.47865,48.0171 L68.8791,45.4149 L70.17886,44.1129 L72.78081,46.7149 L80.74049,38.7552 L75.53663,33.55124 L76.83642,32.24905 L82.0403,37.4552 L90,29.49572 L78.85832,18.35378 L78.85832,18.35378 Z M37.646375,44.8563 L31.699111,61.1946 L33.85832,63.354 L35.740535,65.2361 L40.944368,60.0321 L42.246553,61.3321 L37.040302,66.5359 L45,74.4956 L52.959698,66.5359 L50.357747,63.9363 L51.657537,62.6341 L54.259465,65.2361 L56.144052,63.3516 L58.300889,61.1946 L52.355973,44.8587 L45.002372,52.2121 L37.646375,44.8563 L37.646375,44.8563 Z'
-            id='Shape'
-          />
-        </g>
-      </g>
-    </g>
-  </svg>
-)
-
-const Hamburger = () => (
-  <svg width='90px' height='58px' viewBox='0 0 90 58' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
-    <g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
-      <g id='noun_menu_549980' transform='translate(45.000000, 29.000000) scale(-1, -1) translate(-45.000000, -29.000000) ' fill-rule='nonzero' fill='#000000'>
-        <path d='M2.12,5.07 L53.381,5.07 C54.552,5.07 55.502,4.121 55.502,2.95 C55.502,1.778 54.552,0.83 53.381,0.83 L2.12,0.83 C0.949,0.83 3.55271368e-15,1.778 3.55271368e-15,2.95 C3.55271368e-15,4.121 0.949,5.07 2.12,5.07 Z' id='Shape' />
-        <path d='M87.879,26.879 L2.12,26.879 C0.949,26.879 0,27.828 0,29 C0,30.171 0.949,31.12 2.12,31.12 L87.879,31.12 C89.05,31.12 90,30.171 90,29 C90,27.828 89.05,26.879 87.879,26.879 Z' id='Shape' />
-        <path d='M87.879,52.93 L2.12,52.93 C0.949,52.93 0,53.879 0,55.05 C0,56.222 0.949,57.17 2.12,57.17 L87.879,57.17 C89.05,57.17 90,56.222 90,55.05 C90,53.879 89.05,52.93 87.879,52.93 Z' id='Shape' />
-      </g>
-    </g>
-  </svg>
-)

@@ -52,11 +52,12 @@ class App extends Component {
     const ready =  AppStore.data.ready 
 
     if (removeLoader || ready) {
+      const {properties} = AppStore.data
       return (
         <div className="App">
           <LeftNav />
           {routes}
-          <RightNav location={location} />
+          <RightNav location={location} properties={properties} />
         </div>
     )
     } else {

@@ -37,33 +37,24 @@ export const getStore = callback => {
       return item.fields
     })
 
-    const galleryItems = [...processes, ...properties].map(item => {
-      if (item.afterImages) {
-        console.log(item)
-        const {id} = item
-        const property = properties
-          .filter(property => property.isAProcessItem && property.process)
-          .find(_property => _property.process.sys.id === id)
-        return item.afterImages.map(image => {
-          return {
-            property: property.title,
-            address: property.address,
-            image: image.fields.file.url + '?w=500&h=500&fit=thumb'
-          }
-        })
-      }
-      if (item.featuredImage) {
-        return {
-          property: item.title,
-          address: item.address,
-          image: item.featuredImage.fields.file.url + '?w=500&h=500&fit=thumb'
-        }
-      }
-    })
+    const galleryItems = response.items.filter(item => item.sys.contentType.sys.id === 'galleryItem').map(item => ({
+      property: item.fields.title,
+      address: item.fields.address,
+      image: item.fields.image.fields.file.url + '?w=500&h=500&fit=thumb'
+    }))
+
+    const filteredGallery = properties.map(item => ({
+      property: item.title,
+      address: item.address,
+      image: item.featuredImage.fields.file.url + '?w=500&h=500&fit=thumb'
+    }))
+
+    const fullGallery = galleryItems.concat(filteredGallery)
+    console.log(fullGallery)
 
     AppStore.data.processes = processes
     AppStore.data.properties = properties
-    AppStore.data.galleryItems = _.flatten(galleryItems)
+    AppStore.data.galleryItems = fullGallery
     AppStore.data.companyContent = companyContent
     AppStore.data.ready = true
 
