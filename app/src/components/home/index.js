@@ -11,7 +11,7 @@ export default class Home extends Component {
     super(props)
     this.state = {
       muted: true,
-      launchFullVideo: false,
+      launchFullVideo: true,
       url: 'https://player.vimeo.com/external/285014911.hd.mp4?s=b54412138c16c77670c289e53e4e53376f9fa51c&profile_id=175',
       videos: ['https://player.vimeo.com/external/285014911.hd.mp4?s=b54412138c16c77670c289e53e4e53376f9fa51c&profile_id=175', '/video/iron-branding.mp4']
     }

@@ -41,7 +41,7 @@ export default class Portfolio extends Component {
           style={{
             textAlign: 'center',
             textTransform: 'uppercase',
-            fontSize: '45px',
+            fontSize: '55px',
             letterSpacing: '4px',
             position: 'relative',
             top: '20px'

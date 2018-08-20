@@ -59,108 +59,20 @@ $Title-color: $c-dark;
 
         li {
           position: relative;
-          font-size: .8rem;
+          font-size: 1rem;
           letter-spacing: 2px;
           font-weight: 700;
           color: rgb(51, 51, 51);
           font-family: N-Black;
+          height: 100%;
+          width: 100%;
 
           svg {
-            height: 8vh;
+            height: 6.5vh;
             display: block;
             margin: auto;
           }
 
-          .u-shadow {
-            text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-            transition: text-shadow $b-animSpeed $b-animType;
-          }
-
-          &:hover {
-            .u-shadow {
-              text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
-            }
-          }
-          #contact-btn-container {
-            display: block;
-            height: 60px;
-            width: 60px;
-            position: relative;
-   
-            .text {
-              font-family: sans-serif;
-              text-align: center;
-              margin: 40px 0;
-              width: max-content;
-              position: absolute;
-              bottom: -150px;
-              transform: rotate(90deg);
-            }
-
-            .line {
-              transition: all 0.4s ease-in-out;
-              display: block;
-              position: absolute;
-              background-color: black;
-              height: 3px;
-              width: 30px;
-              transition: all 0.7s;
-              bottom: 20px;
-              left: 15px;
-            }
-
-            .line01 {
-              transition: all 0.4s ease-in-out;
-              transform-origin: 0 0;
-              @include rotate(-60);
-            }
-
-            .line02 {
-              transition: all 0.4s ease-in-out;
-              transform-origin: 100% 100%;
-              @include rotate(60);
-            }
-
-            .line01-active {
-              transition: all 0.4s ease-in-out;
-              margin-left: 4px;
-              @include rotate(-45);
-            }
-
-            .line02-active {
-              transition: all 0.4s ease-in-out;
-              margin-left: -4px;
-              @include rotate(45);
-            }
-
-            .line03-active {
-              transition: all 0.4s ease-in-out;
-              margin-bottom: 40px;
-              background-color: rgba(255, 255, 255, 0);
-            }
-
-            &:hover {
-              letter-spacing: 0.8px;
-              .line01 {
-                @include rotate(0);
-              }
-
-              .line02 {
-                @include rotate(0);
-              }
-
-              .line01-active {
-                @include rotate(0);
-              }
-
-              .line02-active {
-                @include rotate(0);
-              }
-
-              .line03-active {
-              }
-            }
-          }
         }
       }
 
@@ -173,17 +85,20 @@ $Title-color: $c-dark;
         padding: 0 25px;
         align-items: center;
         li {
-          font-size: 10px!important;
+          font-size: 0.55rem !important;
           letter-spacing: 3px;
           font-weight: 700;
           text-transform: uppercase;
           font-family: N-Light;
           margin: 0;
           width: 100% !important;
-          text-align: center!important;
+          text-align: center !important;
           color: #fff;
-          
           line-height: 2;
+
+          @media only screen  and (min-width : 1224px) {
+            font-size: 0.45rem !important;
+          }
         }
       }
     }

@@ -33,7 +33,7 @@ export default class Process extends Component {
           style={{
             textAlign: 'center',
             textTransform: 'uppercase',
-            fontSize: '45px',
+            fontSize: '55px',
             letterSpacing: '4px',
             marginTop: '40px'
           }}>

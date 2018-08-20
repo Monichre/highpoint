@@ -23,26 +23,15 @@ main.portfolio.component.portfolio_component {
     // width: 80%;
     margin: auto;
     display: block;
-    padding: 20px;
-    .text {
-      margin: 40px auto 0;
-      position: relative;
-
-      p {
-        // margin-top: 20px;
-        font-size: .85rem;
-        line-height: 1.7;
-        width: 100%;
-        padding: 0 20px;
-        text-align: justify;
-        font-weight: 300;
-      }
+    padding: 3rem 2rem;
+    @media only screen and (max-width: 1180px)  {
+      padding: 2rem 0rem;
     }
  
     h4 {
       position: relative;
       z-index: 2;
-      margin: 20px 0 20px;
+      margin: 20px 0;
       font-size: 1.2rem;
       color: rgb(92, 90, 90);
       text-align: center;
@@ -53,13 +42,34 @@ main.portfolio.component.portfolio_component {
       text-shadow: 1px 1px 0 $c-primary;
       transition: text-shadow $b-animSpeed $b-animType;
 
+      @media only screen and (max-width: 1180px)  {
+        padding: 0 40px;
+        margin: 0;
+      }
+
       span {
         &:hover {
           text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
         }
       }
+    }
+    .text {
+      margin: 5rem auto 0;
+      position: relative;
 
-       
+      @media only screen and (max-width: 1180px)  {
+        margin: 3rem auto 0;
+      }
+
+      p {
+        // margin-top: 20px;
+        font-size: .9rem;
+        line-height: 1.7;
+        width: 100%;
+        padding: 0 20px;
+        text-align: justify;
+        font-weight: 300;
+      }
     }
   }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 
 export const Thumb = props => props.item.image.includes('mp4') ? (
-  <div className={`grid__item__thumb `}>
+  <div className={`grid__item__thumb `} onClick={props.openLightbox}>
     <ReactPlayer
       playing
       playsinline
@@ -20,7 +20,7 @@ export const Thumb = props => props.item.image.includes('mp4') ? (
     </div>
   </div>
 ) : (
-  <div className='grid__item__thumb' data-revealer-color='#8779d2'>
+  <div className='grid__item__thumb' data-revealer-color='#8779d2' onClick={props.openLightbox}>
     <img src={props.item.image} alt='Some image' />
     <div className='bg__wrap'>
       <div className='grid__item__bg' style={{ backgroundImage: `url(${props.item.image})` }} />

@@ -6,7 +6,7 @@ import { emitter } from '../../eventEmitter'
 
 class Footer extends Component {
   state = {
-    launchFullScreenMenu: false
+    launchFullScreenMenu: true
   }
 
   clickHandler = e => {

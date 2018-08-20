@@ -45,25 +45,28 @@
 
           .inner {
             padding: 20px;
+           
             h3 {
 							color: white;
 							text-align: center;
 							margin: 20px 0 10px;
-							font-size: 1.5rem;
-							
-							font-weight: bolder;
-							text-transform: uppercase;
+							font-size: 1.2rem;
+							// font-weight: bolder;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+
             }
             p {
-							color: white;
-							text-align: center;
-							font-size: 1.5rem;
-							line-height: 1.2;
-							
-							transition: all .4s ease-in-out;
-							// padding: 30px;
-							
-							font-weight: 300;
+              font-size: .8rem;
+              line-height: 1.2;
+              font-family: 'N-Light';
+              -webkit-transition: all .4s ease-in-out;
+              -o-transition: all .4s ease-in-out;
+              transition: all .4s ease-in-out;
+              font-weight: 400;
+              letter-spacing: 1px;
+              text-align: center;
+              color: #fff;
             }
           }
         }
