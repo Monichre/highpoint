@@ -111,8 +111,13 @@ main.portfolio.component.portfolio_component {
         }
       }
     }
-
-
+  }
+  .arrows {
+    button {
+      outline: none;
+      border: none;
+      background: transparent;
+    }
   }
 }
 

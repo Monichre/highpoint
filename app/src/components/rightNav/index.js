@@ -1,35 +1,15 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { MorphReplaceResize } from 'react-svg-morph'
 import Hamburger from '../hamburger'
 import CompassRuler from '../compassRuler'
 import CloseMenu from '../closeMenu'
 import { Keyframes, animated, config } from 'react-spring'
-import { sleep } from '../../utils'
+import { Link } from 'react-router-dom'
+import { Content } from './content'
+import { Sidebar, fast, items } from './sidebar'
+import _ from 'lodash'
 import './_rn.scss'
 
-const fast = { ...config.stiff, restSpeedThreshold: 1, restDisplacementThreshold: 0.01 }
-
-const Sidebar = Keyframes.Spring({
-  peek: [
-    { delay: 500, from: { x: 200 }, to: { x: 0 }, config: fast },
-    { delay: 800, to: { x: 200 }, config: config.slow }
-  ],
-  open: { to: { x: 0 }, config: config.default },
-  // or async functions with side-effects
-  close: async call => {
-    await sleep(400)
-    await call({ to: { x: 200 }, config: config.gentle })
-  }
-})
-
-// Creates a keyframed trail
-const Content = Keyframes.Trail({
-  peek: [{ delay: 600, from: { x: 200, opacity: 0 }, to: { x: 0, opacity: 1 } }, { to: { x: 200, opacity: 0 } }],
-  open: { delay: 100, to: { x: 0, opacity: 1 } },
-  close: { to: { x: 200, opacity: 0 } }
-})
-
-const items = properties => properties.map(property => <li>{property.title}</li>)
 
 export default class RightNav extends Component {
   constructor(props) {
@@ -41,36 +21,43 @@ export default class RightNav extends Component {
   }
 
   toggleMenu = e => {
-    console.log(e)
     e.preventDefault()
-    const { open, activeComponent } = this.state
 
-    if (!open && activeComponent === 'hamburger') {
+    const { open, activeComponent } = this.state
+    if (!open) {
       this.setState({
         open: true,
-        activeComponent: 'close'
+        activeComponent: 'hamburger'
       })
+      return
     }
-    if (open && activeComponent === 'close') {
+    if (open) {
       this.setState({
         open: false,
+      })
+      return
+    }
+  }
+
+  toggleCompass = () => {
+  
+    if(this.state.activeComponent === 'compass') {
+      this.setState({
         activeComponent: 'hamburger'
       })
     }
-    this.setState({
-      open: false,
-      activeComponent: 'compass'
+    if (this.state.activeComponent === 'hamburger') {
+      this.setState({
+        activeComponent: 'compass'
+      })
+    }
+  }
+ 
+  setCompass = () => {
+    this.setState({ 
+      activeComponent: this.state.activeComponent === 'close' ? 'hamburger' : 'compass'
     })
   }
-
-  toggleCompass = () =>
-    this.state.activeComponent === 'close'
-      ? null
-      : this.setState({
-          activeComponent: this.state.activeComponent === 'compass' ? 'hamburger' : 'compass'
-        })
-
-  setCompass = () => (this.state.activeComponent === 'close' ? null : this.setState({ activeComponent: 'compass' }))
 
   compassClick = () =>
     this.state.activeComponent !== 'close' ? this.setState({ activeComponent: 'close' }) : 'hamburger'
@@ -90,7 +77,7 @@ export default class RightNav extends Component {
       <section className={`right_nav`}>
         <div className="inner" style={{ position: 'relative' }}>
           <ul style={{ listStyle: 'none' }} className="top">
-            <li onMouseEnter={this.toggleCompass} onMouseLeave={this.setCompass} onClick={this.toggleMenu}>
+            <li onMouseEnter={open ? null : _.throttle(this.toggleCompass, 300)} onClick={this.toggleMenu} onMouseLeave={open ? null : _.throttle(this.toggleCompass, 300)} className={`sidebar_menu_link ${activeComponent} ${open ? 'open' : 'close'}`}>
               <MorphReplaceResize>{active(activeComponent)}</MorphReplaceResize>
             </li>
           </ul>
@@ -124,6 +111,10 @@ export default class RightNav extends Component {
             </li>
             <li>
               <span className="">Operator</span>
+            </li>
+            <li>
+              <span className="">
+              <a href="mailto:info@highpointpg.com">Contact</a></span>
             </li>
           </ul>
         </div>

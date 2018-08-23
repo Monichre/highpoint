@@ -38,7 +38,7 @@ export const getStore = callback => {
     })
 
     const galleryItems = response.items.filter(item => item.sys.contentType.sys.id === 'galleryItem').map(item => ({
-      property: item.fields.title,
+      property: item.fields.property,
       address: item.fields.address,
       image: item.fields.image.fields.file.url + '?w=500&h=500&fit=thumb'
     }))

@@ -36,6 +36,7 @@ export default class Gallery extends Component {
     const photoSet = galleryItems.map((image, i) => {
       let _image = {...image}
       _image.src = image.image
+      _image.caption = `${image.property}, ${image.address}`
       return _image
     })
 

@@ -12,8 +12,8 @@ export default class Home extends Component {
     this.state = {
       muted: true,
       launchFullVideo: true,
-      url: 'https://player.vimeo.com/external/285014911.hd.mp4?s=b54412138c16c77670c289e53e4e53376f9fa51c&profile_id=175',
-      videos: ['https://player.vimeo.com/external/285014911.hd.mp4?s=b54412138c16c77670c289e53e4e53376f9fa51c&profile_id=175', '/video/iron-branding.mp4']
+      url: 'https://player.vimeo.com/external/286249741.sd.mp4?s=0ba1a7ff1be8fe5f7c0bf90006d04f53041c1310&profile_id=165',
+      activeIcon: 'cinderblock'
     }
   }
   componentDidMount() {
@@ -28,12 +28,14 @@ export default class Home extends Component {
     const inner_svg = document.querySelector('.border .inner svg')
 
     
-    backgroundVideo.addEventListener('click', e => {
-      e.preventDefault()
-      e.stopPropagation()
-      this.setState({ launchFullVideo: true }, () => {
-        this.launchFullVideo()
-        emitter.emit('event:fullscreen-video-launched', { data: true })
+    inner_svg.addEventListener('mouseover', () => {
+      this.setState({
+        activeIcon: 'videoIcon'
+      })
+    })
+    inner_svg.addEventListener('mouseleave', () => {
+      this.setState({
+        activeIcon: 'cinderblock'
       })
     })
 
@@ -75,19 +77,6 @@ export default class Home extends Component {
     }
   }
 
-  launchFullVideo = () => {
-    const video = document.querySelector('.backgroundVideo video')
-    const footer = document.querySelector('.footer')
-    const background = document.querySelector('.backgroundVideo')
-
-    video.classList.toggle('launch__full')
-    footer.classList.add('launch__full')
-    background.classList.toggle('launch__full')
-
-    this.setState({
-      muted: false
-    })
-  }
 
   prevVideo = e => {
     const { videos, url } = this.state
@@ -114,6 +103,7 @@ export default class Home extends Component {
           prevVideo={this.prevVideo}
           playOrPause={this.playOrPause}
           nextVideo={this.nextVideo}
+          activeIcon={this.state.activeIcon}
         />
       </div>
     )

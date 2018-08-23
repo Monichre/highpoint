@@ -55,7 +55,7 @@ class App extends Component {
       const {properties} = AppStore.data
       return (
         <div className="App">
-          <LeftNav />
+          <LeftNav location={location} />
           {routes}
           <RightNav location={location} properties={properties} />
         </div>

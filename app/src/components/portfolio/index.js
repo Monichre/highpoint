@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import ReactPageScroller from 'react-page-scroller'
 import { processPortfolioLines, cornerLines } from '../lines'
+import {ArrowsUp, ArrowsDown} from '../icons'
 import { PortfolioGrid } from '../grid/portfolio'
 import { PortfolioCard } from '../portfolioCard'
 import _ from 'lodash'
@@ -10,7 +11,8 @@ export default class Portfolio extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentPage: 0
+      currentPage: 0,
+      upArrow: false
     }
   }
 
@@ -28,13 +30,27 @@ export default class Portfolio extends Component {
   }
 
   pageOnChange = (number) => {
-    console.log(number)
     this.setState({ currentPage: number })
+  }
+
+  arrowClick = (e) => {
+    console.log(e)
+    e.preventDefault()
+    this.goToPage(e, this.state.currentPage + 1)
+  }
+
+  arrowUpClick = (e) => {
+    console.log(e)
+    e.preventDefault()
+    this.goToPage(e, 0)
   }
 
   render() {
     const { properties, aboutUsContent } = this.props
     const allVentures = _.sortBy(properties, item => item.order)
+    let {currentPage} = this.state
+    
+
     const FirstSlide = () => (
       <div style={{ height: '100vh', overflow: 'hidden' }}>
         <h1
@@ -71,6 +87,11 @@ export default class Portfolio extends Component {
             </ReactPageScroller>
           </PortfolioGrid>
         </section>
+        <div className='arrows' style={{position: 'fixed', bottom: '30px', left: '45px', zIndex: 2000}}>
+          {
+            (this.state.currentPage === 0 || this.state.currentPage === 1) ? <ArrowsDown onClick={this.arrowClick} /> : <ArrowsUp onClick={this.arrowUpClick} />
+          }
+        </div>
       </main>
     )
   }
