@@ -49,32 +49,6 @@ $dark-brown: #542900;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .cinderblock_container {
-          height: 30%;
-          @media only screen  and (min-width : 1224px) {
-            height: 30%;
-          }
-          svg {
-            margin: auto;
-            display: block;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-              /* Styles */
-              }
-              /* Desktops and laptops ----------- */
-              @media only screen  and (min-width : 1224px) {
-                // height: 30%;
-              }
-              
-              /* Large screens ----------- */
-              @media only screen  and (min-width : 1824px) {
-              /* Styles */
-              }
-              
-          }
-        }
       }
     }
     .bottom {
@@ -91,7 +65,7 @@ $dark-brown: #542900;
       position: relative;
       align-items: center;
 
-      @media only screen  and (min-width : 1224px) {
+      @media only screen and (min-width: 1224px) {
         // font-size: .8rem;
       }
       li:not(.cinder_logo_link) {
@@ -100,14 +74,14 @@ $dark-brown: #542900;
         font-weight: 700;
         color: rgb(51, 51, 51);
         font-family: N-Black;
-        margin: 40px 0;
+        margin: 20px 0;
         width: max-content;
         text-align: right;
 
-        @media only screen  and (min-width : 1224px) {
+        @media only screen and (min-width: 1224px) {
           // font-size: .65rem;
         }
-        
+
         a {
           color: inherit;
           text-decoration: none;
@@ -119,6 +93,42 @@ $dark-brown: #542900;
           &:hover {
             .u-shadow {
               text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+            }
+          }
+        }
+        &.contact__link {
+          position: absolute;
+          bottom: 20px;
+          left: 25%;
+          a {
+            span {
+              transform: rotate(-90deg);
+            }
+          }
+          .contact-burgerIcon {
+            position: relative;
+            // bottom: -200%;
+            height: auto;
+            width: 20px;
+            margin-left: 20px;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
+              opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+
+            span {
+              position: relative;
+              display: block;
+              width: 100%;
+              height: 1.5px;
+              background-color: #1a1a1a;
+              transform-origin: center;
+              transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+            }
+
+            span:first-child {
+              transform: translate(0, -3px);
+            }
+            span:last-child {
+              transform: translate(0, 3px);
             }
           }
         }

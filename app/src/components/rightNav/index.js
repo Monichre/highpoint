@@ -112,10 +112,6 @@ export default class RightNav extends Component {
             <li>
               <span className="">Operator</span>
             </li>
-            <li>
-              <span className="">
-              <a href="mailto:info@highpointpg.com">Contact</a></span>
-            </li>
           </ul>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import CinderBlock from '../cinderblock'
 import './_menu.scss'
 
-export default (props) => (
+export default props => (
   <section className='menu'>
     <div className='inner'>
       <ul style={{ listStyle: 'none' }} className='top'>
@@ -26,6 +26,17 @@ export default (props) => (
           <Link to='/gallery'>
             <span className='u-shadow'>Gallery</span>
           </Link>
+        </li>
+        <li className='menu_link contact__link'>
+          <div style={{ transform: 'rotate(-90deg)', position: 'absolute', bottom: '50px', left: '0px' }}>
+            <a>
+              <span className='u-shadow'>Contact</span>
+            </a>
+          </div>
+          <div className='contact-burgerIcon'>
+            <span />
+            <span />
+          </div>
         </li>
       </ul>
     </div>

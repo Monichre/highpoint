@@ -187,7 +187,7 @@ export const ArrowsUp = (props) => (
       <polyline points='17 18 12 13 7 18' />
     </svg>
     <br />
-    <span style={{fontSize: '10px', position: 'absolute', width: 'max-content', bottom: '-15px', left: '-10px'}}>Back To Top</span>
+    {/* <span style={{fontSize: '10px', position: 'absolute', width: 'max-content', bottom: '-15px', left: '-10px'}}>Back To Top</span> */}
   </button>
 )
 

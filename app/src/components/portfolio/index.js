@@ -87,7 +87,7 @@ export default class Portfolio extends Component {
             </ReactPageScroller>
           </PortfolioGrid>
         </section>
-        <div className='arrows' style={{position: 'fixed', bottom: '30px', left: '45px', zIndex: 2000}}>
+        <div className='arrows' style={{position: 'fixed', bottom: '10px', left: '47%', zIndex: 2000}}>
           {
             (this.state.currentPage === 0 || this.state.currentPage === 1) ? <ArrowsDown onClick={this.arrowClick} /> : <ArrowsUp onClick={this.arrowUpClick} />
           }

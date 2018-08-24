@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import anime from 'animejs'
+import './_cinderblock.scss'
 
 export default class CinderBlock extends Component {
   componentDidMount () {

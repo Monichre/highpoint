@@ -132,6 +132,7 @@ $Title-color: $c-dark;
 
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
     -ms-flex-pack: center;
     justify-content: center;
     -ms-flex-align: center;
@@ -155,7 +156,6 @@ $Title-color: $c-dark;
 
     .cinderblock_container {
       svg {
-        margin-top: 5px;
         width: 100%;
         fill: #000;
         height: 20px;
