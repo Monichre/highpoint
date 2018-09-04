@@ -8,7 +8,7 @@ export const FB = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
     className='feather feather-facebook'>
@@ -24,7 +24,7 @@ export const Insta = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
     className='feather feather-instagram'>
@@ -42,7 +42,7 @@ export const TW = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
     className='feather feather-twitter'>
@@ -58,7 +58,7 @@ export const Menu = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
     className='feather feather-menu'>
@@ -76,7 +76,7 @@ export const Next = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
     className='feather feather-arrow-right'>
@@ -94,7 +94,7 @@ export const Prev = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
     className='feather feather-arrow-left'>
@@ -111,10 +111,10 @@ export const Mail = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
-    class='feather feather-mail'>
+    className='feather feather-mail'>
     <path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z' />
     <polyline points='22,6 12,13 2,6' />
   </svg>
@@ -128,10 +128,10 @@ export const Phone = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
-    class='feather feather-phone'>
+    className='feather feather-phone'>
     <path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z' />
   </svg>
 )
@@ -144,10 +144,10 @@ export const Play = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
-    class='feather feather-play'>
+    className='feather feather-play'>
     <polygon points='5 3 19 12 5 21 5 3' />
   </svg>
 )
@@ -160,10 +160,10 @@ export const Info = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
-    class='feather feather-info'>
+    className='feather feather-info'>
     <circle cx='12' cy='12' r='10' />
     <line x1='12' y1='16' x2='12' y2='12' />
     <line x1='12' y1='8' x2='12' y2='8' />
@@ -179,10 +179,10 @@ export const ArrowsUp = props => (
       viewBox='0 0 24 24'
       fill='none'
       stroke='currentColor'
-      stroke-width='2'
+      strokeWidth='2'
       strokeLinecap='round'
       strokeLinejoin='round'
-      class='feather feather-chevrons-up'>
+      className='feather feather-chevrons-up'>
       <polyline points='17 11 12 6 7 11' />
       <polyline points='17 18 12 13 7 18' />
     </svg>
@@ -200,10 +200,10 @@ export const ArrowsDown = props => (
       viewBox='0 0 24 24'
       fill='none'
       stroke='currentColor'
-      stroke-width='2'
+      strokeWidth='2'
       strokeLinecap='round'
       strokeLinejoin='round'
-      class='feather feather-chevrons-down'>
+      className='feather feather-chevrons-down'>
       <polyline points='7 13 12 18 17 13' />
       <polyline points='7 6 12 11 17 6' />
     </svg>
@@ -218,10 +218,10 @@ export const Close = () => (
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
-    stroke-width='2'
+    strokeWidth='2'
     strokeLinecap='round'
     strokeLinejoin='round'
-    class='feather feather-x-circle'>
+    className='feather feather-x-circle'>
     <circle cx='12' cy='12' r='10' />
     <line x1='15' y1='9' x2='9' y2='15' />
     <line x1='9' y1='9' x2='15' y2='15' />

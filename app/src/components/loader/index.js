@@ -49,8 +49,8 @@ export default class Loader extends Component {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
           preserveAspectRatio="xMidYMid"
-          class="uil-ripple">
-          <rect x="0" y="0" width="100" height="100" fill="none" class="bk" />
+          className="uil-ripple">
+          <rect x="0" y="0" width="100" height="100" fill="none" className="bk" />
           <g>
             {' '}
             <animate
@@ -61,7 +61,7 @@ export default class Loader extends Component {
               keyTimes="0;0.33;1"
               values="1;1;0"
             />
-            <circle cx="50" cy="50" r="40" stroke="#000" fill="none" stroke-width="2" stroke-linecap="round">
+            <circle cx="50" cy="50" r="40" stroke="#000" fill="none" strokeWidth="2" strokeLinecap="round">
               <animate
                 attributeName="r"
                 dur="4s"
@@ -81,7 +81,7 @@ export default class Loader extends Component {
               keyTimes="0;0.33;1"
               values="1;1;0"
             />
-            <circle cx="50" cy="50" r="40" stroke="#000" fill="none" stroke-width="2" stroke-linecap="round">
+            <circle cx="50" cy="50" r="40" stroke="#000" fill="none" strokeWidth="2" strokeLinecap="round">
               <animate
                 attributeName="r"
                 dur="4s"
