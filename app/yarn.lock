@@ -7584,6 +7584,10 @@ stylus@^0.54.5:
     sax "0.5.x"
     source-map "0.1.x"
 
+superslide.js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/superslide.js/-/superslide.js-1.0.0.tgz#f2dd5472fb6193ab3e6a7f941e3e061781ad4729"
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"

@@ -31,7 +31,7 @@ $dark-brown: #542900;
   .inner {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
     height: 100%;
     width: 10vw;
     .top {
@@ -51,7 +51,7 @@ $dark-brown: #542900;
         align-items: center;
       }
     }
-    .bottom {
+    .middle {
       flex-basis: 70%;
       height: auto;
       list-style: none;
@@ -60,10 +60,9 @@ $dark-brown: #542900;
       -ms-flex-direction: column;
       flex-direction: column;
       justify-content: flex-start;
-      width: auto;
-      padding: 0 25px 25px 30px;
       position: relative;
       align-items: center;
+      padding-top: 6rem;
 
       @media only screen and (min-width: 1224px) {
         // font-size: .8rem;
@@ -75,8 +74,8 @@ $dark-brown: #542900;
         color: rgb(51, 51, 51);
         font-family: N-Black;
         margin: 20px 0;
-        width: max-content;
-        text-align: right;
+        
+        
 
         @media only screen and (min-width: 1224px) {
           // font-size: .65rem;
@@ -96,39 +95,61 @@ $dark-brown: #542900;
             }
           }
         }
-        &.contact__link {
-          position: absolute;
-          bottom: 20px;
-          left: 25%;
-          a {
-            span {
-              transform: rotate(-90deg);
-            }
-          }
-          .contact-burgerIcon {
+      
+      }
+    }
+    .bottom {
+      height: 15vh;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      align-items: center;
+      .contact__link {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: rgb(51, 51, 51);
+        font-family: N-Black;
+        
+        .contact_text {
+          transform: rotate(-90deg) translate(60px, 3px);
+          text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+            transition: text-shadow $b-animSpeed $b-animType;
+         
+        }
+        .contact-burgerIcon {
+          position: relative;
+          // bottom: -200%;
+          height: auto;
+          width: 20px;
+          margin: auto;
+          transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
+            opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+
+          span {
             position: relative;
-            // bottom: -200%;
-            height: auto;
-            width: 20px;
-            margin-left: 20px;
-            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
-              opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+            display: block;
+            width: 100%;
+            height: 1.5px;
+            background-color: #1a1a1a;
+            transform-origin: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+          }
 
-            span {
-              position: relative;
-              display: block;
-              width: 100%;
-              height: 1.5px;
-              background-color: #1a1a1a;
-              transform-origin: center;
-              transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-            }
-
+          span:first-child {
+            transform: translate(0, -3px);
+          }
+          span:last-child {
+            transform: translate(0, 3px);
+          }
+          &.hovering {
             span:first-child {
-              transform: translate(0, -3px);
+              transform: translate(0, -3px) rotate(45deg);
             }
             span:last-child {
-              transform: translate(0, 3px);
+              transform: translate(-1px, -4px) rotate(-45deg);
             }
           }
         }

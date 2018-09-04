@@ -66,3 +66,9 @@ export const getStore = callback => {
     AppStore.emitChange()
   })
 }
+
+export const goToPropertyCard = (propertyId) => {
+  console.log(propertyId)
+  AppStore.data.activePropertyCard = propertyId
+  AppStore.emitChange()
+}

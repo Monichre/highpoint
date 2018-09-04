@@ -1,107 +1,117 @@
 import React, { Component } from 'react'
-import { MorphReplaceResize } from 'react-svg-morph'
-import Hamburger from '../hamburger'
+import AppDispatcher from '../../flux/dispatchers'
 import CompassRuler from '../compassRuler'
 import CloseMenu from '../closeMenu'
-import { Keyframes, animated, config } from 'react-spring'
-import { Link } from 'react-router-dom'
-import { Content } from './content'
-import { Sidebar, fast, items } from './sidebar'
+import superslide from '../superslide'
 import _ from 'lodash'
 import './_rn.scss'
-
 
 export default class RightNav extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeComponent: 'compass',
-      open: false
+      open: false,
+      isPortfolioPage: false
     }
   }
 
-  toggleMenu = e => {
+  componentWillMount() {
+    const {location} = this.props
+    if (location.pathname.split('/').includes('portfolio')) {
+      this.setState({
+        isPortfolioPage: true,
+        open: true
+      })
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.location.pathname.split('/').includes('portfolio'))
+    console.log(this.props.location.pathname.split('/').includes('portfolio'))
+    if (nextProps.location.pathname.split('/').includes('portfolio') || this.props.location.pathname.split('/').includes('portfolio')) {
+      this.setState({
+        isPortfolioPage: true,
+        open: true
+      })
+    } else {
+      this.setState({
+        isPortfolioPage: false,
+        open: false
+      })
+    }
+  }
+
+  componentDidMount() {
+    const { isPortfolioPage } = this.state
+
+    if (isPortfolioPage) {
+      const slider = document.getElementById('sidebar_menu')
+      const content = document.querySelector('.sidebar_properties_list')
+      const burgerIcon = document.querySelector('.sidebar_trigger .contact-burgerIcon')
+      const sidebarMenu = new superslide({
+        slider: slider,
+        content: content,
+        slideContent: false,
+        animation: 'slideBottom',
+        width: '10vw',
+        height: '70vh'
+      })
+      this.sidebarMenu = sidebarMenu
+      this.sidebarMenu.open()
+      burgerIcon.classList.add('open')
+    }
+  }
+
+  toggleSideBar = e => {
     e.preventDefault()
-
-    const { open, activeComponent } = this.state
-    if (!open) {
-      this.setState({
-        open: true,
-        activeComponent: 'hamburger'
-      })
-      return
-    }
-    if (open) {
-      this.setState({
-        open: false,
-      })
-      return
-    }
-  }
-
-  toggleCompass = () => {
-  
-    if(this.state.activeComponent === 'compass') {
-      this.setState({
-        activeComponent: 'hamburger'
-      })
-    }
-    if (this.state.activeComponent === 'hamburger') {
-      this.setState({
-        activeComponent: 'compass'
-      })
-    }
-  }
- 
-  setCompass = () => {
-    this.setState({ 
-      activeComponent: this.state.activeComponent === 'close' ? 'hamburger' : 'compass'
+    const { open } = this.state
+    open ? this.sidebarMenu.close() : this.sidebarMenu.open()
+    this.setState({
+      open: !open
     })
   }
 
-  compassClick = () =>
-    this.state.activeComponent !== 'close' ? this.setState({ activeComponent: 'close' }) : 'hamburger'
+  setActivePropertyCard = (i, e) => {
+    e.preventDefault()
+    AppDispatcher.dispatch({
+      action: 'go-to-property-card',
+      propertyId: i
+    })
+  }
 
   render() {
-    const componentMap = {
-      hamburger: <Hamburger key="hamburger" />,
-      close: <CloseMenu key="close" />,
-      compass: <CompassRuler key="compass" />
-    }
-    const { activeComponent, open } = this.state
-    const { properties } = this.props
-    const sideBarState = open ? 'open' : 'close'
-    const active = comp => componentMap[comp]
+    const { open, isPortfolioPage } = this.state
+    const { properties, location } = this.props
+    const contextualIcon = isPortfolioPage ? (
+      <CloseMenu className={`${open ? 'open' : ''}`} key="close" />
+    ) : (
+      <CompassRuler key="compass" />
+    )
+    const propertiesText = isPortfolioPage ? <span className="properties_text">Properties</span> : null
+    const SideBar = isPortfolioPage ? (
+      <div id="sidebar_menu">
+        <ul style={{ listStyle: 'none' }} className="sidebar_properties_list">
+          <li key={'back to top'} onClick={e => this.setActivePropertyCard(0, e)}>
+            Back to Top
+          </li>
+          {_.sortBy(properties, item => item.order).map((property, i) => (
+            <li key={i} onClick={e => this.setActivePropertyCard(i + 1, e)}>
+              {property.title}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : null
 
     return (
       <section className={`right_nav`}>
         <div className="inner" style={{ position: 'relative' }}>
           <ul style={{ listStyle: 'none' }} className="top">
-            <li onMouseEnter={open ? null : _.throttle(this.toggleCompass, 300)} onClick={this.toggleMenu} onMouseLeave={open ? null : _.throttle(this.toggleCompass, 300)} className={`sidebar_menu_link ${activeComponent} ${open ? 'open' : 'close'}`}>
-              <MorphReplaceResize>{active(activeComponent)}</MorphReplaceResize>
+            <li className="sidebar_trigger" onClick={this.toggleSideBar}>
+              {contextualIcon}
+              {/* {propertiesText} */}
             </li>
           </ul>
-          <Sidebar native state={sideBarState}>
-            {({ x }) => (
-              <animated.ul className="sidebar" style={{ transform: x.interpolate(x => `translate3d(${x}%,0,0)`) }}>
-                <Content
-                  native
-                  keys={items(properties).map((_, i) => i)}
-                  config={{ tension: 200, friction: 20 }}
-                  state={sideBarState}>
-                  {items(properties).map((item, i) => ({ x, ...props }) => (
-                    <animated.div
-                      style={{
-                        transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
-                        ...props
-                      }}>
-                      <div className={i === 0 ? 'middle' : ''}>{item}</div>
-                    </animated.div>
-                  ))}
-                </Content>
-              </animated.ul>
-            )}
-          </Sidebar>
           <ul style={{ listStyle: 'none' }} className="bottom">
             <li>
               <span className="">Developer</span>
@@ -114,6 +124,7 @@ export default class RightNav extends Component {
             </li>
           </ul>
         </div>
+        {SideBar}
       </section>
     )
   }

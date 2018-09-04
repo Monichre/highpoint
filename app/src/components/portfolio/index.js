@@ -16,15 +16,27 @@ export default class Portfolio extends Component {
     }
   }
 
+  componentWillMount() {
+    this.setState({
+      currentPage: this.props.activePropertyCard
+    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+    if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
+      this._pageScroller.goToPage(nextProps.activePropertyCard)
+    }
+
+  }
+
   componentDidMount() {
     processPortfolioLines()
     cornerLines()
-    console.log(this)
+    console.log(this.props)
   }
 
   goToPage = (e, i) => {
-    console.log(i)
-    console.log(e)
     e.preventDefault()
     this._pageScroller.goToPage(i)
   }
@@ -34,21 +46,19 @@ export default class Portfolio extends Component {
   }
 
   arrowClick = (e) => {
-    console.log(e)
     e.preventDefault()
     this.goToPage(e, this.state.currentPage + 1)
   }
 
   arrowUpClick = (e) => {
-    console.log(e)
     e.preventDefault()
     this.goToPage(e, 0)
   }
 
   render() {
-    const { properties, aboutUsContent } = this.props
+    const { properties, aboutUsContent, activePropertyCard } = this.props
     const allVentures = _.sortBy(properties, item => item.order)
-    let {currentPage} = this.state
+    const {currentPage} = this.state
     
 
     const FirstSlide = () => (
@@ -87,9 +97,9 @@ export default class Portfolio extends Component {
             </ReactPageScroller>
           </PortfolioGrid>
         </section>
-        <div className='arrows' style={{position: 'fixed', bottom: '10px', left: '47%', zIndex: 2000}}>
+        <div className='arrows' style={{position: 'fixed', bottom: '25px', left: '47%', zIndex: 2000}}>
           {
-            (this.state.currentPage === 0 || this.state.currentPage === 1) ? <ArrowsDown onClick={this.arrowClick} /> : <ArrowsUp onClick={this.arrowUpClick} />
+            (this.state.currentPage === 0 || this.state.currentPage === 1) ? <ArrowsDown onClick={this.arrowClick} /> : null
           }
         </div>
       </main>

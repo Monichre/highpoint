@@ -1,14 +1,18 @@
 import { Dispatcher } from 'flux'
-import { getStore } from '../actions'
+import { getStore, goToPropertyCard } from '../actions'
 
 const AppDispatcher = new Dispatcher()
 
 AppDispatcher.register(payload => {
-  let action = payload.action
+  const {action, propertyId} = payload
 
   switch (action) {
     case 'get-app-store':
       getStore()
+      break
+
+    case 'go-to-property-card':
+      goToPropertyCard(propertyId)
       break
 
     default:

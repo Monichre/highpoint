@@ -20,6 +20,7 @@
     "react-svg-morph": "^0.2.1",
     "react-transition-group": "^2.4.0",
     "scrollreveal": "^3.4.0",
+    "superslide.js": "^1.0.0",
     "tippy.js": "^2.5.4"
   },
   "scripts": {

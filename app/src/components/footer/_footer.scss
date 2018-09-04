@@ -155,10 +155,12 @@ $Title-color: $c-dark;
     }
 
     .cinderblock_container {
+      padding: .2rem;
       svg {
         width: 100%;
         fill: #000;
-        height: 20px;
+        object-fit: cover;
+        height: 100%;
       }
     }
   }
