@@ -1,30 +1,21 @@
 import React from 'react'
-import FourRowsGrid from '../grid/fourRows'
-import FiveRowsGrid from '../grid/fiveRows'
-import ProcessCardContainer from './container'
-import ProcessCardGrid from '../grid/processCardGrid'
+import ProcessCardGrid from './processCardGrid'
+import CinderBlock from '../cinderblock'
 import './_processCard.scss'
 
-const renderGrid = props => {
-  if (props.process.beforeImages.length === 4) {
-    return (
-      <ProcessCardContainer {...props}>
-        <FourRowsGrid {...props} />
-      </ProcessCardContainer>
-    )
-  } else if (props.process.beforeImages.length === 5) {
-    return (
-      <ProcessCardContainer {...props}>
-        <FiveRowsGrid {...props} />
-      </ProcessCardContainer>
-    )
-  } else {
-    return (
-      <ProcessCardContainer {...props}>
-        <ProcessCardGrid {...props} />
-      </ProcessCardContainer>
-    )
-  }
-}
+const ProcessCard = props => (
+  <section className='process_card'>
+    <div className='inner'>
+      <header>
+        <h3>{props.process.title}</h3>
+        <hr />
+      </header>
+      <ProcessCardGrid {...props} />
+    </div>
+    <footer className='process_card__footer'>
+      <CinderBlock />
+    </footer>
+  </section>
+)
 
-export const ProcessCard = props => renderGrid(props)
+export default ProcessCard

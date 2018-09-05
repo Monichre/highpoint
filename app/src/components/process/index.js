@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { processPortfolioLines, cornerLines } from '../lines'
-import { ProcessCard } from '../processCard'
+import ProcessCard from '../processCard'
 import AppStore from '../../flux/stores'
 
 export default class Process extends Component {

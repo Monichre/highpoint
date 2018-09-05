@@ -2,7 +2,7 @@ $c-base: #444;
 $c-dark: #111;
 // $c-primary: #6fd1bd;
 $c-primary: #f6e6cf;
-$c-secondary: salmon;
+$c-secondary: #7E9191;
 // $c-secondary: #646464;
 $b-fontSize: 1.6rem;
 $b-lineHeight: 1.5;
@@ -130,6 +130,32 @@ $Title-color: $c-dark;
           justify-content: center;
           align-items: center;
           align-content: center;
+
+          .properties_text {
+            // margin: 20px 0;
+            position: relative;
+            top: 30px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.75rem !important;
+            letter-spacing: 2px;
+            // font-weight: 700;
+            color: #333333;
+            font-family: N-Black;
+            text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+            transition: text-shadow $b-animSpeed $b-animType;
+            transition: all 0.4s ease-in-out;
+            transform: rotate(90deg);
+
+            &:hover {
+              text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+            }
+            &.open {
+              opacity: 0;
+              top: 0px;
+            }
+            
+          }
 
           &.sidebar_menu_link.hamburger {
             &.close {

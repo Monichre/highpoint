@@ -7,39 +7,41 @@ import _ from 'lodash'
 import './_rn.scss'
 
 export default class RightNav extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false,
-      isPortfolioPage: false
-    }
+  state = {
+    open: false,
+    isPortfolioPage: false,
+    pathname: ''
   }
+
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log(state)
+  //   console.log(props)
+  //   if(props && props.location) {
+  //     console.log(props)
+  //     if (props.location.pathname.split('/').includes('portfolio')) {
+        
+  //       return {
+  //         open: true,
+  //         isPortfolioPage: true,
+  //         pathname: props.location.pathname
+  //       }
+  //     }
+  //   }
+   
+  //   return null
+  // }
 
   componentWillMount() {
-    const {location} = this.props
-    if (location.pathname.split('/').includes('portfolio')) {
+    console.log(window.location)
+    if ((this.props.location && this.props.location.pathname.split('/').includes('portfolio') || window.location.pathname.split('/').includes('portfolio'))) {
       this.setState({
+        open: true,
         isPortfolioPage: true,
-        open: true
+        pathname: '/portfolio'
       })
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps.location.pathname.split('/').includes('portfolio'))
-    console.log(this.props.location.pathname.split('/').includes('portfolio'))
-    if (nextProps.location.pathname.split('/').includes('portfolio') || this.props.location.pathname.split('/').includes('portfolio')) {
-      this.setState({
-        isPortfolioPage: true,
-        open: true
-      })
-    } else {
-      this.setState({
-        isPortfolioPage: false,
-        open: false
-      })
-    }
-  }
 
   componentDidMount() {
     const { isPortfolioPage } = this.state
@@ -87,7 +89,7 @@ export default class RightNav extends Component {
     ) : (
       <CompassRuler key="compass" />
     )
-    const propertiesText = isPortfolioPage ? <span className="properties_text">Properties</span> : null
+    const propertiesText = isPortfolioPage ? <span className={`properties_text ${open ? 'open' : ''}`}>Properties</span> : null
     const SideBar = isPortfolioPage ? (
       <div id="sidebar_menu">
         <ul style={{ listStyle: 'none' }} className="sidebar_properties_list">
@@ -109,7 +111,7 @@ export default class RightNav extends Component {
           <ul style={{ listStyle: 'none' }} className="top">
             <li className="sidebar_trigger" onClick={this.toggleSideBar}>
               {contextualIcon}
-              {/* {propertiesText} */}
+              {propertiesText}
             </li>
           </ul>
           <ul style={{ listStyle: 'none' }} className="bottom">

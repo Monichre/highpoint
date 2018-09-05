@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import Lightbox from 'react-images'
-import LightBoxTheme from '../../lightboxTheme'
+import LightBoxTheme from '../../../lightboxTheme'
 
-export default class ProcessCardGrid extends Component {
+export default class ThreeRowsGrid extends Component {
   constructor() {
     super()
     this.state = {
@@ -13,9 +13,13 @@ export default class ProcessCardGrid extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     const { beforeImages, afterImages } = this.props.process
-    const galleryItems = beforeImages.concat(afterImages)
+    const galleryItems = []
+  
+    beforeImages.forEach((img, i) => {
+      galleryItems.push(img)
+      galleryItems.push(afterImages[i])
+    })
 
     const photoSet = galleryItems.map((image, i) => {
       let _image = {}
