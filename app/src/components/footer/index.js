@@ -17,7 +17,6 @@ class Footer extends Component {
   }
 
   clickHandler = e => {
-    console.log(e)
     e.preventDefault()
     e.stopPropagation()
     const skews = Array.from(document.querySelectorAll('.skew'))

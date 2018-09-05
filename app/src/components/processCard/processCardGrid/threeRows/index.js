@@ -8,7 +8,8 @@ export default class ThreeRowsGrid extends Component {
     this.state = {
       currentImage: 0,
       lightboxIsOpen: false,
-      photos: []
+      photos: [],
+      galleryItems: []
     }
   }
 
@@ -29,7 +30,8 @@ export default class ThreeRowsGrid extends Component {
     })
 
     this.setState({
-      photos: photoSet
+      photos: photoSet,
+      galleryItems: galleryItems
     })
   }
 
@@ -66,12 +68,13 @@ export default class ThreeRowsGrid extends Component {
       currentImage: index
     })
   }
+
   handleClickImage = () => {
     if (this.state.currentImage === this.props.images.length - 1) return
     this.goToNext()
   }
   render() {
-    const { photos } = this.state
+    const { photos, galleryItems } = this.state
     return (
       <Fragment>
         <div className="process_card__grid">
@@ -82,16 +85,16 @@ export default class ThreeRowsGrid extends Component {
           </div>
           <div className="before_images col-2">
             <h4 style={{ fontSize: '18px', textAlign: 'center', margin: '10px 0' }}>BEFORE </h4>
-            {this.props.process.beforeImages.map((image, i) => (
-              <div className="img__wrapper" key={i} onClick={this.openLightbox.bind(this, i)}>
+            {galleryItems.filter(img => galleryItems.indexOf(img) % 2 === 0).map((image, i) => (
+              <div className="img__wrapper" key={i} onClick={this.openLightbox.bind(this, galleryItems.indexOf(image))}>
                 <img src={image.fields.file.url + '?w=300&h=400&fit=thumb'} />
               </div>
             ))}
           </div>
           <div className="after_images col-3">
             <h4 style={{ fontSize: '18px', textAlign: 'center', margin: '10px 0' }}>AFTER </h4>
-            {this.props.process.afterImages.map((image, i) => (
-              <div className="img__wrapper" key={i} onClick={this.openLightbox.bind(this, i)}>
+            {galleryItems.filter(img => galleryItems.indexOf(img) % 2 !== 0).map((image, i) => (
+              <div className="img__wrapper" key={i} onClick={this.openLightbox.bind(this, galleryItems.indexOf(image))}>
                 <img src={image.fields.file.url + '?w=300&h=400&fit=thumb'} />
               </div>
             ))}
