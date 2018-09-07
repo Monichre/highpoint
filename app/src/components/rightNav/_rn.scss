@@ -1,32 +1,4 @@
-$c-base: #444;
-$c-dark: #111;
-// $c-primary: #6fd1bd;
-$c-primary: #f6e6cf;
-$c-secondary: #7E9191;
-// $c-secondary: #646464;
-$b-fontSize: 1.6rem;
-$b-lineHeight: 1.5;
-$b-animType: ease-in-out;
-$b-animSpeed: 0.2s;
-// $b-shadowSize: 4px;
-$b-shadowSize: 2px;
 
-$Title-color: $c-dark;
-@mixin transform($transforms) {
-  -moz-transform: $transforms;
-  -o-transform: $transforms;
-  -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-  transform: $transforms;
-}
-
-@mixin rotate($deg) {
-  @include transform(rotate(#{$deg}deg));
-}
-
-@mixin translate($x, $y) {
-  @include transform(translate($x, $y));
-}
 .right_nav {
   z-index: 10;
   width: 10vw;
@@ -35,6 +7,10 @@ $Title-color: $c-dark;
   height: 100%;
   right: 0;
   position: fixed;
+
+  @include mq($phone-wide) {
+    width: 20vw;
+  }
 
   #sidebar_menu {
     background: #fff;
@@ -53,12 +29,12 @@ $Title-color: $c-dark;
     left: auto!important;
     border-top: 2px solid black;
 
+     @include mq($phone-wide) {
+        width: 20vw!important;
+      }
+
     ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      align-content: center;
+      @include column-flex-evenly;
       padding: 20px;
       li {
         margin: 20px 0;
@@ -66,27 +42,13 @@ $Title-color: $c-dark;
         text-align: center;
         font-size: 0.65rem !important;
         letter-spacing: 2px;
-        // font-weight: 700;
         color: #333333;
-        font-family: N-Black;
-        text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-        transition: text-shadow $b-animSpeed $b-animType;
-
-        &:hover {
-          text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
-        }
-
-        @media only screen and (min-width: 1224px) {
-          // font-size: 0.75rem !important;
-        }
+        font-family: $font-primary;
+        
         a {
-          color: inherit;
-          text-decoration: none;
-          text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-          transition: text-shadow $b-animSpeed $b-animType;
-
+          @include link-style;
           &:hover {
-            text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+            @include link-style-hover;
           }
         }
       }
@@ -101,18 +63,13 @@ $Title-color: $c-dark;
 
     ul {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include column-flex-center;
       padding: 0;
       width: 100%;
       // align-items: flex-end;
 
       &.top {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include column-flex-center;
         height: 15vh;
         padding: 0;
 
@@ -122,14 +79,8 @@ $Title-color: $c-dark;
           letter-spacing: 2px;
           font-weight: 700;
           color: rgb(51, 51, 51);
-          font-family: N-Black;
-          height: 100%;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
+          font-family: $font-primary;
+          @include column-flex-fullHeight;
 
           .properties_text {
             // margin: 20px 0;
@@ -141,14 +92,13 @@ $Title-color: $c-dark;
             letter-spacing: 2px;
             // font-weight: 700;
             color: #333333;
-            font-family: N-Black;
-            text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-            transition: text-shadow $b-animSpeed $b-animType;
+            font-family: $font-primary;
+            @include link-style;
             transition: all 0.4s ease-in-out;
             transform: rotate(90deg);
 
             &:hover {
-              text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+              @include link-style-hover;
             }
             &.open {
               opacity: 0;
@@ -205,6 +155,9 @@ $Title-color: $c-dark;
         position: relative;
         z-index: 2000;
         align-items: center;
+        @include mq($phone-wide) {
+          padding: 10px 10px 0;
+        }
         li {
           font-size: 0.55rem !important;
           letter-spacing: 3px;
@@ -219,6 +172,9 @@ $Title-color: $c-dark;
 
           @media only screen and (min-width: 1224px) {
             font-size: 0.55rem !important;
+          }
+          @include mq($phone-wide) {
+            font-size: 0.45rem !important;
           }
         }
       }

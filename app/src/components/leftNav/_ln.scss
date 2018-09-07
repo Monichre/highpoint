@@ -1,28 +1,3 @@
-$c-base: #444;
-$c-dark: #111;
-// $c-primary: #6fd1bd;
-$c-primary: #f7efe5;
-$c-secondary: #7E9191;
-// 22293C Dark Blue
-// 7E9191 Pale Pastel Green
-// $c-secondary: #646464;
-// 6BA1C2 Light Pale Blue
-$b-fontSize: 1.6rem;
-$b-lineHeight: 1.5;
-$b-animType: ease-in-out;
-$b-animSpeed: 0.2s;
-// $b-shadowSize: 4px;
-$b-shadowSize: 2px;
-
-$Title-color: $c-dark;
-
-$dark-gray: #3c3c3c;
-$light-gray: #a6a6a6;
-$UIblue: #3cbbf7;
-$UIred: #e74c3c;
-$UIyellow: #f8e71c;
-$UIgreen: #13bf11;
-$dark-brown: #542900;
 
 .menu {
   height: 100%;
@@ -32,69 +7,53 @@ $dark-brown: #542900;
   top: 0;
   left: 0;
   .inner {
-    display: flex;
-    flex-direction: column;
+    @include column-flex;
     // justify-content: space-between;
     height: 100%;
     width: 10vw;
+    @include mq($phone-wide) {
+      width: 20vw;
+    }
     .top {
       padding-left: 0;
       height: 15vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      @include column-flex;
+      
 
       li {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include column-flex-fullHeight;
       }
     }
     .middle {
       flex-basis: 70%;
       height: auto;
       list-style: none;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      justify-content: flex-start;
-      position: relative;
-      align-items: center;
       padding-top: 6rem;
+      @include column-flex-start;
 
-      @media only screen and (min-width: 1224px) {
-        // font-size: .8rem;
-      }
+      
       li:not(.cinder_logo_link) {
         font-size: 0.75rem;
         letter-spacing: 2px;
         font-weight: 700;
         color: rgb(51, 51, 51);
-        font-family: N-Black;
+        font-family: $font-primary;
         margin: 20px 0;
-        
-        
 
-        @media only screen and (min-width: 1224px) {
-          // font-size: .65rem;
+        @include mq($phone-wide) {
+          font-size: 0.65rem;
         }
-
+   
         a {
           color: inherit;
           text-decoration: none;
           .u-shadow {
-            text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-            transition: text-shadow $b-animSpeed $b-animType;
+            @include link-style;
           }
 
           &:hover {
             .u-shadow {
-              text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+              @include link-style-hover;
             }
           }
         }
@@ -114,12 +73,11 @@ $dark-brown: #542900;
         letter-spacing: 2px;
         font-weight: 700;
         color: rgb(51, 51, 51);
-        font-family: N-Black;
+        font-family: $font-primary;
         
         .contact_text {
           transform: rotate(-90deg) translate(60px, 3px);
-          text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-            transition: text-shadow $b-animSpeed $b-animType;
+          @include link-style;
          
         }
         .contact-burgerIcon {

@@ -4,7 +4,7 @@ import CompassRuler from '../compassRuler'
 import CloseMenu from '../closeMenu'
 import superslide from '../superslide'
 import _ from 'lodash'
-import './_rn.scss'
+// import './_rn.scss'
 
 export default class RightNav extends Component {
   state = {
@@ -13,26 +13,7 @@ export default class RightNav extends Component {
     pathname: ''
   }
 
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log(state)
-  //   console.log(props)
-  //   if(props && props.location) {
-  //     console.log(props)
-  //     if (props.location.pathname.split('/').includes('portfolio')) {
-        
-  //       return {
-  //         open: true,
-  //         isPortfolioPage: true,
-  //         pathname: props.location.pathname
-  //       }
-  //     }
-  //   }
-   
-  //   return null
-  // }
-
   componentWillMount() {
-    console.log(window.location)
     if ((this.props.location && this.props.location.pathname.split('/').includes('portfolio') || window.location.pathname.split('/').includes('portfolio'))) {
       this.setState({
         open: true,

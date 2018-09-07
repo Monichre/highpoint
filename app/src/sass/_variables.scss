@@ -2,7 +2,7 @@
 $c-base: #444;
 $c-dark: #111;
 $c-primary: #f6e6cf;
-$c-secondary: #7E9191;
+$c-secondary: #7e9191;
 $b-fontSize: 1.6rem;
 $b-lineHeight: 1.5;
 $b-animType: ease-in-out;
@@ -16,34 +16,34 @@ $font-secondary: 'N-Light';
 
 // font sizes
 $h--1: (
-	base: rem(30px),
-	tablet: rem(36px),
-	desktop: rem(44px),
+  base: rem(30px),
+  tablet: rem(36px),
+  desktop: rem(44px)
 );
 $h--2: (
-	base: rem(26px),
-	tablet: rem(30px),
-	desktop: rem(36px),
+  base: rem(26px),
+  tablet: rem(30px),
+  desktop: rem(36px)
 );
 $h--3: (
-	base: rem(22px),
-	tablet: rem(26px),
-	desktop: rem(30px),
+  base: rem(22px),
+  tablet: rem(26px),
+  desktop: rem(30px)
 );
 $h--4: (
-	base: rem(20px),
-	tablet: rem(22px),
-	desktop: rem(26px),
+  base: rem(20px),
+  tablet: rem(22px),
+  desktop: rem(26px)
 );
 $h--5: (
-	base: rem(18px),
-	tablet: rem(20px),
-	desktop: rem(22px),
+  base: rem(18px),
+  tablet: rem(20px),
+  desktop: rem(22px)
 );
 $h--6: (
-	base: rem(16px),
-	tablet: rem(18px),
-	desktop: rem(20px),
+  base: rem(16px),
+  tablet: rem(18px),
+  desktop: rem(20px)
 );
 
 $p: rem(16px);
@@ -57,13 +57,11 @@ $lh--x-small: 1.1;
 $lh--small: 1.25;
 $lh--large: 1.75;
 
-
 // MARGINS
 @mixin margin-auto {
   margin: auto;
   display: block;
 }
-
 
 // BASIC SPACING
 $spacing-unit: rem(20px);
@@ -73,7 +71,7 @@ $spacing-unit--medium: rem(30px);
 $spacing-unit--large: rem(40px);
 $spacing-unit--x-large: rem(60px);
 $rel-spacing-unit: 1em;
-$rel-spacing-unit--small: .5em;
+$rel-spacing-unit--small: 0.5em;
 
 // FLEX FLEX YALL
 @mixin column-flex-screenHeight {
@@ -84,6 +82,63 @@ $rel-spacing-unit--small: .5em;
   flex-direction: column;
 }
 
+@mixin overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+@mixin fixed-overlay {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 1000;
+}
+
+@mixin overlay($position, $zIndex) {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: $position;
+  z-index: $zIndex;
+}
+@mixin column-flex {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+@mixin column-flex-evenly {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@mixin column-flex-center {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  display: -ms-flexbox;
+  align-items: center;
+}
+@mixin column-flex-start {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  display: -ms-flexbox;
+  justify-content: flex-start;
+  align-items: center;
+}
 @mixin column-flex-fullHeight {
   height: 100%;
   width: 100%;
@@ -102,25 +157,43 @@ $rel-spacing-unit--small: .5em;
   overflow: hidden;
 }
 
+@mixin link-style {
+  text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+  transition: text-shadow $b-animSpeed $b-animType;
+}
+
+@mixin link-style-hover {
+  text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
 // MEDIA QUERIES
-$breakpoints: (
-    "phone":        400px,
-    "phone-wide":   480px,
-    "phablet":      560px,
-    "tablet-small": 640px,
-    "tablet":       768px,
-    "tablet-wide":  1024px,
-    "desktop":      1248px,
-    "desktop-wide": 1440px
-);
-@mixin mq($width, $type: min) {
-    @if map_has_key($breakpoints, $width) {
-        $width: map_get($breakpoints, $width);
-        @if $type == max {
-            $width: $width - 1px;
-        }
-        @media only screen and (#{$type}-width: $width) {
-            @content;
-        }
-    }
+$phone: 400px;
+$phone-wide: 480px;
+$phablet: 560px;
+$tablet-small: 640px;
+$tablet: 768px;
+$tablet-wide: 1024px;
+$desktop: 1248px;
+$desktop-wide: 1440px;
+
+@mixin mq($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
 }

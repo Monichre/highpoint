@@ -1,4 +1,4 @@
-
+@import '../../sass/global';
 .home {
   @include row-flex;
   position: relative;
@@ -142,6 +142,11 @@
             transform: scale(1.89) translateX(-0.8rem) translateY(1px);
             opacity: 1;
             transition: all 0.8s ease-in-out;
+
+            @include mq($phone-wide) {
+              -webkit-transform: scale(.6);
+              -ms-transform: scale(.6);
+            }
        
           }
         }
@@ -155,6 +160,8 @@
         cursor: url(/icons/maximize.svg), auto;
         opacity: 0;
         transition: opacity 4s ease-in-out;
+
+       
 
         video {
           width: 100% !important;
@@ -177,6 +184,10 @@
           width: 80vw !important;
           height: 70vh !important;
           overflow: hidden!important;
+
+          @include mq($phone-wide) {
+            width: 60vw !important;
+          }
           video {
             transform: scale(1.6) !important;
             width: 100% !important;
@@ -187,13 +198,9 @@
             &:after {
               cursor: url(/icons/minimize.svg), auto;
               content: '';
-              top: 0;
-              left: 0;
-              height: 100%;
-              width: 100%;
+              @include overlay('fixed', 1000);
               background: rgba(0,0,0,0.8);
-              position: fixed;
-              z-index: 1000;
+            
             }
           }
         }

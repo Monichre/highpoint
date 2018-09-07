@@ -4,6 +4,7 @@ import { VideoLogo } from '../videoLogo'
 import Footer from '../footer'
 import { cornerLines, homePageLines } from '../lines'
 import anime from 'animejs'
+import './_home.scss'
 
 export default class Home extends Component {
   constructor(props) {

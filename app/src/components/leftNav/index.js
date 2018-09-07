@@ -2,7 +2,7 @@ import React from 'react'
 import AppDispatcher from '../../flux/dispatchers'
 import { Link } from 'react-router-dom'
 import CinderBlock from '../cinderblock'
-import './_menu.scss'
+// import './_ln.scss'
 
 const LeftNav = () => {
   const addHoverClass = ({e: target}) => {
