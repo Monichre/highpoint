@@ -1,26 +1,60 @@
-// @import './sass/mixins/mixins';
 @import './sass/global';
+@import './components/home/home';
 
-
-@font-face {
-  font-family: 'N-Black';
-  src: url('/fonts/NeuzeitGro-Bla.otf');
-}
-
-@font-face {
-  font-family: 'N-Light';
-  src: url('/fonts/NeuzeitGro-Lig.otf');
-}
-
-// Box Model Hack
-html {
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+// $c-base:
+// $c-dark:
+// $c-primary:
+// $c-secondary:
+// $b-fontSize:
+// $b-lineHeight:
+// $b-animType:
+// $b-animSpeed:
+// $b-shadowSize:
+// $Title-color:
+// $font-primary:
+// $font-secondary:
+// $h--1:
+// base:
+// tablet:
+// desktop:
+// $h--2:
+// base:
+// tablet:
+// desktop:
+// $h--3:
+// base:
+// tablet:
+// desktop:
+// $h--4:
+// base:
+// tablet:
+// desktop:
+// $h--5:
+// base:
+// tablet:
+// desktop:
+// $h--6:
+// base:
+// tablet:
+// desktop:
+// $p:
+// $p--small:
+// $p--medium:
+// $p--large:
+// $lh:
+// $lh--x-small:
+// $lh--small:
+// $lh--large:
+// margin:
+// display:
+// $spacing-unit:
+// $spacing-unit--x-small:
+// $spacing-unit--small:
+// $spacing-unit--medium:
+// $spacing-unit--large:
+// $spacing-unit--x-large:
+// $rel-spacing-unit:
+// $rel-spacing-unit--small:
 
 a,
 a:hover {
@@ -28,29 +62,14 @@ a:hover {
   color: inherit;
 }
 
-// COLORS
-$c-base: #444;
-$c-dark: #111;
-// $c-primary: #6fd1bd;
-$c-primary: #f6e6cf;
-$c-secondary: #7E9191;
-// $c-secondary: #646464;
-$b-fontSize: 1.6rem;
-$b-lineHeight: 1.5;
-$b-animType: ease-in-out;
-$b-animSpeed: 0.2s;
-// $b-shadowSize: 4px;
-$b-shadowSize: 2px;
 
-$Title-color: $c-dark;
 
 body {
-  font-family: 'N-Light';
+  font-family: $c-primary;
   height: 100%;
   width: 100%;
-  // background: #ebebeb;
-  // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  // background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  background: #f5f5f5;
   font-size: 150%;
 
   .flex {
@@ -81,13 +100,13 @@ body {
 
   h1,
   h2 {
-    font-family: 'N-Black';
+    font-family: $c-primary;
   }
 
   h3,
   h4,
   p {
-    font-family: 'N-Light';
+    font-family: $c-secondary;
   }
   h3 {
     font-weight: bolder;
@@ -100,16 +119,14 @@ body {
     -webkit-padding-start: 0;
   }
   .App {
-    font-family: 'N-Light';
     padding: 0 10% 0;
-    font-size: 100%;
   }
 
   li {
     font-weight: lighter;
     letter-spacing: 2px;
     font-size: 13px;
-    font-family: 'N-Light';
+    font-family: $c-secondary
   }
 }
 
@@ -137,17 +154,6 @@ body {
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 
 */
-
-$grey1: #e8e8ee;
-$grey2: #9497aa;
-$grey3: #5a5863;
-$brown: #ab816b;
-$blue: #1a7fa8;
-
-body {
-  height: 100vh;
-  background: #f5f5f5;
-}
 
 @function randomNum($min, $max) {
   $rand: random();

@@ -25,6 +25,7 @@ export const getStore = callback => {
         ...item.fields,
         id: id
       }
+
       const propertyImage = properties
         .filter(property => property.isAProcessItem && property.process)
         .find(property => property.process.sys.id === mutated.id)
@@ -42,6 +43,12 @@ export const getStore = callback => {
       address: item.fields.address,
       image: item.fields.image.fields.file.url + '?w=500&h=500&fit=thumb'
     }))
+
+    galleryItems.push({
+      property: '',
+      address: '',
+      image: 'https://player.vimeo.com/external/286249741.sd.mp4?s=0ba1a7ff1be8fe5f7c0bf90006d04f53041c1310&profile_id=165'
+    })
 
     const filteredGallery = properties.map(item => ({
       property: item.title,
