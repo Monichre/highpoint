@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import CinderBlock from '../cinderblock'
 import VideoIcon from '../videoIcon'
 import { Next, Prev, Play } from '../icons'
-import './_footer.scss'
 import { MorphReplace } from 'react-svg-morph'
 
 class Footer extends Component {

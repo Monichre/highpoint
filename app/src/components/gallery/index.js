@@ -89,7 +89,7 @@ export default class Gallery extends Component {
     const {photos} = this.state
     return (
       <main className='gallery loading component gallery_component'>
-        <h1 style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '55px', letterSpacing: '4px', marginTop: '50px'}}>
+        <h1 className='page_title'>
           Gallery
         </h1>
         <section className='wrapper'>

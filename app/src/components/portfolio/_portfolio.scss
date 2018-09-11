@@ -3,18 +3,16 @@
 
 main.portfolio.component.portfolio_component {
   height: 100%;
-  // -webkit-animation: fadeAllIn 2s;
-  // animation: fadeAllIn 2s;
-
 
   .about_us {
     // width: 80%;
     margin: auto;
     display: block;
     padding: 1rem 2rem;
-    // @media only screen and (max-width: 1180px)  {
-    //   padding: 2rem 0rem;
-    // }
+    @include mq($tablet-wide-2) {
+      padding: .5rem 2rem 0;
+    }
+    
  
     h4 {
       position: relative;
@@ -30,10 +28,14 @@ main.portfolio.component.portfolio_component {
       text-shadow: 1px 1px 0 $c-primary;
       transition: text-shadow $b-animSpeed $b-animType;
 
-
-      @media only screen and (max-width: 1180px)  {
+      @include mq($tablet-wide) {
         padding: 0 40px;
         margin: 0;
+      }
+      @include mq($tablet-wide-2) {
+        line-height: 2;
+        padding: 0 1rem;
+        font-size: .5rem;
       }
 
       span {
@@ -46,8 +48,14 @@ main.portfolio.component.portfolio_component {
       margin: 2.5rem auto 0;
       position: relative;
 
+      @include mq($tablet-wide-2) {
+        margin: 1rem auto 0;
+      }
+
       p {
-        // font-size: .55rem;
+        @include mq($tablet-wide-2) {
+          font-size: .4rem;
+        }
       }
     }
   }

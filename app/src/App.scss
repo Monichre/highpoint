@@ -2,105 +2,23 @@
 @import './components/home/home';
 @import './components/leftNav/ln';
 @import './components/menuLink/index';
+@import './components/footer/index';
 @import './components/rightNav/rn';
-@import './components/portfolio/portfolio';
+@import './components/rightNav/rn';
+@import './components/cinderblock/cinderblock';
+@import './components/grid/portfolioGrid/grid';
 @import './components/portfolioCard/portfolioCard';
+@import './components/portfolioSideBar/index';
 @import './components/gallery/gallery';
 @import './components/processCard/processCard';
 @import './components/processCard/processCardGrid/fiveRows/five-rows';
 @import './components/processCard/processCardGrid/fourRows/four-rows';
 
 
-// $c-base:
-// $c-dark:
-// $c-primary:
-// $c-secondary:
-// $b-fontSize:
-// $b-lineHeight:
-// $b-animType:
-// $b-animSpeed:
-// $b-shadowSize:
-// $Title-color:
-// $font-primary:
-// $font-secondary:
-// $h--1:
-// base:
-// tablet:
-// desktop:
-// $h--2:
-// base:
-// tablet:
-// desktop:
-// $h--3:
-// base:
-// tablet:
-// desktop:
-// $h--4:
-// base:
-// tablet:
-// desktop:
-// $h--5:
-// base:
-// tablet:
-// desktop:
-// $h--6:
-// base:
-// tablet:
-// desktop:
-// $p:
-// $p--small:
-// $p--medium:
-// $p--large:
-// $lh:
-// $lh--x-small:
-// $lh--small:
-// $lh--large:
-// margin:
-// display:
-// $spacing-unit:
-// $spacing-unit--x-small:
-// $spacing-unit--small:
-// $spacing-unit--medium:
-// $spacing-unit--large:
-// $spacing-unit--x-large:
-// $rel-spacing-unit:
-// $rel-spacing-unit--small:
-
-a,
-a:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-
 .App {
   padding: 0 10% 0;
 }
 
-/*
-
-  Gradients 
-  =====================================
-  1. Everlasting Sky
-  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-
-  2. Premium Dark
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
-
-  3. Balanced Dark
-  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
- background-blend-mode: multiply;
-
-  3. Deep Blue:
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-
-  4. Deep Gray
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-
-  5. Glass Water
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-
-*/
 
 @function randomNum($min, $max) {
   $rand: random();

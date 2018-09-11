@@ -1,11 +1,7 @@
 @import '../../sass/variables';
 
 .gallery.component.gallery_component {
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-image: url(/white-velvet-bg.jpg);
-  // padding: 7.7% 10%;
+
   -webkit-animation: fadeAllIn 2s;
   animation: fadeAllIn 2s;
 
@@ -24,8 +20,6 @@
 
       .grid__item__thumb {
         height: 200px;
-        // max-height: 300px;
-        // height: 100%;
         width: 23%;
         margin: 1%;
         float: left;
@@ -34,7 +28,6 @@
 
         img {
           object-fit: cover;
-          // object-position: center;
           height: 100%;
           width: 100%;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 7px rgba(0, 0, 0, 0.1);
@@ -103,9 +96,12 @@
               text-transform: uppercase;
               letter-spacing: 2px;
               font-family: $font-secondary;
+              @include mq($tablet-wide-2) {
+                font-size: .6rem;
+              }
             }
             p {
-              font-size: 0.8rem;
+              // font-size: 0.8rem;
               line-height: 1.2;
               font-family: $font-secondary;
               -webkit-transition: all 0.4s ease-in-out;

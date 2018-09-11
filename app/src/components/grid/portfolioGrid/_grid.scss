@@ -1,0 +1,40 @@
+@import '../../../sass/variables';
+.grid.portfolio_grid {
+ padding: 0 4rem;
+ display: flex;
+ height: 100%;
+ overflow: hidden;
+  // @include mq($phone) {
+
+  // }
+  // @include mq($phone-wide) {
+
+  // }
+  // @include mq($phablet) {
+
+  // }
+  // @include mq($tablet-small) {
+
+  // }
+  // @include mq($tablet) {
+
+  // }
+  @include mq($tablet-wide-2) {
+    padding: 0 1rem;
+  }
+  // @include mq($phone-wide) {
+  //   width: 20vw;
+  // }
+  // @include mq($tablet-wide) {
+
+  // }
+  // @include mq($macbook-air) {
+
+  // }
+  // @include mq($desktop) {
+
+  // }
+  // @include mq($desktop-wide) {
+
+  // }
+}

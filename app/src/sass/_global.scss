@@ -13,6 +13,11 @@ html {
 *:after {
   box-sizing: inherit;
 }
+a,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 
 
 body {
@@ -81,5 +86,8 @@ li {
   letter-spacing: 2px;
   font-size: 13px;
   font-family: $font-secondary
+}
+.page_title {
+  @include page-title-style;
 }
 }

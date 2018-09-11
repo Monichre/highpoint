@@ -1,18 +1,3 @@
-// COLORS
-$c-base: #444;
-$c-dark: #111;
-// $c-primary: #6fd1bd;
-$c-primary: #f6e6cf;
-$c-secondary: #7E9191;
-// $c-secondary: #646464;
-$b-fontSize: 1.6rem;
-$b-lineHeight: 1.5;
-$b-animType: ease-in-out;
-$b-animSpeed: 0.2s;
-// $b-shadowSize: 4px;
-$b-shadowSize: 2px;
-
-$Title-color: $c-dark;
 
 .footer {
   position: absolute;
@@ -155,12 +140,12 @@ $Title-color: $c-dark;
     }
 
     .cinderblock_container {
-      // padding: .4rem;
+      @include column-flex-center;
       svg {
         width: 100%;
         fill: #000;
-        object-fit: cover;
-        height: 100%;
+        object-fit: contain;
+        height: 3vh;
       }
     }
   }
@@ -188,8 +173,7 @@ $Title-color: $c-dark;
           -ms-transform: rotate(0deg);
           transform: rotate(0deg);
         }
-        svg {
-        }
+    
       }
     }
     .burger {

@@ -21,7 +21,7 @@ export const HorizontalPortfolioCard = props => (
       height: '100%'
     }}>
     <div className='portfolio_card portfolio_card--full featured' onScroll={e => scrollWheelHandler(e)}>
-      <div className='inner'>
+      <div className='inner horizontal__inner'>
         <h3>{props.property.title}</h3>
         <div className='img_cont'>
           <div className={`img_inner ${props.property.logos && props.property.logos.length > 0 ? 'img_logos' : ''}`}>

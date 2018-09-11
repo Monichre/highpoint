@@ -124,6 +124,7 @@ $rel-spacing-unit--small: 0.5em;
   justify-content: space-evenly;
 }
 @mixin column-flex-center {
+  height: 100%;
   display: -webkit-flex;
   display: flex;
   justify-content: center;
@@ -157,25 +158,6 @@ $rel-spacing-unit--small: 0.5em;
   overflow: hidden;
 }
 
-@mixin menu-link {
-  font-size: 0.55rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: rgb(51, 51, 51);
-  font-family: $font-primary;
-  margin: 20px 0;
-  text-align: left;
-}
-
-@mixin link-style {
-  text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-  transition: text-shadow $b-animSpeed $b-animType;
-}
-
-@mixin link-style-hover {
-  text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
-}
-
 @mixin transform($transforms) {
   -moz-transform: $transforms;
   -o-transform: $transforms;
@@ -198,6 +180,7 @@ $phone-wide: 480px;
 $phablet: 560px;
 $tablet-small: 640px;
 $tablet: 768px;
+$tablet-wide-2: 900px;
 $tablet-wide: 1024px;
 $macbook-air: 1152px;
 $desktop: 1248px;
@@ -207,4 +190,42 @@ $desktop-wide: 1440px;
   @media only screen and (max-width: $width) {
     @content;
   }
+}
+
+
+@mixin menu-link {
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: rgb(51, 51, 51);
+  font-family: $font-primary;
+  margin: 20px 0;
+  text-align: left;
+
+  @include mq($tablet-wide-2) {
+    font-size: .4rem;
+  }
+}
+
+@mixin link-style {
+  text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+  transition: text-shadow $b-animSpeed $b-animType;
+}
+
+@mixin link-style-hover {
+  text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+}
+
+@mixin page-title-style {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 55px;
+    letter-spacing: 4px;
+    position: relative;
+    top: 20px;
+
+    @include mq($tablet-wide-2) {
+      font-size: 45px;
+      top: 10px;
+    }
 }
