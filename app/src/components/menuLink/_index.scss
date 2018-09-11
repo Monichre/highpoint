@@ -10,7 +10,7 @@
       text-transform: capitalize;
       bottom: 20px;
       position: relative;
-      @include mq($tablet-wide-2) {
+      @include mq($desktop) {
         bottom: 0;
       }
   
@@ -19,7 +19,7 @@
         color: rgb(51, 51, 51)!important;
         @include link-style;
         font-size: 0.55rem;
-        @include mq($tablet-wide-2) {
+        @include mq($desktop) {
           font-size: .4rem;
         }
       }
@@ -74,9 +74,22 @@
     }
   }
   &.sidebar_link {
-    // width: max-content!important;
+    position: relative;
     text-align: right !important;
-    width: 100%;
+    width: max-content;
+    &.active {
+      position: relative;
+      &:after {
+        position: absolute;
+        left: -20px;
+        top: 7px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #000;
+        content: '';
+      }
+    }
 
   }
 }

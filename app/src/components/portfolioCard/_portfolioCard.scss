@@ -17,7 +17,7 @@
   width: 95%;
   margin: auto;
   max-height: 95vh;
-  min-height: 80vh;
+  // min-height: 80vh;
 
   .inner {
     width: 100%;
@@ -25,11 +25,12 @@
     position: relative;
     z-index: 10;
     display: flex;
+    align-items: flex-end;
     flex-direction: column;
     justify-content: space-evenly;
     padding: 1.1rem 3rem 0 2rem;
 
-    @include mq($tablet-wide-2) {
+    @include mq($desktop) {
       padding: .8rem 2rem 0 1.5rem;
     }
 
@@ -47,7 +48,8 @@
       font-size: 1rem;
       margin: 0 0 0.5rem;
       text-align: right;
-      @include mq($tablet-wide-2) {
+      width: max-content;
+      @include mq($desktop) {
         font-size: .8rem;
         margin: 0 0 0.4rem;
       }
@@ -56,7 +58,7 @@
     .img_cont {
       height: 300px;
       position: relative;
-      @include mq($tablet-wide-2) {
+      @include mq($desktop) {
         height: 250px;
       }
       .img_inner {
@@ -121,7 +123,7 @@
         text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
         transition: text-shadow $b-animSpeed $b-animType;
 
-        @include mq($tablet-wide-2) {
+        @include mq($desktop) {
           margin: .5rem 0 0.1rem;
           font-size: .6rem;
         }
@@ -130,7 +132,7 @@
 
     .text {
       p {
-          @include mq($tablet-wide-2) {
+          @include mq($desktop) {
             font-size: .4rem;
           }
       }
@@ -139,12 +141,15 @@
 
   &.vertical {
     .vertical__inner:not(.horizontal__inner) {
-      @include mq($tablet-wide-2) {
+      align-items: flex-end;
+
+      @include mq($desktop) {
         padding: .8rem 1rem 0 1rem;
       }
       h3 {
-        @include mq($tablet-wide-2) {
+        @include mq($desktop) {
          padding-right: .25rem;
+         width: max-content;
         }
       }
       .inner_columns {
@@ -161,12 +166,12 @@
           justify-content: flex-start;
           overflow: scroll;
 
-          @include mq($tablet-wide-2) {
+          @include mq($desktop) {
             padding: 60px 20px 20px 20px;
           }
 
           .sub_title {
-            @include mq($tablet-wide-2) {
+            @include mq($desktop) {
               margin-bottom: 5px;
             }
           }
@@ -183,7 +188,7 @@
           -ms-flex-pack: center;
           justify-content: center;
           margin-top: -20px;
-          @include mq($tablet-wide-2) {
+          @include mq($desktop) {
             margin-top: 0;
             height: auto;
           }
@@ -208,13 +213,13 @@
 .portfolio_card__details {
   display: flex;
   justify-content: space-between;
-  padding: 0px 10px 10px 30px;
+  padding: 0px 10px 0 30px;
 
   .cinderblock_container {
     bottom: 3px;
     width: 4%;
     position: relative;
-    @include mq($tablet-wide-2) {
+    @include mq($desktop) {
       bottom: 0;
       right: 8px;
     }
@@ -227,7 +232,7 @@
 
   .view_process_button {
     padding-left: 20px;
-    @include mq($tablet-wide-2) {
+    @include mq($desktop) {
       padding-left: 0;
       height: 30px;
     }
@@ -248,7 +253,7 @@
       &:hover {
         text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
       }
-      @include mq($tablet-wide-2) {
+      @include mq($desktop) {
         font-size: 0.4rem;
         vertical-align: super;
 
@@ -262,7 +267,7 @@
 
     &.process_true {
       flex-basis: 70%;
-      @include mq($tablet-wide-2) {
+      @include mq($desktop) {
         flex-basis: 65%;
       }
     }

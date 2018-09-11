@@ -18,13 +18,14 @@
 
   ul {
     @include column-flex-evenly;
-    padding: 20px;
-    @include mq($tablet-wide-2) {
+    align-items: flex-end!important;
+    padding: 20px 30px 20px 0;
+    @include mq($desktop) {
       padding: 0;
     }
     .menu_link.sidebar_link {
       cursor: pointer;
-      @include mq($tablet-wide-2) {
+      @include mq($desktop) {
         font-size: .35rem;
         padding: 5px;
       }

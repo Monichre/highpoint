@@ -12,6 +12,10 @@ main.portfolio.component.portfolio_component {
     @include mq($tablet-wide-2) {
       padding: .5rem 2rem 0;
     }
+
+    @include mq($desktop) {
+      padding: .5rem 1rem 0;
+    }
     
  
     h4 {
@@ -38,6 +42,16 @@ main.portfolio.component.portfolio_component {
         font-size: .5rem;
       }
 
+      @include mq($desktop) {
+        font-size: .6rem;
+        margin: 0;
+      }
+
+//       $tablet-wide: 1024px;
+// $macbook-air: 1152px;
+// $desktop: 1282px;
+// $desktop-wide: 1440px;
+
       span {
         &:hover {
           text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
@@ -51,10 +65,16 @@ main.portfolio.component.portfolio_component {
       @include mq($tablet-wide-2) {
         margin: 1rem auto 0;
       }
+      @include mq($desktop) {
+        margin: 1.5rem auto 0;
+      }
 
       p {
         @include mq($tablet-wide-2) {
           font-size: .4rem;
+        }
+        @include mq($desktop) {
+          font-size: .45rem;
         }
       }
     }

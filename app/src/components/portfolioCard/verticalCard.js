@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CinderBlock from '../cinderblock'
+import {CardArrowDown} from '../icons'
 import {trim} from '../../utils'
 import './_portfolioCard.scss'
 
@@ -14,7 +15,7 @@ const handleScroll = (e) => {
   e.preventDefault()
 }
 
-export const VerticalPortfolioCard = props => (
+export const VerticalPortfolioCard = ({property, arrowClick, index}) => (
   <div
     style={{
       display: 'flex',
@@ -25,43 +26,44 @@ export const VerticalPortfolioCard = props => (
     }}>
     <div className='portfolio_card portfolio_card--full vertical'>
       <div className='inner vertical__inner'>
-        <h3>{props.property.title}</h3>
+        <h3>{property.title}</h3>
         <div className='inner_columns'>
           <div className='img_cont'>
-            <div className={`img_inner ${props.property.logos && props.property.logos.length > 0 ? 'img_logos' : ''}`}>
+            <div className={`img_inner ${property.logos && property.logos.length > 0 ? 'img_logos' : ''}`}>
               <img
-                src={props.property.featuredImage.fields.file.url + '?w=500&h=1500'}
-                className={`vertical_img ${isAVenture(props.property) ? 'is_venture' : ''}`}
+                src={property.featuredImage.fields.file.url + '?w=500&h=1500'}
+                className={`vertical_img ${isAVenture(property) ? 'is_venture' : ''}`}
               />
               <div className='logos'>
-                {props.property.logos && props.property.logos.length > 0
-                  ? props.property.logos.map(logo => <img src={logo.fields.file.url} className={`venture_logo__thumb`} />)
+                {property.logos && property.logos.length > 0
+                  ? property.logos.map(logo => <img src={logo.fields.file.url} className={`venture_logo__thumb`} />)
                   : null}
               </div>
             </div>
           </div>
           <div className='content' onScroll={e => handleScroll(e)}>
             <div className='sub_title'>
-              <h4>{props.property.address}</h4>
+              <h4>{property.address}</h4>
             </div>
             <div className='text'>
-              <p>{trim(props.property.description)}</p>
+              <p>{trim(property.description)}</p>
             </div>
           </div>
         </div>
       </div>
       <div className='portfolio_card__details'>
-        <footer className={`portfolio_card__footer ${props.property.isAProcessItem ? 'process_true' : ''}`} />
-        {props.property.isAProcessItem ? <ViewProcessButton {...props} /> : null}
+        <footer className={`portfolio_card__footer ${property.isAProcessItem ? 'process_true' : ''}`} />
+        {property.isAProcessItem ? <ViewProcessButton property={property} /> : null}
         <CinderBlock />
       </div>
+      <CardArrowDown index={index} onClick={arrowClick} />
     </div>
   </div>
 )
 
-const ViewProcessButton = props => (
+const ViewProcessButton = ({property}) => (
   <div className='view_process_button'>
-    <Link className='button__link' to={`/process/${props.property.title}`}>
+    <Link className='button__link' to={`/process/${property.title}`}>
       View Process
     </Link>
   </div>

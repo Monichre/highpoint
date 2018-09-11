@@ -11,7 +11,7 @@ export default class RightNav extends Component {
     open: false,
     isPortfolioPage: false,
     pathname: '',
-    activePropertyCard: 0,
+    activePropertyCard: false,
     initialMenuHasRendered: false
 
   }
@@ -30,9 +30,9 @@ export default class RightNav extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
-      if (nextProps.activePropertyCard === 1) {
+      if (nextProps.activePropertyCard === 2) {
         const { open, initialMenuHasRendered, activePropertyCard } = this.state
-        if(!initialMenuHasRendered && activePropertyCard === 0) {
+        if(!initialMenuHasRendered && !activePropertyCard) {
           this.setState({
             open: !open,
             initialMenuHasRendered: true,
@@ -90,8 +90,7 @@ export default class RightNav extends Component {
 
   render() {
     const { open, isPortfolioPage } = this.state
-    const { properties } = this.props
-
+    
     const contextualIcon = isPortfolioPage ? (
       <CloseMenu className={`${open ? 'open' : ''}`} key="close" />
     ) : (
@@ -115,7 +114,7 @@ export default class RightNav extends Component {
           </ul>
           <NavBottom />
         </div>
-        <PortfolioSidear properties={properties} setActivePropertyCard={this.setActivePropertyCard} /> 
+        <PortfolioSidear {...this.props} setActivePropertyCard={this.setActivePropertyCard} /> 
       </section>
     )
   }

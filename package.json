@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "nodemon server/index.js",
     "start": "node server/index.js",
-    "deploy-prod": "now && npm run alias",
+    "deploy-prod": "cd app && yarn build && cd ../ && now && npm run alias",
     "alias": "now alias"
   },
   "now": {

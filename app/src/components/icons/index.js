@@ -123,8 +123,8 @@ export const ArrowsUp = props => (
   </button>
 )
 
-export const ArrowsDown = props => (
-  <button onClick={e => props.onClick(e)}>
+export const CardArrowDown = ({onClick, index}) => (
+  <button onClick={e => onClick(e, index)}>
     <svg
       xmlns='http://www.w3.org/2000/svg'
       width='24'
@@ -138,6 +138,21 @@ export const ArrowsDown = props => (
       className='feather feather-chevrons-down'>
       <polyline points='7 13 12 18 17 13' />
       <polyline points='7 6 12 11 17 6' />
+    </svg>
+  </button>
+)
+
+export const PageArrowDown = ({onClick}) => (
+  <button onClick={e => onClick(e)}>
+    <svg width='90px' height='54px' viewBox='0 0 90 54' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
+      <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+        <g id='noun_Arrow_991520' transform='translate(45.000000, 27.000000) rotate(90.000000) translate(-45.000000, -27.000000) translate(18.000000, -18.000000)'>
+          <g id='Group'>
+            <path d='M2.307,0.989 L31.522,44.636 C31.633,44.802 31.634,45.019 31.522,45.186 L2.305,89.011 L22.795,89.011 L52.026,44.912 L22.795,0.989 L2.307,0.989 Z' id='Shape' />
+            <path d='M53.03,44.637 L23.472,0.22 C23.38,0.083 23.226,0 23.06,0 L1.381,0 C1.198,0 1.031,0.1 0.945,0.262 C0.859,0.423 0.869,0.618 0.97,0.77 L30.517,44.912 L0.97,89.231 C0.869,89.383 0.859,89.578 0.945,89.739 C1.031,89.9 1.199,90 1.381,90 L23.06,90 C23.226,90 23.381,89.917 23.472,89.779 L53.031,45.185 C53.141,45.018 53.141,44.803 53.03,44.637 Z M22.795,89.011 L2.305,89.011 L31.523,45.185 C31.634,45.019 31.634,44.802 31.523,44.635 L2.307,0.989 L22.795,0.989 L52.025,44.912 L22.795,89.011 Z' id='Shape' fill='#000000' fill-rule='nonzero' />
+          </g>
+        </g>
+      </g>
     </svg>
   </button>
 )

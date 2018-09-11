@@ -90,4 +90,8 @@ li {
 .page_title {
   @include page-title-style;
 }
+button {
+  outline: none;
+  border: none;
+}
 }

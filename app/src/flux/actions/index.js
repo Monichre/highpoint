@@ -92,3 +92,9 @@ export const goToPropertyCard = (propertyId) => {
   AppStore.data.activePropertyCard = propertyId
   AppStore.emitChange()
 }
+
+export const launchPropertySideBar = (propertyId) => {
+  AppStore.data.activePropertyCard = propertyId
+  AppStore.data.launchPropertySideBar = true
+  AppStore.emitChange()
+}

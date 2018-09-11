@@ -97,7 +97,7 @@
 
           .properties_text {
             position: relative;
-            top: 50px;
+            // top: 50px;
             right: 3px;
             cursor: pointer;
             letter-spacing: 2px;
@@ -107,10 +107,10 @@
             @include link-style;
             transition: all 0.4s ease-in-out;
             transform: rotate(90deg);
-            text-align: right!important;
+            text-align: center!important;
 
-            @include mq($tablet-wide-2) {
-              top: 25px;
+            @include mq($desktop) {
+              top: 15px;
             }
             &:hover {
               @include link-style-hover;
@@ -137,8 +137,8 @@
         @include mq($phone-wide) {
           padding: 10px 10px 0;
         }
-        @include mq($tablet-wide-2) {
-          padding: 10px 10px 0;
+        @include mq($desktop) {
+          padding: 10px 20px 0 10px;
         }
         li {
           font-size: 0.4rem !important;
@@ -150,7 +150,7 @@
           width: 100% !important;
           color: #fff;
           line-height: 2;
-          @include mq($tablet-wide-2) {
+          @include mq($desktop) {
             font-size: 0.3rem !important;
           }
           // @include mq($macbook-air) {

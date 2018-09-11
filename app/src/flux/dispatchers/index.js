@@ -1,5 +1,5 @@
 import { Dispatcher } from 'flux'
-import { getStore, goToPropertyCard } from '../actions'
+import { getStore, goToPropertyCard, launchPropertySideBar } from '../actions'
 
 const AppDispatcher = new Dispatcher()
 
@@ -13,6 +13,10 @@ AppDispatcher.register(payload => {
 
     case 'go-to-property-card':
       goToPropertyCard(propertyId)
+      break
+
+    case 'launch-sidebar':
+      launchPropertySideBar(propertyId)
       break
 
     default:

@@ -18,8 +18,8 @@ const LeftNavLink = ({link, addHoverClass, removeHoverClass}) => link === 'Conta
     </Link>
   </li>
 
-const SideBarLink = ({link, onClick, index}) => (
-  <li key={index} onClick={e => onClick(index, e)} className='sidebar_link menu_link'>
+const SideBarLink = ({link, onClick, index, active}) => (
+  <li key={index} onClick={e => onClick(index, e)} className={`sidebar_link menu_link ${active ? 'active' : ''}`}>
     {link}
   </li>
 )

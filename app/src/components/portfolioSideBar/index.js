@@ -2,7 +2,7 @@ import React from 'react'
 import MenuLink from '../menuLink'
 import _ from 'lodash'
 
-const PortfolioSidear = ({setActivePropertyCard, properties}) => (
+const PortfolioSidear = ({setActivePropertyCard, activePropertyCard, properties}) => (
   <div id='sidebar_menu'>
     <ul className='sidebar_properties_list'>
       <li key={'back to top'} onClick={e => setActivePropertyCard(0, e)} className='menu_link sidebar_link'>Back to Top</li>
@@ -12,6 +12,7 @@ const PortfolioSidear = ({setActivePropertyCard, properties}) => (
           sidebar
           link={property.title}
           index={i + 1}
+          active={i + 2 === activePropertyCard}
           onClick={setActivePropertyCard}
         />
       ))}
