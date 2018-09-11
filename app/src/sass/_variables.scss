@@ -157,6 +157,16 @@ $rel-spacing-unit--small: 0.5em;
   overflow: hidden;
 }
 
+@mixin menu-link {
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: rgb(51, 51, 51);
+  font-family: $font-primary;
+  margin: 20px 0;
+  text-align: left;
+}
+
 @mixin link-style {
   text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
   transition: text-shadow $b-animSpeed $b-animType;
@@ -189,6 +199,7 @@ $phablet: 560px;
 $tablet-small: 640px;
 $tablet: 768px;
 $tablet-wide: 1024px;
+$macbook-air: 1152px;
 $desktop: 1248px;
 $desktop-wide: 1440px;
 

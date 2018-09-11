@@ -113,15 +113,6 @@ export const processPortfolioLines = () => {
   const lines = new LineMaker({
     position: 'fixed',
     lines: [
-      // {
-      //   top: 0,
-      //   left: '10%',
-      //   width: 3,
-      //   height: '30vh',
-      //   color: '#333',
-      //   hidden: true,
-      //   animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }
-      // },
       {
         top: 0,
         left: '10%',

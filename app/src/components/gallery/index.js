@@ -26,18 +26,18 @@ export default class Gallery extends Component {
     const scroller = ScrollReveal()
 
     scroller.reveal('.grid__item__thumb', {
-      origin: 'top',
+      origin: 'left',
       container: gridContainer,
       distance: '40px',
       duration: 1000,
       delay: 100
     })
 
-    const photoSet = galleryItems.map((image, i) => {
-      let _image = {...image}
-      _image.src = image.image
-      _image.caption = `${image.property}, ${image.address}`
-      return _image
+    const photoSet = galleryItems.map((item, i) => {
+      let gridItem = {...item}
+      gridItem.src = item.url
+      gridItem.caption = `${item.property}, ${item.address}`
+      return gridItem
     })
 
     this.setState({

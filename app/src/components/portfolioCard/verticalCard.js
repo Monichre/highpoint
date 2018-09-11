@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CinderBlock from '../cinderblock'
+import {trim} from '../../utils'
 import './_portfolioCard.scss'
 
 const isAVenture = property => {
   const titles = ['Highpoint Ventures', 'McCallister Management', 'Latch', 'Compass', 'Reonomy']
   return !!titles.includes(property.title)
+}
+
+const handleScroll = (e) => {
+  e.stopPropagation()
+  e.preventDefault()
 }
 
 export const VerticalPortfolioCard = props => (
@@ -24,7 +30,7 @@ export const VerticalPortfolioCard = props => (
           <div className='img_cont'>
             <div className={`img_inner ${props.property.logos && props.property.logos.length > 0 ? 'img_logos' : ''}`}>
               <img
-                src={props.property.featuredImage.fields.file.url}
+                src={props.property.featuredImage.fields.file.url + '?w=500&h=1500'}
                 className={`vertical_img ${isAVenture(props.property) ? 'is_venture' : ''}`}
               />
               <div className='logos'>
@@ -34,12 +40,12 @@ export const VerticalPortfolioCard = props => (
               </div>
             </div>
           </div>
-          <div className='content'>
+          <div className='content' onScroll={e => handleScroll(e)}>
             <div className='sub_title'>
               <h4>{props.property.address}</h4>
             </div>
             <div className='text'>
-              <p>{props.property.description}</p>
+              <p>{trim(props.property.description)}</p>
             </div>
           </div>
         </div>

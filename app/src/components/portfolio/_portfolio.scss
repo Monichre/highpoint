@@ -1,38 +1,26 @@
-$c-base: #444;
-$c-dark: #111;
-// $c-primary: #6fd1bd;
-$c-primary: #f6e6cf;
-$c-secondary: #7E9191;
-// $c-secondary: #646464;
-$b-fontSize: 1.6rem;
-$b-lineHeight: 1.5;
-$b-animType: ease-in-out;
-$b-animSpeed: 0.2s;
-// $b-shadowSize: 4px;
-$b-shadowSize: 2px;
 
-$Title-color: $c-dark;
+@import '../../sass/variables';
 
 main.portfolio.component.portfolio_component {
   height: 100%;
-  -webkit-animation: fadeAllIn 2s;
-  animation: fadeAllIn 2s;
+  // -webkit-animation: fadeAllIn 2s;
+  // animation: fadeAllIn 2s;
 
 
   .about_us {
     // width: 80%;
     margin: auto;
     display: block;
-    padding: 3rem 2rem;
-    @media only screen and (max-width: 1180px)  {
-      padding: 2rem 0rem;
-    }
+    padding: 1rem 2rem;
+    // @media only screen and (max-width: 1180px)  {
+    //   padding: 2rem 0rem;
+    // }
  
     h4 {
       position: relative;
       z-index: 2;
       margin: 20px 0;
-      font-size: 1.2rem;
+      font-size: .75rem;
       color: rgb(92, 90, 90);
       text-align: center;
       line-height: 1.5;
@@ -41,6 +29,7 @@ main.portfolio.component.portfolio_component {
       text-transform: uppercase;
       text-shadow: 1px 1px 0 $c-primary;
       transition: text-shadow $b-animSpeed $b-animType;
+
 
       @media only screen and (max-width: 1180px)  {
         padding: 0 40px;
@@ -54,21 +43,11 @@ main.portfolio.component.portfolio_component {
       }
     }
     .text {
-      margin: 3rem auto 0;
+      margin: 2.5rem auto 0;
       position: relative;
 
-      @media only screen and (max-width: 1180px)  {
-        margin: 3rem auto 0;
-      }
-
       p {
-        // margin-top: 20px;
-        font-size: .9rem;
-        line-height: 1.7;
-        width: 100%;
-        padding: 0 20px;
-        text-align: justify;
-        font-weight: 300;
+        // font-size: .55rem;
       }
     }
   }

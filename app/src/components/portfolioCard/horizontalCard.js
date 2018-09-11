@@ -8,6 +8,9 @@ const isAVenture = property => {
   return !!titles.includes(property.title)
 }
 
+const scrollWheelHandler = (e) => {
+  e.stopPropagation()
+}
 export const HorizontalPortfolioCard = props => (
   <div
     style={{
@@ -17,13 +20,13 @@ export const HorizontalPortfolioCard = props => (
       alignItems: 'center',
       height: '100%'
     }}>
-    <div className='portfolio_card portfolio_card--full featured'>
+    <div className='portfolio_card portfolio_card--full featured' onScroll={e => scrollWheelHandler(e)}>
       <div className='inner'>
         <h3>{props.property.title}</h3>
         <div className='img_cont'>
           <div className={`img_inner ${props.property.logos && props.property.logos.length > 0 ? 'img_logos' : ''}`}>
             <img
-              src={props.property.featuredImage.fields.file.url}
+              src={props.property.featuredImage.fields.file.url + '?w=2000&h=1000'}
               className={isAVenture(props.property) ? 'is_venture' : ''}
             />
             <div className='logos'>

@@ -31,34 +31,6 @@
       padding-top: 6rem;
       @include column-flex-start;
 
-      
-      li:not(.cinder_logo_link) {
-        font-size: 0.75rem;
-        letter-spacing: 2px;
-        font-weight: 700;
-        color: rgb(51, 51, 51);
-        font-family: $font-primary;
-        margin: 20px 0;
-
-        @include mq($phone-wide) {
-          font-size: 0.65rem;
-        }
-   
-        a {
-          color: inherit;
-          text-decoration: none;
-          .u-shadow {
-            @include link-style;
-          }
-
-          &:hover {
-            .u-shadow {
-              @include link-style-hover;
-            }
-          }
-        }
-      
-      }
     }
     .bottom {
       height: 15vh;
@@ -67,54 +39,9 @@
       flex-direction: column;
       justify-content: center;
       position: relative;
+      background: transparent;
       align-items: center;
-      .contact__link {
-        font-size: 0.75rem;
-        letter-spacing: 2px;
-        font-weight: 700;
-        color: rgb(51, 51, 51);
-        font-family: $font-primary;
-        
-        .contact_text {
-          transform: rotate(-90deg) translate(60px, 3px);
-          @include link-style;
-         
-        }
-        .contact-burgerIcon {
-          position: relative;
-          // bottom: -200%;
-          height: auto;
-          width: 20px;
-          margin: auto;
-          transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
-            opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-
-          span {
-            position: relative;
-            display: block;
-            width: 100%;
-            height: 1.5px;
-            background-color: #1a1a1a;
-            transform-origin: center;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-          }
-
-          span:first-child {
-            transform: translate(0, -3px);
-          }
-          span:last-child {
-            transform: translate(0, 3px);
-          }
-          &.hovering {
-            span:first-child {
-              transform: translate(0, -3px) rotate(45deg);
-            }
-            span:last-child {
-              transform: translate(-1px, -4px) rotate(-45deg);
-            }
-          }
-        }
-      }
+  
     }
   }
 }

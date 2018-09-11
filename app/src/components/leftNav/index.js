@@ -1,8 +1,7 @@
 import React from 'react'
-import AppDispatcher from '../../flux/dispatchers'
-import { Link } from 'react-router-dom'
+import MenuLink from '../menuLink'
 import CinderBlock from '../cinderblock'
-// import './_ln.scss'
+import {links} from '../../links'
 
 const LeftNav = () => {
   const addHoverClass = ({e: target}) => {
@@ -22,32 +21,12 @@ const LeftNav = () => {
           </li>
         </ul>
         <ul className='middle'>
-          <li className='menu_link'>
-            <Link to='/portfolio'>
-              <span className='u-shadow'>Portfolio</span>
-            </Link>
-          </li>
-          <li className='menu_link'>
-            <Link to='/process'>
-              <span className='u-shadow'>Process</span>
-            </Link>
-          </li>
-          <li className='menu_link'>
-            <Link to='/gallery'>
-              <span className='u-shadow'>Gallery</span>
-            </Link>
-          </li>
+          {
+            links.map(link => <MenuLink link={link} />)
+          }
         </ul>
         <ul className='bottom'>
-          <li className='menu_link contact__link'>
-            <div className='contact_text' onMouseEnter={e => addHoverClass(e)} onMouseLeave={e => removeHoverClass(e)}>
-              <span className='u-shadow'>Contact</span>
-            </div>
-            <div className='contact-burgerIcon'>
-              <span />
-              <span />
-            </div>
-          </li>
+          <MenuLink link='Contact' addHoverClass={addHoverClass} removeHoverClass={removeHoverClass} />
         </ul>
       </div>
     </section>

@@ -1,4 +1,4 @@
-
+@import '../../sass/variables';
 .right_nav {
   z-index: 10;
   width: 10vw;
@@ -15,9 +15,6 @@
   #sidebar_menu {
     background: #fff;
 
-    // border-right: 2px solid #eee;
-    // box-shadow: 0 0 5px rgba(0,0,0,0.4);
-    // z-index: 2000 !important;
     right: 0!important;
     // bottom: 15vh !important;
 
@@ -36,22 +33,23 @@
     ul {
       @include column-flex-evenly;
       padding: 20px;
-      li {
-        margin: 20px 0;
-        cursor: pointer;
-        text-align: center;
-        font-size: 0.65rem !important;
-        letter-spacing: 2px;
-        color: #333333;
-        font-family: $font-primary;
+      // li {
+        // margin: 20px 0;
+        // cursor: pointer;
+        // text-align: center;
+        // font-size: 0.65rem !important;
+        // letter-spacing: 2px;
+        // color: #333333;
+        // font-family: $font-primary;
         
-        a {
-          @include link-style;
-          &:hover {
-            @include link-style-hover;
-          }
-        }
+        // a {
+        //   @include link-style;
+        //   &:hover {
+        //     @include link-style-hover;
+        //   }
+        // }
       }
+      
     }
   }
   .inner {
@@ -85,18 +83,20 @@
           .properties_text {
             // margin: 20px 0;
             position: relative;
-            top: 30px;
+            top: 10px;
             cursor: pointer;
-            text-align: center;
-            font-size: 0.75rem !important;
+            // font-size: 0.75rem;
             letter-spacing: 2px;
             // font-weight: 700;
             color: #333333;
             font-family: $font-primary;
+      
+            @include menu-link;
             @include link-style;
             transition: all 0.4s ease-in-out;
             transform: rotate(90deg);
 
+            text-align: right!important;
             &:hover {
               @include link-style-hover;
             }
@@ -151,33 +151,37 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 10px 25px 0;
+        padding: 10px;
         position: relative;
         z-index: 2000;
         align-items: center;
+        text-align: right;
         @include mq($phone-wide) {
           padding: 10px 10px 0;
         }
         li {
-          font-size: 0.55rem !important;
+          font-size: 0.4rem !important;
           letter-spacing: 3px;
           font-weight: 700;
           text-transform: uppercase;
           font-family: N-Light;
           margin: 0;
           width: 100% !important;
-          text-align: center !important;
+          // text-align: center !important;
           color: #fff;
           line-height: 2;
 
-          @media only screen and (min-width: 1224px) {
-            font-size: 0.55rem !important;
-          }
-          @include mq($phone-wide) {
-            font-size: 0.45rem !important;
+          // @media only screen and (min-width: 1224px) {
+          //   font-size: 0.55rem !important;
+          // }
+          // @include mq($phone-wide) {
+          //   font-size: 0.4rem !important;
+          // }
+          @include mq($macbook-air) {
+            font-size: 0.4rem !important;
           }
         }
       }
     }
   }
-}
+

@@ -1,7 +1,15 @@
 @import './sass/global';
 @import './components/home/home';
 @import './components/leftNav/ln';
+@import './components/menuLink/index';
 @import './components/rightNav/rn';
+@import './components/portfolio/portfolio';
+@import './components/portfolioCard/portfolioCard';
+@import './components/gallery/gallery';
+@import './components/processCard/processCard';
+@import './components/processCard/processCardGrid/fiveRows/five-rows';
+@import './components/processCard/processCardGrid/fourRows/four-rows';
+
 
 // $c-base:
 // $c-dark:
@@ -65,71 +73,8 @@ a:hover {
 }
 
 
-
-body {
-  font-family: $c-primary;
-  height: 100%;
-  width: 100%;
-  // background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-  background: #f5f5f5;
-  font-size: 150%;
-
-  .flex {
-    margin-top: 0;
-  }
-
-  .decolines {
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-  }
-
- 
-  .decolines--fixed {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 500;
-  }
-
-  .decoline {
-    position: absolute;
-  }
-
-  h1,
-  h2 {
-    font-family: $c-primary;
-  }
-
-  h3,
-  h4,
-  p {
-    font-family: $c-secondary;
-  }
-  h3 {
-    font-weight: bolder;
-  }
-  h4 {
-    font-weight: 500;
-  }
-  ul {
-    list-style: none;
-    -webkit-padding-start: 0;
-  }
-  .App {
-    padding: 0 10% 0;
-  }
-
-  li {
-    font-weight: lighter;
-    letter-spacing: 2px;
-    font-size: 13px;
-    font-family: $c-secondary
-  }
+.App {
+  padding: 0 10% 0;
 }
 
 /*
@@ -176,7 +121,7 @@ body {
   // padding: 2% 10%;
   padding: 4rem 4rem 15rem 4rem;
 
-  .item {
+  .item.process_card__preview {
     position: relative;
     width: 300px;
     height: 300px;
@@ -206,7 +151,7 @@ body {
         margin: 20px 0 10px;
         padding-left: 10px;
         line-height: 0.8;
-        font-size: 1rem;
+        font-size: .8rem;
         color: black;
         font-weight: bolder;
         font-family: N-Light;
@@ -216,8 +161,8 @@ body {
         transition: all 0.3s cubic-bezier(0.28, 0.05, 0.65, 0.97);
         position: relative;
 
-        @media only screen  and (min-width : 1224px) {
-          // font-size: 0.45rem !important;
+        @include mq($macbook-air) {
+          font-size: .7rem;
         }
 
       }

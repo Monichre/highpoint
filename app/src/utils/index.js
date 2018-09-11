@@ -2,16 +2,18 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 
 export const trim = (str) => {
-  if (str.length > 250) {
-    let trimmed = str.split('')
-    trimmed.length = 250
+  let trimmed = str
+  if (str.length >= 1280) {
+    trimmed = str.split('')
+    trimmed.length = 1275
     trimmed.push('...')
     trimmed.join('')
     return trimmed
   }
+  return trimmed
 }
 
-const imageOrVideo = ({ video, img }) =>
+export const imageOrVideo = ({ video, img }) =>
   video === null ? (
     <img src={img.file.url} />
   ) : (
@@ -27,4 +29,11 @@ const imageOrVideo = ({ video, img }) =>
     />
   )
 
+export const isVideo = (url) => url.includes('mp4')
+
 export const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
+
+export const isAVenture = property => {
+  const titles = ['Highpoint Ventures', 'McCallister Management', 'Latch', 'Compass', 'Reonomy']
+  return !!titles.includes(property.title)
+}

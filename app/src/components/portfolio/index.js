@@ -2,10 +2,11 @@ import React, { Component, Fragment } from 'react'
 import ReactPageScroller from 'react-page-scroller'
 import { processPortfolioLines, cornerLines } from '../lines'
 import {ArrowsUp, ArrowsDown} from '../icons'
+import AppDispatcher from '../../flux/dispatchers'
 import { PortfolioGrid } from '../grid/portfolio'
 import { PortfolioCard } from '../portfolioCard'
 import _ from 'lodash'
-import './_portfolio.scss'
+// import './_portfolio.scss'
 
 export default class Portfolio extends Component {
   constructor(props) {
@@ -23,7 +24,6 @@ export default class Portfolio extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
     if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
       this._pageScroller.goToPage(nextProps.activePropertyCard)
     }
@@ -33,11 +33,23 @@ export default class Portfolio extends Component {
   componentDidMount() {
     processPortfolioLines()
     cornerLines()
-    console.log(this.props)
+    this._pageScroller.onWheelScroll = this.scrollWheelHandler
+    
+  }
+
+  scrollWheelHandler = (e) => {
+    console.log("In scroll handler")
+    console.log(e)
   }
 
   goToPage = (e, i) => {
     e.preventDefault()
+    if(i === 1) {
+      AppDispatcher.dispatch({
+        action: 'go-to-property-card',
+        propertyId: i
+      })
+    }
     this._pageScroller.goToPage(i)
   }
 
@@ -92,7 +104,7 @@ export default class Portfolio extends Component {
       <main className="portfolio component portfolio_component">
         <section className={`wrapper`}>
           <PortfolioGrid>
-            <ReactPageScroller ref={c => (this._pageScroller = c)} pageOnChange={this.pageOnChange}>
+            <ReactPageScroller ref={c => (this._pageScroller = c)} pageOnChange={this.pageOnChange} onScroll={this.scrollWheelHandler} onWheel={this.scrollWheelHandler}>
               {allVentures.map((property, i) => (i === 0 ? property : <PortfolioCard property={property} key={i} />))}
             </ReactPageScroller>
           </PortfolioGrid>

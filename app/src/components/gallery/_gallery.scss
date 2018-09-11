@@ -1,3 +1,5 @@
+@import '../../sass/variables';
+
 .gallery.component.gallery_component {
   // background-position: center;
   // background-size: cover;
@@ -17,17 +19,62 @@
     .thumb__scroller {
       padding: 50px 0 100px !important;
       height: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
+      clear: both;
       overflow: scroll;
 
       .grid__item__thumb {
-        min-height: 250px;
-        height: auto;
-        max-width: 300px;
-        width: 100%;
-        margin-top: 30px;
+        height: 200px;
+        // max-height: 300px;
+        // height: 100%;
+        width: 23%;
+        margin: 1%;
+        float: left;
+        position: relative;
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+          // object-position: center;
+          height: 100%;
+          width: 100%;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 7px rgba(0, 0, 0, 0.1);
+        }
+
+        &.venture_thumb {
+          background: #fff;
+          img {
+            object-fit: contain!important;
+          }
+          
+        }
+
+        @include mq($phone) {
+
+        }
+        @include mq($phone-wide) {
+
+        }
+        @include mq($phablet) {
+
+        }
+        @include mq($tablet-small) {
+
+        }
+        @include mq($tablet) {
+
+        }
+        @include mq($tablet-wide) {
+
+        }
+        @include mq($desktop) {
+
+        }
+        @include mq($desktop-wide) {
+          // max-height: 200px;
+          // height: 100%;
+          // max-width: 200px;
+          // width: 100%;
+        }
 
         .overlay__inner_container {
           position: absolute;
@@ -43,6 +90,7 @@
           transition: all 0.4s ease-in-out;
           opacity: 0;
 
+
           .inner {
             padding: 20px;
 
@@ -51,14 +99,15 @@
               text-align: center;
               margin: 20px 0 10px;
               font-size: 1.1rem;
-              // font-weight: bolder;
+              font-weight: bolder;
               text-transform: uppercase;
               letter-spacing: 2px;
+              font-family: $font-secondary;
             }
             p {
               font-size: 0.8rem;
               line-height: 1.2;
-              font-family: 'N-Light';
+              font-family: $font-secondary;
               -webkit-transition: all 0.4s ease-in-out;
               -o-transition: all 0.4s ease-in-out;
               transition: all 0.4s ease-in-out;
@@ -80,10 +129,12 @@
         .gallery_video {
           width: 100% !important;
           height: 100% !important;
+          overflow: hidden!important;
+          
           video {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 7px rgba(0, 0, 0, 0.1);
-            object-fit: auto;
-            object-position: center;
+            // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 7px rgba(0, 0, 0, 0.1);
+            object-fit: cover!important;
+            object-position: center!important;
             height: 100%;
             width: 100%;
           }
@@ -93,25 +144,37 @@
           height: auto !important;
           min-height: 0;
           background: transparent;
-          .gallery_video {
-            background: transparent;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 7px rgba(0, 0, 0, 0.1);
-            video {
-              height: 105% !important;
-              object-fit: auto;
-              object-position: center;
-              width: 105% !important;
-            }
-          }
+         
         }
 
-        img {
-          object-fit: auto;
-          object-position: center;
-          height: 100%;
-          width: 100%;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 7px rgba(0, 0, 0, 0.1);
+     
+
+
+        &.video_thumb:not(.img_thumb) {
+          &:first-of-type {
+            min-height: 411px;
+
+            height: auto;
+            margin: 1% 1% 0;
+            width: 48%!important;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 7px rgba(0, 0, 0, 0.1);
+            .gallery_video {
+              width: 100% !important;
+              position: absolute;
+              height: 100% !important;
+              overflow: hidden !important;
+              video {
+                height: 105% !important;
+                object-fit: cover!important;
+                object-position: center;
+                width: 105% !important;
+              }
+            }
+        
+          }
+       
+          
         }
       }
     }
