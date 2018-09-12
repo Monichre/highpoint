@@ -6552,6 +6552,10 @@ react-page-scroller@^1.2.1:
     react-bootstrap "^0.32.1"
     react-dom "^16.4.1"
 
+react-perf-devtool@^3.1.8:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/react-perf-devtool/-/react-perf-devtool-3.1.8.tgz#ae5c369b3b73f5c71de8afb5257ae6f90c953440"
+
 react-player@^1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/react-player/-/react-player-1.6.4.tgz#a7410a23ae849aec1f1854040d3f56ccab054c21"
