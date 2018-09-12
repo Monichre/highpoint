@@ -1,14 +1,29 @@
 .cinderblock_container {
-  @media only screen  and (min-width : 1224px) {
-    // height: 30%;
-  }
+  height: 4vh!important;
+
+  // .horizontal_card_svg_container {
+  //   width: 8%;
+  //   position: absolute;
+  //   right: 0;
+  //   height: 5vh!important;
+  //   bottom: 35px;
+  //   @include column-flex-center;
+  // }
+  // .vertical_card_svg_container {
+  //   width: 8%;
+  //   position: absolute;
+  //   right: 0;
+  //   height: 5vh!important;
+  //   bottom: 35px;
+  //   @include column-flex-center;
+  // }
   #cinderblock {
     margin: auto;
     display: block;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    height: 4vh!important;
+    
     @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
       /* Styles */
       }
@@ -24,3 +39,4 @@
       
   }
 }
+

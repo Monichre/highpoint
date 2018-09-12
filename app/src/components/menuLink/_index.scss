@@ -3,63 +3,6 @@
 .menu_link {
   @include menu-link;
   @include link-style;
-
-  &.contact__link {
-    .contact_text {
-      transform: rotate(-90deg) translate(60px, 3px);
-      text-transform: capitalize;
-      bottom: 20px;
-      position: relative;
-      @include mq($desktop) {
-        bottom: 0;
-      }
-  
-      .u-shadow {
-        font-family: $font-primary;
-        color: rgb(51, 51, 51)!important;
-        @include link-style;
-        font-size: 0.55rem;
-        @include mq($desktop) {
-          font-size: .4rem;
-        }
-      }
-     
-    }
-    .contact-burgerIcon {
-      position: relative;
-      cursor: pointer;
-      height: auto;
-      width: 20px;
-      margin: auto;
-      transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
-        opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-
-      span {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 1.5px;
-        background-color: #1a1a1a;
-        transform-origin: center;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-      }
-
-      span:first-child {
-        transform: translate(0, -3px);
-      }
-      span:last-child {
-        transform: translate(0, 3px);
-      }
-      &.hovering {
-        span:first-child {
-          transform: translate(0, -3px) rotate(45deg);
-        }
-        span:last-child {
-          transform: translate(-1px, -4px) rotate(-45deg);
-        }
-      }
-    }
-  }
   a {
     color: inherit;
     text-decoration: none;
@@ -81,11 +24,22 @@
       position: relative;
       &:after {
         position: absolute;
-        left: -20px;
-        top: 7px;
-        width: 5px;
-        height: 5px;
+        left: -40px;
+        top: 5px;
+        width: 3px;
+        height: 3px;
         border-radius: 50%;
+        border: 1px solid #000;
+        padding: 1px;
+        background: #fff;
+        content: '';
+      }
+      &:before {
+        position: absolute;
+        left: -30px;
+        top: 6px;
+        width: 15px;
+        height: 1px;
         background: #000;
         content: '';
       }

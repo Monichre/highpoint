@@ -1,17 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import CinderBlock from '../cinderblock'
+import PortfolioCardFooter from '../portfolioCardFooter'
 import {CardArrowDown} from '../icons'
-import './_portfolioCard.scss'
+import {isAVenture} from '../../utils'
 
-const isAVenture = property => {
-  const titles = ['Highpoint Ventures', 'McCallister Management', 'Latch', 'Compass', 'Reonomy']
-  return !!titles.includes(property.title)
-}
-
-const scrollWheelHandler = (e) => {
-  e.stopPropagation()
-}
 export const HorizontalPortfolioCard = ({property, arrowClick, index}) => (
   <div
     style={{
@@ -21,7 +12,7 @@ export const HorizontalPortfolioCard = ({property, arrowClick, index}) => (
       alignItems: 'center',
       height: '100%'
     }}>
-    <div className='portfolio_card portfolio_card--full featured' onScroll={e => scrollWheelHandler(e)}>
+    <div className='portfolio_card portfolio_card--full'>
       <div className='inner horizontal__inner'>
         <h3>{property.title}</h3>
         <div className='img_cont'>
@@ -46,20 +37,8 @@ export const HorizontalPortfolioCard = ({property, arrowClick, index}) => (
           </div>
         </div>
       </div>
-      <div className='portfolio_card__details'>
-        <footer className={`portfolio_card__footer ${property.isAProcessItem ? 'process_true' : ''}`} />
-        {property.isAProcessItem ? <ViewProcessButton property={property} /> : null}
-        <CinderBlock />
-      </div>
+      <PortfolioCardFooter property={property} />
       <CardArrowDown index={index} onClick={arrowClick} />
     </div>
-  </div>
-)
-
-const ViewProcessButton = ({property}) => (
-  <div className='view_process_button'>
-    <Link className='button__link' to={`/process/${property.title}`}>
-      View Process
-    </Link>
   </div>
 )

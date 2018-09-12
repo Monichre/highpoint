@@ -19,7 +19,7 @@
   ul {
     @include column-flex-evenly;
     align-items: flex-end!important;
-    padding: 20px 30px 20px 0;
+    padding: 20px 15px 20px 0;
     @include mq($desktop) {
       padding: 0;
     }

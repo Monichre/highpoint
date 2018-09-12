@@ -1,0 +1,72 @@
+.hover-link {
+  .text {
+    transform: rotate(-90deg) translate(60px, 3px);
+    text-transform: capitalize;
+    bottom: 20px;
+    position: relative;
+    @include mq($desktop) {
+      bottom: 0;
+    }
+    .u-shadow {
+      transition: all .8s ease-in-out;
+      font-family: $font-primary;
+      color: rgb(51, 51, 51)!important;
+      @include link-style;
+      font-size: 0.55rem;
+      @include mq($desktop) {
+        font-size: .4rem;
+      }
+    }
+  }
+  .hover-link-icon {
+    position: relative;
+    cursor: pointer;
+    height: auto;
+    width: 20px;
+    margin: auto;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
+      opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  
+    span {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background-color: #1a1a1a;
+      transform-origin: center;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    }
+  
+    span:first-child {
+      transform: translate(0, -3px);
+    }
+    span:last-child {
+      transform: translate(0, 3px);
+    }
+    &.hovering, &.open, &:hover {
+      span:first-child {
+        transform: translate(0, -3px) rotate(45deg);
+      }
+      span:last-child {
+        transform: translate(-1px, -4px) rotate(-45deg);
+      }
+    }
+  }
+  &.properties {
+    transition: all .8s ease-in-out;
+    .text {
+      transition: transform .4s ease-in-out, opacity .8s ease-in-out;
+      transform: rotate(90deg) translate(150px, 3px);
+    }
+    &.open {
+    
+      .text {
+        opacity: 0;
+        transform: rotate(90deg) translate(-100px, 3px);
+      }
+    } 
+    .hover-link-icon {
+      top: -40px;
+    }
+  }
+}

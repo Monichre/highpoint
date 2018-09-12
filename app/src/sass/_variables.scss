@@ -124,7 +124,6 @@ $rel-spacing-unit--small: 0.5em;
   justify-content: space-evenly;
 }
 @mixin column-flex-center {
-  height: 100%;
   display: -webkit-flex;
   display: flex;
   justify-content: center;
