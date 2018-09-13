@@ -5,7 +5,7 @@ import { PageArrowDown } from '../icons'
 import AppDispatcher from '../../flux/dispatchers'
 import { PortfolioGrid } from '../grid/portfolioGrid'
 import { PortfolioCard } from '../portfolioCard'
-import AboutUs from './AboutUs'
+import AboutUs from './aboutUs'
 import _ from 'lodash'
 
 export default class Portfolio extends Component {
@@ -61,6 +61,7 @@ export default class Portfolio extends Component {
               ref={c => (this._pageScroller = c)}
               pageOnChange={this.pageOnChange}
               onScroll={this.scrollWheelHandler}
+              animationTimer={500}
               onWheel={this.scrollWheelHandler}>
               {allVentures.map((property, i) => (i === 0 ? property : <PortfolioCard arrowClick={this.arrowClick} index={i} property={property} key={i} />))}
             </ReactPageScroller>

@@ -8,13 +8,13 @@
       bottom: 0;
     }
     .u-shadow {
-      transition: all .8s ease-in-out;
+      transition: all 0.8s ease-in-out;
       font-family: $font-primary;
-      color: rgb(51, 51, 51)!important;
+      color: rgb(51, 51, 51) !important;
       @include link-style;
       font-size: 0.55rem;
       @include mq($desktop) {
-        font-size: .4rem;
+        font-size: 0.4rem;
       }
     }
   }
@@ -24,9 +24,8 @@
     height: auto;
     width: 20px;
     margin: auto;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
-      opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-  
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+
     span {
       position: relative;
       display: block;
@@ -36,14 +35,15 @@
       transform-origin: center;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
     }
-  
+
     span:first-child {
       transform: translate(0, -3px);
     }
     span:last-child {
       transform: translate(0, 3px);
     }
-    &.hovering, &.open, &:hover {
+    &.hovering,
+    &:hover {
       span:first-child {
         transform: translate(0, -3px) rotate(45deg);
       }
@@ -53,20 +53,40 @@
     }
   }
   &.properties {
-    transition: all .8s ease-in-out;
+    transition: all 0.8s ease-in-out;
     .text {
-      transition: transform .4s ease-in-out, opacity .8s ease-in-out;
+      transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
       transform: rotate(90deg) translate(150px, 3px);
+
+      &:hover {
+        .hover-link-icon {
+          span:first-child {
+            transform: translate(0, -3px) rotate(45deg);
+          }
+          span:last-child {
+            transform: translate(-1px, -4px) rotate(-45deg);
+          }
+        }
+      }
     }
     &.open {
-    
       .text {
         opacity: 0;
         transform: rotate(90deg) translate(-100px, 3px);
       }
-    } 
+    }
     .hover-link-icon {
       top: -40px;
+    }
+  }
+  &.open {
+    .hover-link-icon {
+      span:first-child {
+        transform: translate(0, -3px) rotate(45deg);
+      }
+      span:last-child {
+        transform: translate(-1px, -4px) rotate(-45deg);
+      }
     }
   }
 }

@@ -19,12 +19,19 @@
     &.process_true {
 
     }
+    &.process_false {
+      width: -webkit-fill-available;
+    }
   }
   .view_process_button {
     width: 30%;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: flex-end;
+    -ms-flex-align: end;
     align-items: flex-end;
+    padding: 0 15px;
     svg {
       height: 3vh;
     }
@@ -36,7 +43,7 @@
       color: rgb(51, 51, 51);
       text-transform: capitalize;
       font-family: N-Black;
-      margin: 0;
+      margin-right: 20%;
       vertical-align: middle;
       text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
       transition: text-shadow $b-animSpeed $b-animType;
@@ -50,6 +57,10 @@
         vertical-align: super;
 
       }
+    }
+
+    &.not_process_item {
+      width: auto;
     }
   }
 

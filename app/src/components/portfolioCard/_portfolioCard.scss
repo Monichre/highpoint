@@ -148,14 +148,16 @@
   &.vertical {
     .vertical__inner:not(.horizontal__inner) {
       align-items: flex-end;
-      
+      padding: .8rem 1.5rem 0 1.5rem;
       @include mq($desktop) {
         padding: .8rem 1rem 0 1rem;
       }
       h3 {
+        padding-right: .25rem;
+        width: max-content;
         @include mq($desktop) {
-         padding-right: .25rem;
-         width: max-content;
+        //  padding-right: .25rem;
+        //  width: max-content;
         }
       }
       .inner_columns {
@@ -166,15 +168,15 @@
           width: 50%;
         }
         .content {
-          padding: 20px;
+          padding-left: 20px;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
           overflow: scroll;
 
-          @include mq($desktop) {
-            padding: 60px 20px 20px 20px;
-          }
+          // @include mq($desktop) {
+          //   padding: 60px 20px 20px 20px;
+          // }
 
           .sub_title {
             @include mq($desktop) {
@@ -183,8 +185,8 @@
           }
         }
         .img_cont {
-          height: 100%;
-          max-height: 85vh;
+          height: auto;
+          /* max-height: 85vh; */
           position: relative;
           display: -ms-flexbox;
           display: flex;
@@ -193,10 +195,10 @@
           flex-direction: column;
           -ms-flex-pack: center;
           justify-content: center;
-          margin-top: -20px;
+          
           @include mq($desktop) {
-            margin-top: 0;
-            height: auto;
+            // margin-top: 0;
+            // height: auto;
           }
           .img_inner {
             height: 100%;

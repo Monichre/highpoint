@@ -18,6 +18,7 @@ app.use(function (req, res, next) {
 app.use(express.static(path.resolve(__dirname, '../app/build')))
 
 app.get('*', (request, response) => {
+  console.log(request)
   response.sendFile(path.resolve(__dirname, '../app/build', 'index.html'))
 })
 
