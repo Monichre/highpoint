@@ -13,10 +13,18 @@
     width: 10vw;
     @include mq($phone-wide) {
       width: 20vw;
+      justify-content: space-between!important;
     }
     .top {
       padding-left: 0;
       height: 15vh;
+
+      @include mq($phone-wide) {
+        height: 10vh;
+        svg {
+          height: 4vh!important;
+        }
+      }
       @include column-flex;
       
 
@@ -47,6 +55,10 @@
       position: relative;
       background: transparent;
       align-items: center;
+
+      @include mq($phone-wide) {
+        height: 10vh;
+      }
   
     }
   }

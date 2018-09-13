@@ -83,6 +83,10 @@
     }
     .hover-link-icon {
       top: -40px;
+
+      @include mq($phone-wide) {
+        top: auto;
+      }
     }
   }
   &.open {

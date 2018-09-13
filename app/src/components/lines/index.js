@@ -5,12 +5,13 @@ import {siteCornerLines} from './corner-lines'
 import { pageLines } from './page-lines'
 
 const winWidth = document.querySelector('body').offsetWidth
-const isMobile = BROWSER.isSmallerThanTablet(winWidth)
+const isMobile = BROWSER.isMobile(winWidth)
+console.log(isMobile)
 const hl = homeLines(isMobile)
 const cl = siteCornerLines(isMobile)
 const pl = pageLines(isMobile)
 
-if (isMobile) {
+if (isMobile.status) {
   hl.length = 4
 }
 

@@ -94,7 +94,7 @@ export const Pause = () => (
     stroke='currentColor'
     strokeWidth='1'
     strokeLinecap='round'
-    stroke-linejoin='round'
+    strokeLinejoin='round'
     className='feather feather-pause'>
     <rect x='6' y='4' width='4' height='16' />
     <rect x='14' y='4' width='4' height='16' />

@@ -11,7 +11,7 @@
   @include mq($phone-wide) {
     width: 20vw;
   }
-  }
+
   .inner {
     height: 100%;
     display: flex;
@@ -30,6 +30,9 @@
         @include column-flex-center;
         height: 15vh;
         padding: 0;
+        @include mq($phone-wide) {
+          height: 10vh;
+        }
 
         li {
           position: relative;
@@ -60,12 +63,16 @@
         z-index: 2000;
         align-items: center;
         text-align: right;
-        @include mq($phone-wide) {
-          padding: 10px 10px 0;
-        }
+
         @include mq($desktop) {
           padding: 10px 20px 0 10px;
         }
+
+        @include mq($phone-wide) {
+          padding: 10px 10px 0;
+          height: 10vh;
+        }
+        
         li {
           font-size: 0.4rem !important;
           letter-spacing: 3px;
@@ -79,11 +86,13 @@
           @include mq($desktop) {
             font-size: 0.3rem !important;
           }
-          // @include mq($macbook-air) {
-          //   font-size: 0.4rem !important;
-          // }
+          @include mq($phone-wide) {
+           display: none;
+          }
+          
         }
       }
     }
   }
 
+}

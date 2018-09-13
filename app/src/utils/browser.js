@@ -1,3 +1,5 @@
+const mQ = num => window.matchMedia(`(max-width: ${num}px)`)
+
 export const BROWSER = {
   mQ: num => window.matchMedia(`(max-width: ${num}px)`),
 
@@ -34,7 +36,23 @@ export const BROWSER = {
 
   isMobile: () => {
     const winWidth = document.querySelector('body').offsetWidth
-    return winWidth <= 780
+    let status = false
+    let isPhone = false
+    let isTablet = false
+    let isDesktop = false
+    console.log(mQ(winWidth))
+    if (winWidth <= 780) {
+      status = true
+      isPhone = mQ(winWidth).matches
+      isTablet = mQ(winWidth).matches
+      isDesktop = mQ(winWidth).matches
+    }
+    return {
+      status,
+      isPhone,
+      isTablet,
+      isDesktop
+    }
   },
 
   isShrinkingVertically: browser_height => browser_height <= 500,
@@ -101,3 +119,26 @@ export const BROWSER = {
     }
   }
 }
+
+// window.addEventListener('resize', _.debounce(this.resizeListener, 100))
+// resizeListener = () => {
+//   const body = document.querySelector('body')
+//   const browser_height = document.body.offsetHeight
+//   const browser_width = document.body.offsetWidth
+
+//   if (BROWSER.isShrinkingVertically(browser_height) || browser_width <= 780) {
+//     body.classList.add('isMobile')
+//     this.setState({
+//       isMobile: true
+//     })
+//     this.forceUpdate()
+//   }
+
+//   if(browser_width > 780 && !BROWSER.isShrinkingVertically(browser_height)) {
+//     body.classList.remove('isMobile')
+//     this.setState({
+//       isMobile: false
+//     })
+//     this.forceUpdate()
+//   }
+// }
