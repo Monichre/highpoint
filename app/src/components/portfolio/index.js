@@ -5,7 +5,7 @@ import { PageArrowDown } from '../icons'
 import AppDispatcher from '../../flux/dispatchers'
 import { PortfolioGrid } from '../grid/portfolioGrid'
 import { PortfolioCard } from '../portfolioCard'
-import AboutUs from './aboutUs'
+import AboutUs from '../aboutUs'
 import _ from 'lodash'
 
 export default class Portfolio extends Component {

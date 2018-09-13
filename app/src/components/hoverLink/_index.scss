@@ -57,7 +57,13 @@
     .text {
       transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
       transform: rotate(90deg) translate(150px, 3px);
-
+      // @include mq($desktop) {
+      //   font-size: .6rem;
+      //   margin: 0;
+      // }
+      @include mq($phone-wide) {
+        transform: rotate(90deg) translate(70px, 0px);
+      }
       &:hover {
         .hover-link-icon {
           span:first-child {

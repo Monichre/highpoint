@@ -1,0 +1,85 @@
+.about_us {
+  // width: 80%;
+  margin: auto;
+  display: block;
+  padding: 1rem 2rem;
+  @include mq($tablet-wide-2) {
+    padding: .5rem 2rem 0;
+  }
+
+  @include mq($desktop) {
+    padding: .5rem 1rem 0;
+  }
+  
+
+  h4 {
+    position: relative;
+    z-index: 2;
+    margin: 20px 0;
+    font-size: .75rem;
+    color: rgb(92, 90, 90);
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 30px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 $c-primary;
+    transition: text-shadow $b-animSpeed $b-animType;
+
+    @include mq($tablet-wide) {
+      padding: 0 40px;
+      margin: 0;
+    }
+    @include mq($tablet-wide-2) {
+      line-height: 2;
+      padding: 0 1rem;
+      font-size: .5rem;
+    }
+
+    @include mq($desktop) {
+      font-size: .6rem;
+      margin: 0;
+    }
+    @include mq($phone-wide) {
+      // Should we just hide this entirely on mobile?
+      display: none;
+    }
+
+//       $tablet-wide: 1024px;
+// $macbook-air: 1152px;
+// $desktop: 1282px;
+// $desktop-wide: 1440px;
+
+    span {
+      &:hover {
+        text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+      }
+    }
+  }
+  .text {
+    margin: 2.5rem auto 0;
+    position: relative;
+
+    @include mq($tablet-wide-2) {
+      margin: 1rem auto 0;
+    }
+    @include mq($desktop) {
+      margin: 1.5rem auto 0;
+    }
+
+    p {
+      @include mq($desktop) {
+        font-size: .45rem;
+      }
+      @include mq($tablet-wide-2) {
+        font-size: .4rem;
+      }
+      @include mq($phone-wide) {
+        font-size: .35rem;
+      }
+   
+    
+    }
+  }
+}
+

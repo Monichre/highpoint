@@ -32,6 +32,11 @@ export const BROWSER = {
 
   isLandscape: () => window.orientation === 90,
 
+  isMobile: () => {
+    const winWidth = document.querySelector('body').offsetWidth
+    return winWidth <= 780
+  },
+
   isShrinkingVertically: browser_height => browser_height <= 500,
 
   addObjectFindPolyfill: () => {

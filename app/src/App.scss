@@ -10,6 +10,7 @@
 @import './components/grid/portfolioGrid/grid';
 @import './components/portfolioCardFooter/index';
 @import './components/portfolio/portfolio';
+@import './components/aboutUs/index';
 @import './components/portfolioCard/portfolioCard';
 @import './components/portfolioSideBar/index';
 @import './components/gallery/gallery';
@@ -32,7 +33,6 @@
   align-items: center;
   flex-wrap: wrap;
   height: auto !important;
-  // padding: 2% 10%;
   padding: 4rem 4rem 15rem 4rem;
 
 }

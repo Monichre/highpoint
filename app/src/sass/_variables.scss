@@ -227,4 +227,8 @@ $desktop-wide: 1440px;
       font-size: 45px;
       top: 10px;
     }
+    @include mq($phone-wide) {
+      font-size: 30px;
+      top: 30px;
+    }
 }
