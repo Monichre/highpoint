@@ -1,4 +1,4 @@
-@import '../../sass/variables';
+@import "../../sass/variables";
 
 .portfolio_card {
   position: relative;
@@ -32,11 +32,9 @@
     align-items: flex-end;
     flex-direction: column;
     justify-content: space-evenly;
-    
-
 
     &:after {
-      content: '';
+      content: "";
       right: 25px;
       top: 20px;
       position: absolute;
@@ -44,7 +42,7 @@
       height: 92%;
       background: #000;
       @include mq($phone-wide) {
-      display: none;
+        display: none;
       }
     }
 
@@ -54,14 +52,14 @@
       text-align: right;
       width: max-content;
       @include mq($desktop) {
-        font-size: .8rem;
+        font-size: 0.8rem;
         margin: 0 0 0.4rem;
       }
       @include mq($phone-wide) {
         text-align: right;
-        font-size: .7rem;
+        font-size: 0.7rem;
         width: 100%;
-        }
+      }
     }
 
     .img_cont {
@@ -106,87 +104,86 @@
               width: 33.333%;
               object-fit: scale-down;
               &:nth-of-type(1) {
-                padding: 40px;
+                padding: 34px;
               }
               &:nth-of-type(2) {
               }
               &:nth-of-type(3) {
-                padding: 40px;
+                padding: 34px;
               }
             }
           }
         }
       }
     }
-  .content {
-    position: relative;
-    z-index: 10;
-    .sub_title {
-      h4 {
-        margin: 1rem 0 0.4rem;
-        font-size: .7rem;
-        color: black;
-        font-weight: bolder;
-        text-transform: uppercase;
-        text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-        transition: text-shadow $b-animSpeed $b-animType;
+    .content {
+      position: relative;
+      z-index: 10;
+      .sub_title {
+        h4 {
+          margin: 1rem 0 0.4rem;
+          font-size: 0.7rem;
+          color: black;
+          font-weight: bolder;
+          text-transform: uppercase;
+          text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+          transition: text-shadow $b-animSpeed $b-animType;
 
-        @include mq($desktop) {
-          margin: .5rem 0 0.1rem;
-          font-size: .6rem;
-        }
-        @include mq($phone-wide) {
-          font-size: .45rem;
-          }
-      }
-    }
-
-    .text {
-      p {
           @include mq($desktop) {
-            font-size: .4rem;
+            margin: 0.5rem 0 0.1rem;
+            font-size: 0.6rem;
+          }
+          @include mq($phone-wide) {
+            font-size: 0.45rem;
+          }
+        }
+      }
+
+      .text {
+        p {
+          @include mq($desktop) {
+            font-size: 0.4rem;
           }
           @include mq($phone-wide) {
             display: none;
           }
+        }
       }
     }
-  }
-  
-
 
     &.horizontal__inner {
       padding: 1.1rem 2rem 0 2rem;
       @include mq($desktop) {
-        padding: .8rem 2rem 0 1.5rem;
+        padding: 0.8rem 2rem 0 1.5rem;
       }
       @include mq($phone-wide) {
-        padding: .5rem .5rem 0 .5rem;
+        padding: 0.5rem 0.5rem 0 0.5rem;
         align-items: baseline;
       }
     }
   }
-  
+
   &.vertical {
     .vertical__inner:not(.horizontal__inner) {
       align-items: flex-end;
-      padding: .8rem 1.5rem 0 1.5rem;
+      padding: 0.8rem 1.5rem 0 1.5rem;
       @include mq($desktop) {
-        padding: .8rem 1rem 0 1rem;
+        padding: 0.8rem 1rem 0 1rem;
       }
       h3 {
-        padding-right: .25rem;
+        padding-right: 0.25rem;
         width: max-content;
         @include mq($desktop) {
-        //  padding-right: .25rem;
-        //  width: max-content;
+          //  padding-right: .25rem;
+          //  width: max-content;
         }
       }
       .inner_columns {
         display: flex;
         flex-direction: row;
         height: 100%;
-        .img_cont, .content {
+        .img_cont,
+        .content {
           width: 50%;
         }
         .content {
@@ -217,7 +214,7 @@
           flex-direction: column;
           -ms-flex-pack: center;
           justify-content: center;
-          
+
           @include mq($desktop) {
             // margin-top: 0;
             // height: auto;
@@ -228,7 +225,7 @@
               object-fit: cover;
               height: 100%;
               width: 100%;
-  
+
               &.is_venture {
                 object-fit: contain;
               }
@@ -238,4 +235,4 @@
       }
     }
   }
-} 
+}
