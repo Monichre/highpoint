@@ -59,6 +59,15 @@
         justify-content: center;
         align-items: center;
 
+ 
+        @include mq($phone-wide) {
+          position: relative!important;
+          z-index: 1000;
+          height: 70vh;
+          width: 100%;
+        }
+      
+
         &.active {
           // z-index: -5;
         }
@@ -137,6 +146,7 @@
             top: -20px;
             right: -10px;
             position: relative;
+            
             -webkit-transform: scale(1.8);
             -ms-transform: scale(1.8);
             transform: scale(1.89) translateX(-0.8rem) translateY(1px);
@@ -146,6 +156,7 @@
             @include mq($phone-wide) {
               -webkit-transform: scale(.6);
               -ms-transform: scale(.6);
+              z-index: 3000;
             }
        
           }
@@ -161,6 +172,16 @@
         opacity: 0;
         transition: opacity 4s ease-in-out;
 
+        
+       
+        @include mq($phone-wide) {
+          // position: fixed!important;
+          top: 25vh;
+          left: 0;
+          // z-index: -1;
+          width: 100vw !important;
+          height: 50vh !important;
+        }
        
 
         video {
@@ -186,8 +207,14 @@
           overflow: hidden!important;
 
           @include mq($phone-wide) {
-            width: 60vw !important;
+            position: fixed!important;
+            top: 25vh;
+            left: 0;
+            z-index: -1;
+            width: 100vw !important;
+            height: 50vh !important;
           }
+
           video {
             transform: scale(1.6) !important;
             width: 100% !important;

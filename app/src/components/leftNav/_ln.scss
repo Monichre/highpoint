@@ -31,6 +31,12 @@
       padding-top: 2rem;
       @include column-flex-start;
 
+      li {
+        @include mq($phone-wide) {
+          display: none;
+        }
+      }
+
     }
     .bottom {
       height: 15vh;

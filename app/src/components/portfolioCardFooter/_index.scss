@@ -4,9 +4,16 @@
   justify-content: space-between;
   padding-left: 1.5rem;
 
+  @include mq($phone-wide) {
+    padding-left: .5rem;
+    }
+
   .portfolio_card__footer {
     width: 70%;
     position: relative;
+    @include mq($phone-wide) {
+      width: 50%;
+      }
     &:after {
       content: '';
       left: 0;

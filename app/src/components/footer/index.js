@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import CinderBlock from '../cinderblock'
-import VideoIcon from '../videoIcon'
-import { Next, Prev, Play } from '../icons'
-import { MorphReplace } from 'react-svg-morph'
+import React, { Component, Fragment } from 'react'
+import { Next, Prev, Play, Pause } from '../icons'
+import VideoControlButton from '../videoControlButton'
+import {MobileMenu} from '../mobileMenu'
 
 class Footer extends Component {
   state = {
-    launchFullScreenMenu: true
+    launchFullScreenMenu: true,
+    mobileMenuActive: false
   }
 
   componentWillMount() {
@@ -21,18 +21,17 @@ class Footer extends Component {
     const skews = Array.from(document.querySelectorAll('.skew'))
     const nav = document.querySelector('.footer_nav')
     nav.classList.contains('showing') ? nav.classList.remove('showing') : nav.classList.add('showing')
+    this.setState({
+      mobileMenuActive: !this.state.mobileMenuActive
+    })
   }
 
   handleHover = e => {
-    console.log(e)
-    console.log(e.target.getAttribute('data-target-attribute'))
     const element = document.querySelector(`.${e.target.getAttribute('data-target-attribute')}`)
     element.classList.add('hovering')
   }
 
   handleHoverLeave = e => {
-    console.log(e)
-    console.log(e.target.getAttribute('data-target-attribute'))
     const element = document.querySelector(`.${e.target.getAttribute('data-target-attribute')}`)
     element.classList.remove('hovering')
   }
@@ -50,7 +49,7 @@ class Footer extends Component {
     const radialPane2 = this.props.launchFullVideo ? (
       <p className="skew_portfolio">
         <span onClick={this.props.playOrPause}>
-          <Play />
+          <Pause />
         </span>
       </p>
     ) : (
@@ -66,8 +65,8 @@ class Footer extends Component {
       <p className="skew_process">Process</p>
     )
 
-    console.log(this.props)
     return (
+      <Fragment>
       <div className="footer">
         <nav className="footer_nav">
           <div className="container">
@@ -98,6 +97,8 @@ class Footer extends Component {
           <MiniCinder />
         </div>
       </div>
+      <MobileMenu active={this.state.mobileMenuActive} />
+      </Fragment>
     )
   }
 }
