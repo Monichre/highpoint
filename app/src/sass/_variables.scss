@@ -11,8 +11,8 @@ $b-shadowSize: 2px;
 $Title-color: $c-dark;
 
 // FONTS
-$font-primary: 'N-Black';
-$font-secondary: 'N-Light';
+$font-primary: "N-Black";
+$font-secondary: "N-Light";
 
 // font sizes
 $h--1: (
@@ -193,7 +193,6 @@ $desktop-wide: 1440px;
   }
 }
 
-
 @mixin menu-link {
   font-size: 0.55rem;
   letter-spacing: 2px;
@@ -204,36 +203,90 @@ $desktop-wide: 1440px;
   text-align: left;
 
   @include mq($desktop) {
-    font-size: .4rem;
+    font-size: 0.4rem;
   }
 }
 
 @mixin link-style {
   text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-  transition: text-shadow $b-animSpeed $b-animType;
+  // transition: text-shadow $b-animSpeed $b-animType;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 2px;
+    background: #333;
+    top: 40%;
+    animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+  }
 }
 
 @mixin link-style-hover {
-  text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+  // text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
+  &:before {
+    animation: in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+  }
 }
 
 @mixin page-title-style {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 55px;
-    letter-spacing: 4px;
-    position: relative;
-    // top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 55px;
+  letter-spacing: 4px;
+  position: relative;
+  // top: 20px;
 
-    @include mq($desktop) {
-      font-size: 45px;
-      top: 10px;
-    }
-    @include mq($phone-wide) {
-      font-size: 30px;
-      top: 30px;
-    }
-    @include mq($phone) {
-      font-size: 20px;
-    }
+  @include mq($desktop) {
+    font-size: 45px;
+    top: 10px;
+  }
+  @include mq($phone-wide) {
+    font-size: 30px;
+    top: 30px;
+  }
+  @include mq($phone) {
+    font-size: 20px;
+  }
+}
+
+@keyframes in {
+  0% {
+    width: 0;
+    left: 0;
+    right: auto;
+  }
+  100% {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+@keyframes out {
+  0% {
+    width: 100%;
+    left: auto;
+    right: 0;
+  }
+  100% {
+    width: 0;
+    left: auto;
+    right: 0;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@for $i from 1 through 5 {
+  nav a:nth-child(#{$i}) {
+    animation: show 0.2s #{$i * 0.1+1}s ease 1 both;
+  }
 }
