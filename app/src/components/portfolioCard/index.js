@@ -1,35 +1,43 @@
 import React from "react";
-import { HorizontalPortfolioCard } from "./horizontalCard";
-import { VerticalPortfolioCard } from "./verticalCard";
-import { BROWSER } from "../../utils/browser";
+import { HorizontalPortfolioCard } from "../portfolioCardHorizontal";
+import { VerticalPortfolioCard } from "../portfolioCardVertical";
+import PortfolioCardContainer from "./portfolioCardContainer";
+import PortfolioCardFooter from "../portfolioCardFooter";
+
 import "./_portfolioCard.scss";
-const { status } = BROWSER.isMobile();
-console.log(status);
+
 export const PortfolioCard = ({
+  mobileStatus,
   property,
   arrowClick,
   index,
   property: { featuredImage }
 }) => {
   if (
-    status ||
+    mobileStatus ||
     featuredImage.fields.file.details.image.width >=
       featuredImage.fields.file.details.image.height
   ) {
     return (
-      <HorizontalPortfolioCard
-        index={index}
-        arrowClick={arrowClick}
-        property={property}
-      />
+      <PortfolioCardContainer className="horizontal">
+        <HorizontalPortfolioCard
+          index={index}
+          arrowClick={arrowClick}
+          property={property}
+        />
+        <PortfolioCardFooter property={property} />
+      </PortfolioCardContainer>
     );
   } else {
     return (
-      <VerticalPortfolioCard
-        index={index}
-        arrowClick={arrowClick}
-        property={property}
-      />
+      <PortfolioCardContainer className="vertical">
+        <VerticalPortfolioCard
+          index={index}
+          arrowClick={arrowClick}
+          property={property}
+        />
+        <PortfolioCardFooter property={property} />
+      </PortfolioCardContainer>
     );
   }
 };

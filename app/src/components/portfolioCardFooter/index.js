@@ -1,11 +1,11 @@
-import React from 'react'
-import ViewProcessButton from '../viewProcessButton'
+import React from "react";
+import { CornerIcon } from "./cornerIcon";
 
-const PortfolioCardFooter = ({property}) => (
-  <div className='portfolio_card__details'>
-      <footer className={`portfolio_card__footer ${property.isAProcessItem ? 'process_true' : 'process_false'}`} />
-      <ViewProcessButton property={property} />
-    </div>
-)
+const PortfolioCardFooter = ({ property }) => (
+  <div className="portfolio_card__details">
+    <footer className={`portfolio_card__footer process_false`} />
+    <CornerIcon />
+  </div>
+);
 
-export default PortfolioCardFooter
+export default PortfolioCardFooter;

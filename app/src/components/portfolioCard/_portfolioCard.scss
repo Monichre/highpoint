@@ -13,47 +13,165 @@
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   overflow: hidden;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 95%;
   margin: auto;
-  max-height: 95vh;
+  height: 90vh;
 
   @include mq($phone-wide) {
-    max-height: 85vh;
+    // max-height: 85vh;
     width: 75%;
   }
 
-  .inner {
+  h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+    text-align: right;
+    width: max-content;
+    @include mq($desktop) {
+      font-size: 0.8rem;
+      margin: 0 0 0.4rem;
+    }
+    @include mq($phone-wide) {
+      text-align: right;
+      font-size: 0.7rem;
+      width: 100%;
+    }
+  }
+
+  .img_cont {
+    height: 300px;
+    position: relative;
     width: 100%;
-    height: 100%;
+    @include mq($desktop) {
+      height: 250px;
+    }
+    .img_inner {
+      height: 80%;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+
+        &.is_venture {
+          object-fit: contain;
+        }
+      }
+      &.img_logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: column;
+
+        img {
+          width: 100%;
+          height: 70%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .logos {
+          width: 100%;
+          height: 30%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          img {
+            height: 100%;
+            width: 33.333%;
+            object-fit: scale-down;
+            &:nth-of-type(1) {
+              padding: 34px;
+            }
+            &:nth-of-type(2) {
+            }
+            &:nth-of-type(3) {
+              padding: 34px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .content {
     position: relative;
     z-index: 10;
-    display: flex;
+    .sub_title {
+      h4 {
+        margin: 1rem 0 0.4rem;
+        font-size: 0.7rem;
+        color: black;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+        transition: text-shadow $b-animSpeed $b-animType;
+
+        @include mq($desktop) {
+          margin: 0.5rem 0 0.1rem;
+          font-size: 0.6rem;
+        }
+        @include mq($phone-wide) {
+          font-size: 0.45rem;
+        }
+      }
+    }
+
+    .text {
+      p {
+        @include mq($desktop) {
+          font-size: 0.4rem;
+        }
+        @include mq($phone-wide) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .horizontal__inner {
+    padding: 1.1rem 2rem 0 2rem;
     align-items: flex-end;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 100%;
+    height: 88%;
+    position: relative;
+    z-index: 10;
+    display: flex;
 
     &:after {
       content: "";
       right: 25px;
-      top: 20px;
+      top: 15%;
       position: absolute;
       width: 1.5px;
-      height: 92%;
+      height: 85%;
       background: #000;
       @include mq($phone-wide) {
         display: none;
       }
     }
 
+    @include mq($desktop) {
+      padding: 0.8rem 2rem 0 1.5rem;
+    }
+    @include mq($phone-wide) {
+      padding: 0.5rem 0.5rem 0 0.5rem;
+      align-items: baseline;
+    }
+  }
+  &.vertical {
     h3 {
       font-size: 1rem;
-      margin: 0 0 0.5rem;
+      margin: 0.5rem 0 0;
       text-align: right;
-      width: max-content;
+      width: 100%;
+      padding-right: 1.5rem;
+
       @include mq($desktop) {
         font-size: 0.8rem;
-        margin: 0 0 0.4rem;
+        // margin: 0 0 0.4rem;
       }
       @include mq($phone-wide) {
         text-align: right;
@@ -61,121 +179,30 @@
         width: 100%;
       }
     }
-
-    .img_cont {
-      height: 300px;
-      position: relative;
-      @include mq($desktop) {
-        height: 250px;
-      }
-      .img_inner {
-        height: 100%;
-
-        img {
-          object-fit: cover;
-          height: 100%;
-          width: 100%;
-
-          &.is_venture {
-            object-fit: contain;
-          }
-        }
-        &.img_logos {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          flex-direction: column;
-
-          img {
-            width: 100%;
-            height: 70%;
-            object-fit: cover;
-            object-position: center;
-          }
-
-          .logos {
-            width: 100%;
-            height: 30%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            img {
-              height: 100%;
-              width: 33.333%;
-              object-fit: scale-down;
-              &:nth-of-type(1) {
-                padding: 34px;
-              }
-              &:nth-of-type(2) {
-              }
-              &:nth-of-type(3) {
-                padding: 34px;
-              }
-            }
-          }
-        }
-      }
-    }
-    .content {
+    .vertical__inner:not(.horizontal__inner) {
+      width: 100%;
+      height: 88%;
       position: relative;
       z-index: 10;
-      .sub_title {
-        h4 {
-          margin: 1rem 0 0.4rem;
-          font-size: 0.7rem;
-          color: black;
-          font-weight: bolder;
-          text-transform: uppercase;
-          text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-          transition: text-shadow $b-animSpeed $b-animType;
-
-          @include mq($desktop) {
-            margin: 0.5rem 0 0.1rem;
-            font-size: 0.6rem;
-          }
-          @include mq($phone-wide) {
-            font-size: 0.45rem;
-          }
-        }
-      }
-
-      .text {
-        p {
-          @include mq($desktop) {
-            font-size: 0.4rem;
-          }
-          @include mq($phone-wide) {
-            display: none;
-          }
-        }
-      }
-    }
-
-    &.horizontal__inner {
-      padding: 1.1rem 2rem 0 2rem;
-      @include mq($desktop) {
-        padding: 0.8rem 2rem 0 1.5rem;
-      }
-      @include mq($phone-wide) {
-        padding: 0.5rem 0.5rem 0 0.5rem;
-        align-items: baseline;
-      }
-    }
-  }
-
-  &.vertical {
-    .vertical__inner:not(.horizontal__inner) {
+      display: flex;
       align-items: flex-end;
-      padding: 0.8rem 1.5rem 0 1.5rem;
+      // padding: 0rem 1.5rem 0 1.5rem; --> old styles
+      padding: 0rem 1rem 0 1.5rem;
       @include mq($desktop) {
-        padding: 0.8rem 1rem 0 1rem;
+        // padding: 0rem 1rem 0 1rem;  --> old styles
+        padding: 0rem 1rem 0 1.5rem;
       }
-      h3 {
-        padding-right: 0.25rem;
-        width: max-content;
-        @include mq($desktop) {
-          //  padding-right: .25rem;
-          //  width: max-content;
+
+      &:after {
+        content: "";
+        right: 25px;
+        top: 0;
+        position: absolute;
+        width: 1.5px;
+        height: 100%;
+        background: #000;
+        @include mq($phone-wide) {
+          display: none;
         }
       }
       .inner_columns {
@@ -187,7 +214,7 @@
           width: 50%;
         }
         .content {
-          padding-left: 20px;
+          padding: 20px;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
