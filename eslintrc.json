@@ -1,8 +1,6 @@
 {
   "extends": ["plugin:prettier/recommended"],
-  "quotes": {
-    "single": true
-  },
-  "quotes": "single",
+
+  "singleQuote": true,
   "semi": false
 }

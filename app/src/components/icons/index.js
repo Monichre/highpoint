@@ -260,7 +260,7 @@ export const ArrowNext = () => (
   </svg>
 );
 
-export const Compass = () => (
+export const CompassRuler = () => (
   <svg
     width="90px"
     height="80px"

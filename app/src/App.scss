@@ -34,6 +34,15 @@
   flex-wrap: wrap;
   height: auto !important;
   padding: 4rem 4rem 15rem 4rem;
+
+  // MEDIA QUERIES
+  // $phone--xs-small: 320px;
+  // $phone-small: 375px;
+  // $phone: 400px;
+  // $phone-wide: 480px;
+  @include mq($phone-wide) {
+    padding: 1rem 1rem 0rem 1rem;
+  }
 }
 
 // LOADERS
