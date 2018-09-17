@@ -7,14 +7,14 @@
   padding-left: 1.5rem;
   // justify-content: space-between;
 
-  @include mq($phone-wide) {
-    // padding-left: 0.5rem;
+  @include mq($tablet) {
+    height: 7%;
   }
 
   .portfolio_card__footer {
     width: 70%;
     position: relative;
-    @include mq($phone-wide) {
+    @include mq($tablet) {
       width: 50%;
     }
     &:after {
@@ -42,7 +42,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @include mq($tablet) {
+    width: 2.5rem;
+  }
   svg {
     height: 4vh;
+    @include mq($tablet) {
+      height: 2.75vh;
+    }
   }
 }

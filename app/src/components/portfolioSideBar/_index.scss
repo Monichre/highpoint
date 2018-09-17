@@ -1,25 +1,25 @@
 #sidebar_menu {
   background: #fff;
 
-  right: 0!important;
+  right: 0 !important;
   // bottom: 15vh !important;
 
-  top: 85vh!important;
+  top: 85vh !important;
   overflow-x: hidden;
   overflow-y: scroll;
   height: 70vh !important;
-  width: 10vw!important;
-  left: auto!important;
+  width: 10vw !important;
+  left: auto !important;
   border-top: 2px solid black;
 
-   @include mq($phone-wide) {
-      width: 20vw!important;
-      top: 90vh!important;
-    }
+  @include mq($tablet) {
+    width: 10vw !important;
+    top: 90vh !important;
+  }
 
   ul {
     @include column-flex-evenly;
-    align-items: flex-end!important;
+    align-items: flex-end !important;
     padding: 20px 15px 20px 0;
     @include mq($desktop) {
       padding: 0;
@@ -27,11 +27,9 @@
     .menu_link.sidebar_link {
       cursor: pointer;
       @include mq($desktop) {
-        font-size: .35rem;
+        font-size: 0.35rem;
         padding: 5px;
       }
     }
-
   }
-    
-  }
+}

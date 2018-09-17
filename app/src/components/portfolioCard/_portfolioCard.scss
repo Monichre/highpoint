@@ -18,7 +18,7 @@
   margin: auto;
   height: 90vh;
 
-  @include mq($phone-wide) {
+  @include mq($tablet) {
     // max-height: 85vh;
     width: 75%;
   }
@@ -32,7 +32,7 @@
       font-size: 0.8rem;
       margin: 0 0 0.4rem;
     }
-    @include mq($phone-wide) {
+    @include mq($tablet) {
       text-align: right;
       font-size: 0.7rem;
       width: 100%;
@@ -94,9 +94,16 @@
       }
     }
   }
+
   .content {
     position: relative;
     z-index: 10;
+    .content {
+      @include mq($tablet) {
+        width: 100%;
+        display: flex;
+      }
+    }
     .sub_title {
       h4 {
         margin: 1rem 0 0.4rem;
@@ -111,7 +118,7 @@
           margin: 0.5rem 0 0.1rem;
           font-size: 0.6rem;
         }
-        @include mq($phone-wide) {
+        @include mq($tablet) {
           font-size: 0.45rem;
         }
       }
@@ -122,7 +129,7 @@
         @include mq($desktop) {
           font-size: 0.4rem;
         }
-        @include mq($phone-wide) {
+        @include mq($tablet) {
           display: none;
         }
       }
@@ -148,19 +155,49 @@
       width: 1.5px;
       height: 85%;
       background: #000;
-      @include mq($phone-wide) {
-        display: none;
+      @include mq($tablet) {
+        // display: none;
+        right: 30px;
       }
     }
 
     @include mq($desktop) {
       padding: 0.8rem 2rem 0 1.5rem;
     }
-    @include mq($phone-wide) {
-      padding: 0.5rem 0.5rem 0 0.5rem;
+    @include mq($tablet) {
+      // padding: 0.5rem 0.5rem 0 0.5rem;
+      padding: 0.5rem 2rem 0 1rem;
       align-items: baseline;
+      height: 93%; // Because the footer only has a height of 7%
+    }
+    .img_cont {
+      @include mq($tablet) {
+        height: 40vh;
+      }
+      .img_inner {
+        @include mq($tablet) {
+          height: 100%;
+          width: 100%;
+        }
+
+        img {
+          @include mq($tablet) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+      .content {
+        @include mq($tablet) {
+          width: 100%;
+          display: flex;
+        }
+      }
     }
   }
+
   &.vertical {
     h3 {
       font-size: 1rem;
@@ -173,7 +210,7 @@
         font-size: 0.8rem;
         // margin: 0 0 0.4rem;
       }
-      @include mq($phone-wide) {
+      @include mq($tablet) {
         text-align: right;
         font-size: 0.7rem;
         width: 100%;
@@ -192,6 +229,9 @@
         // padding: 0rem 1rem 0 1rem;  --> old styles
         padding: 0rem 1rem 0 1.5rem;
       }
+      @include mq($tablet) {
+        height: 93%; // Because the footer only has a height of 7%
+      }
 
       &:after {
         content: "";
@@ -201,7 +241,7 @@
         width: 1.5px;
         height: 100%;
         background: #000;
-        @include mq($phone-wide) {
+        @include mq($tablet) {
           display: none;
         }
       }

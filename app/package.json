@@ -25,6 +25,7 @@
     "sass-loader": "^7.1.0",
     "scrollreveal": "^3.4.0",
     "style-loader": "^0.23.0",
+    "styled-components": "^3.4.6",
     "superslide.js": "^1.0.0",
     "tippy.js": "^2.5.4"
   },
