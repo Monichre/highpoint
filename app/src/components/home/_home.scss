@@ -1,9 +1,8 @@
-@import '../../sass/variables';
+@import "../../sass/variables";
 .home {
   @include row-flex;
   position: relative;
   height: 100vh;
-  
 
   .inner_logo_line.logo_line_rect {
     width: 0;
@@ -37,6 +36,10 @@
     position: relative;
     @include column-flex-fullHeight;
 
+    @include mq($tablet) {
+      justify-content: flex-start;
+    }
+
     .wrapper {
       width: 100%;
       display: block;
@@ -59,14 +62,12 @@
         justify-content: center;
         align-items: center;
 
- 
         @include mq($phone-wide) {
-          position: relative!important;
+          position: relative !important;
           z-index: 1000;
           height: 70vh;
           width: 100%;
         }
-      
 
         &.active {
           // z-index: -5;
@@ -94,7 +95,7 @@
           &::before,
           &::after {
             box-sizing: inherit;
-            content: '';
+            content: "";
             position: absolute;
             width: 100%;
             height: 100%;
@@ -127,7 +128,7 @@
               border-right-color: #333;
               transition: width 0.25s ease-out,
                 // Width expands first
-                  height0.25s ease-out 0.25s; // And then height
+                  height0.25sease-out 0.25s; // And then height
             }
 
             &::after {
@@ -135,9 +136,9 @@
               border-left-color: #333;
               transition: border-color 0s ease-out 0.5s,
                 // Wait for ::before to finish before showing border
-                  width0.25s ease-out 0.5s,
+                  width0.25sease-out 0.5s,
                 // And then exanding width
-                  height0.25s ease-out 0.75s; // And finally height
+                  height0.25sease-out 0.75s; // And finally height
             }
           }
 
@@ -146,19 +147,24 @@
             top: -20px;
             right: -10px;
             position: relative;
-            
+
             -webkit-transform: scale(1.8);
             -ms-transform: scale(1.8);
             transform: scale(1.89) translateX(-0.8rem) translateY(1px);
             opacity: 1;
             transition: all 0.8s ease-in-out;
 
+            @include mq($tablet) {
+              -webkit-transform: none;
+              -ms-transform: none;
+              transform: none;
+            }
+
             @include mq($phone-wide) {
-              -webkit-transform: scale(.6);
-              -ms-transform: scale(.6);
+              -webkit-transform: scale(0.6);
+              -ms-transform: scale(0.6);
               z-index: 3000;
             }
-       
           }
         }
       }
@@ -167,13 +173,17 @@
         height: 65vh !important;
         overflow: hidden;
         position: relative;
-        display: block; margin: auto;
+        display: block;
+        margin: auto;
         cursor: url(/icons/maximize.svg), auto;
         opacity: 0;
         transition: opacity 4s ease-in-out;
 
-        
-       
+        @include mq($tablet) {
+          // height: 50vh !important;
+          margin-top: 15vh;
+        }
+
         @include mq($phone-wide) {
           // position: fixed!important;
           top: 25vh;
@@ -182,13 +192,12 @@
           width: 100vw !important;
           height: 50vh !important;
         }
-       
 
         video {
           width: 100% !important;
           margin: auto;
           display: block;
-          transition: all .4s ease-in-out;
+          transition: all 0.4s ease-in-out;
           display: block;
           transform: scale(1.2);
           filter: saturate(1.2) grayscale(0.7);
@@ -197,17 +206,20 @@
             transform: translateX(0%) translateY(0%);
             clip-path: none;
             position: relative;
-              z-index: 1001;
+            z-index: 1001;
           }
         }
         &.fadeIn {
           opacity: 1;
           width: 80vw !important;
           height: 70vh !important;
-          overflow: hidden!important;
+          overflow: hidden !important;
 
+          @include mq($tablet) {
+            // height: 50vh !important;
+          }
           @include mq($phone-wide) {
-            position: fixed!important;
+            position: fixed !important;
             top: 25vh;
             left: 0;
             z-index: -1;
@@ -218,20 +230,9 @@
           video {
             transform: scale(1.6) !important;
             width: 100% !important;
-            height: 100%!important;
-        
-          }
-          &.launch__full {
-            &:after {
-              cursor: url(/icons/minimize.svg), auto;
-              content: '';
-              @include overlay('fixed', 1000);
-              background: rgba(0,0,0,0.8);
-            
-            }
+            height: 100% !important;
           }
         }
-       
       }
     }
   }

@@ -1,4 +1,4 @@
-@import '../../sass/variables';
+@import "../../sass/variables";
 
 .menu_link {
   @include menu-link;
@@ -32,7 +32,7 @@
         border: 1px solid #000;
         padding: 1px;
         background: #fff;
-        content: '';
+        content: "";
       }
       &:before {
         position: absolute;
@@ -41,9 +41,12 @@
         width: 15px;
         height: 1px;
         background: #000;
-        content: '';
+        content: "";
       }
     }
-
+  }
+  &.mobile_sidebar_link {
+    color: white !important;
+    text-shadow: none;
   }
 }

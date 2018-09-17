@@ -11,8 +11,8 @@
     // justify-content: space-between;
     height: 100%;
     width: 10vw;
-    @include mq($phone-wide) {
-      width: 20vw;
+    @include mq($tablet) {
+      // width: 20vw;
       justify-content: space-between !important;
     }
     .top {
@@ -25,10 +25,10 @@
         display: block;
         margin: auto;
       }
-      @include mq($phone-wide) {
+      @include mq($tablet) {
         height: 10vh;
         svg {
-          height: 4vh !important;
+          height: 3vh !important;
         }
       }
       @include column-flex;
@@ -45,7 +45,7 @@
       @include column-flex-start;
 
       li {
-        @include mq($phone-wide) {
+        @include mq($tablet) {
           display: none;
         }
       }
@@ -60,7 +60,7 @@
       background: transparent;
       align-items: center;
 
-      @include mq($phone-wide) {
+      @include mq($tablet) {
         height: 10vh;
       }
     }

@@ -21,6 +21,7 @@
     "react-spring": "^5.4.3",
     "react-svg-morph": "^0.2.1",
     "react-transition-group": "^2.4.0",
+    "rebass": "^3.0.0-8",
     "sass-loader": "^7.1.0",
     "scrollreveal": "^3.4.0",
     "style-loader": "^0.23.0",

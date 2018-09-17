@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { Fragment } from "react";
+import { Info } from "../icons";
 
-const NavBottom = () => (
-  <ul className='bottom'>
+const listItems = (
+  <Fragment>
     <li>
-      <span className=''>Developer</span>
+      <span className="">Developer</span>
     </li>
     <li>
-      <span className=''>Owner</span>
+      <span className="">Owner</span>
     </li>
     <li>
-      <span className=''>Operator</span>
+      <span className="">Operator</span>
     </li>
+  </Fragment>
+);
+
+const NavBottom = ({ isMobile }) => (
+  <ul className={`bottom ${isMobile ? "is_mobile" : ""}`}>
+    {isMobile ? <Info /> : { listItems }}
   </ul>
-)
+);
 
-export default NavBottom
+export default NavBottom;

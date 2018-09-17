@@ -1,4 +1,4 @@
-@import '../../sass/variables';
+@import "../../sass/variables";
 .right_nav {
   z-index: 10;
   width: 10vw;
@@ -8,8 +8,8 @@
   right: 0;
   position: fixed;
 
-  @include mq($phone-wide) {
-    width: 20vw;
+  @include mq($tablet) {
+    // width: 20vw;
   }
 
   .inner {
@@ -30,7 +30,7 @@
         @include column-flex-center;
         height: 15vh;
         padding: 0;
-        @include mq($phone-wide) {
+        @include mq($tablet) {
           height: 10vh;
         }
 
@@ -46,9 +46,14 @@
           svg {
             display: block;
             margin: auto;
-            height: 5.5vh !important;
+            height: 5.5vh;
+            @include mq($tablet) {
+              height: 3.5vh;
+              display: block;
+              width: auto;
+              margin: auto;
+            }
           }
-    
         }
       }
 
@@ -68,11 +73,11 @@
           padding: 10px 20px 0 10px;
         }
 
-        @include mq($phone-wide) {
+        @include mq($tablet) {
           padding: 10px 10px 0;
           height: 10vh;
         }
-        
+
         li {
           font-size: 0.4rem !important;
           letter-spacing: 3px;
@@ -86,13 +91,15 @@
           @include mq($desktop) {
             font-size: 0.3rem !important;
           }
-          @include mq($phone-wide) {
-           display: none;
+          @include mq($tablet) {
+            display: none;
           }
-          
+        }
+
+        &.is_mobile {
+          padding: 0;
         }
       }
     }
   }
-
 }

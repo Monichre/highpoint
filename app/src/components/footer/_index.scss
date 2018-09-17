@@ -1,4 +1,3 @@
-
 .footer {
   position: absolute;
   overflow: hidden;
@@ -6,7 +5,7 @@
   bottom: 0;
   width: 100%;
   z-index: 3000;
-  
+
   .footer_nav {
     position: absolute;
     height: 205px;
@@ -108,24 +107,16 @@
         border-right: 1px solid #f6e6cf;
       }
     }
-
-
   }
   .burger {
     width: 50px;
     height: 50px;
     position: absolute;
-
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
-    align-items: center;
+    @include column-flex-center;
     border-radius: 50%;
     left: 50%;
-    bottom: 0px;
+    // bottom: 0px;
+    bottom: 15px;
     -webkit-transform: translatex(-50%);
     -ms-transform: translatex(-50%);
     transform: translatex(-50%);
@@ -133,20 +124,30 @@
     color: whitesmoke;
     -webkit-box-shadow: 0px 0px 20px #000;
     box-shadow: 0px 0px 20px #000;
-    background-color: #fff;
+    background-color: #000;
+    transition: bottom 0.4s ease-in-out, border 0.6s ease-in-out;
 
     &.heartbeat {
       -webkit-animation: heartbeat 3s ease-in-out infinite both;
-              animation: heartbeat 3s ease-in-out infinite both;
+      animation: heartbeat 3s ease-in-out infinite both;
     }
 
-    .cinderblock_container {
-      @include column-flex-center;
+    svg {
+      width: 100%;
+      fill: #fff;
+      object-fit: contain;
+      height: 2.5vh;
+      padding: 5px;
+      path {
+        fill: #fff !important;
+      }
+    }
+
+    &.showing {
+      will-change: border, bottom;
+      border: 2px solid white;
+      bottom: 0px;
       svg {
-        width: 100%;
-        fill: #000;
-        object-fit: contain;
-        height: 3vh;
       }
     }
   }
@@ -174,7 +175,6 @@
           -ms-transform: rotate(0deg);
           transform: rotate(0deg);
         }
-    
       }
     }
     .burger {
@@ -192,71 +192,71 @@
  * animation heartbeat
  * ----------------------------------------
  */
- @-webkit-keyframes heartbeat {
+@-webkit-keyframes heartbeat {
   from {
     -webkit-transform: scale(1) translatex(-50%);
-            transform: scale(1) translatex(-50%);
+    transform: scale(1) translatex(-50%);
     -webkit-transform-origin: center center;
-            transform-origin: center center;
+    transform-origin: center center;
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   10% {
     -webkit-transform: scale(0.91) translatex(-50%);
-            transform: scale(0.91) translatex(-50%);
+    transform: scale(0.91) translatex(-50%);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   17% {
     -webkit-transform: scale(0.98) translatex(-50%);
-            transform: scale(0.98) translatex(-50%);
+    transform: scale(0.98) translatex(-50%);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   33% {
     -webkit-transform: scale(0.87) translatex(-50%);
-            transform: scale(0.87) translatex(-50%);
+    transform: scale(0.87) translatex(-50%);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   45% {
     -webkit-transform: scale(1) translatex(-50%);
-            transform: scale(1) translatex(-50%);
+    transform: scale(1) translatex(-50%);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
 @keyframes heartbeat {
   from {
     -webkit-transform: scale(1) translatex(-50%);
-            transform: scale(1) translatex(-50%);
+    transform: scale(1) translatex(-50%);
     -webkit-transform-origin: center center;
-            transform-origin: center center;
+    transform-origin: center center;
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   10% {
     -webkit-transform: scale(0.91) translatex(-50%);
-            transform: scale(0.91) translatex(-50%);
+    transform: scale(0.91) translatex(-50%);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   17% {
     -webkit-transform: scale(0.98) translatex(-50%);
-            transform: scale(0.98) translatex(-50%);
+    transform: scale(0.98) translatex(-50%);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   33% {
     -webkit-transform: scale(0.87) translatex(-50%);
-            transform: scale(0.87) translatex(-50%);
+    transform: scale(0.87) translatex(-50%);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
   45% {
     -webkit-transform: scale(1) translatex(-50%);
-            transform: scale(1) translatex(-50%);
+    transform: scale(1) translatex(-50%);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }

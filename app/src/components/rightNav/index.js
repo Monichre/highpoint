@@ -5,6 +5,9 @@ import HoverLink from "../hoverLink";
 import NavBottom from "./NavBottom";
 import PortfolioSidear from "../portfolioSideBar";
 import superslide from "../superslide";
+import { BROWSER } from "../../utils/browser";
+
+const { status } = BROWSER.isMobile();
 
 export default class RightNav extends Component {
   state = {
@@ -118,7 +121,7 @@ export default class RightNav extends Component {
           <ul style={{ listStyle: "none" }} className="top">
             <ContextualLink />
           </ul>
-          <NavBottom />
+          <NavBottom isMobile={status} />
         </div>
         <PortfolioSidear
           {...this.props}
