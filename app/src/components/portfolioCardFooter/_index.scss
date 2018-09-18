@@ -3,7 +3,7 @@
 
   display: flex;
   width: 100%;
-  height: 12%;
+  height: 10%;
   padding-left: 1.5rem;
   // justify-content: space-between;
 
@@ -34,7 +34,7 @@
   }
 } // End of details/footer
 .corner_icon {
-  width: 2rem;
+  width: 3rem; // Corresponding border from card-inner must have half teh padding on the right
   height: 100%;
   border-top: 2px solid #000;
   border-left: 2px solid #000;
@@ -46,9 +46,15 @@
     width: 2.5rem;
   }
   svg {
-    height: 4vh;
+    height: 3vh;
     @include mq($tablet) {
       height: 2.75vh;
     }
+  }
+}
+
+.vertical {
+  .portfolio_card__details {
+    padding-left: 1rem;
   }
 }

@@ -3,7 +3,7 @@ export const pageLines = isMobile => {
   return [
     {
       top: 0,
-      left: status ? "10%" : "20%",
+      left: "10%",
       width: 1,
       height: "100vh",
       color: "#c7c6c6",
@@ -17,7 +17,7 @@ export const pageLines = isMobile => {
     },
     {
       top: 0,
-      left: status ? "90%" : "80%",
+      left: "90%",
       width: 1,
       height: "100vh",
       color: "#c7c6c6",

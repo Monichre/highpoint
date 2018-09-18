@@ -17,7 +17,7 @@ const listItems = (
 
 const NavBottom = ({ isMobile }) => (
   <ul className={`bottom ${isMobile ? "is_mobile" : ""}`}>
-    {isMobile ? <Info /> : { listItems }}
+    {isMobile ? <Info /> : listItems}
   </ul>
 );
 

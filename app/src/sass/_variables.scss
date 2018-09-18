@@ -200,7 +200,11 @@ $desktop-wide: 1440px;
     @content;
   }
 }
-
+@mixin minMq($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}
 @mixin menu-link {
   font-size: 0.55rem;
   letter-spacing: 2px;
@@ -216,7 +220,7 @@ $desktop-wide: 1440px;
 }
 
 @mixin link-style {
-  text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+  // text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
   // transition: text-shadow $b-animSpeed $b-animType;
   position: relative;
   &:before {

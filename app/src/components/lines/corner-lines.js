@@ -4,9 +4,9 @@ export const siteCornerLines = isMobile => {
   return [
     {
       top: 0,
-      left: status ? "10%" : "20%",
+      left: "10%",
       width: 3,
-      height: status ? "12vh" : "30vh",
+      height: status ? "12vh" : "20vh",
       color: "#333",
       hidden: true,
       animation: {
@@ -19,7 +19,7 @@ export const siteCornerLines = isMobile => {
     {
       top: status ? "10%" : "15%",
       left: 0,
-      width: status ? "12vw" : "25vw",
+      width: "12vw",
       height: 3,
       color: "#333",
       hidden: true,
@@ -31,10 +31,10 @@ export const siteCornerLines = isMobile => {
       }
     },
     {
-      top: status ? "88%" : "70%",
-      left: status ? "90%" : "80%",
+      top: "80%",
+      left: "90%",
       width: 3,
-      height: status ? "12vh" : "30vh",
+      height: "15vh",
       color: "#333",
       hidden: true,
       animation: {
@@ -47,7 +47,7 @@ export const siteCornerLines = isMobile => {
 
     {
       top: status ? "90%" : "85%",
-      left: status ? "88%" : "75%",
+      left: "88%",
       width: status ? "12vw" : "25vw",
       height: 3,
       color: "#333",

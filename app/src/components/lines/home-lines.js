@@ -4,7 +4,21 @@ export const homeLines = isMobile => {
   return [
     {
       top: 0,
-      left: status ? "10%" : "20%",
+      left: "10%",
+      width: 1,
+      height: "100vh",
+      color: "#c7c6c6",
+      hidden: true,
+      animation: {
+        duration: 2000,
+        easing: "easeInOutExpo",
+        delay: 0,
+        direction: "TopBottom"
+      }
+    },
+    {
+      top: 0,
+      left: "25%",
       width: 1,
       height: "100vh",
       color: "#c7c6c6",
@@ -34,7 +48,7 @@ export const homeLines = isMobile => {
       top: 0,
       left: status ? "50%" : "60%",
       width: 1,
-      height: status ? "100vh" : "85vh",
+      height: "100vh",
       color: "#c7c6c6",
       hidden: true,
       animation: {
@@ -46,7 +60,7 @@ export const homeLines = isMobile => {
     },
     {
       top: 0,
-      left: status ? "70%" : "80%",
+      left: status ? "70%" : "75%",
       width: 1,
       height: "100vh",
       color: "#c7c6c6",

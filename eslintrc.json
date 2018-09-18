@@ -1,6 +1,6 @@
 {
   "extends": ["plugin:prettier/recommended"],
-
+  "provideLintTask": true,
   "singleQuote": true,
   "semi": false
 }

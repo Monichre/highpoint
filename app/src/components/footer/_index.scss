@@ -116,7 +116,7 @@
     border-radius: 50%;
     left: 50%;
     // bottom: 0px;
-    bottom: 15px;
+    bottom: 10px;
     -webkit-transform: translatex(-50%);
     -ms-transform: translatex(-50%);
     transform: translatex(-50%);
@@ -127,17 +127,12 @@
     background-color: #000;
     transition: bottom 0.4s ease-in-out, border 0.6s ease-in-out;
 
-    &.heartbeat {
-      -webkit-animation: heartbeat 3s ease-in-out infinite both;
-      animation: heartbeat 3s ease-in-out infinite both;
-    }
-
     svg {
       width: 100%;
       fill: #fff;
-      object-fit: contain;
-      height: 2.5vh;
-      padding: 5px;
+      // object-fit: contain;
+      height: 2.75vh;
+      padding: 2px;
       path {
         fill: #fff !important;
       }

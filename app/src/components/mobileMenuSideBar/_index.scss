@@ -11,7 +11,13 @@
   header {
     padding-bottom: 10px;
     border-bottom: 1px solid white;
-    svg {
+    position: relative;
+    .mobile_menu_close {
+      position: absolute;
+      top: -20px;
+      right: -10px;
+    }
+    .mobile_logo {
       display: block;
       margin: auto;
       fill: #fff;

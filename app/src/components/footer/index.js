@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Next, Prev, Play, Pause } from "../icons";
 import VideoControlButton from "../videoControlButton";
-import { MobileMenu } from "../mobileMenu";
+import { NavigationWings } from "../navigationWings";
+import { VideoMenu } from "../videoMenu";
 
 class Footer extends Component {
   state = {
@@ -30,7 +31,7 @@ class Footer extends Component {
     this.toggleCSS(burger);
 
     this.setState({
-      mobileMenuActive: !this.state.mobileMenuActive
+      videoMenuActive: !this.state.videoMenuActive
     });
   };
 
@@ -104,12 +105,13 @@ class Footer extends Component {
               {radialPane2}
               {radialPane3}
             </div>
+            {/* <NavigationWings /> */}
           </nav>
           <div className="burger" onClick={this.clickHandler}>
             <MiniCinder />
           </div>
         </div>
-        <MobileMenu active={this.state.mobileMenuActive} />
+        <VideoMenu active={this.state.videoMenuActive} />
       </Fragment>
     );
   }

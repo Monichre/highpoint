@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import ViewProcessButton from "../viewProcessButton";
 import { trim, isAVenture } from "../../utils";
+import "./_index.scss";
 
 export const VerticalPortfolioCard = ({ property, arrowClick, index }) => (
   <Fragment>
