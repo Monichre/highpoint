@@ -12,7 +12,6 @@ const HoverLink = ({ link, className, onClick, isMobile }) => {
   };
 
   const handleClick = e => {
-    console.log(e);
     e.preventDefault();
     e.stopPropagation();
     onClick();

@@ -1,11 +1,19 @@
 import React from "react";
 import { Close, MobileMenuLogo } from "../icons";
-import MenuLink from "../menuLink";
+import { Link } from "react-router-dom";
 
 import "./_index.scss";
-const MobileMenuSideBar = ({ links }) => (
+const goToPage = (e, link) => {
+  e.preventDefault();
+  console.log(link);
+};
+const MobileMenuSideBar = ({ links, toggleMenu }) => (
   <div id="mobile_menu_sidebar">
-    <span className="mobile_menu_close">
+    <span
+      onClick={toggleMenu}
+      className="mobile_menu_close"
+      style={{ height: "min-content", width: "min-content" }}
+    >
       <Close />
     </span>
     <header>
@@ -13,7 +21,13 @@ const MobileMenuSideBar = ({ links }) => (
     </header>
     <ul className="sidebar_main_menu">
       {links.map((link, i) => (
-        <MenuLink key={i} link={link} mobileSidebar />
+        <li
+          key={i}
+          className={`menu_link mobile_sidebar_link`}
+          onClick={e => goToPage(e, `/${link.toLowerCase()}`)}
+        >
+          <a href={`/${link.toLowerCase()}`}>{link}</a>
+        </li>
       ))}
     </ul>
     <footer>

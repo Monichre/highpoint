@@ -31,10 +31,10 @@ export const siteCornerLines = isMobile => {
       }
     },
     {
-      top: "80%",
-      left: "90%",
       width: 3,
       height: "15vh",
+      left: "90%",
+      top: "88%",
       color: "#333",
       hidden: true,
       animation: {

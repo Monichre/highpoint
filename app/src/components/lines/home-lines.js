@@ -1,7 +1,7 @@
 export const homeLines = isMobile => {
   const { status, isPhone, isTablet, isDesktop } = isMobile;
 
-  return [
+  const lines = [
     {
       top: 0,
       left: "10%",
@@ -16,6 +16,7 @@ export const homeLines = isMobile => {
         direction: "TopBottom"
       }
     },
+    // Let's splice this item on mobile, index 1
     {
       top: 0,
       left: "25%",
@@ -87,4 +88,8 @@ export const homeLines = isMobile => {
       }
     }
   ];
+  if (status) {
+    lines.splice(1, 1);
+  }
+  return lines;
 };
