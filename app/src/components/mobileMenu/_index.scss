@@ -81,7 +81,7 @@
   pointer-events: auto;
   display: grid;
   position: fixed;
-  z-index: 3005;
+  z-index: 3005 !important;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -101,42 +101,126 @@
 
 .mobile-menu__item:first-child {
   grid-area: 31 / 1 / 33 / 2;
+
+  .mobile-menu__item-bg {
+    background-color: #dcd9d4;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
+      radial-gradient(
+        at 50% 0%,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(0, 0, 0, 0.5) 50%
+      );
+    background-blend-mode: soft-light, screen;
+  }
 }
 
 .mobile-menu__item:nth-child(2) {
   grid-area: 31 / 2 / 33 / 3;
+
+  .mobile-menu__item-bg {
+    background-color: #dcd9d4;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
+      radial-gradient(
+        at 50% 0%,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(0, 0, 0, 0.5) 50%
+      );
+    background-blend-mode: soft-light, screen;
+  }
 }
 
 .mobile-menu__item:nth-child(3) {
   grid-area: 29 / 1 / 31 / 3;
+
+  .mobile-menu__item-bg {
+    background-color: #dcd9d4;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
+      radial-gradient(
+        at 50% 0%,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(0, 0, 0, 0.5) 50%
+      );
+    background-blend-mode: soft-light, screen;
+  }
 }
 
 .mobile-menu__item:nth-child(4) {
   grid-area: 29 / 3 / 33 / 5;
+
+  .mobile-menu__item-bg {
+    background-color: #dcd9d4;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
+      radial-gradient(
+        at 50% 0%,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(0, 0, 0, 0.5) 50%
+      );
+    background-blend-mode: soft-light, screen;
+  }
 }
 
 .mobile-menu__item:nth-child(5) {
   grid-area: 25 / 1 / 29 / 5;
+
+  .mobile-menu__item-bg {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  }
 }
 
 .mobile-menu__item:nth-child(6) {
   grid-area: 25 / 5 / 33 / 9;
+
+  .mobile-menu__item-bg {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  }
 }
 
 .mobile-menu__item:nth-child(7) {
   grid-area: 17 / 1 / 25 / 9;
+
+  .mobile-menu__item-bg {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  }
 }
 
 .mobile-menu__item:nth-child(8) {
   grid-area: 17 / 9 / 33 / 17;
+
+  .mobile-menu__item-bg {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  }
 }
 
 .mobile-menu__item:nth-child(9) {
   grid-area: 1 / 1 / 17 / 17;
+
+  .mobile-menu__item-bg {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  }
 }
 
 .mobile-menu__item:nth-child(10) {
   grid-area: 1 / 17 / 33 / 33;
+
+  .mobile-menu__item-bg {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  }
 }
 
 .mobile-menu__item-bg {
@@ -173,65 +257,16 @@
 */
 
 .mobile-menu__item-bg--1 {
-  background-color: #dcd9d4;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    radial-gradient(
-      at 50% 0%,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(0, 0, 0, 0.5) 50%
-    );
-  background-blend-mode: soft-light, screen;
 }
 .mobile-menu__item-bg--2 {
-  background-color: #dcd9d4;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    radial-gradient(
-      at 50% 0%,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(0, 0, 0, 0.5) 50%
-    );
-  background-blend-mode: soft-light, screen;
 }
 .mobile-menu__item-bg--3 {
-  background-color: #dcd9d4;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    radial-gradient(
-      at 50% 0%,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(0, 0, 0, 0.5) 50%
-    );
-  background-blend-mode: soft-light, screen;
 }
 .mobile-menu__item-bg--4 {
-  background-color: #dcd9d4;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    radial-gradient(
-      at 50% 0%,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(0, 0, 0, 0.5) 50%
-    );
-  background-blend-mode: soft-light, screen;
 }
 .mobile-menu__item-bg--5 {
   // 			background-color: #DCD9D4;
   //  background: #C9CCD3;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   //  background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
   //  background-blend-mode: lighten;
   //  background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
@@ -245,7 +280,6 @@
   //  background: #C9CCD3;
   //  background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
   //  background-blend-mode: lighten;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 .mobile-menu__item-bg--7 {
   // 			background-color: #DCD9D4;
@@ -254,26 +288,22 @@
   //  background: #C9CCD3;
   //  background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
   //  background-blend-mode: lighten;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 .mobile-menu__item-bg--8 {
   // 			background-color: #DCD9D4;
   //  background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
   //  background-blend-mode: soft-light,screen;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 .mobile-menu__item-bg--9 {
   // 			background-color: #DCD9D4;
   //  background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
   //  background-blend-mode: soft-light,screen;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   background-size: contain;
 }
 .mobile-menu__item-bg--10 {
   // 			background-color: #DCD9D4;
   //  background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
   //  background-blend-mode: soft-light,screen;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .mobile-menu__item-img {

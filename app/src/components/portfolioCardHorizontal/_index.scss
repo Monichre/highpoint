@@ -10,6 +10,22 @@
   z-index: 10;
   display: flex;
 
+  @include mq($desktop) {
+    padding: 0.8rem 2rem 0 1.5rem;
+  }
+  @include mq($tablet) {
+    // padding: 0.5rem 0.5rem 0 0.5rem;
+    padding: 0.5rem 2rem 0 1rem;
+    align-items: baseline;
+    justify-content: space-evenly;
+    height: 93%; // Because the footer only has a height of 7%
+  }
+  @include mq($phone-wide) {
+    height: 90%;
+    padding: 0rem 0.85rem 0 0.5rem;
+    justify-content: space-evenly;
+  }
+
   &:after {
     content: "";
     right: 1.25rem;
@@ -22,17 +38,11 @@
       // display: none;
       right: 30px;
     }
-  }
-
-  @include mq($desktop) {
-    padding: 0.8rem 2rem 0 1.5rem;
-  }
-  @include mq($tablet) {
-    // padding: 0.5rem 0.5rem 0 0.5rem;
-    padding: 0.5rem 2rem 0 1rem;
-    align-items: baseline;
-    justify-content: space-evenly;
-    height: 93%; // Because the footer only has a height of 7%
+    @include mq($phone-wide) {
+      right: 15px;
+      top: 20%;
+      height: 80%;
+    }
   }
   h3 {
     font-size: 1rem;
@@ -47,6 +57,10 @@
       font-size: 1.25rem;
       width: 100%;
     }
+    @include mq($phone-wide) {
+      font-size: 0.7rem;
+      margin: 0;
+    }
   }
   .img_cont {
     height: 300px;
@@ -58,6 +72,10 @@
     @include mq($tablet) {
       height: 50vh;
     }
+    @include mq($phone-wide) {
+      height: 200px;
+      width: 100%;
+    }
 
     img {
       width: 100%;
@@ -68,6 +86,12 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+        object-position: center;
+      }
+      @include mq($phone-wide) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         object-position: center;
       }
 

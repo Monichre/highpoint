@@ -11,6 +11,11 @@
     height: 7%;
   }
 
+  @include mq($phone-wide) {
+    height: 10%;
+    padding-left: 0.5rem;
+  }
+
   .portfolio_card__footer {
     width: 70%;
     position: relative;
@@ -45,10 +50,16 @@
   @include mq($tablet) {
     width: 2.5rem;
   }
+  @include mq($phone-wide) {
+    width: 1.5rem;
+  }
   svg {
     height: 3vh;
     @include mq($tablet) {
       height: 2.75vh;
+    }
+    @include mq($phone-wide) {
+      height: 2vh;
     }
   }
 }

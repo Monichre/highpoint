@@ -1,5 +1,4 @@
-
-@import '../../sass/variables';
+@import "../../sass/variables";
 
 main.portfolio.component.portfolio_component {
   height: 100%;
@@ -36,8 +35,8 @@ main.portfolio.component.portfolio_component {
         img {
           object-fit: contain;
           object-position: left;
-					 margin-left: 4em;
-					 padding: 10px;
+          margin-left: 4em;
+          padding: 10px;
         }
       }
     }
@@ -47,6 +46,11 @@ main.portfolio.component.portfolio_component {
       outline: none;
       border: none;
       background: transparent;
+      svg {
+        @include mq($phone-wide) {
+          height: 3.4vh;
+        }
+      }
     }
   }
 }

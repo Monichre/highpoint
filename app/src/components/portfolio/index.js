@@ -27,8 +27,11 @@ export default class Portfolio extends Component {
   }
 
   componentDidMount() {
-    processPortfolioLines();
+    const { isPhone } = BROWSER.isMobile();
     cornerLines();
+    if (!isPhone) {
+      processPortfolioLines();
+    }
   }
 
   activeCardEmitter = (e, i) => {
