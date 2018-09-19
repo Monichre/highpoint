@@ -3,11 +3,13 @@ import MenuLink from "../menuLink";
 import CinderBlock from "../cinderblock";
 import HoverLink from "../hoverLink";
 import { links } from "../../links";
-import superslide from "../superslide";
-import MobileMenuSideBar from "../mobileMenuSideBar";
+import MobileMenu from "../mobileMenu";
 import { BROWSER } from "../../utils/browser";
+import imagesLoaded from "imagesloaded";
+import Menu from "../mobileMenu/menu";
 
 const { status } = BROWSER.isMobile();
+
 class LeftNav extends Component {
   constructor(props) {
     super(props);
@@ -16,41 +18,34 @@ class LeftNav extends Component {
       mobileNavOpen: false
     };
   }
-  componentDidMount() {
-    const slider = document.getElementById("mobile_menu_sidebar");
-    const content = document.querySelector(".sidebar_main_menu");
 
-    if (slider && content) {
-      this.sidebarMenu = new superslide({
-        slider: slider,
-        content: content,
-        slideContent: true,
-        animation: "slideLeft",
-        width: "30vw",
-        height: "100vh"
-      });
-    }
+  componentDidMount() {
+    this.DOM = {};
+    this.DOM.mobileMenu = document.querySelector(".mobile-menu");
+    this.DOM.menu = new Menu(this.DOM.mobileMenu);
+    this.DOM.menuCtrls = {
+      open: document.querySelector(".menu-trigger"),
+      close: document.querySelector(".menu-trigger--close")
+    };
   }
 
   toggleMobileNav = e => {
-    console.log(e);
     e.preventDefault();
-    e.stopPropagation();
     const { mobileNavOpen } = this.state;
+
     this.setState(
       {
         mobileNavOpen: !mobileNavOpen
       },
       () => {
-        this.state.mobileNavOpen
-          ? this.sidebarMenu.open()
-          : this.sidebarMenu.close();
+        this.state.mobileNavOpen ? this.DOM.menu.open() : this.DOM.menu.close();
       }
     );
   };
+
   render() {
     const conditionalMobileMenu = this.state.isMobile ? (
-      <MobileMenuSideBar links={links} toggleMenu={this.toggleMobileNav} />
+      <MobileMenu links={links} toggleMenu={this.toggleMobileNav} />
     ) : null;
 
     const conditionalTrigger = this.state.isMobile ? (
@@ -88,7 +83,7 @@ class LeftNav extends Component {
 export default LeftNav;
 
 const MobileNavTrigger = ({ toggleMobile }) => (
-  <li className={`hover-link`} onClick={toggleMobile}>
+  <li className={`hover-link menu-trigger`} onClick={toggleMobile}>
     <div className={`text`} />
     <div className="hover-link-icon">
       <span />
