@@ -42,24 +42,33 @@ export const BROWSER = {
     let status = false;
     let isPhone = false;
     let isTablet = false;
+    let isLargeTablet = false;
     let isDesktop = false;
-    console.log(mQ(winWidth));
+
     if (winWidth <= 768) {
       status = true;
-      isPhone = mQ(winWidth).matches;
-      // isTablet = mQ(winWidth).matches
-      isTablet = winWidth > 500 && winWidth < 768;
-      isDesktop = mQ(winWidth).matches;
     }
+
+    if (winWidth <= 480) {
+      isPhone = true;
+    } else if (winWidth > 480 && winWidth < 768) {
+      isTablet = true;
+    } else if (winWidth > 768) {
+      isLargeTablet = true;
+    } else {
+      isDesktop = true;
+    }
+
     return {
       status,
       isPhone,
       isTablet,
+      isLargeTablet,
       isDesktop
     };
   },
 
-  isShrinkingVertically: browser_height => browser_height <= 500,
+  isShrinkingVertically: browser_height => browser_height <= 600,
 
   addObjectFindPolyfill: () => {
     if (!Array.prototype.find) {

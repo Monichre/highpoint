@@ -2,10 +2,9 @@ import React, { Fragment, Component } from "react";
 import MenuLink from "../menuLink";
 import CinderBlock from "../cinderblock";
 import HoverLink from "../hoverLink";
-import { links } from "../../links";
+import { links, mobileLinks } from "../../links";
 import MobileMenu from "../mobileMenu";
 import { BROWSER } from "../../utils/browser";
-import imagesLoaded from "imagesloaded";
 import Menu from "../mobileMenu/menu";
 
 const { status } = BROWSER.isMobile();
@@ -20,19 +19,21 @@ class LeftNav extends Component {
   }
 
   componentDidMount() {
+    const { isMobile } = this.state;
     this.DOM = {};
     this.DOM.mobileMenu = document.querySelector(".mobile-menu");
-    this.DOM.menu = new Menu(this.DOM.mobileMenu);
-    this.DOM.menuCtrls = {
-      open: document.querySelector(".menu-trigger"),
-      close: document.querySelector(".menu-trigger--close")
-    };
+    if (isMobile && this.DOM.mobileMenu) {
+      this.DOM.menu = new Menu(this.DOM.mobileMenu);
+      this.DOM.menuCtrls = {
+        open: document.querySelector(".menu-trigger"),
+        close: document.querySelector(".menu-trigger--close")
+      };
+    }
   }
 
   toggleMobileNav = e => {
     e.preventDefault();
     const { mobileNavOpen } = this.state;
-
     this.setState(
       {
         mobileNavOpen: !mobileNavOpen
@@ -45,7 +46,7 @@ class LeftNav extends Component {
 
   render() {
     const conditionalMobileMenu = this.state.isMobile ? (
-      <MobileMenu links={links} toggleMenu={this.toggleMobileNav} />
+      <MobileMenu links={mobileLinks} toggleMenu={this.toggleMobileNav} />
     ) : null;
 
     const conditionalTrigger = this.state.isMobile ? (

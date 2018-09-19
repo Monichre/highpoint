@@ -22,7 +22,7 @@ const location = {
 
 storiesOf("Components/Nav/LeftNav", module)
   .addDecorator(StoryRouter())
-  .add("Standard", () => <LeftNav />);
+  .add("Standard", () => <LeftNav isMobile={true} />);
 
 storiesOf("Components/Nav/RightNav", module)
   .addDecorator(StoryRouter())

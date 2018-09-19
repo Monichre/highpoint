@@ -1,6 +1,4 @@
-export const homeLines = isMobile => {
-  const { status, isPhone, isTablet, isDesktop } = isMobile;
-
+const defaultLines = status => {
   const lines = [
     {
       top: 0,
@@ -92,4 +90,70 @@ export const homeLines = isMobile => {
     lines.splice(1, 1);
   }
   return lines;
+};
+
+const phoneLines = [
+  {
+    top: 0,
+    left: "20%",
+    width: 1,
+    height: "100vh",
+    color: "#c7c6c6",
+    hidden: true,
+    animation: {
+      duration: 2000,
+      easing: "easeInOutExpo",
+      delay: 0,
+      direction: "TopBottom"
+    }
+  },
+
+  {
+    top: 0,
+    left: "40%",
+    width: 1,
+    height: "100vh",
+    color: "#c7c6c6",
+    hidden: true,
+    animation: {
+      duration: 2000,
+      easing: "easeInOutExpo",
+      delay: 0,
+      direction: "TopBottom"
+    }
+  },
+  {
+    top: 0,
+    left: "60%",
+    width: 1,
+    height: "100vh",
+    color: "#c7c6c6",
+    hidden: true,
+    animation: {
+      duration: 2000,
+      easing: "easeInOutExpo",
+      delay: 0,
+      direction: "TopBottom"
+    }
+  },
+
+  {
+    top: 0,
+    left: "80%",
+    width: 1,
+    height: "100vh",
+    color: "#c7c6c6",
+    hidden: true,
+    animation: {
+      duration: 2000,
+      easing: "easeInOutExpo",
+      delay: 0,
+      direction: "TopBottom"
+    }
+  }
+];
+
+export const homeLines = isMobile => {
+  const { status, isPhone, isTablet, isDesktop } = isMobile;
+  return isPhone ? phoneLines : defaultLines(status);
 };
