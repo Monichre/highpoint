@@ -23,6 +23,9 @@
 
 .App {
   padding: 0 10% 0;
+  @include mq($phone-wide) {
+    padding: 0 20% 0;
+  }
 }
 
 .process_page {

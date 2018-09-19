@@ -39,6 +39,9 @@
     @include mq($tablet) {
       justify-content: flex-start;
     }
+    @include mq($phone-wide) {
+      justify-content: center;
+    }
 
     .wrapper {
       width: 100%;
@@ -128,7 +131,7 @@
               border-right-color: #333;
               transition: width 0.25s ease-out,
                 // Width expands first
-                  height0.25sease-out 0.25s; // And then height
+                  height0.25sease-out0.25s; // And then height
             }
 
             &::after {
@@ -136,9 +139,9 @@
               border-left-color: #333;
               transition: border-color 0s ease-out 0.5s,
                 // Wait for ::before to finish before showing border
-                  width0.25sease-out 0.5s,
+                  width0.25sease-out0.5s,
                 // And then exanding width
-                  height0.25sease-out 0.75s; // And finally height
+                  height0.25sease-out0.75s; // And finally height
             }
           }
 
@@ -180,15 +183,13 @@
         transition: opacity 4s ease-in-out;
 
         @include mq($tablet) {
-          // height: 50vh !important;
           margin-top: 15vh;
         }
 
         @include mq($phone-wide) {
-          // position: fixed!important;
-          top: 25vh;
+          top: 0;
           left: 0;
-          // z-index: -1;
+          margin-top: 25vh;
           width: 100vw !important;
           height: 50vh !important;
         }
@@ -220,7 +221,6 @@
           }
           @include mq($phone-wide) {
             position: fixed !important;
-            top: 25vh;
             left: 0;
             z-index: -1;
             width: 100vw !important;

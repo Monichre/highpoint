@@ -11,6 +11,9 @@
   @include mq($tablet) {
     // width: 20vw;
   }
+  @include mq($phone-wide) {
+    width: 20vw;
+  }
 
   .inner {
     height: 100%;
