@@ -115,10 +115,19 @@
     }
 
     .text {
+      @include mq($tablet-wide-2) {
+        margin-top: 10px;
+      }
       p {
         @include mq($desktop) {
           font-size: 0.4rem;
         }
+        @include mq($tablet-wide-2) {
+          font-size: 0.35rem;
+        }
+        @include mq($tablet-wide) {
+        }
+
         @include mq($tablet) {
           display: none;
         }

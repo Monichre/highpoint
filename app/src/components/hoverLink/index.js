@@ -1,16 +1,6 @@
 import React from "react";
 
 const HoverLink = ({ link, className, onClick, isMobile }) => {
-  const addHoverClass = ({ e: target }) => {
-    const burgerIcon = document.querySelector(".hover-link-icon");
-    burgerIcon.classList.add("hovering");
-  };
-
-  const removeHoverClass = ({ e: target }) => {
-    const burgerIcon = document.querySelector(".hover-link-icon");
-    burgerIcon.classList.remove("hovering");
-  };
-
   const handleClick = e => {
     e.preventDefault();
     e.stopPropagation();
@@ -18,11 +8,7 @@ const HoverLink = ({ link, className, onClick, isMobile }) => {
   };
   return (
     <li className={`hover-link ${className}`} onClick={e => handleClick(e)}>
-      <div
-        className={`text`}
-        onMouseEnter={e => addHoverClass(e)}
-        onMouseLeave={e => removeHoverClass(e)}
-      >
+      <div className={`text`}>
         {isMobile && link === "Contact" ? null : (
           <span className="u-shadow">{link}</span>
         )}

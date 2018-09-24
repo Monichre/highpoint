@@ -114,4 +114,38 @@
       }
     }
   }
+  @include mq($phone-wide) {
+    .before,
+    .after,
+    .blueprint {
+      flex-direction: row !important;
+      display: flex !important;
+      width: 100% !important;
+      .img__wrapper:not(.blueprint__wrapper) {
+        height: 100px !important;
+        width: 100px !important;
+        margin-top: 0 !important;
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          margin-top: 0 !important;
+        }
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+          padding: 10px;
+        }
+      }
+    }
+    .blueprint .blueprint__wrapper {
+      height: 100% !important;
+      width: 100% !important;
+      img {
+        object-fit: contain !important;
+        height: 100% !important;
+        width: 100% !important;
+        margin: auto !important;
+      }
+    }
+  }
 }

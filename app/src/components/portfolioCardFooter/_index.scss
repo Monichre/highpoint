@@ -5,10 +5,14 @@
   width: 100%;
   height: 10%;
   padding-left: 1.5rem;
-  // justify-content: space-between;
+  @include mq($tablet-wide-2) {
+    height: 7%;
+    padding-left: 1rem;
+  }
+  @include mq($tablet-wide) {
+  }
 
   @include mq($tablet) {
-    height: 7%;
   }
 
   @include mq($phone-wide) {
@@ -19,6 +23,8 @@
   .portfolio_card__footer {
     width: 70%;
     position: relative;
+    @include mq($tablet-wide-2) {
+    }
     @include mq($tablet) {
       width: 50%;
     }
@@ -47,8 +53,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @include mq($tablet-wide-2) {
+    width: 2.25rem;
+  }
+  @include mq($tablet-wide) {
+  }
+
   @include mq($tablet) {
-    width: 2.5rem;
   }
   @include mq($phone-wide) {
     width: 1.5rem;

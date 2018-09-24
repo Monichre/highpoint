@@ -15,6 +15,7 @@ export const VerticalPortfolioCard = ({ property, arrowClick, index }) => (
             }`}
           >
             <img
+              alt={`${property.title} featured image`}
               src={property.featuredImage.fields.file.url + "?w=500&h=1500"}
               className={`vertical_img ${
                 isAVenture(property) ? "is_venture" : ""
@@ -22,10 +23,12 @@ export const VerticalPortfolioCard = ({ property, arrowClick, index }) => (
             />
             <div className="logos">
               {property.logos && property.logos.length > 0
-                ? property.logos.map(logo => (
+                ? property.logos.map((logo, i) => (
                     <img
+                      key={i}
                       src={logo.fields.file.url}
                       className={`venture_logo__thumb`}
+                      alt={`${property.title} venture logo`}
                     />
                   ))
                 : null}

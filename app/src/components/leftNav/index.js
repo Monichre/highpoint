@@ -21,9 +21,9 @@ class LeftNav extends Component {
   componentDidMount() {
     const { isMobile } = this.state;
     this.DOM = {};
-    this.DOM.mobileMenu = document.querySelector(".mobile-menu");
-    if (isMobile && this.DOM.mobileMenu) {
-      this.DOM.menu = new Menu(this.DOM.mobileMenu);
+    const mobileMenu = document.querySelector(".mobile-menu");
+    if (isMobile && mobileMenu) {
+      this.DOM.menu = new Menu(mobileMenu);
       this.DOM.menuCtrls = {
         open: document.querySelector(".menu-trigger"),
         close: document.querySelector(".menu-trigger--close")
@@ -33,23 +33,25 @@ class LeftNav extends Component {
 
   toggleMobileNav = e => {
     e.preventDefault();
+    console.log(e);
     const { mobileNavOpen } = this.state;
     this.setState(
       {
         mobileNavOpen: !mobileNavOpen
       },
       () => {
-        this.state.mobileNavOpen ? this.DOM.menu.open() : this.DOM.menu.close();
+        this.state.mobileNavOpen ? this.DOM.menu.close() : this.DOM.menu.open();
       }
     );
   };
 
   render() {
-    const conditionalMobileMenu = this.state.isMobile ? (
+    const { isMobile, mobileNavOpen } = this.state;
+    const conditionalMobileMenu = isMobile ? (
       <MobileMenu links={mobileLinks} toggleMenu={this.toggleMobileNav} />
     ) : null;
 
-    const conditionalTrigger = this.state.isMobile ? (
+    const conditionalTrigger = isMobile ? (
       <MobileNavTrigger toggleMobile={this.toggleMobileNav} />
     ) : (
       <HoverLink link="Contact" className="contact" isMobile={status} />

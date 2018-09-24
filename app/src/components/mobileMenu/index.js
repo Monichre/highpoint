@@ -18,7 +18,7 @@ const MobileMenu = ({ links, toggleMenu }) => (
       <div className="mobile-menu__item">
         <div className="mobile-menu__item-bg mobile-menu__item-bg--3" />
         <div className="mobile-menu__item-content">
-          <div className="mobile-menu__item-inner">
+          <div className="mobile-menu__item-inner trigger_close">
             <button
               className="menu-trigger menu-trigger--close"
               onClick={toggleMenu}
@@ -56,7 +56,7 @@ const MobileMenu = ({ links, toggleMenu }) => (
         </a>
       </div>
 
-      {links.map((link, i) => (
+      {links.reverse().map((link, i) => (
         <MobileMenuLink link={link} i={i} />
       ))}
     </nav>

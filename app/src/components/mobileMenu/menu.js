@@ -17,19 +17,19 @@ class Menu {
   initEvents() {
     for (let i = 0; i < this.itemsTotal; ++i) {
       const link = this.boxes[i].DOM.link;
-      if (link) {
-        link.addEventListener("click", ev => {
-          ev.preventDefault();
-          if (this.isAnimating) return;
-          document
-            .querySelector(".content--switch-current")
-            .classList.remove("content--switch-current");
-          document
-            .querySelector(link.getAttribute("href"))
-            .classList.add("content--switch-current");
-          this.close();
-        });
-      }
+      // if (link) {
+      //   link.addEventListener("click", ev => {
+      //     ev.preventDefault();
+      //     if (this.isAnimating) return;
+      //     document
+      //       .querySelector(".content--switch-current")
+      //       .classList.remove("content--switch-current");
+      //     document
+      //       .querySelector(link.getAttribute("href"))
+      //       .classList.add("content--switch-current");
+      //     this.close();
+      //   });
+      // }
     }
   }
 

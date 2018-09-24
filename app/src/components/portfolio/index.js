@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ReactPageScroller from "react-page-scroller";
 import { processPortfolioLines, cornerLines } from "../lines";
 import { PageArrowDown } from "../icons";
@@ -65,7 +65,10 @@ export default class Portfolio extends Component {
     );
 
     return (
-      <main className="portfolio component portfolio_component">
+      <main
+        className="portfolio component portfolio_component"
+        style={{ position: "relative" }}
+      >
         <section className={`wrapper`}>
           <PortfolioGrid>
             <ReactPageScroller
@@ -92,21 +95,14 @@ export default class Portfolio extends Component {
             </ReactPageScroller>
           </PortfolioGrid>
         </section>
-        <div
-          className="arrows"
-          style={{
-            position: "absolute",
-            bottom: "25px",
-            left: 0,
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            zIndex: 2000
-          }}
-        >
+        <div className="arrows" onClick={e => this.arrowClick(e)}>
           {this.state.currentPage === 0 || this.state.currentPage === 1 ? (
-            <PageArrowDown onClick={e => this.arrowClick(e)} />
+            <Fragment>
+              <PageArrowDown />
+              <PageArrowDown />
+              <PageArrowDown />
+              <PageArrowDown />
+            </Fragment>
           ) : null}
         </div>
       </main>

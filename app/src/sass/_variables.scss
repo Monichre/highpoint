@@ -189,7 +189,7 @@ $phone-wide: 480px;
 $phablet: 560px;
 $tablet-small: 640px;
 $tablet: 770px;
-$tablet-wide-2: 900px;
+$tablet-wide-2: 915px;
 $tablet-wide: 1024px;
 $macbook-air: 1152px;
 $desktop: 1282px;
@@ -220,22 +220,19 @@ $desktop-wide: 1440px;
 }
 
 @mixin link-style {
-  // text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-  // transition: text-shadow $b-animSpeed $b-animType;
   position: relative;
   &:before {
     content: "";
     position: absolute;
     width: 150%;
     height: 2px;
-    background: #333;
-    top: 40%;
+    border-bottom: 2px solid #333;
+    bottom: -3px;
     animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
   }
 }
 
 @mixin link-style-hover {
-  // text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
   &:before {
     animation: in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
   }

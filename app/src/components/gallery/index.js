@@ -5,7 +5,11 @@ import { Thumb } from "../thumb";
 import ScrollReveal from "scrollreveal";
 import AppStore from "../../flux/stores";
 import LightBoxTheme from "../lightboxTheme";
+import { BROWSER } from "../../utils/browser";
+
 import "./_gallery.scss";
+
+const { status } = BROWSER.isMobile();
 
 export default class Gallery extends Component {
   constructor() {
@@ -18,7 +22,9 @@ export default class Gallery extends Component {
   }
 
   componentDidMount() {
-    processPortfolioLines();
+    if (!status) {
+      processPortfolioLines();
+    }
     cornerLines();
 
     const { galleryItems } = AppStore.data;
@@ -78,7 +84,7 @@ export default class Gallery extends Component {
     });
   };
   handleClickImage = () => {
-    if (this.state.currentImage === this.props.images.length - 1) return;
+    if (this.state.currentImage === this.state.photos.length - 1) return;
     this.goToNext();
   };
 

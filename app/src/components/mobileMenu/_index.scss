@@ -88,7 +88,7 @@
   height: 100vh;
   grid-template-columns: repeat(32, 3.125vw);
   grid-template-rows: repeat(32, 3.125vh);
-  pointer-events: none;
+  // pointer-events: none;
 }
 
 .mobile-menu__item {
@@ -103,18 +103,19 @@
   grid-area: 31 / 1 / 33 / 2;
 
   .mobile-menu__item-bg {
-    background-color: #dcd9d4;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.5) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-      ),
-      radial-gradient(
-        at 50% 0%,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(0, 0, 0, 0.5) 50%
-      );
-    background-blend-mode: soft-light, screen;
+    // background-color: #dcd9d4;
+    // background-image: linear-gradient(
+    //     to bottom,
+    //     rgba(255, 255, 255, 0.5) 0%,
+    //     rgba(0, 0, 0, 0.5) 100%
+    //   ),
+    //   radial-gradient(
+    //     at 50% 0%,
+    //     rgba(255, 255, 255, 0.1) 0%,
+    //     rgba(0, 0, 0, 0.5) 50%
+    //   );
+    // background-blend-mode: soft-light, screen;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   }
 }
 
@@ -122,18 +123,19 @@
   grid-area: 31 / 2 / 33 / 3;
 
   .mobile-menu__item-bg {
-    background-color: #dcd9d4;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.5) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-      ),
-      radial-gradient(
-        at 50% 0%,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(0, 0, 0, 0.5) 50%
-      );
-    background-blend-mode: soft-light, screen;
+    // background-color: #dcd9d4;
+    // background-image: linear-gradient(
+    //     to bottom,
+    //     rgba(255, 255, 255, 0.5) 0%,
+    //     rgba(0, 0, 0, 0.5) 100%
+    //   ),
+    //   radial-gradient(
+    //     at 50% 0%,
+    //     rgba(255, 255, 255, 0.1) 0%,
+    //     rgba(0, 0, 0, 0.5) 50%
+    //   );
+    // background-blend-mode: soft-light, screen;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   }
 }
 
@@ -141,18 +143,19 @@
   grid-area: 29 / 1 / 31 / 3;
 
   .mobile-menu__item-bg {
-    background-color: #dcd9d4;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.5) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-      ),
-      radial-gradient(
-        at 50% 0%,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(0, 0, 0, 0.5) 50%
-      );
-    background-blend-mode: soft-light, screen;
+    // background-color: #dcd9d4;
+    // background-image: linear-gradient(
+    //     to bottom,
+    //     rgba(255, 255, 255, 0.5) 0%,
+    //     rgba(0, 0, 0, 0.5) 100%
+    //   ),
+    //   radial-gradient(
+    //     at 50% 0%,
+    //     rgba(255, 255, 255, 0.1) 0%,
+    //     rgba(0, 0, 0, 0.5) 50%
+    //   );
+    // background-blend-mode: soft-light, screen;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   }
 }
 
@@ -160,18 +163,19 @@
   grid-area: 29 / 3 / 33 / 5;
 
   .mobile-menu__item-bg {
-    background-color: #dcd9d4;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.5) 0%,
-        rgba(0, 0, 0, 0.5) 100%
-      ),
-      radial-gradient(
-        at 50% 0%,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(0, 0, 0, 0.5) 50%
-      );
-    background-blend-mode: soft-light, screen;
+    // background-color: #dcd9d4;
+    // background-image: linear-gradient(
+    //     to bottom,
+    //     rgba(255, 255, 255, 0.5) 0%,
+    //     rgba(0, 0, 0, 0.5) 100%
+    //   ),
+    //   radial-gradient(
+    //     at 50% 0%,
+    //     rgba(255, 255, 255, 0.1) 0%,
+    //     rgba(0, 0, 0, 0.5) 50%
+    //   );
+    // background-blend-mode: soft-light, screen;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   }
 }
 
@@ -230,8 +234,8 @@
   top: 0;
   left: 0;
   opacity: 0;
-  box-shadow: 0 0 0 2px currentColor;
-  background: currentColor;
+  // box-shadow: 0 0 0 2px currentColor;
+  // background: currentColor;
 }
 
 /*
@@ -338,6 +342,11 @@
   text-align: center;
   position: relative;
   opacity: 0;
+  &.trigger_close {
+    @include mq($phone-wide) {
+      padding: 0 !important;
+    }
+  }
 }
 
 .mobile-menu__item-title {

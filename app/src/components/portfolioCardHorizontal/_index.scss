@@ -13,12 +13,20 @@
   @include mq($desktop) {
     padding: 0.8rem 2rem 0 1.5rem;
   }
-  @include mq($tablet) {
-    // padding: 0.5rem 0.5rem 0 0.5rem;
+  @include mq($tablet-wide-2) {
     padding: 0.5rem 2rem 0 1rem;
     align-items: baseline;
     justify-content: space-evenly;
-    height: 93%; // Because the footer only has a height of 7%
+    height: 93%;
+  }
+  @include mq($tablet-wide) {
+  }
+  @include mq($tablet) {
+    // padding: 0.5rem 0.5rem 0 0.5rem;
+    // padding: 0.5rem 2rem 0 1rem;
+    // align-items: baseline;
+    // justify-content: space-evenly;
+    // height: 93%; // Because the footer only has a height of 7%
   }
   @include mq($phone-wide) {
     height: 90%;
@@ -34,9 +42,11 @@
     width: 1.5px;
     height: 90%;
     background: #000;
+    @include mq($tablet-wide-2) {
+      right: 30px;
+    }
     @include mq($tablet) {
       // display: none;
-      right: 30px;
     }
     @include mq($phone-wide) {
       right: 15px;
@@ -53,6 +63,9 @@
       font-size: 0.8rem;
       margin: 0 0 0.4rem;
     }
+    @include mq($tablet-wide-2) {
+      width: 100%;
+    }
     @include mq($tablet) {
       font-size: 1.25rem;
       width: 100%;
@@ -68,6 +81,9 @@
     width: 100%;
     @include mq($desktop) {
       height: 250px;
+    }
+    @include mq($tablet-wide-2) {
+      height: 200px;
     }
     @include mq($tablet) {
       height: 50vh;
@@ -105,17 +121,23 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      @include mq($phone-wide) {
+        display: none;
+      }
       img {
         height: 100%;
         width: 33.333%;
         object-fit: scale-down;
-        &:nth-of-type(1) {
-          padding: 34px;
-        }
-        &:nth-of-type(2) {
-        }
+        &:nth-of-type(1),
         &:nth-of-type(3) {
           padding: 34px;
+        }
+
+        @include mq($tablet-wide-2) {
+          &:nth-of-type(1),
+          &:nth-of-type(3) {
+            padding: 20px;
+          }
         }
       }
     }

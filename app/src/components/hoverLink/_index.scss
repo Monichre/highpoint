@@ -1,4 +1,5 @@
 .hover-link {
+  width: max-content;
   .text {
     transform: rotate(-90deg) translate(60px, 3px);
     text-transform: capitalize;
@@ -24,7 +25,8 @@
     height: auto;
     width: 20px;
     margin: auto;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
+      opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
 
     span {
       position: relative;
@@ -44,6 +46,8 @@
     }
     &.hovering,
     &:hover {
+      @include link-style;
+      @include link-style-hover;
       span:first-child {
         transform: translate(0, -3px) rotate(45deg);
       }
@@ -57,14 +61,15 @@
     .text {
       transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
       transform: rotate(90deg) translate(150px, 3px);
-      // @include mq($desktop) {
-      //   font-size: .6rem;
-      //   margin: 0;
-      // }
+      @include link-style;
+      @include mq($tablet-wide-2) {
+        transform: rotate(90deg) translate(90px, 0px);
+      }
       @include mq($phone-wide) {
-        transform: rotate(90deg) translate(70px, 0px);
+        transform: rotate(90deg) translate(120px, 0px);
       }
       &:hover {
+        @include link-style-hover;
         .hover-link-icon {
           span:first-child {
             transform: translate(0, -3px) rotate(45deg);

@@ -27,21 +27,22 @@
     text-transform: uppercase;
     text-shadow: 1px 1px 0 $c-primary;
     transition: text-shadow $b-animSpeed $b-animType;
-
-    @include mq($tablet-wide) {
-      padding: 0 40px;
-      margin: 0;
-    }
-    @include mq($tablet-wide-2) {
-      line-height: 2;
-      padding: 0 1rem;
-      font-size: 0.5rem;
-    }
-
     @include mq($desktop) {
       font-size: 0.6rem;
       margin: 0;
     }
+
+    @include mq($tablet-wide-2) {
+      line-height: 2;
+      padding: 0 1rem;
+      font-size: 0.55rem;
+    }
+    @include mq($tablet-wide) {
+      padding: 0 40px;
+      font-size: 0.5rem;
+      margin: 0;
+    }
+
     @include mq($phone-wide) {
       // Should we just hide this entirely on mobile?
       display: none;
