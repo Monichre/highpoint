@@ -12,6 +12,12 @@
   z-index: 10;
   padding: 10px 60px 20px 40px;
 
+  .hide_on_mobile {
+    @include mq($tablet) {
+      display: none;
+    }
+  }
+
   @include mq($tablet) {
     padding: 10px;
     width: 90% !important;
@@ -27,6 +33,9 @@
 
       @include mq($tablet) {
         padding: 20px;
+      }
+      @include mq($phone-wide) {
+        padding: 0;
       }
       hr {
         height: 2px;
@@ -166,4 +175,48 @@
 
 .img__wrapper {
   cursor: url(/icons/maximize-2.svg), auto;
+}
+
+@include mq($phone-wide) {
+  .process_card__grid {
+    // min-height: 80vh;
+    // height: 100%;
+    display: flex !important;
+    grid-template-columns: none !important;
+    grid-gap: none !important;
+    flex-direction: column !important;
+
+    .col-1,
+    .col-2,
+    .col-3 {
+      flex-direction: row !important;
+      display: flex !important;
+      width: 100% !important;
+      .img__wrapper:not(.blueprint__wrapper) {
+        height: 100px !important;
+        width: 100px !important;
+        margin-top: 0 !important;
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          margin-top: 0 !important;
+        }
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+          padding: 10px;
+        }
+      }
+    }
+    .blueprint .blueprint__wrapper {
+      height: 100% !important;
+      width: 100% !important;
+      img {
+        object-fit: contain !important;
+        height: 100% !important;
+        width: 100% !important;
+        margin: auto !important;
+      }
+    }
+  }
 }

@@ -55,6 +55,9 @@
       bottom: 0;
       width: 100%;
       padding: 10px 5px 5px;
+      align-content: center;
+      display: flex;
+      justify-content: space-between;
 
       @include mq($tablet) {
         padding: 5px 5px 0 2px;
@@ -62,10 +65,6 @@
 
       h2 {
         font-size: 0.6rem;
-        display: flex;
-        justify-content: space-between;
-        // padding-left: 10px;
-        line-height: 2;
 
         color: black;
         font-weight: bolder;
@@ -80,19 +79,25 @@
           font-size: 0.7rem;
         }
         @include mq($tablet) {
-          line-height: 1.5;
+          // line-height: 1.5;
           font-size: 0.4rem;
         }
-        svg {
-          height: 2.75vh;
-          display: inline-block;
-          position: relative;
-          top: 5px;
-
-          @include mq($tablet) {
-            top: -5px;
-            height: 1.75vh;
-          }
+        @include mq($phone-wide) {
+          font-size: 0.5rem;
+        }
+      }
+      svg {
+        height: 2.75vh;
+        display: inline-block;
+        position: relative;
+        margin-right: 5px;
+        @include mq($tablet) {
+          height: 1.75vh;
+        }
+        @include mq($phone-wide) {
+          height: 1.5vh;
+          margin-right: 0;
+          // padding: 2px;
         }
       }
     }

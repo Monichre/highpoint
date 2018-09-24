@@ -54,7 +54,7 @@ export default class RightNav extends Component {
   componentDidMount() {
     const { isPortfolioPage, activePropertyCard } = this.state;
 
-    if (isPortfolioPage) {
+    if (isPortfolioPage && !status) {
       const slider = document.getElementById("sidebar_menu");
       const content = document.querySelector(".sidebar_properties_list");
       const burgerIcon = document.querySelector(
@@ -105,7 +105,7 @@ export default class RightNav extends Component {
       </li>
     );
     const ContextualLink = () =>
-      isPortfolioPage ? (
+      isPortfolioPage && !status ? (
         <HoverLink
           onClick={this.toggleSideBar}
           link="Properties"
@@ -123,10 +123,12 @@ export default class RightNav extends Component {
           </ul>
           <NavBottom isMobile={status} />
         </div>
-        <PortfolioSidear
-          {...this.props}
-          setActivePropertyCard={this.setActivePropertyCard}
-        />
+        {!status ? (
+          <PortfolioSidear
+            {...this.props}
+            setActivePropertyCard={this.setActivePropertyCard}
+          />
+        ) : null}
       </section>
     );
   }

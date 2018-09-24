@@ -29,9 +29,9 @@ const defaultLines = status => [
   },
   {
     width: 3,
-    height: "15vh",
+    height: "20vh",
     left: "90%",
-    top: "88%",
+    top: "83%",
     color: "#333",
     hidden: true,
     animation: {
