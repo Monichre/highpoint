@@ -5,6 +5,7 @@ import { Thumb } from "../thumb";
 import ScrollReveal from "scrollreveal";
 import AppStore from "../../flux/stores";
 import LightBoxTheme from "../lightboxTheme";
+import Swipeable from "react-swipeable";
 import { BROWSER } from "../../utils/browser";
 
 import "./_gallery.scss";
@@ -105,18 +106,23 @@ export default class Gallery extends Component {
             ))}
           </div>
         </section>
-        <Lightbox
-          images={photos}
-          backdropClosesModal={true}
-          onClose={this.closeLightbox}
-          onClickPrev={this.goToPrevious}
-          onClickNext={this.goToNext}
-          onClickImage={this.handleClickImage}
-          onClickThumbnail={this.goToImage}
-          currentImage={this.state.currentImage}
-          isOpen={this.state.lightboxIsOpen}
-          theme={LightBoxTheme}
-        />
+        <Swipeable
+          onSwipedRight={this.goToNext}
+          onSwipedLeft={this.goToPrevious}
+        >
+          <Lightbox
+            images={photos}
+            backdropClosesModal={true}
+            onClose={this.closeLightbox}
+            onClickPrev={this.goToPrevious}
+            onClickNext={this.goToNext}
+            onClickImage={this.handleClickImage}
+            onClickThumbnail={this.goToImage}
+            currentImage={this.state.currentImage}
+            isOpen={this.state.lightboxIsOpen}
+            theme={LightBoxTheme}
+          />
+        </Swipeable>
       </main>
     );
   }

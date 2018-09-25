@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Lightbox from "react-images";
+import Swipeable from "react-swipeable";
 import LightBoxTheme from "../../../lightboxTheme";
 
 export default class ThreeRowsGrid extends Component {
@@ -141,18 +142,23 @@ export default class ThreeRowsGrid extends Component {
               ))}
           </div>
         </div>
-        <Lightbox
-          images={photos}
-          backdropClosesModal={true}
-          onClose={this.closeLightbox}
-          onClickPrev={this.goToPrevious}
-          onClickNext={this.goToNext}
-          onClickImage={this.handleClickImage}
-          onClickThumbnail={this.goToImage}
-          currentImage={this.state.currentImage}
-          isOpen={this.state.lightboxIsOpen}
-          theme={LightBoxTheme}
-        />
+        <Swipeable
+          onSwipedRight={this.goToNext}
+          onSwipedLeft={this.goToPrevious}
+        >
+          <Lightbox
+            images={photos}
+            backdropClosesModal={true}
+            onClose={this.closeLightbox}
+            onClickPrev={this.goToPrevious}
+            onClickNext={this.goToNext}
+            onClickImage={this.handleClickImage}
+            onClickThumbnail={this.goToImage}
+            currentImage={this.state.currentImage}
+            isOpen={this.state.lightboxIsOpen}
+            theme={LightBoxTheme}
+          />
+        </Swipeable>
       </Fragment>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import Lightbox from "react-images";
 import LightBoxTheme from "../../../lightboxTheme";
 import { BROWSER } from "../../../../utils/browser";
-// import { MobileBluePrint, MobileBefore, MobileAfter } from '.'
+import Swipeable from "react-swipeable";
 import "./_five-rows.scss";
 
 const { status } = BROWSER.isMobile();
@@ -162,18 +162,23 @@ export default class FiveRowGrid extends Component {
               ))}
           </div>
         </div>
-        <Lightbox
-          images={photos}
-          backdropClosesModal={true}
-          onClose={this.closeLightbox}
-          onClickPrev={this.goToPrevious}
-          onClickNext={this.goToNext}
-          onClickImage={this.handleClickImage}
-          onClickThumbnail={this.goToImage}
-          currentImage={this.state.currentImage}
-          isOpen={this.state.lightboxIsOpen}
-          theme={LightBoxTheme}
-        />
+        <Swipeable
+          onSwipedRight={this.goToNext}
+          onSwipedLeft={this.goToPrevious}
+        >
+          <Lightbox
+            images={photos}
+            backdropClosesModal={true}
+            onClose={this.closeLightbox}
+            onClickPrev={this.goToPrevious}
+            onClickNext={this.goToNext}
+            onClickImage={this.handleClickImage}
+            onClickThumbnail={this.goToImage}
+            currentImage={this.state.currentImage}
+            isOpen={this.state.lightboxIsOpen}
+            theme={LightBoxTheme}
+          />
+        </Swipeable>
       </Fragment>
     );
   }
