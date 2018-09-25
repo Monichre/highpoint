@@ -1,7 +1,7 @@
 import React from "react";
-import { Close } from "../icons";
+import { Close } from "../../icons";
 import { MobileMenuLink } from "../mobileMenuLink";
-import Modal from "../modal";
+import Modal from "../../modal";
 
 import "./_index.scss";
 
