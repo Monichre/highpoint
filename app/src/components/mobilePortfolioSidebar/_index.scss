@@ -1,0 +1,63 @@
+#sidebar_menu {
+  background: #fff;
+
+  right: 0 !important;
+  // bottom: 15vh !important;
+
+  top: 85vh !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 70vh !important;
+  width: 10vw !important;
+  left: auto !important;
+  border-top: 2px solid black;
+
+  @include mq($tablet) {
+    width: 10vw !important;
+    top: 90vh !important;
+  }
+  @include mq($phone-wide) {
+    width: 20vw !important;
+    height: 90vh !important;
+    top: 90vh !important;
+  }
+
+  ul {
+    @include column-flex-evenly;
+    align-items: flex-end !important;
+    padding: 20px 5px 20px;
+    position: relative;
+    @include mq($tablet) {
+      padding: 0;
+    }
+    .menu_link.sidebar_link {
+      &.back_to_top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: right;
+        z-index: 2000;
+        margin: 0;
+
+        position: sticky;
+        background: white;
+
+        padding: 20px 10px 20px;
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.3);
+      }
+      &:nth-of-type(2) {
+        margin-top: 60px;
+      }
+      cursor: pointer;
+      @include mq($desktop) {
+        font-size: 0.35rem;
+        padding: 5px;
+      }
+      @include mq($phone-wide) {
+        width: 100%;
+      }
+    }
+  }
+}

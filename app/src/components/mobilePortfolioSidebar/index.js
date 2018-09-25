@@ -2,7 +2,7 @@ import React from "react";
 import MenuLink from "../menuLink";
 import _ from "lodash";
 
-const PortfolioSidebar = ({
+const MobilePortfolioSidebar = ({
   setActivePropertyCard,
   activePropertyCard,
   properties
@@ -30,4 +30,4 @@ const PortfolioSidebar = ({
   </div>
 );
 
-export default PortfolioSidebar;
+export default MobilePortfolioSidebar;
