@@ -168,8 +168,8 @@ export const CardArrowDown = ({ onClick, index }) => (
   </button>
 );
 
-export const PageArrowDown = ({ onClick }) => (
-  <button onClick={e => onClick(e)}>
+export const PageArrowDown = () => (
+  <button>
     <svg
       width="90px"
       height="54px"

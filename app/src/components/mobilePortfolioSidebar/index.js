@@ -1,13 +1,14 @@
 import React from "react";
 import MenuLink from "../menuLink";
 import _ from "lodash";
+import "./_index.scss";
 
 const MobilePortfolioSidebar = ({
   setActivePropertyCard,
   activePropertyCard,
   properties
 }) => (
-  <div id="sidebar_menu">
+  <div id="mobile_sidebar_menu">
     <ul className="sidebar_properties_list">
       <li
         key={"back to top"}

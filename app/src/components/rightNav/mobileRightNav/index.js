@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import AppDispatcher from "../../../flux/dispatchers";
-import HoverLink from "../../hoverLink";
 import CinderBlock from "../../cinderblock";
-import PortfolioSidebar from "../../portfolioSideBar";
+import MobilePortfolioSidebar from "../../mobilePortfolioSidebar";
 import superslide from "../../superslide";
+import { processPortfolioLines } from "../../lines";
 
-export default class RightNav extends Component {
+export default class MobileRightNav extends Component {
   state = {
     open: false,
     isPortfolioPage: false,
@@ -49,9 +49,9 @@ export default class RightNav extends Component {
 
   componentDidMount() {
     const { isPortfolioPage, activePropertyCard } = this.state;
-
+    // this.lines = processPortfolioLines(true)
     if (isPortfolioPage) {
-      const slider = document.getElementById("sidebar_menu");
+      const slider = document.getElementById("mobile_sidebar_menu");
       const content = document.querySelector(".sidebar_properties_list");
       const burgerIcon = document.querySelector(
         ".sidebar_trigger hover-link-icon"
@@ -60,9 +60,9 @@ export default class RightNav extends Component {
         slider: slider,
         content: content,
         slideContent: false,
-        animation: "slideBottom",
-        width: "10vw",
-        height: "70vh"
+        animation: "slideRight",
+        width: "15vw",
+        height: "90vh"
       });
       this.sidebarMenu = sidebarMenu;
       if (activePropertyCard === 1) {
@@ -78,10 +78,32 @@ export default class RightNav extends Component {
     }
 
     const { open } = this.state;
-    open ? this.sidebarMenu.close() : this.sidebarMenu.open();
+    open ? this.sidebarCloseAnimation() : this.sidebarOpenAnimation();
     this.setState({
       open: !open
     });
+  };
+
+  sidebarCloseAnimation = () => {
+    // this.lines.animateLineOut(1)
+    // this.sidebarMenu.close()
+
+    document
+      .querySelectorAll(".decoline")
+      .forEach((line, i) => console.log(line, i));
+    document.querySelectorAll(".decoline")[1].style.left = "90%";
+    document.querySelector(".right_nav").style.width = "10vw";
+    this.sidebarMenu.close();
+  };
+
+  sidebarOpenAnimation = () => {
+    // this.lines.animateLineIn(1)
+    document
+      .querySelectorAll(".decoline")
+      .forEach((line, i) => console.log(line, i));
+    document.querySelectorAll(".decoline")[1].style.left = "85%";
+    document.querySelector(".right_nav").style.width = "15vw";
+    this.sidebarMenu.open();
   };
 
   setActivePropertyCard = (i, e) => {
@@ -113,11 +135,20 @@ export default class RightNav extends Component {
     );
     const ContextualLink = () =>
       isPortfolioPage ? (
-        <HoverLink
-          onClick={this.toggleSideBar}
-          link="Properties"
-          className={`properties ${open ? "open" : ""}`}
-        />
+        <li
+          id="mobile-properties"
+          className={`hover-link properties ${open ? "open" : ""}`}
+          onClick={e => this.toggleSideBar(e)}
+          style={{ lineHeight: 0.02 }}
+        >
+          <div className={`text`}>
+            <span className="u-shadow">Properties</span>
+          </div>
+          <div className="hover-link-icon">
+            <span />
+            <span />
+          </div>
+        </li>
       ) : (
         <SideBarTrigger />
       );
@@ -129,7 +160,7 @@ export default class RightNav extends Component {
             <ContextualLink />
           </ul>
         </div>
-        <PortfolioSidebar
+        <MobilePortfolioSidebar
           {...this.props}
           setActivePropertyCard={this.setActivePropertyCard}
         />

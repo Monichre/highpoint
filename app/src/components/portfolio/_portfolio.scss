@@ -66,8 +66,8 @@ main.portfolio.component.portfolio_component {
         @include mq($desktop) {
           height: 4vh;
         }
-        @include mq($phone-wide) {
-          height: 3.4vh;
+        @include mq($tablet-wide) {
+          height: 3vh;
         }
       }
     }

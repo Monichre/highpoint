@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import AppDispatcher from "../../flux/dispatchers";
+import React from "react";
 import MobileRightNav from "./mobileRightNav";
 import DefaultRightNav from "./defaultRightNav";
 import { BROWSER } from "../../utils/browser";

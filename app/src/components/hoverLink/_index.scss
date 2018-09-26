@@ -63,7 +63,7 @@
       transform: rotate(90deg) translate(150px, 3px);
       @include link-style;
       @include mq($tablet-wide-2) {
-        transform: rotate(90deg) translate(90px, 0px);
+        transform: rotate(90deg) translate(120px, 0px);
       }
       @include mq($phone-wide) {
         transform: rotate(90deg) translate(120px, 0px);
@@ -80,14 +80,16 @@
         }
       }
     }
-    &.open {
+    &.open,
+    &:active,
+    &:focus {
       .text {
         opacity: 0;
         transform: rotate(90deg) translate(-100px, 3px);
       }
     }
     .hover-link-icon {
-      top: -40px;
+      // top: -40px;
 
       @include mq($phone-wide) {
         top: auto;

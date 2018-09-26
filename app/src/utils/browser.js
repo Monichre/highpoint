@@ -45,7 +45,7 @@ export const BROWSER = {
     let isLargeTablet = false;
     let isDesktop = false;
 
-    if (winWidth <= 768) {
+    if (winWidth <= 1024) {
       status = true;
     }
 

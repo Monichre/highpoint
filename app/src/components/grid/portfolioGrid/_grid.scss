@@ -19,6 +19,9 @@
   // @include mq($tablet) {
 
   // }
+  @include mq($tablet-wide) {
+    padding: 0 1rem;
+  }
   @include mq($tablet-wide-2) {
     padding: 0 1rem;
   }
@@ -28,9 +31,7 @@
   // @include mq($phone-wide) {
   //   width: 20vw;
   // }
-  // @include mq($tablet-wide) {
 
-  // }
   // @include mq($macbook-air) {
 
   // }

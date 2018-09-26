@@ -31,10 +31,14 @@ export const cornerLines = () => {
   lines.animateLinesIn();
 };
 
-export const processPortfolioLines = () => {
+export const processPortfolioLines = (sidebar = false) => {
   const lines = new LineMaker({
     position: "fixed",
     lines: pl
   });
-  lines.animateLinesIn();
+  if (!sidebar) {
+    lines.animateLinesIn();
+  }
+
+  return lines;
 };

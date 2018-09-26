@@ -10,6 +10,9 @@
     @include column-flex;
     height: 100%;
     width: 10vw;
+    @include mq($tablet-wide) {
+      justify-content: space-between !important;
+    }
     @include mq($tablet) {
       justify-content: space-between !important;
     }
@@ -26,7 +29,7 @@
         display: block;
         margin: auto;
       }
-      @include mq($tablet) {
+      @include mq($tablet-wide) {
         height: 10vh;
         svg {
           height: 3vh !important;
