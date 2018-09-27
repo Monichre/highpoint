@@ -23,19 +23,22 @@
       padding-left: 0;
       height: 15vh;
       width: 100%;
+      @include column-flex;
+      @include mq($tablet-wide) {
+        height: 10vh;
+      }
+      @include mq($phone-wide) {
+        background: #f5f5f5;
+      }
 
       svg {
         height: 4.5vh !important;
         display: block;
         margin: auto;
-      }
-      @include mq($tablet-wide) {
-        height: 10vh;
-        svg {
+        @include mq($tablet-wide) {
           height: 3vh !important;
         }
       }
-      @include column-flex;
 
       li {
         @include column-flex-fullHeight;

@@ -1,66 +1,131 @@
+@import "../../../../sass/variables";
+
 .four_rows_grid_container {
-  
   height: 90vh;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 10px;
 
-  .blueprint, .before, .after {
+  .blueprint,
+  .before,
+  .after {
     height: 80vh;
   }
-  
+  @include mq($phone-wide) {
+    height: 100vh;
+    display: flex;
+    /* grid-template-columns: repeat(12, 1fr); */
+    /* grid-gap: 10px; */
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   .blueprint {
     grid-column: span 6 / auto;
     // grid-column: span 6 / auto;
     // grid-row: unset;
     height: 95%;
-    img {
-      margin-top: 40px;
-      height: 100%;
+    @include mq($phone-wide) {
+      grid-column: none;
+      height: 40vh;
       width: 100%;
-      object-fit: cover;
-      object-position: center;
+      grid-column: none;
+      height: 25vh;
+      width: 100%;
+      transform: rotate(90deg);
+    }
+    .blueprint__wrapper {
+      @include mq($phone-wide) {
+        padding-top: 0;
+      }
+      img {
+        margin-top: 40px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        @include mq($phone-wide) {
+          margin-top: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
     }
   }
-  
+
   .before {
     grid-column: span 3 / auto;
     display: flex;
-			flex-direction: column;
-			.img__wrapper {
-				height: 25%;
-        width: 100%;
-        margin-top: 10px;
-				&:nth-of-type(1) {
-          margin-top: 0px;
-				}
-		
-				img {
-					object-fit: contain;
-					height: 100%;
-					width: 100%;
-        }
+    flex-direction: column;
+    @include mq($phone-wide) {
+      height: -webkit-fill-available;
+      margin: 0 auto 0;
+
+      width: 45%;
+      grid-column: none !important;
+    }
+    h4 {
+      font-size: 0.7rem;
+      text-align: center;
+      margin: 10px 0;
+      @include mq($phone-wide) {
+        font-size: 0.5rem;
       }
+    }
+    .img__wrapper {
+      height: 25%;
+      width: 100%;
+      margin-top: 10px;
+      @include mq($phone-wide) {
+        height: 80px;
+      }
+      &:nth-of-type(1) {
+        margin-top: 0px;
+      }
+
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
-  
+
   .after {
     grid-column: span 3 / auto;
     display: flex;
-			flex-direction: column;
-			.img__wrapper {
-				height: 25%;
-        width: 100%;
-        margin-top: 10px;
-				&:nth-of-type(1) {
-          margin-top: 0px;
-				}
-				
-				img {
-					object-fit: contain;
-					height: 100%;
-					width: 100%;
-        }
+    flex-direction: column;
+    @include mq($phone-wide) {
+      height: -webkit-fill-available;
+      width: 45%;
+      grid-column: none !important;
+      margin: 0 auto 0;
+    }
+    h4 {
+      font-size: 0.7rem;
+      text-align: center;
+      margin: 10px 0;
+      @include mq($phone-wide) {
+        font-size: 0.5rem;
       }
+    }
+    .img__wrapper {
+      height: 25%;
+      width: 100%;
+      margin-top: 10px;
+      @include mq($phone-wide) {
+        height: 80px;
+      }
+      &:nth-of-type(1) {
+        margin-top: 0px;
+      }
+
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }
-  

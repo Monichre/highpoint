@@ -91,15 +91,7 @@ export default class FourRowGrid extends Component {
             </div>
           </div>
           <div className="before">
-            <h4
-              style={{
-                fontSize: "18px",
-                textAlign: "center",
-                margin: "10px 0"
-              }}
-            >
-              BEFORE{" "}
-            </h4>
+            <h4>BEFORE</h4>
             {galleryItems
               .filter(img => galleryItems.indexOf(img) % 2 === 0)
               .map((image, i) => (
@@ -116,15 +108,7 @@ export default class FourRowGrid extends Component {
               ))}
           </div>
           <div className="after">
-            <h4
-              style={{
-                fontSize: "18px",
-                textAlign: "center",
-                margin: "10px 0"
-              }}
-            >
-              AFTER{" "}
-            </h4>
+            <h4>AFTER</h4>
             {galleryItems
               .filter(img => galleryItems.indexOf(img) % 2 !== 0)
               .map((image, i) => (

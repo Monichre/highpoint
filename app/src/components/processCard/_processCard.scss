@@ -22,6 +22,10 @@
     padding: 10px;
     width: 90% !important;
   }
+  @include mq($phone-wide) {
+    height: -webkit-fill-available;
+    margin-top: 100px;
+  }
 
   .inner {
     position: relative;
@@ -119,15 +123,6 @@
       .blueprint {
         position: relative;
         overflow: hidden;
-        .blueprint__wrapper {
-          height: 100%;
-          padding-top: 20px;
-          img {
-            object-fit: contain;
-            height: 100%;
-            width: 90%;
-          }
-        }
       }
     }
   }
@@ -138,6 +133,9 @@
     justify-content: flex-end;
     height: 25px;
     margin-top: 10px;
+    @include mq($phone-wide) {
+      display: none;
+    }
     .cinderblock_container {
       position: absolute;
       right: -40px;
@@ -155,6 +153,15 @@
       width: 98%;
       height: 2px;
       background: #000;
+    }
+  }
+  .blueprint__wrapper {
+    height: 100%;
+    padding-top: 20px;
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: 90%;
     }
   }
 }

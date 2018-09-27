@@ -95,22 +95,22 @@ const iPhoneLines = [
   },
   {
     width: 3,
-    height: "15vh",
+    height: "12vh",
     left: "80%",
-    top: "88%",
+    top: "0",
     color: "#333",
     hidden: true,
     animation: {
       duration: 1000,
       easing: "easeInOutExpo",
       delay: 200,
-      direction: "BottomTop"
+      direction: "TopBottom"
     }
   },
 
   {
-    top: "90%",
-    left: "80%",
+    top: "10%",
+    left: "78%",
     width: "25vw",
     height: 3,
     color: "#333",
