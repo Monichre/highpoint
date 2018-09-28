@@ -51,6 +51,12 @@ body {
   .decoline {
     position: absolute;
   }
+  .page__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
   h1,
   h2 {
     font-family: $font-primary;

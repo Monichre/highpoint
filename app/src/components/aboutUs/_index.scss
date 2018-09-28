@@ -17,6 +17,7 @@
 
   @include mq($phone-wide) {
     padding: 0.5rem 0.5rem 0;
+    justify-content: center;
   }
 
   h4 {
@@ -50,13 +51,7 @@
 
     @include mq($phone-wide) {
       // Should we just hide this entirely on mobile?
-      display: none;
     }
-
-    //       $tablet-wide: 1024px;
-    // $macbook-air: 1152px;
-    // $desktop: 1282px;
-    // $desktop-wide: 1440px;
 
     span {
       &:hover {
@@ -68,11 +63,17 @@
     margin: 2.5rem auto 0;
     position: relative;
 
+    @include mq($desktop) {
+      margin: 1.5rem auto 0;
+    }
+
     @include mq($tablet-wide-2) {
       margin: 1rem auto 0;
     }
-    @include mq($desktop) {
-      margin: 1.5rem auto 0;
+
+    @include mq($phone-wide) {
+      // margin: 3rem auto 0;
+      display: none;
     }
 
     p {
@@ -86,11 +87,11 @@
         font-size: 0.4rem;
       }
       @include mq($phone-wide) {
-        font-size: 0.35rem;
+        font-size: 0.485rem;
       }
 
       @include mq($phone) {
-        font-size: 0.3rem;
+        // font-size: 0.5rem;
       }
     }
   }

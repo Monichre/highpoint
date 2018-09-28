@@ -23,6 +23,9 @@
   //   height: 90vh !important;
   //   top: 90vh !important;
   // }
+  @include mq($phone-wide) {
+    width: 20vw;
+  }
 
   ul {
     @include column-flex-evenly;

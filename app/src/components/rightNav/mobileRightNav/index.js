@@ -3,7 +3,10 @@ import AppDispatcher from "../../../flux/dispatchers";
 import CinderBlock from "../../cinderblock";
 import MobilePortfolioSidebar from "../../mobilePortfolioSidebar";
 import superslide from "../../superslide";
-import { processPortfolioLines } from "../../lines";
+import { HoverLinkIcon } from "../../hoverLink/hoverLinkIcon";
+import { BROWSER } from "../../../utils/browser";
+
+const { status, isPhone } = BROWSER.isMobile();
 
 export default class MobileRightNav extends Component {
   state = {
@@ -28,20 +31,26 @@ export default class MobileRightNav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
-      if (nextProps.activePropertyCard === 2) {
-        const { open, initialMenuHasRendered, activePropertyCard } = this.state;
-        if (!initialMenuHasRendered && !activePropertyCard) {
-          this.setState(
-            {
-              open: !open,
-              initialMenuHasRendered: true,
-              activePropertyCard: nextProps.activePropertyCard
-            },
-            () => {
-              open ? this.sidebarMenu.close() : this.sidebarMenu.open();
-            }
-          );
+    if (isPhone === false) {
+      if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
+        if (nextProps.activePropertyCard === 2) {
+          const {
+            open,
+            initialMenuHasRendered,
+            activePropertyCard
+          } = this.state;
+          if (!initialMenuHasRendered && !activePropertyCard) {
+            this.setState(
+              {
+                open: !open,
+                initialMenuHasRendered: true,
+                activePropertyCard: nextProps.activePropertyCard
+              },
+              () => {
+                open ? this.sidebarMenu.close() : this.sidebarMenu.open();
+              }
+            );
+          }
         }
       }
     }
@@ -49,7 +58,6 @@ export default class MobileRightNav extends Component {
 
   componentDidMount() {
     const { isPortfolioPage, activePropertyCard } = this.state;
-    // this.lines = processPortfolioLines(true)
     if (isPortfolioPage) {
       const slider = document.getElementById("mobile_sidebar_menu");
       const content = document.querySelector(".sidebar_properties_list");
@@ -61,11 +69,11 @@ export default class MobileRightNav extends Component {
         content: content,
         slideContent: false,
         animation: "slideRight",
-        width: "15vw",
+        width: isPhone ? "20vw" : "15vw",
         height: "90vh"
       });
       this.sidebarMenu = sidebarMenu;
-      if (activePropertyCard === 1) {
+      if (activePropertyCard === 1 && isPhone === false) {
         this.sidebarMenu.open();
         burgerIcon.classList.add("open");
       }
@@ -85,14 +93,13 @@ export default class MobileRightNav extends Component {
   };
 
   sidebarCloseAnimation = () => {
-    // this.lines.animateLineOut(1)
-    // this.sidebarMenu.close()
-
-    document
-      .querySelectorAll(".decoline")
-      .forEach((line, i) => console.log(line, i));
+    // document
+    //   .querySelectorAll('.decoline')
+    //   .forEach((line, i) => console.log(line, i))
     document.querySelectorAll(".decoline")[1].style.left = "90%";
-    document.querySelector(".right_nav").style.width = "10vw";
+    document.querySelector(".right_nav").style.width = isPhone
+      ? "20vw"
+      : "10vw";
     this.sidebarMenu.close();
   };
 
@@ -141,13 +148,12 @@ export default class MobileRightNav extends Component {
           onClick={e => this.toggleSideBar(e)}
           style={{ lineHeight: 0.02 }}
         >
-          <div className={`text`}>
-            <span className="u-shadow">Properties</span>
-          </div>
-          <div className="hover-link-icon">
-            <span />
-            <span />
-          </div>
+          {isPhone ? null : (
+            <div className={`text`}>
+              <span className="u-shadow">Properties</span>
+            </div>
+          )}
+          <HoverLinkIcon />
         </li>
       ) : (
         <SideBarTrigger />

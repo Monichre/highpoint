@@ -7,7 +7,6 @@ import { linkTo } from "@storybook/addon-links";
 
 import { FancyButton } from "../src/components/viewProcessButton/fancyButton";
 import { AlternateButton } from "../src/components/viewProcessButton/alternateButton";
-import ColorPalette from "../src/components/colorPalette";
 
 import "../src/sass/_base.scss";
 import "../src/sass/_typography.scss";
@@ -15,7 +14,6 @@ import "../src/sass/_variables.scss";
 import "../src/sass/_global.scss";
 import "../src/App.scss";
 import "../src/components/viewProcessButton/_index.scss";
-import "../src/components/colorPalette/_index.scss";
 
 import { propertyTwo } from "./dummy-data";
 
@@ -33,8 +31,6 @@ const ButtonContainer = props => (
     {props.children}
   </div>
 );
-
-storiesOf("ColorPalette", module).add("View", () => <ColorPalette />);
 
 storiesOf("Components/Buttons/FancyButton", module)
   .addDecorator(StoryRouter())
