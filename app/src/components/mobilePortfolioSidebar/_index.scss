@@ -13,7 +13,7 @@
   // width: 10vw !important;
   // left: auto !important;
   border-top: 2px solid black;
-
+  z-index: 3000;
   // @include mq($tablet) {
   //   width: 10vw !important;
   //   top: 100vh !important;
@@ -23,6 +23,7 @@
   //   height: 90vh !important;
   //   top: 90vh !important;
   // }
+
   @include mq($phone-wide) {
     width: 20vw;
   }

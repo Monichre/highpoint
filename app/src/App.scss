@@ -20,6 +20,24 @@
 @import "./components/processCard/processCardGrid/fiveRows/five-rows";
 @import "./components/processCard/processCardGrid/fourRows/four-rows";
 
+body {
+  transition: all 0.4s ease-in-out;
+  &.mobile_sidebar_open {
+    position: relative;
+    &:after {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 80%;
+      background-color: rgba(0, 0, 0, 0.5);
+      content: "";
+      z-index: 200;
+      filter: blur(1px);
+    }
+  }
+}
+
 .App {
   padding: 0 10% 0;
   @include mq($phone-wide) {

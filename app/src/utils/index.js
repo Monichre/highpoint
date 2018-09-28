@@ -43,3 +43,39 @@ export const isAVenture = property => {
   ];
   return !!titles.includes(property.title);
 };
+
+export const modifiedPropertyTitles = properties => {
+  const mod = [];
+  properties.forEach((property, i) => {
+    if (property.title === "The Randolph / The Mortimer / The Valentine") {
+      const split = property.title.split("/");
+      const randolph = split[0];
+      const mortimer = split[1];
+      const valentine = split[2];
+      mod.push(
+        {
+          index: i,
+          title: randolph,
+          order: property.order
+        },
+        {
+          index: i,
+          title: mortimer,
+          order: property.order
+        },
+        {
+          index: i,
+          title: valentine,
+          order: property.order
+        }
+      );
+    } else {
+      mod.push({
+        index: i,
+        title: property.title,
+        order: property.order
+      });
+    }
+  });
+  return mod;
+};

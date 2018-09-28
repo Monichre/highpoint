@@ -93,10 +93,11 @@ export default class MobileRightNav extends Component {
   };
 
   sidebarCloseAnimation = () => {
-    // document
-    //   .querySelectorAll('.decoline')
-    //   .forEach((line, i) => console.log(line, i))
-    document.querySelectorAll(".decoline")[1].style.left = "90%";
+    if (isPhone) {
+      document.querySelector("body").classList.remove("mobile_sidebar_open");
+    } else {
+      document.querySelectorAll(".decoline")[1].style.left = "90%";
+    }
     document.querySelector(".right_nav").style.width = isPhone
       ? "20vw"
       : "10vw";
@@ -104,12 +105,17 @@ export default class MobileRightNav extends Component {
   };
 
   sidebarOpenAnimation = () => {
-    // this.lines.animateLineIn(1)
     document
       .querySelectorAll(".decoline")
       .forEach((line, i) => console.log(line, i));
-    document.querySelectorAll(".decoline")[1].style.left = "85%";
-    document.querySelector(".right_nav").style.width = "15vw";
+    if (isPhone) {
+      document.querySelector("body").classList.add("mobile_sidebar_open");
+    } else {
+      document.querySelectorAll(".decoline")[1].style.left = "85%";
+      document.querySelector(".right_nav").style.width = isPhone
+        ? "20vw"
+        : "15vw";
+    }
     this.sidebarMenu.open();
   };
 
