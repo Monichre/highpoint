@@ -50,7 +50,7 @@
     }
 
     @include mq($phone-wide) {
-      // Should we just hide this entirely on mobile?
+      margin: 20px 0 40px;
     }
 
     span {

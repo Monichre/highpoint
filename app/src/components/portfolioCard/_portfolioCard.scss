@@ -23,7 +23,8 @@
     width: 80%;
   }
   @include mq($phone-wide) {
-    height: 60vh;
+    height: 70vh;
+    margin-top: 15vh;
     width: 100%;
   }
 
@@ -69,6 +70,7 @@
           font-weight: bolder;
           line-height: 1.75;
           text-align: center;
+          display: block;
           text-transform: uppercase;
           text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
           transition: text-shadow $b-animSpeed $b-animType;

@@ -35,8 +35,8 @@
     // height: 93%; // Because the footer only has a height of 7%
   }
   @include mq($phone-wide) {
-    height: 90%;
-    padding: 0rem 0.85rem 0 0.5rem;
+    height: 85%;
+    padding: 0rem 1.2rem 0 0.8rem;
     justify-content: space-evenly;
   }
 
@@ -55,9 +55,9 @@
       // display: none;
     }
     @include mq($phone-wide) {
-      right: 15px;
-      top: 20%;
-      height: 80%;
+      right: 20px;
+      top: 15%;
+      height: 85%;
     }
   }
   h3 {
@@ -84,9 +84,9 @@
     .property_address {
       position: absolute;
       left: 0;
-      font-size: 0.55rem;
+      font-size: 0.45rem;
       font-weight: bolder;
-      line-height: 1.4;
+      line-height: 1.5;
       font-style: oblique;
       text-transform: uppercase;
       text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
@@ -94,6 +94,11 @@
     }
   }
   .content {
+    .subtitle {
+      @include mq($phone-wide) {
+        display: none;
+      }
+    }
     h4 {
       margin: 1rem 0 0.4rem;
       font-size: 0.7rem;
@@ -106,6 +111,9 @@
       @include mq($desktop) {
         margin: 0.5rem 0 0.1rem;
         font-size: 0.6rem;
+      }
+      @include mq($phone-wide) {
+        display: none;
       }
       // @include mq($tablet) {
       //   font-size: 0.75rem;

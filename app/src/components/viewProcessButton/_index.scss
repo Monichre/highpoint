@@ -86,8 +86,8 @@
   }
 
   @include mq($phone-wide) {
-    --offset: 5px;
-    padding: 10px;
+    --offset: 10px;
+    padding: 20px;
     font-size: 0.35rem;
     margin: 10px 0 0;
   }
@@ -146,8 +146,6 @@
 
 .portfolio_card.portfolio_card--full.vertical {
   .fancy_button {
-    @include mq($tablet-wide) {
-      width: 200px;
-    }
+    width: 200px;
   }
 }

@@ -16,7 +16,7 @@
   }
 
   @include mq($phone-wide) {
-    height: 10%;
+    height: 15%;
     padding-left: 0.5rem;
   }
 
@@ -62,7 +62,7 @@
   @include mq($tablet) {
   }
   @include mq($phone-wide) {
-    width: 1.5rem;
+    width: 2rem;
   }
   svg {
     height: 3vh;
