@@ -1,5 +1,14 @@
 import React from "react";
-// import { CardArrowDown } from '../icons'
+import { CardArrowDown } from "../icons";
+import { BROWSER } from "../../utils/browser";
+
+const { isPhone } = BROWSER.isMobile();
+
+const ArrowButton = ({ arrowClick, index }) => (
+  <span className="card_arrow_down" onClick={e => arrowClick(e, index)}>
+    <CardArrowDown />
+  </span>
+);
 
 const PortfolioCardContainer = ({
   children,
@@ -7,22 +16,28 @@ const PortfolioCardContainer = ({
   arrowClick,
   index,
   className
-}) => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100%",
-      padding: "2% 0"
-    }}
-  >
-    <div className={`portfolio_card portfolio_card--full ${className}`}>
-      {children}
+}) => {
+  const conditionalArrow = isPhone ? (
+    <ArrowButton arrowClick={arrowClick} index={index} />
+  ) : null;
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        padding: "2% 0"
+      }}
+    >
+      <div className={`portfolio_card portfolio_card--full ${className}`}>
+        {children}
+        {conditionalArrow}
+      </div>
     </div>
-    {/* <CardArrowDown index={index} onClick={arrowClick} /> */}
-  </div>
-);
+  );
+};
 
 export default PortfolioCardContainer;

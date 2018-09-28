@@ -17,6 +17,10 @@
       clear: both;
       overflow: scroll;
 
+      @include mq($phone-wide) {
+        padding: 150px 0 100px !important;
+      }
+
       .grid__item__thumb {
         height: 200px;
         width: 23%;

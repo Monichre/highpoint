@@ -65,22 +65,42 @@
         padding: 0 0 0 20px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        overflow: scroll;
-        @include mq($tablet-wide-2) {
+        justify-content: center;
+        overflow: hidden;
+        @include mq($tablet-wide) {
           justify-content: space-evenly;
         }
-        .text {
-          p {
-            @include mq($tablet-wide-2) {
-              max-height: 300px;
-              overflow: hidden;
-            }
+
+        h4.process_button__property-address {
+          @include mq($phone-wide) {
+            font-size: 0.7rem;
+            font-weight: bolder;
+            line-height: 1.75;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
+            transition: text-shadow $b-animSpeed $b-animType;
           }
         }
-        .sub_title {
+        p {
           @include mq($desktop) {
-            margin-bottom: 5px;
+            font-size: 0.4rem;
+          }
+          @include mq($tablet-wide-2) {
+            font-size: 0.35rem;
+            max-height: 300px;
+            overflow: hidden;
+          }
+          @include mq($tablet-wide) {
+          }
+
+          @include mq($tablet) {
+            display: none;
+          }
+        }
+        h4 {
+          @include mq($desktop) {
+            margin: 0.5rem 0 1rem;
           }
         }
       }

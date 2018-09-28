@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { processPortfolioLines, cornerLines } from "../lines";
 import Lightbox from "react-images";
-import { Thumb } from "../thumb";
+import MediaThumb from "../thumb";
 import ScrollReveal from "scrollreveal";
 import AppStore from "../../flux/stores";
 import LightBoxTheme from "../lightboxTheme";
@@ -98,7 +98,7 @@ export default class Gallery extends Component {
         <section className="wrapper">
           <div className="thumb__scroller">
             {galleryItems.map((item, i) => (
-              <Thumb
+              <MediaThumb
                 item={item}
                 key={i}
                 openLightbox={this.openLightbox.bind(this, i)}

@@ -3,7 +3,6 @@ import { HorizontalPortfolioCard } from "../portfolioCardHorizontal";
 import { VerticalPortfolioCard } from "../portfolioCardVertical";
 import PortfolioCardContainer from "./portfolioCardContainer";
 import PortfolioCardFooter from "../portfolioCardFooter";
-
 import "./_portfolioCard.scss";
 
 export const PortfolioCard = ({
@@ -19,7 +18,7 @@ export const PortfolioCard = ({
       featuredImage.fields.file.details.image.height
   ) {
     return (
-      <PortfolioCardContainer className="horizontal">
+      <PortfolioCardContainer arrowClick={arrowClick} className="horizontal">
         <HorizontalPortfolioCard
           index={index}
           arrowClick={arrowClick}
@@ -30,7 +29,7 @@ export const PortfolioCard = ({
     );
   } else {
     return (
-      <PortfolioCardContainer className="vertical">
+      <PortfolioCardContainer arrowClick={arrowClick} className="vertical">
         <VerticalPortfolioCard
           index={index}
           arrowClick={arrowClick}

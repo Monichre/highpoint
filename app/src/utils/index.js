@@ -1,5 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import _ from "lodash";
 
 export const trim = str => {
   let trimmed = str;
@@ -46,7 +47,8 @@ export const isAVenture = property => {
 
 export const modifiedPropertyTitles = properties => {
   const mod = [];
-  properties.forEach((property, i) => {
+
+  _.sortBy(properties, item => item.order).forEach((property, i) => {
     if (property.title === "The Randolph / The Mortimer / The Valentine") {
       const split = property.title.split("/");
       const randolph = split[0];

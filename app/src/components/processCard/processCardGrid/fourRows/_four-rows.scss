@@ -21,15 +21,12 @@
   }
   .blueprint {
     grid-column: span 6 / auto;
-    // grid-column: span 6 / auto;
-    // grid-row: unset;
     height: 95%;
     @include mq($phone-wide) {
       grid-column: none;
-      height: 40vh;
       width: 100%;
       grid-column: none;
-      height: 25vh;
+      height: 35vh;
       width: 100%;
       transform: rotate(90deg);
     }

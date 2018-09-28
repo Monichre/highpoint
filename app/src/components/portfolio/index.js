@@ -44,7 +44,21 @@ export default class Portfolio extends Component {
       action: "go-to-property-card",
       propertyId: num
     });
-    this.setState({ currentPage: num });
+    this.setState({ currentPage: num }, () => {
+      setTimeout(() => {
+        const sidebar = document.querySelector(".sidebar_properties_list");
+        const activeLink = document.querySelector(
+          ".sidebar_link.menu_link.active"
+        );
+        if (activeLink) {
+          activeLink.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "nearest"
+          });
+        }
+      }, 500);
+    });
   };
 
   arrowClick = e => {
@@ -74,9 +88,7 @@ export default class Portfolio extends Component {
             <ReactPageScroller
               ref={c => (this._pageScroller = c)}
               pageOnChange={this.pageOnChange}
-              onScroll={this.scrollWheelHandler}
               animationTimer={500}
-              onWheel={this.scrollWheelHandler}
             >
               {allVentures.map(
                 (property, i) =>
@@ -94,17 +106,15 @@ export default class Portfolio extends Component {
               )}
             </ReactPageScroller>
           </PortfolioGrid>
+          <div className="arrows" onClick={e => this.arrowClick(e)}>
+            {this.state.currentPage === 0 || this.state.currentPage === 1 ? (
+              <Fragment>
+                <PageArrowDown />
+                <PageArrowDown />
+              </Fragment>
+            ) : null}
+          </div>
         </section>
-        <div className="arrows" onClick={e => this.arrowClick(e)}>
-          {this.state.currentPage === 0 || this.state.currentPage === 1 ? (
-            <Fragment>
-              <PageArrowDown />
-              <PageArrowDown />
-              <PageArrowDown />
-              <PageArrowDown />
-            </Fragment>
-          ) : null}
-        </div>
       </main>
     );
   }

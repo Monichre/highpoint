@@ -66,6 +66,7 @@
   }
   svg {
     height: 3vh;
+    vertical-align: baseline;
     @include mq($tablet) {
       height: 2.75vh;
     }

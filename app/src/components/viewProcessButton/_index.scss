@@ -143,3 +143,11 @@
     transform: scaleY(0);
   }
 }
+
+.portfolio_card.portfolio_card--full.vertical {
+  .fancy_button {
+    @include mq($tablet-wide) {
+      width: 200px;
+    }
+  }
+}

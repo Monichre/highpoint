@@ -54,6 +54,9 @@ main.portfolio.component.portfolio_component {
     @include mq($tablet-wide-2) {
       bottom: 0px;
     }
+    @include mq($phone-wide) {
+      bottom: 100px;
+    }
     button {
       outline: none;
       border: none;

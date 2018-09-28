@@ -36,13 +36,9 @@ export const VerticalPortfolioCard = ({ property, arrowClick, index }) => (
           </div>
         </div>
         <div className="content">
-          <div className="sub_title">
-            <h4>{property.address}</h4>
-          </div>
-          <div className="text">
-            <p>{trim(property.description)}</p>
-            <ViewProcessButton property={property} />
-          </div>
+          <h4>{property.address}</h4>
+          <p>{trim(property.description)}</p>
+          <ViewProcessButton property={property} />
         </div>
       </div>
     </div>
