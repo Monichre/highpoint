@@ -6,7 +6,8 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import LeftNav from "../src/components/leftNav";
-import MobileMenu from "../src/components/mobileMenu";
+import MobileLeftNav from "../src/components/leftNav/mobileLeftNav";
+import MobileMenu from "../src/components/leftNav/mobileMenu";
 import CinderBlock from "../src/components/cinderblock";
 
 import "../src/sass/_base.scss";
@@ -16,7 +17,7 @@ import "../src/sass/_global.scss";
 import "../src/App.scss";
 import "../src/components/leftNav/_ln.scss";
 import "../src/components/rightNav/_rn.scss";
-import "../src/components/mobileMenu/_index.scss";
+import "../src/components/leftNav/mobileMenu/_index.scss";
 
 const mobileLinks = ["Portfolio", "Process", "Gallery", "Contact"];
 
@@ -49,7 +50,18 @@ const LeftNavDecorator = storyFunc => (
   </Fragment>
 );
 
-storiesOf("Components/Nav/LeftNav/MobileMenu", module)
+const MobileLeftNavDecorator = storyFunc => (
+  <section className={`left_nav ${status ? "mobile_left_nav" : ""}`}>
+    {storyFunc()}
+  </section>
+);
+
+storiesOf("Components/Navigation/LeftNav/MobileMenu", module)
   .addDecorator(StoryRouter())
   .addDecorator(LeftNavDecorator)
   .add("with Left Nav Decorator", () => <MobileMenu links={mobileLinks} />);
+
+storiesOf("Components/Navigation/MobileLeftNavigation", module)
+  .addDecorator(StoryRouter())
+  .addDecorator(MobileLeftNavDecorator)
+  .add("with Left Nav Decorator", () => <MobileLeftNav links={mobileLinks} />);

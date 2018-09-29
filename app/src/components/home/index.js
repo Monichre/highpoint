@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { emitter } from "../../eventEmitter";
+// import { emitter } from "../../eventEmitter";
 import { VideoLogo } from "../videoLogo";
 import Footer from "../footer";
 import { cornerLines, homePageLines } from "../lines";
@@ -19,7 +19,7 @@ export default class Home extends Component {
   }
   componentDidMount() {
     homePageLines();
-    cornerLines();
+    // cornerLines();
 
     const logo_rects = Array.from(
       document.querySelectorAll(".clip__path__line")

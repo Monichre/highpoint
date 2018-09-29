@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import AppDispatcher from "../../../flux/dispatchers";
 import CinderBlock from "../../cinderblock";
 import MobilePortfolioSidebar from "../../mobilePortfolioSidebar";
@@ -166,7 +166,7 @@ export default class MobileRightNav extends Component {
       );
 
     return (
-      <section className={`right_nav`}>
+      <Fragment>
         <div className="inner" style={{ position: "relative" }}>
           <ul style={{ listStyle: "none" }} className="top">
             <ContextualLink />
@@ -176,7 +176,7 @@ export default class MobileRightNav extends Component {
           {...this.props}
           setActivePropertyCard={this.setActivePropertyCard}
         />
-      </section>
+      </Fragment>
     );
   }
 }

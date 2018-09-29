@@ -4,6 +4,6 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.stylelintIntegration": true,
-  "eslint.autoFixOnSave": true,
+  "standard.autoFixOnSave": true,
   "editor.formatOnSave": true
 }

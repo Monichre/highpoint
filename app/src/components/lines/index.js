@@ -6,14 +6,10 @@ import { pageLines } from "./page-lines";
 
 const winWidth = document.querySelector("body").offsetWidth;
 const isMobile = BROWSER.isMobile(winWidth);
-console.log(isMobile);
+
 const hl = homeLines(isMobile);
 const cl = siteCornerLines(isMobile);
 const pl = pageLines(isMobile);
-
-if (isMobile.status) {
-  // hl.length = 4
-}
 
 export const homePageLines = () => {
   const lines = new LineMaker({
@@ -29,6 +25,30 @@ export const cornerLines = () => {
     lines: cl
   });
   lines.animateLinesIn();
+};
+
+export const leftNavigationLines = el => {
+  const lines = new LineMaker({
+    position: "fixed",
+    lines: cl,
+    parent: {
+      element: el,
+      position: "prepend"
+    }
+  });
+  return lines;
+};
+
+export const rightNavigationLines = el => {
+  const lines = new LineMaker({
+    position: "fixed",
+    lines: cl,
+    parent: {
+      element: el,
+      position: "prepend"
+    }
+  });
+  return lines;
 };
 
 export const processPortfolioLines = (sidebar = false) => {

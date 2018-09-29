@@ -25,11 +25,11 @@ class MobileLeftNav extends Component {
   }
 
   toggleMobileNav = e => {
-    // e.preventDefault()
     const { mobileNavOpen } = this.state;
     if (mobileNavOpen) {
       this.DOM.menu.close();
     } else {
+      this.props.parentRemoveLinesAnimation();
       this.DOM.menu.open();
     }
     this.setState({
@@ -41,16 +41,14 @@ class MobileLeftNav extends Component {
     return (
       <Fragment>
         <MobileMenu links={mobileLinks} toggleMenu={this.toggleMobileNav} />
-        <section className="left_nav mobile_left_nav">
-          <div className="inner">
-            <ul style={{ listStyle: "none" }} className="top">
-              <li className="logo_link" style={{ width: "100%" }}>
-                <MobileNavTrigger toggleMobile={this.toggleMobileNav} />
-              </li>
-            </ul>
-            <ul className="middle" />
-          </div>
-        </section>
+        <div className="inner">
+          <ul style={{ listStyle: "none" }} className="top">
+            <li className="logo_link" style={{ width: "100%" }}>
+              <MobileNavTrigger toggleMobile={this.toggleMobileNav} />
+            </li>
+          </ul>
+          <ul className="middle" />
+        </div>
       </Fragment>
     );
   }
