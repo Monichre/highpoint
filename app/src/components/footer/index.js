@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { Next, Prev, Play, Pause } from "../icons";
-import VideoControlButton from "../videoControlButton";
-import { NavigationWings } from "../navigationWings";
 import { VideoMenu } from "../videoMenu";
+
+/*
+  NEED to change ALL #launchFullVideo to #isMobile/isPhone
+  ======================================================================================
+*/
 
 class Footer extends Component {
   state = {
