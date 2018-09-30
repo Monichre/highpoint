@@ -10,7 +10,7 @@ export const ProcessCardPreview = props => (
     <div
       className="content"
       style={{
-        backgroundImage: `url(${props.process.propertyImage}`
+        backgroundImage: `url(${props.process.propertyImage}?w=500&h=500`
       }}
     >
       <footer className="process_card__preview__footer">
@@ -27,13 +27,9 @@ export const ProcessCardPreview = props => (
         .concat(props.process.beforeImages)
         .map(photo => (
           <div className="preview-image">
-            <img src={photo.fields.file.url} />
+            <img src={`${photo.fields.file.url}?w=200&h=200`} />
           </div>
         ))}
     </div>
   </Link>
 );
-
-// ;('?w=200&h=200')
-
-// ? w = 500 & h=500)

@@ -32,9 +32,11 @@ export default class RightNav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(this.props);
+    console.log(nextProps);
     if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
+      const { open, initialMenuHasRendered, activePropertyCard } = this.state;
       if (nextProps.activePropertyCard === 2) {
-        const { open, initialMenuHasRendered, activePropertyCard } = this.state;
         if (!initialMenuHasRendered && !activePropertyCard) {
           this.setState(
             {
@@ -47,6 +49,17 @@ export default class RightNav extends Component {
             }
           );
         }
+      }
+      if (!initialMenuHasRendered) {
+        this.setState(
+          {
+            open: true,
+            initialMenuHasRendered: true
+          },
+          () => {
+            this.sidebarMenu.open();
+          }
+        );
       }
     }
   }

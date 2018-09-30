@@ -14,7 +14,7 @@ export const PortfolioCard = ({
 }) => {
   if (
     mobileStatus ||
-    featuredImage.fields.file.details.image.width >=
+    featuredImage.fields.file.details.image.width >
       featuredImage.fields.file.details.image.height
   ) {
     return (

@@ -83,6 +83,9 @@
           }
         }
         p {
+          @include minMq($desktop-up) {
+            font-size: 0.55rem;
+          }
           @include mq($desktop) {
             font-size: 0.4rem;
           }
@@ -99,6 +102,10 @@
           }
         }
         h4 {
+          @include minMq($desktop-up) {
+            font-size: 0.8rem;
+            margin: 0.5rem 0 1rem;
+          }
           @include mq($desktop) {
             margin: 0.5rem 0 1rem;
           }

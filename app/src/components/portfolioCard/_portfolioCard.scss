@@ -77,6 +77,10 @@
         }
       }
       p {
+        @include minMq($desktop-up) {
+          font-size: 0.55rem;
+        }
+
         @include mq($desktop) {
           font-size: 0.4rem;
         }

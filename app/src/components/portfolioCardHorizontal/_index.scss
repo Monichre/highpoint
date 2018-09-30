@@ -130,6 +130,9 @@
     height: 300px;
     position: relative;
     width: 100%;
+    @include minMq($desktop-up) {
+      height: 450px;
+    }
     @include mq($desktop) {
       // height: 250px;
     }
@@ -142,6 +145,12 @@
     @include mq($phone-wide) {
       height: 200px;
       width: 100%;
+    }
+
+    &.is_highpoint_venture {
+      @include minMq($desktop-up) {
+        height: 400px;
+      }
     }
 
     img {

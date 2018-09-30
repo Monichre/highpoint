@@ -19,7 +19,7 @@
   &.sidebar_link:not(.back_to_top) {
     position: relative;
     text-align: right !important;
-    width: 100%;
+    width: min-content;
     @include link-style;
     padding: 0 0 5px !important;
 

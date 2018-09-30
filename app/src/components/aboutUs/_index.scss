@@ -1,10 +1,11 @@
 .about_us_section--wrap {
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 
-  // padding: 1rem 2rem;
+  @include minMq($desktop-up) {
+    padding: 0 2rem;
+  }
   @include mq($desktop) {
     padding: 0.5rem 1rem 0;
   }
@@ -33,6 +34,9 @@
     text-transform: uppercase;
     text-shadow: 1px 1px 0 $c-primary;
     transition: text-shadow $b-animSpeed $b-animType;
+    @include minMq($desktop-up) {
+      font-size: 0.95rem;
+    }
     @include mq($desktop) {
       font-size: 0.6rem;
       margin: 0;
@@ -77,6 +81,9 @@
     }
 
     p {
+      @include minMq($desktop-up) {
+        font-size: 0.65rem;
+      }
       @include mq($desktop) {
         font-size: 0.45rem;
       }

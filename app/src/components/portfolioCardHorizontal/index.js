@@ -2,7 +2,6 @@ import React from "react";
 import ViewProcessButton from "../viewProcessButton";
 import { isAVenture } from "../../utils";
 import { BROWSER } from "../../utils/browser";
-import { McCallisterLogoFull } from "../icons";
 import "./_index.scss";
 
 const { isPhone } = BROWSER.isMobile();
@@ -28,7 +27,11 @@ export const HorizontalPortfolioCard = ({ property }) => (
       ) : null}
       {property.title}
     </h3>
-    <div className="img_cont">
+    <div
+      className={`img_cont ${
+        isAVenture(property) ? "is_highpoint_venture" : ""
+      }`}
+    >
       <img
         src={
           property.title === "McCallister Management"

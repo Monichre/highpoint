@@ -62,6 +62,12 @@
       transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
       transform: rotate(90deg) translate(150px, 3px);
       @include link-style;
+      @include minMq($desktop-up) {
+        transform: rotate(90deg) translate(250px, 3px);
+      }
+      @include mq($desktop) {
+        transform: rotate(90deg) translate(250px, 3px);
+      }
       @include mq($tablet-wide-2) {
         transform: rotate(90deg) translate(120px, 0px);
       }
