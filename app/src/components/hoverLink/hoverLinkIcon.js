@@ -1,7 +1,8 @@
 import React from "react";
+import "./_index.scss";
 
-export const HoverLinkIcon = () => (
-  <div className="hover-link-icon">
+export const HoverLinkIcon = ({ close }) => (
+  <div className={`hover-link-icon ${close ? "close" : ""}`}>
     <span />
     <span />
   </div>

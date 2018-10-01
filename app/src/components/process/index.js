@@ -29,7 +29,7 @@ export default class Process extends Component {
     if (!status) {
       processPortfolioLines();
     }
-    cornerLines();
+    // cornerLines();
   }
 
   render() {

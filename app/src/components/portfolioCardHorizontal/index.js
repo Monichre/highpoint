@@ -2,6 +2,7 @@ import React from "react";
 import ViewProcessButton from "../viewProcessButton";
 import { isAVenture } from "../../utils";
 import { BROWSER } from "../../utils/browser";
+import { FancyButtonCustomURL } from "../viewProcessButton/fancyButton";
 import "./_index.scss";
 
 const { isPhone } = BROWSER.isMobile();
@@ -18,7 +19,7 @@ export const HorizontalPortfolioCard = ({ property }) => (
       property.title === "McCallister Management"
         ? "mcCallister_management"
         : ""
-    }`}
+    } ${property.isAProcessItem ? "" : "isNotAProcessItem"}`}
     style={mcCallisterStyle(property)}
   >
     <h3>
@@ -52,6 +53,9 @@ export const HorizontalPortfolioCard = ({ property }) => (
       <div className="text">
         <p>{property.description}</p>
         <ViewProcessButton property={property} />
+        {property.title === "McCallister Management" ? (
+          <FancyButtonCustomURL url={"http://mccallistergroup.net/"} />
+        ) : null}
       </div>
     </div>
   </div>

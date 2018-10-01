@@ -1,5 +1,5 @@
 const defaultLines = status => {
-  const lines = [
+  const bottomLines = [
     {
       width: 3,
       height: "20vh",
@@ -30,10 +30,41 @@ const defaultLines = status => {
       }
     }
   ];
-  return lines;
+  const topLines = [
+    {
+      width: 3,
+      height: "12vh",
+      left: status ? "90%" : "79.5%",
+      top: "0",
+      color: "#333",
+      hidden: true,
+      animation: {
+        duration: 1000,
+        easing: "easeInOutExpo",
+        delay: 200,
+        direction: "TopBottom"
+      }
+    },
+
+    {
+      top: "10%",
+      left: status ? "88%" : "78%",
+      width: "25vw",
+      height: 3,
+      color: "#333",
+      hidden: true,
+      animation: {
+        duration: 2000,
+        easing: "easeInOutExpo",
+        delay: 0,
+        direction: "LeftRight"
+      }
+    }
+  ];
+  return status ? topLines : bottomLines;
 };
 
-const iPhoneLines = [
+const mobilePhoneLines = [
   {
     width: 3,
     height: "12vh",
@@ -66,5 +97,5 @@ const iPhoneLines = [
 
 export const rightLines = isMobile => {
   const { status, isPhone, isTablet, isDesktop } = isMobile;
-  return isPhone ? iPhoneLines : defaultLines(status);
+  return isPhone ? mobilePhoneLines : defaultLines(status);
 };

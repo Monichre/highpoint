@@ -8,3 +8,11 @@ export const FancyButton = ({ property }) => (
     <div className="button__vertical" />
   </button>
 );
+
+export const FancyButtonCustomURL = ({ url }) => (
+  <button className="fancy_button">
+    <a href={url}>View Venture</a>
+    <div className="button__horizontal" />
+    <div className="button__vertical" />
+  </button>
+);

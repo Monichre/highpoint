@@ -13,7 +13,7 @@ class ProcessPage extends Component {
     if (!status) {
       processPortfolioLines();
     }
-    cornerLines();
+    // cornerLines();
   }
   render() {
     const { processes } = AppStore.data;

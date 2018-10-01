@@ -69,8 +69,8 @@ export default class MobileRightNav extends Component {
         content: content,
         slideContent: false,
         animation: "slideRight",
-        width: isPhone ? "20vw" : "15vw",
-        height: "90vh"
+        width: isPhone ? "50vw" : "15vw",
+        height: "100vh"
       });
       this.sidebarMenu = sidebarMenu;
       if (activePropertyCard === 1 && isPhone === false) {
@@ -81,7 +81,9 @@ export default class MobileRightNav extends Component {
   }
 
   toggleSideBar = e => {
+    console.log("im clicking");
     if (e) {
+      console.log(e);
       e.preventDefault();
     }
 
@@ -96,25 +98,13 @@ export default class MobileRightNav extends Component {
     if (isPhone) {
       document.querySelector("body").classList.remove("mobile_sidebar_open");
     } else {
-      document.querySelectorAll(".decoline")[1].style.left = "90%";
     }
-    document.querySelector(".right_nav").style.width = isPhone
-      ? "20vw"
-      : "10vw";
     this.sidebarMenu.close();
   };
 
   sidebarOpenAnimation = () => {
-    document
-      .querySelectorAll(".decoline")
-      .forEach((line, i) => console.log(line, i));
     if (isPhone) {
       document.querySelector("body").classList.add("mobile_sidebar_open");
-    } else {
-      document.querySelectorAll(".decoline")[1].style.left = "85%";
-      document.querySelector(".right_nav").style.width = isPhone
-        ? "20vw"
-        : "15vw";
     }
     this.sidebarMenu.open();
   };
@@ -154,7 +144,7 @@ export default class MobileRightNav extends Component {
           onClick={e => this.toggleSideBar(e)}
           style={{ lineHeight: 0.02 }}
         >
-          {isPhone ? null : (
+          {status ? null : (
             <div className={`text`}>
               <span className="u-shadow">Properties</span>
             </div>
@@ -175,6 +165,7 @@ export default class MobileRightNav extends Component {
         <MobilePortfolioSidebar
           {...this.props}
           setActivePropertyCard={this.setActivePropertyCard}
+          toggleSideBar={this.toggleSideBar}
         />
       </Fragment>
     );

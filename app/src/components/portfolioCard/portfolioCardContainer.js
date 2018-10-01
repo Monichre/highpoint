@@ -17,10 +17,6 @@ const PortfolioCardContainer = ({
   index,
   className
 }) => {
-  const conditionalArrow = isPhone ? (
-    <ArrowButton arrowClick={arrowClick} index={index} />
-  ) : null;
-
   return (
     <div
       style={{
@@ -34,7 +30,7 @@ const PortfolioCardContainer = ({
     >
       <div className={`portfolio_card portfolio_card--full ${className}`}>
         {children}
-        {conditionalArrow}
+        <ArrowButton arrowClick={arrowClick} index={index} />
       </div>
     </div>
   );

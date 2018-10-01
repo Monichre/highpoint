@@ -14,6 +14,10 @@
     background-size: cover;
     background-position: 200% 200%;
     background-repeat: no-repeat;
+
+    @include mq($tablet) {
+      background-position: center;
+    }
   }
 
   @include mq($desktop) {
@@ -28,11 +32,7 @@
   @include mq($tablet-wide) {
   }
   @include mq($tablet) {
-    // padding: 0.5rem 0.5rem 0 0.5rem;
-    // padding: 0.5rem 2rem 0 1rem;
-    // align-items: baseline;
-    // justify-content: space-evenly;
-    // height: 93%; // Because the footer only has a height of 7%
+    padding: 0.8rem 2rem 0 1.5rem;
   }
   @include mq($phone-wide) {
     height: 85%;
@@ -133,6 +133,9 @@
     @include minMq($desktop-up) {
       height: 450px;
     }
+    @include mq($desktop-wide-2) {
+      height: 300px;
+    }
     @include mq($desktop) {
       // height: 250px;
     }
@@ -150,6 +153,9 @@
     &.is_highpoint_venture {
       @include minMq($desktop-up) {
         height: 400px;
+      }
+      @include mq($desktop-wide-2) {
+        height: 300px;
       }
     }
 
@@ -181,7 +187,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      @include mq($phone-wide) {
+      @include mq($tablet) {
         display: none;
       }
       img {
@@ -199,6 +205,30 @@
             padding: 20px;
           }
         }
+      }
+    }
+  }
+
+  &.isNotAProcessItem {
+    .img_cont {
+      @include minMq($desktop-up) {
+        height: 450px;
+      }
+      @include mq($desktop-wide-2) {
+        height: 400px;
+      }
+      @include mq($desktop) {
+        // height: 250px;
+      }
+      @include mq($tablet-wide-2) {
+        height: 200px;
+      }
+      @include mq($tablet) {
+        height: 50vh;
+      }
+      @include mq($phone-wide) {
+        height: 200px;
+        width: 100%;
       }
     }
   }

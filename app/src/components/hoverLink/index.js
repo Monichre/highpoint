@@ -10,7 +10,9 @@ const HoverLink = ({ link, className, onClick, isMobile }) => {
     <li className={`hover-link ${className}`} onClick={e => handleClick(e)}>
       <div className={`text`}>
         {isMobile && link === "Contact" ? null : (
-          <span className="u-shadow">{link}</span>
+          <a href="mailto:info@highpointpg.com" className="u-shadow">
+            {link}
+          </a>
         )}
       </div>
       <div className="hover-link-icon">

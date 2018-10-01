@@ -193,8 +193,9 @@ $tablet-wide-2: 915px;
 $tablet-wide: 1024px;
 $macbook-air: 1152px;
 $desktop: 1282px;
-$desktop-up: 1283px;
 $desktop-wide: 1440px;
+$desktop-wide-2: 1600px;
+$desktop-up: 1650px;
 
 @mixin mq($width) {
   @media only screen and (max-width: $width) {

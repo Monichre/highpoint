@@ -5,15 +5,27 @@ export const MobileMenuLink = ({ link, i }) => (
   <div className="mobile-menu__item">
     <div className={`mobile-menu__item-bg mobile-menu__item-bg--${i}`} />
     <div className={`mobile-menu__item-img mobile-menu__item-img--${i}`} />
-    <Link
-      to={`/${link.toLowerCase()}`}
-      className="mobile-menu__link mobile-menu__item-content"
-    >
-      <div className="mobile-menu__item-inner">
-        <h3 className="mobile-menu__item-title">{link}</h3>
-        <span className="mobile-menu__item-desc" />
-      </div>
-    </Link>
+    {link.toLowerCase() === "contact" ? (
+      <a
+        href="mailto:info@highpointpg.com"
+        className="mobile-menu__link mobile-menu__item-content"
+      >
+        <div className="mobile-menu__item-inner">
+          <h3 className="mobile-menu__item-title">{link}</h3>
+          <span className="mobile-menu__item-desc" />
+        </div>
+      </a>
+    ) : (
+      <Link
+        to={`/${link.toLowerCase()}`}
+        className="mobile-menu__link mobile-menu__item-content"
+      >
+        <div className="mobile-menu__item-inner">
+          <h3 className="mobile-menu__item-title">{link}</h3>
+          <span className="mobile-menu__item-desc" />
+        </div>
+      </Link>
+    )}
     <div
       className={`mobile-menu__item-bg mobile-menu__item-bg-cover mobile-menu__item-bg--${i}`}
     />

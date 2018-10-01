@@ -30,8 +30,6 @@
   .content {
     height: 100%;
     width: 100%;
-
-    border-bottom: 2px solid black;
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -71,14 +69,19 @@
       top: 0;
       right: 18px;
       content: "";
-      width: 2px;
+      width: 1px;
+      height: 85%; //This height needs to sync with the height of the corner icon svg
       height: 86%;
       background: #000;
       transition: all 0.3s cubic-bezier(0.28, 0.05, 0.65, 0.97);
+      // @include mq($tablet) {
+      //   top: 10px;
+      //   height: 65%;
+      //   right: 12px;
+      // }
       @include mq($tablet) {
-        top: 10px;
-        height: 65%;
-        right: 12px;
+        height: 83%;
+        right: 14px;
       }
     }
 
@@ -88,6 +91,11 @@
       left: 0;
       bottom: 0;
       width: 100%;
+      border: 1px solid black;
+
+      @include mq($tablet) {
+        // padding: 5px 5px 0 2px;
+      }
 
       .footer__inner {
         // padding: 10px 5px 5px;
@@ -113,8 +121,10 @@
             font-size: 0.7rem;
           }
           @include mq($tablet) {
-            // line-height: 1.5;
+            padding: 0 0 0 5px;
+
             font-size: 0.4rem;
+            line-height: 2;
           }
           @include mq($phone-wide) {
             font-size: 0.4rem;
@@ -125,21 +135,25 @@
         .footer_corner_icon {
           width: 40px;
           height: 100%;
-          border-top: 2px solid #000;
-          border-left: 2px solid black;
-          border-right: 2px solid black;
+          border-left: 1px solid black;
+          border-bottom-right-radius: 4px;
           display: flex;
           padding: 11px;
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          @include mq($tablet) {
+            padding: 4px;
+            width: 30px;
+          }
           svg {
-            height: 2.75vh;
+            height: 2vh;
             display: inline-block;
             position: relative;
 
             @include mq($tablet) {
-              height: 1.75vh;
+              height: 1.5vh;
+              padding: 1px;
             }
             @include mq($phone-wide) {
               height: 1.5vh;
@@ -148,10 +162,6 @@
             }
           }
         }
-      }
-
-      @include mq($tablet) {
-        padding: 5px 5px 0 2px;
       }
     }
   }

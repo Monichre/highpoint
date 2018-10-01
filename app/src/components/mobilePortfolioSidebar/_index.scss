@@ -1,12 +1,12 @@
 @import "../../sass/variables";
 
 #mobile_sidebar_menu {
-  background: #fff;
-
+  // background: #fff;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   // right: 0 !important;
   // bottom: 15vh !important;
 
-  top: 10vh !important;
+  // top: 10vh !important;
   overflow-x: hidden;
   overflow-y: scroll;
   // height: 70vh !important;
@@ -25,7 +25,8 @@
   // }
 
   @include mq($phone-wide) {
-    width: 20vw;
+    width: 50vw;
+    border-top: none;
   }
 
   ul {
@@ -38,7 +39,6 @@
     }
     .menu_link.sidebar_link {
       &.back_to_top {
-        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -52,6 +52,38 @@
         padding: 20px 10px 20px;
         border-bottom: 1px solid #eee;
         box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.3);
+
+        @include mq($phone-wide) {
+          text-align: center;
+          padding: 0 !important;
+          height: 10vh;
+          background: transparent;
+          display: flex;
+          box-shadow: none;
+          border-bottom: none;
+        }
+
+        .left_side {
+          @include mq($phone-wide) {
+            background: black;
+            width: 75%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+          }
+        }
+        .close_menu_side {
+          @include mq($phone-wide) {
+            width: 50%;
+            // position: relative;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+            background: transparent;
+          }
+        }
       }
       &:nth-of-type(2) {
         margin-top: 60px;
@@ -63,6 +95,13 @@
       }
       @include mq($phone-wide) {
         width: 100%;
+        width: 100%;
+        /* margin: 10px 20px; */
+        display: block;
+        border-bottom: 2px solid #eee;
+        text-align: left !important;
+        padding-left: 50px !important;
+        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
       }
     }
   }

@@ -13,15 +13,13 @@ const AboutUs = ({ allVentures, goToPage, content }) => {
         <h1 className="page_title">Portfolio</h1>
       </header>
       <h4>
-        {modProperties.map(property => (
+        {modProperties.map((property, i) => (
           <span
             style={{ cursor: "pointer" }}
             onClick={e => goToPage(e, property.index)}
           >
-            {property.title}{" "}
-            {property.index === 0 || property.index === modProperties.length - 1
-              ? ""
-              : "/ "}
+            {i === 0 || i === modProperties.length - 1 ? "" : " / "}
+            {property.title}
           </span>
         ))}
       </h4>

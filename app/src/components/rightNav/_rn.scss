@@ -50,6 +50,7 @@
           color: rgb(51, 51, 51);
           font-family: $font-primary;
           @include column-flex-fullHeight;
+          z-index: 40000;
 
           svg {
             display: block;

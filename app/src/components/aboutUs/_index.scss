@@ -6,6 +6,9 @@
   @include minMq($desktop-up) {
     padding: 0 2rem;
   }
+  @include mq($desktop-wide-2) {
+    padding: 0 2rem;
+  }
   @include mq($desktop) {
     padding: 0.5rem 1rem 0;
   }
@@ -37,6 +40,9 @@
     @include minMq($desktop-up) {
       font-size: 0.95rem;
     }
+    @include mq($desktop-wide-2) {
+      font-size: 0.85rem;
+    }
     @include mq($desktop) {
       font-size: 0.6rem;
       margin: 0;
@@ -48,9 +54,10 @@
       margin: 80px 0 40px;
     }
     @include mq($tablet-wide-2) {
-      line-height: 2;
+      line-height: 1.75;
       padding: 0 1rem;
-      font-size: 0.55rem;
+      font-size: 0.6rem;
+      margin: 20px 0;
     }
 
     @include mq($phone-wide) {
@@ -84,6 +91,9 @@
       @include minMq($desktop-up) {
         font-size: 0.65rem;
       }
+      @include mq($desktop-wide-2) {
+        font-size: 0.55rem;
+      }
       @include mq($desktop) {
         font-size: 0.45rem;
       }
@@ -91,7 +101,7 @@
         font-size: 0.7rem;
       }
       @include mq($tablet-wide-2) {
-        font-size: 0.4rem;
+        font-size: 0.55rem;
       }
       @include mq($phone-wide) {
         font-size: 0.485rem;

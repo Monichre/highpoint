@@ -30,8 +30,9 @@
         overflow: hidden;
 
         @include mq($tablet) {
-          height: 150px;
-          width: 100%;
+          // height: 150px;
+          // width: 100%;
+          margin: 3% 1% 1%;
         }
 
         img {
@@ -158,7 +159,7 @@
               0 10px 7px rgba(0, 0, 0, 0.1);
             @include mq($tablet) {
               min-height: 0px;
-              height: 200px;
+              height: 300px;
               width: 100% !important;
               margin: 1% 1% 1%;
             }

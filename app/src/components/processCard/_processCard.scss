@@ -7,7 +7,7 @@
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   width: 80% !important;
   margin: 40px auto 0;
-  //  height: 95vh;
+  background: white;
   position: relative;
   z-index: 10;
   padding: 10px 60px 20px 40px;
@@ -21,6 +21,7 @@
   @include mq($tablet) {
     padding: 10px;
     width: 90% !important;
+    margin-top: 100px;
   }
   @include mq($phone-wide) {
     // height: -webkit-fill-available;

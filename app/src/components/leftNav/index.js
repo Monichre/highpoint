@@ -21,16 +21,30 @@ export default class LeftNav extends Component {
   }
 
   linesOut = () => {
-    console.log("animate lines out");
-    this.lines.animateLineOut(0);
-    this.lines.animateLinesOut(() => {
+    this.lines.animateLineOut(0, {
+      duration: 500,
+      easing: "easeInOutExpo",
+      delay: 0
+    });
+    this.lines.animateLineOut(1, {
+      duration: 500,
+      easing: "easeInOutExpo",
+      delay: 0
+    });
+  };
+
+  linesIn = () => {
+    this.lines.animateLinesIn(() => {
       console.log("this is the callback");
     });
   };
 
   render() {
     const content = status ? (
-      <MobileLeftNav parentRemoveLinesAnimation={this.linesOut} />
+      <MobileLeftNav
+        parentRemoveLinesAnimation={this.linesOut}
+        parentAddLinesAnimation={this.linesIn}
+      />
     ) : (
       <DefaultLeftNav />
     );

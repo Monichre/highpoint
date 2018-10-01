@@ -274,6 +274,10 @@
   position: relative;
   color: #000;
   overflow: hidden;
+
+  svg {
+    height: 3vh;
+  }
 }
 
 .mobile-menu__item-content:hover,
@@ -297,6 +301,10 @@
       padding: 0 !important;
     }
   }
+}
+
+.mobile-menu--open .mobile-menu__item-inner {
+  opacity: 1;
 }
 
 .mobile-menu__item-title {
