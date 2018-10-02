@@ -1,4 +1,5 @@
 import React from "react";
+import { HoverLinkIcon } from "./hoverLinkIcon";
 
 const HoverLink = ({ link, className, onClick, isMobile }) => {
   const handleClick = e => {
@@ -15,10 +16,7 @@ const HoverLink = ({ link, className, onClick, isMobile }) => {
           </a>
         )}
       </div>
-      <div className="hover-link-icon">
-        <span />
-        <span />
-      </div>
+      <HoverLinkIcon />
     </li>
   );
 };

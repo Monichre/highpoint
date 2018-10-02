@@ -73,8 +73,10 @@
     @include mq($tablet-wide-2) {
       width: 100%;
     }
+    @include mq($tablet-wide) {
+    }
     @include mq($tablet) {
-      font-size: 1.25rem;
+      font-size: 0.9rem;
       width: 100%;
     }
     @include mq($phone-wide) {
@@ -84,9 +86,11 @@
     .property_address {
       position: absolute;
       left: 0;
-      font-size: 0.45rem;
+      top: -10px;
+      font-size: 0.5rem;
       font-weight: bolder;
-      line-height: 1.5;
+      width: min-content;
+      line-height: 1;
       font-style: oblique;
       text-transform: uppercase;
       text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
@@ -95,7 +99,7 @@
   }
   .content {
     .subtitle {
-      @include mq($phone-wide) {
+      @include mq($tablet) {
         display: none;
       }
     }
@@ -112,7 +116,11 @@
         margin: 0.5rem 0 0.1rem;
         font-size: 0.6rem;
       }
-      @include mq($phone-wide) {
+      @include mq($tablet-wide) {
+        font-size: 0.55rem;
+        margin: 0 0 0.5rem !important;
+      }
+      @include mq($tablet) {
         display: none;
       }
       // @include mq($tablet) {
@@ -124,6 +132,11 @@
       //   margin: 0;
       //   display: none;
       // }
+    }
+    .text {
+      @include mq($tablet-wide) {
+        margin-top: 0;
+      }
     }
   }
   .img_cont {
@@ -137,7 +150,7 @@
       height: 300px;
     }
     @include mq($desktop) {
-      // height: 250px;
+      height: 200px;
     }
     @include mq($tablet-wide-2) {
       height: 200px;
@@ -197,6 +210,9 @@
         &:nth-of-type(1),
         &:nth-of-type(3) {
           padding: 34px;
+          @include mq($desktop) {
+            padding: 26px;
+          }
         }
 
         @include mq($tablet-wide-2) {
@@ -210,6 +226,14 @@
   }
 
   &.isNotAProcessItem {
+    .content {
+      justify-content: center;
+      .subtitle {
+        @include mq($tablet) {
+          display: block;
+        }
+      }
+    }
     .img_cont {
       @include minMq($desktop-up) {
         height: 450px;
@@ -218,7 +242,7 @@
         height: 400px;
       }
       @include mq($desktop) {
-        // height: 250px;
+        height: 275px;
       }
       @include mq($tablet-wide-2) {
         height: 200px;
@@ -229,6 +253,11 @@
       @include mq($phone-wide) {
         height: 200px;
         width: 100%;
+      }
+      &.is_highpoint_venture {
+        @include mq($desktop) {
+          height: 250px;
+        }
       }
     }
   }

@@ -46,7 +46,7 @@
       object-fit: cover;
       object-position: center;
       @include mq($tablet) {
-        // width: -webkit-fill-available;
+        // width: stretch;
         -o-object-fit: cover;
         margin-top: 0px;
         -o-object-fit: cover;

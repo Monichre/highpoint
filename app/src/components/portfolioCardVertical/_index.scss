@@ -130,6 +130,9 @@
         @include mq($tablet-wide-2) {
           height: 200px;
         }
+        .img_inner {
+          height: 100%;
+        }
         img {
           object-fit: cover;
           height: 100%;

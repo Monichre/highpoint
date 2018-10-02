@@ -24,6 +24,7 @@
 
   &.properties {
     transition: all 0.8s ease-in-out;
+    display: block !important;
     .text {
       transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
       transform: rotate(90deg) translate(150px, 3px);
@@ -35,13 +36,16 @@
         transform: rotate(90deg) translate(200px, 3px);
       }
       @include mq($desktop) {
-        transform: rotate(90deg) translate(250px, 3px);
+        transform: rotate(90deg) translate(120px, 0px);
+      }
+      @include mq($macbook-air) {
+        // transform: rotate(90deg) translate(150px, 0px);
       }
       @include mq($tablet-wide-2) {
-        transform: rotate(90deg) translate(120px, 0px);
+        // transform: rotate(90deg) translate(120px, 0px);
       }
       @include mq($phone-wide) {
-        transform: rotate(90deg) translate(120px, 0px);
+        // transform: rotate(90deg) translate(120px, 0px);
       }
       &:hover {
         @include link-style-hover;

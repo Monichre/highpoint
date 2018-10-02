@@ -34,7 +34,7 @@
         @include column-flex-center;
         height: 15vh;
         padding: 0;
-        @include mq($tablet-wide) {
+        @include mq($tablet) {
           height: 10vh;
         }
         @include mq($phone-wide) {
@@ -52,12 +52,16 @@
           @include column-flex-fullHeight;
           z-index: 40000;
 
+          &#mobile-properties {
+            display: flex !important;
+          }
+
           svg {
             display: block;
             margin: auto;
             height: 5.5vh;
             @include mq($tablet-wide) {
-              height: 3vh;
+              height: 5vh;
               display: block;
               width: auto;
               margin: auto;

@@ -61,8 +61,7 @@ export default class Portfolio extends Component {
     });
   };
 
-  arrowClick = e => {
-    e.preventDefault();
+  arrowClick = () => {
     this._pageScroller.goToPage(this.state.currentPage++);
   };
 
@@ -106,7 +105,7 @@ export default class Portfolio extends Component {
               )}
             </ReactPageScroller>
           </PortfolioGrid>
-          <div className="arrows" onClick={e => this.arrowClick(e)}>
+          <div className="arrows" onClick={this.arrowClick}>
             {this.state.currentPage === 0 || this.state.currentPage === 1 ? (
               <Fragment>
                 <PageArrowDown />

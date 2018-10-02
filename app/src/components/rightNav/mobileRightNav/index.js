@@ -5,6 +5,7 @@ import MobilePortfolioSidebar from "../../mobilePortfolioSidebar";
 import superslide from "../../superslide";
 import { HoverLinkIcon } from "../../hoverLink/hoverLinkIcon";
 import { BROWSER } from "../../../utils/browser";
+import Modal from "../../modal";
 
 const { status, isPhone } = BROWSER.isMobile();
 
@@ -31,7 +32,7 @@ export default class MobileRightNav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (isPhone === false) {
+    if (status === false) {
       if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
         if (nextProps.activePropertyCard === 2) {
           const {
@@ -58,56 +59,73 @@ export default class MobileRightNav extends Component {
 
   componentDidMount() {
     const { isPortfolioPage, activePropertyCard } = this.state;
+    const _this = this;
     if (isPortfolioPage) {
       const slider = document.getElementById("mobile_sidebar_menu");
       const content = document.querySelector(".sidebar_properties_list");
       const burgerIcon = document.querySelector(
         ".sidebar_trigger hover-link-icon"
       );
+      const closeMenu = document.querySelector(".close_menu_side");
       const sidebarMenu = new superslide({
         slider: slider,
         content: content,
         slideContent: false,
+        allowContentInteraction: true,
+        beforeClose: this.sideBarCloseCallback,
+        beforeOpen: this.sideBarOpenCallback,
         animation: "slideRight",
-        width: isPhone ? "50vw" : "15vw",
+        width: "50vw",
         height: "100vh"
       });
       this.sidebarMenu = sidebarMenu;
-      if (activePropertyCard === 1 && isPhone === false) {
+      closeMenu.addEventListener("click", () => {
+        this.toggleSideBar();
+      });
+      if (activePropertyCard === 1 && status === false) {
         this.sidebarMenu.open();
         burgerIcon.classList.add("open");
       }
     }
   }
 
-  toggleSideBar = e => {
-    console.log("im clicking");
-    if (e) {
-      console.log(e);
-      e.preventDefault();
-    }
-
-    const { open } = this.state;
-    open ? this.sidebarCloseAnimation() : this.sidebarOpenAnimation();
+  sideBarCloseCallback = () => {
+    document.querySelector("body").classList.remove("mobile_sidebar_open");
     this.setState({
-      open: !open
+      open: false
     });
   };
 
-  sidebarCloseAnimation = () => {
-    if (isPhone) {
-      document.querySelector("body").classList.remove("mobile_sidebar_open");
-    } else {
-    }
-    this.sidebarMenu.close();
-  };
-
-  sidebarOpenAnimation = () => {
-    if (isPhone) {
+  sideBarOpenCallback = () => {
+    if (status) {
       document.querySelector("body").classList.add("mobile_sidebar_open");
     }
-    this.sidebarMenu.open();
+    this.setState({
+      open: true
+    });
   };
+
+  toggleSideBar = e => {
+    if (e) {
+      e.preventDefault();
+    }
+    this.sidebarMenu.toggle();
+  };
+
+  // sidebarCloseAnimation = () => {
+  //   if (status) {
+  //     document.querySelector('body').classList.remove('mobile_sidebar_open')
+  //   } else {
+  //   }
+  //   this.sidebarMenu.close()
+  // }
+
+  // sidebarOpenAnimation = () => {
+  //   if (status) {
+  //     document.querySelector('body').classList.add('mobile_sidebar_open')
+  //   }
+  //   this.sidebarMenu.open()
+  // }
 
   setActivePropertyCard = (i, e) => {
     e.preventDefault();
@@ -141,7 +159,7 @@ export default class MobileRightNav extends Component {
         <li
           id="mobile-properties"
           className={`hover-link properties ${open ? "open" : ""}`}
-          onClick={e => this.toggleSideBar(e)}
+          onClick={this.toggleSideBar}
           style={{ lineHeight: 0.02 }}
         >
           {status ? null : (
@@ -155,6 +173,14 @@ export default class MobileRightNav extends Component {
         <SideBarTrigger />
       );
 
+    const conditionalSideBar = isPortfolioPage ? (
+      <Modal>
+        <MobilePortfolioSidebar
+          {...this.props}
+          setActivePropertyCard={this.setActivePropertyCard}
+        />
+      </Modal>
+    ) : null;
     return (
       <Fragment>
         <div className="inner" style={{ position: "relative" }}>
@@ -162,11 +188,7 @@ export default class MobileRightNav extends Component {
             <ContextualLink />
           </ul>
         </div>
-        <MobilePortfolioSidebar
-          {...this.props}
-          setActivePropertyCard={this.setActivePropertyCard}
-          toggleSideBar={this.toggleSideBar}
-        />
+        {conditionalSideBar}
       </Fragment>
     );
   }

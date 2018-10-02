@@ -44,9 +44,7 @@ class MobileLeftNav extends Component {
         <MobileMenu links={mobileLinks} toggleMenu={this.toggleMobileNav} />
         <div className="inner">
           <ul style={{ listStyle: "none" }} className="top">
-            <li className="logo_link" style={{ width: "100%" }}>
-              <MobileNavTrigger toggleMobile={this.toggleMobileNav} />
-            </li>
+            <MobileNavTrigger toggleMobile={this.toggleMobileNav} />
           </ul>
           <ul className="middle" />
         </div>

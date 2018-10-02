@@ -70,7 +70,7 @@
       right: 18px;
       content: "";
       width: 1px;
-      height: 85%; //This height needs to sync with the height of the corner icon svg
+
       height: 86%;
       background: #000;
       transition: all 0.3s cubic-bezier(0.28, 0.05, 0.65, 0.97);
@@ -79,6 +79,9 @@
       //   height: 65%;
       //   right: 12px;
       // }
+      @include mq($macbook-air) {
+        height: 85%; //This height needs to sync with the height of the corner icon svg
+      }
       @include mq($tablet) {
         height: 83%;
         right: 14px;
@@ -91,7 +94,8 @@
       left: 0;
       bottom: 0;
       width: 100%;
-      border: 1px solid black;
+      // border: 1px solid black;
+      border-bottom-left-radius: 4px;
 
       @include mq($tablet) {
         // padding: 5px 5px 0 2px;
@@ -128,20 +132,27 @@
           }
           @include mq($phone-wide) {
             font-size: 0.4rem;
-            line-height: 0.5rem;
+            line-height: 2;
           }
         }
 
         .footer_corner_icon {
           width: 40px;
-          height: 100%;
-          border-left: 1px solid black;
+          height: auto;
+          // border-left: 1px solid black;
           border-bottom-right-radius: 4px;
           display: flex;
           padding: 11px;
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          background: black;
+          color: white;
+
+          @include mq($macbook-air) {
+            padding: 15px;
+          }
+
           @include mq($tablet) {
             padding: 4px;
             width: 30px;
@@ -150,6 +161,9 @@
             height: 2vh;
             display: inline-block;
             position: relative;
+            fill: white;
+            stroke: white;
+            color: white;
 
             @include mq($tablet) {
               height: 1.5vh;

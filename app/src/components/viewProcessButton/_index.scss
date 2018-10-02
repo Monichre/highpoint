@@ -78,11 +78,14 @@
     background: rgba(83, 66, 66, 0.03);
   }
 
-  @include mq($tablet-wide-2) {
+  @include mq($macbook-air) {
     --offset: 5px;
     font-size: 0.35rem;
     position: relative;
     padding: 1.25em 2em;
+  }
+  @include mq($tablet-wide) {
+    margin: 10px 10px 0 0;
   }
 
   @include mq($phone-wide) {

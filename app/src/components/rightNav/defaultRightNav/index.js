@@ -32,8 +32,6 @@ export default class RightNav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props);
-    console.log(nextProps);
     if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
       const { open, initialMenuHasRendered, activePropertyCard } = this.state;
       if (nextProps.activePropertyCard === 2) {

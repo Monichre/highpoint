@@ -52199,7 +52199,7 @@
       values = {
         "min-content": !0,
         "max-content": !0,
-        "fill-available": !0,
+        stretch: !0,
         "fit-content": !0,
         "contain-floats": !0
       };
@@ -74069,7 +74069,7 @@
       values = {
         "min-content": !0,
         "max-content": !0,
-        "fill-available": !0,
+        stretch: !0,
         "fit-content": !0,
         "contain-floats": !0
       };
@@ -74543,7 +74543,7 @@
       values = {
         "min-content": !0,
         "max-content": !0,
-        "fill-available": !0,
+        stretch: !0,
         "fit-content": !0,
         "contain-floats": !0
       };
@@ -85098,7 +85098,7 @@
       values = {
         "min-content": !0,
         "max-content": !0,
-        "fill-available": !0,
+        stretch: !0,
         "fit-content": !0,
         "contain-floats": !0
       };
@@ -86235,7 +86235,7 @@
       values = {
         "min-content": !0,
         "max-content": !0,
-        "fill-available": !0,
+        stretch: !0,
         "fit-content": !0,
         "contain-floats": !0
       };

@@ -30,9 +30,10 @@
         overflow: hidden;
 
         @include mq($tablet) {
-          // height: 150px;
-          // width: 100%;
           margin: 3% 1% 1%;
+        }
+        @include mq($phone-wide) {
+          width: 48%;
         }
 
         img {

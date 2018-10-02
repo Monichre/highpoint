@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const portfolioTitle = (
+  <h3 className="mobile-menu__item-title">
+    PORT <br /> FOLIO
+  </h3>
+);
+
 export const MobileMenuLink = ({ link, i }) => (
   <div className="mobile-menu__item">
     <div className={`mobile-menu__item-bg mobile-menu__item-bg--${i}`} />
@@ -21,7 +27,11 @@ export const MobileMenuLink = ({ link, i }) => (
         className="mobile-menu__link mobile-menu__item-content"
       >
         <div className="mobile-menu__item-inner">
-          <h3 className="mobile-menu__item-title">{link}</h3>
+          {link === "Portfolio" ? (
+            portfolioTitle
+          ) : (
+            <h3 className="mobile-menu__item-title"> {link}</h3>
+          )}
           <span className="mobile-menu__item-desc" />
         </div>
       </Link>

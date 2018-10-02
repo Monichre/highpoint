@@ -48,6 +48,12 @@ export const getStore = callback => {
         return item.fields;
       });
 
+    const videos = response.items
+      .filter(item => item.sys.contentType.sys.id === "video")
+      .map(item => {
+        return item.fields;
+      });
+
     const galleryItems = response.items
       .filter(item => item.sys.contentType.sys.id === "galleryItem")
       .map(item => ({
@@ -91,6 +97,7 @@ export const getStore = callback => {
     AppStore.data.properties = properties;
     AppStore.data.galleryItems = fullGallery;
     AppStore.data.companyContent = companyContent;
+    AppStore.data.videos = videos;
     AppStore.data.ready = true;
 
     // const appCache = {

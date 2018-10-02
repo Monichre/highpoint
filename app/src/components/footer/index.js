@@ -53,32 +53,26 @@ class Footer extends Component {
   };
 
   render() {
-    const radialPane1 = this.props.launchFullVideo ? (
+    const radialPane1 = (
       <p className="skew_gallery">
         <span onClick={this.props.prevVideo}>
           <Prev />
         </span>
       </p>
-    ) : (
-      <p className="skew_gallery">Gallery</p>
     );
-    const radialPane2 = this.props.launchFullVideo ? (
+    const radialPane2 = (
       <p className="skew_portfolio">
         <span onClick={this.props.playOrPause}>
           <Pause />
         </span>
       </p>
-    ) : (
-      <p className="skew_portfolio">Portfolio</p>
     );
-    const radialPane3 = this.props.launchFullVideo ? (
+    const radialPane3 = (
       <p className="skew_process">
         <span onClick={this.props.nextVideo}>
           <Next />
         </span>
       </p>
-    ) : (
-      <p className="skew_process">Process</p>
     );
 
     return (
@@ -108,7 +102,6 @@ class Footer extends Component {
               {radialPane2}
               {radialPane3}
             </div>
-            {/* <NavigationWings /> */}
           </nav>
           <div className="burger" onClick={this.clickHandler}>
             <MiniCinder />

@@ -1,5 +1,5 @@
 import React from "react";
-import CinderBlock from "../cinderblock";
+import CinderBlockSVG from "../cinderblock/cinderblock";
 import { Link } from "react-router-dom";
 
 export const ProcessCardPreview = props => (
@@ -17,7 +17,7 @@ export const ProcessCardPreview = props => (
         <div className="footer__inner">
           <h2>{props.process.title}</h2>
           <div className="footer_corner_icon">
-            <CinderBlock />
+            <CinderBlockSVG color="#fff" />
           </div>
         </div>
       </footer>

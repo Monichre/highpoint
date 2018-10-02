@@ -5,7 +5,7 @@ import { BROWSER } from "../../utils/browser";
 import { FancyButtonCustomURL } from "../viewProcessButton/fancyButton";
 import "./_index.scss";
 
-const { isPhone } = BROWSER.isMobile();
+const { isPhone, status } = BROWSER.isMobile();
 const mcCallisterStyle = property =>
   property.title === "McCallister Management"
     ? {
@@ -23,7 +23,7 @@ export const HorizontalPortfolioCard = ({ property }) => (
     style={mcCallisterStyle(property)}
   >
     <h3>
-      {property.isAProcessItem && isPhone ? (
+      {property.isAProcessItem && status ? (
         <span className="property_address">{property.address}</span>
       ) : null}
       {property.title}

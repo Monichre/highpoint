@@ -23,7 +23,7 @@ const MobileMenu = ({ links, toggleMenu }) => (
               className="menu-trigger menu-trigger--close"
               onClick={toggleMenu}
             >
-              <Close />
+              <Close color="#fff" />
             </button>
           </div>
         </div>

@@ -21,7 +21,7 @@
   }
   .blueprint {
     grid-column: span 6 / auto;
-    height: 95%;
+    height: 100%;
     @include mq($phone-wide) {
       grid-column: none;
       width: 100%;
@@ -35,11 +35,14 @@
         padding-top: 0;
       }
       img {
-        margin-top: 40px;
+        padding: 40px 0 0;
         height: 100%;
         width: 100%;
         object-fit: cover;
         object-position: center;
+        @include minMq($desktop) {
+          margin-top: 0;
+        }
         @include mq($phone-wide) {
           margin-top: 0;
           height: 100%;
@@ -56,7 +59,7 @@
     display: flex;
     flex-direction: column;
     @include mq($phone-wide) {
-      height: -webkit-fill-available;
+      height: stretch;
       margin: 0 auto 0;
 
       width: 45%;
@@ -94,7 +97,7 @@
     display: flex;
     flex-direction: column;
     @include mq($phone-wide) {
-      height: -webkit-fill-available;
+      height: stretch;
       width: 45%;
       grid-column: none !important;
       margin: 0 auto 0;

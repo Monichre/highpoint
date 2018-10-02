@@ -2,14 +2,12 @@ import React from "react";
 import MenuLink from "../menuLink";
 import _ from "lodash";
 import { modifiedPropertyTitles } from "../../utils";
-import { HoverLinkIcon } from "../hoverLink/hoverLinkIcon";
 import "./_index.scss";
 
 const MobilePortfolioSidebar = ({
   setActivePropertyCard,
   activePropertyCard,
-  properties,
-  toggleSideBar
+  properties
 }) => {
   const modProperties = modifiedPropertyTitles(properties);
 

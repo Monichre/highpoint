@@ -16,7 +16,7 @@
   justify-content: space-between;
   width: 95%;
   margin: auto;
-  height: -webkit-fill-available;
+  height: stretch;
 
   @include mq($tablet) {
     height: 80vh;
@@ -35,7 +35,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      padding: 0 20px;
+      // padding: 0 20px;
     }
     h4 {
       margin: 1rem 0 0.4rem;
@@ -50,10 +50,7 @@
       //   margin: 0.5rem 0 0.1rem;
       //   font-size: 0.6rem;
       // }
-      // @include mq($tablet) {
-      //   font-size: 0.75rem;
-      //   margin: 1.25rem 0 0.1rem;
-      // }
+
       // @include mq($phone-wide) {
       //   font-size: 0.5rem;
       //   margin: 0;

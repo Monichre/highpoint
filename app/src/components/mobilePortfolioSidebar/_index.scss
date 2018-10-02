@@ -2,31 +2,23 @@
 
 #mobile_sidebar_menu {
   // background: #fff;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  // right: 0 !important;
-  // bottom: 15vh !important;
 
-  // top: 10vh !important;
+  background: transparent;
+  width: 50vw;
   overflow-x: hidden;
   overflow-y: scroll;
-  // height: 70vh !important;
-  // width: 10vw !important;
-  // left: auto !important;
   border-top: 2px solid black;
   z-index: 3000;
-  // @include mq($tablet) {
-  //   width: 10vw !important;
-  //   top: 100vh !important;
-  // }
-  // @include mq($phone-wide) {
-  //   width: 20vw !important;
-  //   height: 90vh !important;
-  //   top: 90vh !important;
-  // }
-
-  @include mq($phone-wide) {
-    width: 50vw;
-    border-top: none;
+  border-top: none;
+  &::after {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    position: absolute;
+    height: 200vh;
+    width: 100%;
+    z-index: -1;
+    overflow-y: scroll;
+    content: "";
+    top: 10vh;
   }
 
   ul {
@@ -53,7 +45,7 @@
         border-bottom: 1px solid #eee;
         box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.3);
 
-        @include mq($phone-wide) {
+        @include mq($tablet-wide) {
           text-align: center;
           padding: 0 !important;
           height: 10vh;
@@ -64,9 +56,9 @@
         }
 
         .left_side {
-          @include mq($phone-wide) {
+          @include mq($tablet-wide) {
             background: black;
-            width: 75%;
+            width: stretch;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -75,13 +67,16 @@
           }
         }
         .close_menu_side {
-          @include mq($phone-wide) {
-            width: 50%;
+          @include mq($tablet-wide) {
+            width: 12vw;
             // position: relative;
             // display: flex;
             // flex-direction: column;
             // justify-content: center;
             background: transparent;
+          }
+          @include mq($phone-wide) {
+            width: 25vw;
           }
         }
       }
@@ -93,7 +88,7 @@
         font-size: 0.35rem;
         padding: 5px;
       }
-      @include mq($phone-wide) {
+      @include mq($tablet-wide) {
         width: 100%;
         width: 100%;
         /* margin: 10px 20px; */
@@ -101,7 +96,9 @@
         border-bottom: 2px solid #eee;
         text-align: left !important;
         padding-left: 50px !important;
-        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+        position: relative;
+
+        // background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
       }
     }
   }
