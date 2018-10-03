@@ -4,13 +4,11 @@ export const propertyOne = {
   isAProcessItem: true,
   featuredImage: {
     fields: {
-      fields: {
-        file: {
-          details: {
-            image: { width: 1170, height: 800 }
-          },
-          url: "/img_1.jpeg"
-        }
+      file: {
+        details: {
+          image: { width: 1170, height: 800 }
+        },
+        url: "/img_1.jpeg"
       }
     }
   },
@@ -24,13 +22,11 @@ export const propertyTwo = {
   isAProcessItem: true,
   featuredImage: {
     fields: {
-      fields: {
-        file: {
-          details: {
-            image: { width: 800, height: 1170 }
-          },
-          url: "/img_2.jpg"
-        }
+      file: {
+        details: {
+          image: { width: 800, height: 1170 }
+        },
+        url: "/img_2.jpg"
       }
     }
   },

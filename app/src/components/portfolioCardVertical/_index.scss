@@ -130,6 +130,21 @@
         @include mq($tablet-wide-2) {
           height: 200px;
         }
+
+        &.mcCallister_management {
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          @include mq($tablet-wide) {
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+          }
+
+          @include mq($tablet) {
+            background-position: center;
+          }
+        }
         .img_inner {
           height: 100%;
         }

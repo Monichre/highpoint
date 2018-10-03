@@ -4,7 +4,7 @@ const defaultLines = status => {
       top: 0,
       left: "10%",
       width: 3,
-      height: status ? "12vh" : "20vh",
+      height: "20vh",
       color: "#333",
       hidden: true,
       animation: {
@@ -15,7 +15,7 @@ const defaultLines = status => {
       }
     },
     {
-      top: status ? "10%" : "15%",
+      top: "15%",
       left: 0,
       width: "12vw",
       height: 3,

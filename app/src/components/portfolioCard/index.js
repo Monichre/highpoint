@@ -3,7 +3,7 @@ import { HorizontalPortfolioCard } from "../portfolioCardHorizontal";
 import { VerticalPortfolioCard } from "../portfolioCardVertical";
 import PortfolioCardContainer from "./portfolioCardContainer";
 import PortfolioCardFooter from "../portfolioCardFooter";
-import "./_portfolioCard.scss";
+// import './_portfolioCard.scss'
 
 export const PortfolioCard = ({
   mobileStatus,

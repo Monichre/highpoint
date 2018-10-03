@@ -33,7 +33,7 @@ const defaultLines = status => {
   const topLines = [
     {
       width: 3,
-      height: "12vh",
+      height: "20vh",
       left: status ? "90%" : "79.5%",
       top: "0",
       color: "#333",
@@ -47,7 +47,7 @@ const defaultLines = status => {
     },
 
     {
-      top: "10%",
+      top: "15%",
       left: status ? "88%" : "78%",
       width: "25vw",
       height: 3,

@@ -3,10 +3,10 @@ import { FancyButton } from "./fancyButton";
 import { BROWSER } from "../../utils/browser";
 import "./_index.scss";
 
-const { status, isPhone } = BROWSER.isMobile();
+const { status, isTablet } = BROWSER.isMobile();
 
 const ConditionalAddress = ({ property }) =>
-  status ? (
+  isTablet ? (
     <h4 className="process_button__property-address">{property.address}</h4>
   ) : null;
 

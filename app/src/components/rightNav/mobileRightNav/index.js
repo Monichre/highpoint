@@ -3,8 +3,9 @@ import AppDispatcher from "../../../flux/dispatchers";
 import CinderBlock from "../../cinderblock";
 import MobilePortfolioSidebar from "../../mobilePortfolioSidebar";
 import superslide from "../../superslide";
-import { HoverLinkIcon } from "../../hoverLink/hoverLinkIcon";
+import { HoverLinkIcon } from "../../hoverLinkIcon";
 import { BROWSER } from "../../../utils/browser";
+import { sleep } from "../../../utils";
 import Modal from "../../modal";
 
 const { status, isPhone } = BROWSER.isMobile();
@@ -91,15 +92,15 @@ export default class MobileRightNav extends Component {
 
   sideBarCloseCallback = () => {
     document.querySelector("body").classList.remove("mobile_sidebar_open");
+    this.props.parentAddLinesAnimation();
     this.setState({
       open: false
     });
   };
 
   sideBarOpenCallback = () => {
-    if (status) {
-      document.querySelector("body").classList.add("mobile_sidebar_open");
-    }
+    this.props.parentRemoveLinesAnimation();
+    document.querySelector("body").classList.add("mobile_sidebar_open");
     this.setState({
       open: true
     });
@@ -111,21 +112,6 @@ export default class MobileRightNav extends Component {
     }
     this.sidebarMenu.toggle();
   };
-
-  // sidebarCloseAnimation = () => {
-  //   if (status) {
-  //     document.querySelector('body').classList.remove('mobile_sidebar_open')
-  //   } else {
-  //   }
-  //   this.sidebarMenu.close()
-  // }
-
-  // sidebarOpenAnimation = () => {
-  //   if (status) {
-  //     document.querySelector('body').classList.add('mobile_sidebar_open')
-  //   }
-  //   this.sidebarMenu.open()
-  // }
 
   setActivePropertyCard = (i, e) => {
     e.preventDefault();
@@ -141,38 +127,6 @@ export default class MobileRightNav extends Component {
   render() {
     const { open, isPortfolioPage } = this.state;
 
-    const SideBarTrigger = () => (
-      <li
-        className="logo_link sidebar_trigger"
-        style={{ width: "100%" }}
-        onClick={this.toggleSideBar}
-      >
-        <CinderBlock
-          context="navigation"
-          linkTo="/"
-          id="cinderblock_navigation"
-        />
-      </li>
-    );
-    const ContextualLink = () =>
-      isPortfolioPage ? (
-        <li
-          id="mobile-properties"
-          className={`hover-link properties ${open ? "open" : ""}`}
-          onClick={this.toggleSideBar}
-          style={{ lineHeight: 0.02 }}
-        >
-          {status ? null : (
-            <div className={`text`}>
-              <span className="u-shadow">Properties</span>
-            </div>
-          )}
-          <HoverLinkIcon />
-        </li>
-      ) : (
-        <SideBarTrigger />
-      );
-
     const conditionalSideBar = isPortfolioPage ? (
       <Modal>
         <MobilePortfolioSidebar
@@ -185,7 +139,17 @@ export default class MobileRightNav extends Component {
       <Fragment>
         <div className="inner" style={{ position: "relative" }}>
           <ul style={{ listStyle: "none" }} className="top">
-            <ContextualLink />
+            <SideBarTrigger toggleSideBar={this.toggleSideBar}>
+              {isPortfolioPage ? (
+                <HoverLinkIcon className={`${open ? "open" : ""}`} />
+              ) : (
+                <CinderBlock
+                  context="navigation"
+                  linkTo="/"
+                  id="cinderblock_navigation"
+                />
+              )}
+            </SideBarTrigger>
           </ul>
         </div>
         {conditionalSideBar}
@@ -193,3 +157,9 @@ export default class MobileRightNav extends Component {
     );
   }
 }
+
+const SideBarTrigger = props => (
+  <li className="sidebar_trigger" onClick={props.toggleSideBar}>
+    {props.children}
+  </li>
+);

@@ -61,10 +61,13 @@
             margin: auto;
             height: 5.5vh;
             @include mq($tablet-wide) {
-              height: 5vh;
+              height: 4vh;
               display: block;
               width: auto;
               margin: auto;
+            }
+            @include mq($tablet) {
+              height: 3vh;
             }
           }
         }

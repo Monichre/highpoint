@@ -1,0 +1,40 @@
+@import "../../sass/variables";
+
+.hover-link-icon {
+  position: relative;
+  cursor: pointer;
+  height: auto;
+  width: 20px;
+  margin: auto;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,
+    opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+
+  span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: #1a1a1a;
+    transform-origin: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  }
+
+  span:first-child {
+    transform: translate(0, -3px);
+  }
+  span:last-child {
+    transform: translate(0, 3px);
+  }
+
+  &.open,
+  &:hover {
+    // @include link-style;
+    // @include link-style-hover;
+    span:first-child {
+      transform: translate(0, -3px) rotate(45deg);
+    }
+    span:last-child {
+      transform: translate(-1px, -4px) rotate(-45deg);
+    }
+  }
+}

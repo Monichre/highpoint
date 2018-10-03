@@ -10,40 +10,10 @@ main.portfolio.component.portfolio_component {
     -webkit-transition: background-image 500ms ease-in-out;
     transition: background-image 500ms ease-in-out;
     position: relative;
-
-    .wrapper_inner {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      .about_us_video {
-        padding: 20px;
-        width: 50% !important;
-        height: 100%;
-      }
-
-      img {
-        object-fit: cover;
-        object-position: center;
-        height: 100%;
-        width: 100%;
-      }
-
-      &.portrait {
-        img {
-          object-fit: contain;
-          object-position: left;
-          margin-left: 4em;
-          padding: 10px;
-        }
-      }
-    }
   }
   .arrows {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
     width: 100%;
     display: flex;
@@ -67,7 +37,7 @@ main.portfolio.component.portfolio_component {
       }
       svg {
         @include mq($desktop) {
-          height: 4vh;
+          height: 3.75vh;
         }
         @include mq($tablet-wide) {
           height: 3vh;

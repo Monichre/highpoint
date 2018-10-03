@@ -21,7 +21,22 @@ export default class RightNav extends Component {
   }
 
   linesOut = () => {
-    this.lines.animateLinesOut();
+    this.lines.animateLineOut(0, {
+      duration: 500,
+      easing: "easeInOutExpo",
+      delay: 0
+    });
+    this.lines.animateLineOut(1, {
+      duration: 500,
+      easing: "easeInOutExpo",
+      delay: 0
+    });
+  };
+
+  linesIn = () => {
+    this.lines.animateLinesIn(() => {
+      console.log("this is the callback");
+    });
   };
 
   render() {
@@ -29,7 +44,8 @@ export default class RightNav extends Component {
       <section className={`right_nav`}>
         {status ? (
           <MobileRightNav
-            parentCloseMenuAnimation={this.linesOut}
+            parentRemoveLinesAnimation={this.linesOut}
+            parentAddLinesAnimation={this.linesIn}
             {...this.props}
           />
         ) : (

@@ -56,24 +56,24 @@ export const modifiedPropertyTitles = properties => {
       const valentine = split[2];
       mod.push(
         {
-          index: i,
+          index: i + 1,
           title: randolph,
           order: property.order
         },
         {
-          index: i,
+          index: i + 1,
           title: mortimer,
           order: property.order
         },
         {
-          index: i,
+          index: i + 1,
           title: valentine,
           order: property.order
         }
       );
     } else {
       mod.push({
-        index: i,
+        index: i + 1,
         title: property.title,
         order: property.order
       });
@@ -81,3 +81,10 @@ export const modifiedPropertyTitles = properties => {
   });
   return mod;
 };
+
+export const mcCallisterStyle = property =>
+  property.title === "McCallister Management"
+    ? {
+        backgroundImage: `url(/logos/mccallister.svg)`
+      }
+    : null;

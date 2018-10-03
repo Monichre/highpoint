@@ -55,21 +55,21 @@ class Footer extends Component {
   render() {
     const radialPane1 = (
       <p className="skew_gallery">
-        <span onClick={this.props.prevVideo}>
+        <span>
           <Prev />
         </span>
       </p>
     );
     const radialPane2 = (
       <p className="skew_portfolio">
-        <span onClick={this.props.playOrPause}>
+        <span>
           <Pause />
         </span>
       </p>
     );
     const radialPane3 = (
       <p className="skew_process">
-        <span onClick={this.props.nextVideo}>
+        <span>
           <Next />
         </span>
       </p>
@@ -85,18 +85,21 @@ class Footer extends Component {
                 data-target-attribute={"skew_gallery"}
                 onMouseLeave={this.handleHoverLeave}
                 onMouseEnter={this.handleHover}
+                onClick={this.props.rewind}
               />
               <div
                 className="skew"
                 data-target-attribute={"skew_portfolio"}
                 onMouseLeave={e => this.handleHoverLeave(e)}
                 onMouseEnter={e => this.handleHover(e)}
+                onClick={this.props.pause}
               />
               <div
                 className="skew"
                 data-target-attribute={"skew_process"}
                 onMouseLeave={e => this.handleHoverLeave(e)}
                 onMouseEnter={e => this.handleHover(e)}
+                onClick={this.props.fastForward}
               />
               {radialPane1}
               {radialPane2}
@@ -107,7 +110,6 @@ class Footer extends Component {
             <MiniCinder />
           </div>
         </div>
-        <VideoMenu active={this.state.videoMenuActive} />
       </Fragment>
     );
   }
@@ -128,3 +130,5 @@ const MiniCinder = () => (
     </g>
   </svg>
 );
+
+// ;<VideoMenu active={this.state.videoMenuActive} />

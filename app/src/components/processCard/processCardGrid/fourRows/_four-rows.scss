@@ -35,11 +35,12 @@
         padding-top: 0;
       }
       img {
-        padding: 40px 0 0;
+        padding: 0;
         height: 100%;
         width: 100%;
         object-fit: cover;
         object-position: center;
+        // max-height: 80vh;
         @include minMq($desktop) {
           margin-top: 0;
         }

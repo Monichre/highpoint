@@ -14,6 +14,8 @@ import "../src/sass/_variables.scss";
 import "../src/sass/_global.scss";
 import "../src/App.scss";
 import "../src/components/portfolioCard/_portfolioCard.scss";
+import "../src/components/portfolioCardHorizontal/_index.scss";
+import "../src/components/portfolioCardFooter/_index.scss";
 import "../src/components/viewProcessButton/_index.scss";
 
 storiesOf("Portfolio/Page", module).add("View", () => (

@@ -41,11 +41,14 @@
       font-size: 0.95rem;
     }
     @include mq($desktop-wide-2) {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
     @include mq($desktop) {
       font-size: 0.6rem;
       margin: 0;
+    }
+    @include mq($macbook-air) {
+      font-size: 0.5rem;
     }
     @include mq($tablet-wide) {
       padding: 0 40px;
@@ -56,7 +59,7 @@
     @include mq($tablet-wide-2) {
       line-height: 1.75;
       padding: 0 1rem;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       margin: 20px 0;
     }
 
@@ -82,7 +85,7 @@
       margin: 1rem auto 0;
     }
 
-    @include mq($tablet) {
+    @include mq($tablet-wide) {
       // margin: 3rem auto 0;
       display: none;
     }
@@ -101,10 +104,10 @@
         // font-size: 0.7rem;
       }
       @include mq($tablet-wide-2) {
-        font-size: 0.55rem;
+        // font-size: 0.55rem;
       }
       @include mq($phone-wide) {
-        font-size: 0.485rem;
+        // font-size: 0.485rem;
       }
 
       @include mq($phone) {

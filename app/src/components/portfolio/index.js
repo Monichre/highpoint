@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import ReactPageScroller from "react-page-scroller";
-import { processPortfolioLines, cornerLines } from "../lines";
+import { processPortfolioLines } from "../lines";
 import { PageArrowDown } from "../icons";
 import AppDispatcher from "../../flux/dispatchers";
 import { PortfolioGrid } from "../grid/portfolioGrid";
@@ -28,7 +28,6 @@ export default class Portfolio extends Component {
 
   componentDidMount() {
     const { isPhone } = BROWSER.isMobile();
-    cornerLines();
     if (!isPhone) {
       processPortfolioLines();
     }

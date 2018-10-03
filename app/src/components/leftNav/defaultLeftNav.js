@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import MenuLink from "../menuLink";
 import CinderBlock from "../cinderblock";
-import HoverLink from "../hoverLink";
+import ContactLink from "../contactLink";
 import { links } from "../../links";
 
 const DefaultLeftNav = () => (
@@ -21,7 +21,7 @@ const DefaultLeftNav = () => (
       ))}
     </ul>
     <ul className="bottom">
-      <HoverLink link="Contact" className="contact" />
+      <ContactLink />
     </ul>
   </div>
 );

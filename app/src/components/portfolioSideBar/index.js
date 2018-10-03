@@ -25,7 +25,7 @@ const PortfolioSidebar = ({
             sidebar
             link={property.title}
             index={property.index + 1}
-            active={property.index + 2 === activePropertyCard}
+            active={property.index + 1 === activePropertyCard}
             onClick={setActivePropertyCard}
           />
         ))}

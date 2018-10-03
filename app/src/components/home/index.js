@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-// import { emitter } from "../../eventEmitter";
+import ReactPlayer from "react-player";
 import { VideoLogo } from "../videoLogo";
 import Footer from "../footer";
-import { cornerLines, homePageLines } from "../lines";
+import { homePageLines } from "../lines";
 import anime from "animejs";
 import "./_home.scss";
 
@@ -11,7 +11,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       muted: true,
-      paused: false,
+      isPlaying: true,
       url:
         "https://player.vimeo.com/external/286249741.sd.mp4?s=0ba1a7ff1be8fe5f7c0bf90006d04f53041c1310&profile_id=165",
       activeIcon: "cinderblock"
@@ -19,7 +19,6 @@ export default class Home extends Component {
   }
   componentDidMount() {
     homePageLines();
-    // cornerLines();
 
     const logo_rects = Array.from(
       document.querySelectorAll(".clip__path__line")
@@ -71,21 +70,52 @@ export default class Home extends Component {
   }
 
   playOrPause = e => {
-    this.setState({
-      paused: !this.state.paused
-    });
+    const { isPlaying } = this.state;
+    const internalPlayer = this.player.getInternalPlayer();
+    this.setState(
+      {
+        isPlaying: !this.state.isPlaying
+      },
+      () => {
+        this.state.isPlaying ? internalPlayer.pause() : internalPlayer.play();
+      }
+    );
+  };
+
+  rewind = () => {
+    const current = this.player.getCurrentTime();
+    const total = this.player.getDuration();
+    this.player.seekTo(total - current);
+  };
+
+  fastForward = () => {
+    const current = this.player.getCurrentTime();
+    this.player.seekTo(current + 30);
   };
 
   render() {
+    const { isPlaying, muted, url } = this.state;
     return (
       <div className="home component">
-        <VideoLogo muted={this.state.muted} url={this.state.url} />
+        <VideoLogo>
+          <ReactPlayer
+            playing={isPlaying}
+            playsinline
+            loop={true}
+            volume={this.state.muted ? 0 : 1}
+            className="backgroundVideo"
+            height="100%"
+            width="100%"
+            muted={muted}
+            url={url}
+            ref={player => (this.player = player)}
+          />
+        </VideoLogo>
         <Footer
           launchFullVideo={this.state.launchFullVideo}
-          prevVideo={this.prevVideo}
-          togglePlayOrPause={this.playOrPause}
-          nextVideo={this.nextVideo}
-          activeIcon={this.state.activeIcon}
+          rewind={this.rewind}
+          pause={this.playOrPause}
+          fastForward={this.fastForward}
         />
       </div>
     );
