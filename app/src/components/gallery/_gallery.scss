@@ -219,6 +219,13 @@
 }
 
 #lightboxBackdrop {
+  .header_1tk9zku {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+  }
   figcaption {
     color: white;
     // text-align: center;
@@ -238,19 +245,16 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     font-family: N-Light !important;
-    // margin: 0;
-    // width: 100% !important;
-    // text-align: center !important;
     color: #fff;
     line-height: 2;
-    position: absolute;
-    right: -75px;
-    transform: rotate(90deg);
-    bottom: 75px;
-    @include mq($phone-wide) {
-      font-size: 0.6rem;
-      right: -78px;
-    }
+    position: fixed;
+    /* right: -75px; */
+    /* -webkit-transform: rotate(90deg); */
+    -ms-transform: rotate(90deg);
+    /* transform: rotate(90deg); */
+    top: 20px;
+    right: 100px;
+    padding: 0;
   }
   .arrow_b9bbag-o_O-arrow__direction__left_shhpn5-o_O-arrow__size__medium_9f7hgo,
   .arrow_b9bbag-o_O-arrow__direction__right_174p6a9-o_O-arrow__size__medium_9f7hgo {

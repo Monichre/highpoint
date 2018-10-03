@@ -71,11 +71,22 @@ export default class RightNav extends Component {
       const burgerIcon = document.querySelector(
         ".sidebar_trigger hover-link-icon"
       );
+      const sidebarBottom = document.querySelector(
+        ".right_nav .inner ul.bottom"
+      );
       const sidebarMenu = new superslide({
         slider: slider,
         content: content,
         slideContent: false,
         animation: "slideBottom",
+        beforeClose: () => {
+          sidebarBottom.classList.remove("sidebar_active");
+          this.props.parentAddLinesAnimation();
+        },
+        beforeOpen: () => {
+          sidebarBottom.classList.add("sidebar_active");
+          this.props.parentRemoveLinesAnimation();
+        },
         width: "10vw",
         height: "70vh"
       });

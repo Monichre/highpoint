@@ -49,7 +49,11 @@ export default class RightNav extends Component {
             {...this.props}
           />
         ) : (
-          <DefaultRightNav {...this.props} />
+          <DefaultRightNav
+            parentRemoveLinesAnimation={this.linesOut}
+            parentAddLinesAnimation={this.linesIn}
+            {...this.props}
+          />
         )}
       </section>
     );

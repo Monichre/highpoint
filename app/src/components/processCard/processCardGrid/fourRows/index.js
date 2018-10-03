@@ -71,7 +71,7 @@ export default class FourRowGrid extends Component {
     });
   };
   handleClickImage = () => {
-    if (this.state.currentImage === this.props.images.length - 1) return;
+    if (this.state.currentImage === this.state.photos.length - 1) return;
     this.goToNext();
   };
 

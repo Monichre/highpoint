@@ -84,6 +84,7 @@
         z-index: 2000;
         align-items: center;
         text-align: right;
+        transition: transform 0.4s ease-in-out;
 
         @include mq($desktop) {
           padding: 10px 20px 0 10px;
@@ -92,6 +93,10 @@
         @include mq($tablet) {
           padding: 10px 10px 0;
           height: 10vh;
+        }
+
+        &.sidebar_active {
+          transform: translateY(100%);
         }
 
         li {
