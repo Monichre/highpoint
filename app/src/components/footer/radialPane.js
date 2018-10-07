@@ -4,15 +4,18 @@ import { ArrowPrev, ArrowNext, Play, Pause } from "../icons";
 export const radials = (rewind, pause, fastForward) => [
   {
     onClick: rewind,
-    component: <ArrowPrev />
+    component: <ArrowPrev />,
+    play: <ArrowPrev />
   },
   {
     onClick: pause,
-    component: <Pause />
+    component: <Pause />,
+    play: <Play />
   },
   {
     onClick: fastForward,
-    component: <ArrowNext />
+    component: <ArrowNext />,
+    play: <ArrowNext />
   }
 ];
 

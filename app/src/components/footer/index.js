@@ -46,7 +46,9 @@ const Footer = props => {
             />
           ))}
           {radialPanes.map(radial => (
-            <RadialPane onClick={radial.onClick}>{radial.component}</RadialPane>
+            <RadialPane onClick={radial.onClick}>
+              {props.isPlaying ? radial.component : radial.play}
+            </RadialPane>
           ))}
         </div>
       </nav>

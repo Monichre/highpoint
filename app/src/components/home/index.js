@@ -13,8 +13,7 @@ export default class Home extends Component {
       muted: true,
       isPlaying: true,
       url:
-        "https://player.vimeo.com/external/286249741.sd.mp4?s=0ba1a7ff1be8fe5f7c0bf90006d04f53041c1310&profile_id=165",
-      activeIcon: "cinderblock"
+        "https://player.vimeo.com/external/286249741.sd.mp4?s=0ba1a7ff1be8fe5f7c0bf90006d04f53041c1310&profile_id=165"
     };
   }
   componentDidMount() {
@@ -112,7 +111,7 @@ export default class Home extends Component {
           />
         </VideoLogo>
         <Footer
-          launchFullVideo={this.state.launchFullVideo}
+          isPlaying={isPlaying}
           rewind={this.rewind}
           pause={this.playOrPause}
           fastForward={this.fastForward}
