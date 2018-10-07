@@ -284,63 +284,6 @@ export const CompassRuler = () => (
   </svg>
 );
 
-export const EllipsesIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-more-vertical"
-  >
-    <circle cx="12" cy="12" r="2" />
-    <circle cx="12" cy="4" r="2" />
-    <circle cx="12" cy="20" r="2" />
-  </svg>
-);
-
-export const DashboardIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-layout"
-  >
-    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-    <line x1="3" y1="9" x2="21" y2="9" />
-    <line x1="9" y1="21" x2="9" y2="9" />
-  </svg>
-);
-
-export const MonitorIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-monitor"
-  >
-    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-    <line x1="8" y1="21" x2="16" y2="21" />
-    <line x1="12" y1="17" x2="12" y2="21" />
-  </svg>
-);
-
 export const LoaderIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
