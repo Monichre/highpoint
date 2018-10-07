@@ -114,6 +114,12 @@ export const goToPropertyCard = propertyId => {
   AppStore.emitChange();
 };
 
+export const setActiveMenuItem = menuItemIndex => {
+  console.log(menuItemIndex);
+  AppStore.data.activeMenuItem = menuItemIndex;
+  AppStore.emitChange();
+};
+
 export const launchPropertySideBar = propertyId => {
   AppStore.data.activePropertyCard = propertyId;
   AppStore.data.launchPropertySideBar = true;

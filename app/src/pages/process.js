@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { QuiltedGrid } from "../components/grid/quilted";
 import { ProcessCardPreview } from "../components/processCardPreview";
-import { processPortfolioLines, cornerLines } from "../components/lines";
+import { processPortfolioLines } from "../components/lines";
+// import MobileProcessCardStack from '../components/mobileProcessCardStack'
 import { BROWSER } from "../utils/browser";
 import AppStore from "../flux/stores";
 import _ from "lodash";
@@ -13,7 +14,6 @@ class ProcessPage extends Component {
     if (!status) {
       processPortfolioLines();
     }
-    // cornerLines();
   }
   render() {
     const { processes } = AppStore.data;

@@ -62,14 +62,24 @@ class Menu {
   toggleBoxes(action, pos) {
     if (pos >= this.itemsTotal) {
       this.isAnimating = false;
+      console.log(this.isAnimating);
       return;
     }
+    console.log(this.DOM.el);
+    console.log(this.DOM.el.classList);
     this.DOM.el.classList[action === "open" ? "add" : "remove"](
       "mobile-menu--open"
     );
     const box = this.boxes[pos];
+    console.log(this.boxes);
+    console.log(box);
     box[action === "open" ? "open" : "close"]().then(() =>
       this[action === "open" ? "openBoxes" : "closeBoxes"](pos + 1)
+    );
+    console.log(
+      box[action === "open" ? "open" : "close"]().then(() =>
+        this[action === "open" ? "openBoxes" : "closeBoxes"](pos + 1)
+      )
     );
   }
 }

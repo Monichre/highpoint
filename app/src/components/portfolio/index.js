@@ -39,9 +39,10 @@ export default class Portfolio extends Component {
   };
 
   pageOnChange = num => {
+    console.log(num);
     AppDispatcher.dispatch({
-      action: "go-to-property-card",
-      propertyId: num
+      action: "set-active-menu-item",
+      menuItemIndex: num
     });
     this.setState({ currentPage: num }, () => {
       setTimeout(() => {

@@ -5,7 +5,7 @@ import _ from "lodash";
 
 const PortfolioSidebar = ({
   setActivePropertyCard,
-  activePropertyCard,
+  activeMenuItem,
   properties
 }) => {
   const modProperties = modifiedPropertyTitles(properties);
@@ -24,8 +24,8 @@ const PortfolioSidebar = ({
             key={i}
             sidebar
             link={property.title}
-            index={property.index + 1}
-            active={property.index + 1 === activePropertyCard}
+            index={property.index}
+            active={property.index === activeMenuItem - 1}
             onClick={setActivePropertyCard}
           />
         ))}

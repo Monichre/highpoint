@@ -1,5 +1,6 @@
 @import "./sass/global";
-@import "./components/home/home";
+@import "./pages/home/home";
+@import "./pages/gallery/gallery";
 @import "./components/leftNav/ln";
 @import "./components/menuLink/index";
 @import "./components/footer/index";
@@ -15,7 +16,6 @@
 @import "./components/portfolioCardHorizontal/index";
 @import "./components/portfolioCardVertical/index";
 @import "./components/portfolioSideBar/index";
-@import "./components/gallery/gallery";
 @import "./components/processCard/processCard";
 @import "./components/viewProcessButton/index";
 @import "./components/processCardPreview/index";
@@ -66,6 +66,10 @@ body {
   flex-wrap: wrap;
   height: auto !important;
   padding: 4rem 4rem 15rem 4rem;
+
+  @include mq($tablet-wide) {
+    padding: 4rem 2rem 15rem 2rem;
+  }
 
   // MEDIA QUERIES
   // $phone--xs-small: 320px;

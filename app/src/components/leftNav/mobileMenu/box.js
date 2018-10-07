@@ -74,11 +74,12 @@ class Box {
     });
   }
   close() {
+    console.log(this.DOM.bg);
     return new Promise((resolve, reject) => {
       const animateBoxFn = () => {
         this.DOM.bg.style.transformOrigin =
           this.pos % 2 === 0 ? "50% 0%" : "100% 50%";
-
+        console.log(this.DOM.bg);
         anime.remove(this.DOM.bg);
         anime({
           targets: this.DOM.bg,

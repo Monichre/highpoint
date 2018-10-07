@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { processPortfolioLines, cornerLines } from "../lines";
+import { processPortfolioLines, cornerLines } from "../../components/lines";
 import Lightbox from "react-images";
-import MediaThumb from "../thumb";
+import MediaThumb from "../../components/thumb";
 import ScrollReveal from "scrollreveal";
 import AppStore from "../../flux/stores";
-import LightBoxTheme from "../lightboxTheme";
+import LightBoxTheme from "../../components/lightboxTheme";
 import Swipeable from "react-swipeable";
 import { BROWSER } from "../../utils/browser";
 

@@ -9,7 +9,7 @@ import PropertiesLink from "../../propertyLink";
 
 const { status } = BROWSER.isMobile();
 
-export default class RightNav extends Component {
+export default class DefaultRightNav extends Component {
   state = {
     open: false,
     isPortfolioPage: false,
@@ -32,15 +32,17 @@ export default class RightNav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
+    if (nextProps.activeMenuItem !== this.props.activeMenuItem) {
       const { open, initialMenuHasRendered, activePropertyCard } = this.state;
-      if (nextProps.activePropertyCard === 2) {
+      console.log("nextProps.activeMenuItem", nextProps.activeMenuItem);
+      console.log("this.props.activeMenuItem", this.props.activeMenuItem);
+      if (nextProps.activeMenuItem === 2) {
         if (!initialMenuHasRendered && !activePropertyCard) {
           this.setState(
             {
-              open: !open,
+              open: true,
               initialMenuHasRendered: true,
-              activePropertyCard: nextProps.activePropertyCard
+              activePropertyCard: nextProps.activeMenuItem - 1
             },
             () => {
               open ? this.sidebarMenu.close() : this.sidebarMenu.open();
@@ -58,6 +60,11 @@ export default class RightNav extends Component {
             this.sidebarMenu.open();
           }
         );
+      }
+      if (nextProps.activeMenuItem) {
+        this.setState({
+          activePropertyCard: nextProps.activeMenuItem - 1
+        });
       }
     }
   }
@@ -106,12 +113,14 @@ export default class RightNav extends Component {
     const { open } = this.state;
     open ? this.sidebarMenu.close() : this.sidebarMenu.open();
     this.setState({
-      open: !open
+      open: !open,
+      initialMenuHasRendered: true
     });
   };
 
   setActivePropertyCard = (i, e) => {
     e.preventDefault();
+    console.log("activePropertyCard: ", i);
     this.setState({
       activePropertyCard: i
     });
