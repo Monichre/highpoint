@@ -19,8 +19,34 @@ $b-shadowSize: 2px;
 $Title-color: $c-dark;
 
 // FONTS
-$font-primary: "N-Black";
-$font-secondary: "N-Light";
+$font-primary: "neuzeit-grotesk, sans-serif";
+$font-secondary: "neuzeit-grotesk, sans-serif";
+
+// BLACK
+@mixin font-primary {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+}
+
+// LIGHT
+@mixin font-secondary {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin font-secondary-reg {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin font-secondary-bolder {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
 
 // font sizes
 $h--1: (
@@ -215,6 +241,7 @@ $desktop-up: 1650px;
   font-family: $font-primary;
   margin: 20px 0;
   text-align: left;
+  @include font-secondary-bolder;
 
   @include mq($desktop) {
     font-size: 0.4rem;
@@ -246,7 +273,7 @@ $desktop-up: 1650px;
   font-size: 55px;
   letter-spacing: 4px;
   position: relative;
-  // top: 20px;
+  @include font-primary;
 
   @include mq($desktop) {
     font-size: 45px;

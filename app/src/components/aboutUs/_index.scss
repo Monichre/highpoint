@@ -37,18 +37,19 @@
     text-transform: uppercase;
     text-shadow: 1px 1px 0 $c-primary;
     transition: text-shadow $b-animSpeed $b-animType;
+    @include font-secondary-reg;
     @include minMq($desktop-up) {
       font-size: 0.95rem;
     }
     @include mq($desktop-wide-2) {
       font-size: 0.8rem;
     }
-    @include mq($desktop) {
-      font-size: 0.6rem;
+    @include mq($desktop-wide) {
+      font-size: 0.7rem;
       margin: 0;
     }
     @include mq($macbook-air) {
-      font-size: 0.5rem;
+      // font-size: 0.5rem;
     }
     @include mq($tablet-wide) {
       padding: 0 40px;
@@ -91,14 +92,15 @@
     }
 
     p {
+      @include font-secondary;
       @include minMq($desktop-up) {
-        font-size: 0.65rem;
+        font-size: 0.55rem;
       }
       @include mq($desktop-wide-2) {
         font-size: 0.55rem;
       }
       @include mq($desktop) {
-        font-size: 0.45rem;
+        font-size: 0.475rem;
       }
       @include mq($tablet-wide) {
         // font-size: 0.7rem;

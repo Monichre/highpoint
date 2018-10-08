@@ -1,11 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const portfolioTitle = (
-  <h3 className="mobile-menu__item-title">
-    PORT <br /> FOLIO
-  </h3>
-);
+const portfolioTitle = <h3 className="mobile-menu__item-title">PORTFOLIO</h3>;
 
 export const MobileMenuLink = ({ link, i }) => (
   <div className="mobile-menu__item">

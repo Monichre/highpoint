@@ -73,6 +73,7 @@
   border-radius: 0;
   box-shadow: inset 0 0 0 var(--border-size) currentcolor;
   transition: background 0.8s ease;
+  @include font-secondary;
 
   &:hover {
     background: rgba(83, 66, 66, 0.03);

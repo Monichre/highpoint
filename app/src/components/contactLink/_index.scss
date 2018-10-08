@@ -2,6 +2,7 @@
 
 .contact_link {
   width: max-content;
+  @include font-secondary-bolder;
   .text {
     transform: rotate(-90deg) translate(60px, 3px);
     text-transform: capitalize;
@@ -12,7 +13,7 @@
     }
     .u-shadow {
       transition: all 0.8s ease-in-out;
-      font-family: $font-primary;
+      @include font-secondary-bolder;
       color: rgb(51, 51, 51) !important;
       @include link-style;
       font-size: 0.55rem;
@@ -22,7 +23,8 @@
     }
   }
 
-  &.open {
+  &.open,
+  &:hover {
     .hover-link-icon {
       span:first-child {
         transform: translate(0, -3px) rotate(45deg);

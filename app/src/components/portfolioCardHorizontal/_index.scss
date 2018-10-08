@@ -31,7 +31,7 @@
   @include mq($tablet-wide-2) {
     padding: 0.5rem 2rem 0 1rem;
     align-items: baseline;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     height: 93%;
   }
   @include mq($tablet-wide) {
@@ -70,6 +70,7 @@
     margin: 0 0 0.5rem;
     text-align: right;
     position: relative;
+    @include font-secondary-reg;
 
     @include mq($desktop) {
       font-size: 0.8rem;
@@ -118,13 +119,13 @@
       margin: 1rem 0 0.4rem;
       font-size: 0.7rem;
       color: black;
-      font-weight: bolder;
+      @include font-secondary-reg;
       text-transform: uppercase;
       text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
       transition: text-shadow $b-animSpeed $b-animType;
 
       @include mq($desktop) {
-        margin: 0.5rem 0 0.1rem;
+        margin: 0.55rem 0 0.45rem;
         font-size: 0.6rem;
       }
       @include mq($tablet-wide) {
@@ -136,6 +137,9 @@
       }
     }
     .text {
+      p {
+        @include font-secondary;
+      }
       @include mq($tablet-wide) {
         margin-top: 0;
       }
@@ -149,13 +153,16 @@
       height: 450px;
     }
     @include mq($desktop-wide-2) {
-      height: 300px;
+      height: 350px;
     }
     @include mq($desktop) {
-      height: 200px;
+      // height: 200px;
+    }
+    @include mq($tablet-wide-2) {
+      // height: 350px;
     }
     @include mq($tablet-wide) {
-      height: 250px;
+      // height: 250px;
     }
     @include mq($tablet) {
       height: 50vh;
@@ -204,26 +211,29 @@
     }
     .logos {
       width: 100%;
-      height: 30%;
+      // height: 30%;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       @include mq($macbook-air) {
-        height: 22%;
+        // height: 22%;
       }
       @include mq($tablet) {
         display: none;
       }
       img {
-        height: 100%;
+        height: 100px;
         width: 33.333%;
+        -o-object-fit: scale-down;
         object-fit: scale-down;
-        &:nth-of-type(1),
-        &:nth-of-type(3) {
-          padding: 34px;
+        &:nth-of-type(1) {
+          padding: 34px 38px 20px;
           @include mq($desktop) {
-            padding: 26px;
+            // padding: 26px;
           }
+        }
+        &:nth-of-type(3) {
+          padding: 20px 20px 0;
         }
 
         @include mq($tablet-wide-2) {
@@ -258,10 +268,10 @@
         height: 400px;
       }
       @include mq($desktop-wide) {
-        height: 325px;
+        // height: 325px;
       }
       @include mq($tablet-wide-2) {
-        height: 200px;
+        // height: 200px;
       }
       @include mq($tablet) {
         height: 50vh;
@@ -271,15 +281,15 @@
         width: 100%;
       }
       &.is_highpoint_venture {
-        @include mq($desktop) {
-          height: 250px;
-        }
-        @include mq($macbook-air) {
-          height: 250px;
-        }
-        @include mq($tablet-wide) {
-          height: 200px;
-        }
+        // @include mq($desktop) {
+        //   height: 350px;
+        // }
+        // @include mq($macbook-air) {
+        //   // height: 250px;
+        // }
+        // @include mq($tablet-wide) {
+        //   // height: 200px;
+        // }
         .logos {
           @include mq($macbook-air) {
             // height: 22%;
@@ -293,14 +303,24 @@
         justify-content: space-around;
       }
       .img_cont {
-        @include mq($desktop-wide-2) {
-          height: 325px;
+        height: 350px;
+        // @include mq($desktop-wide-2) {
+        //   height: 325px;
+        // }
+        // @include mq($macbook-air) {
+        //   height: 250px;
+        // }
+        // @include mq($tablet-wide) {
+        //   height: 200px;
+        // }
+        @include mq($desktop) {
+          // height: 350px;
         }
         @include mq($macbook-air) {
-          height: 250px;
+          // height: 250px;
         }
         @include mq($tablet-wide) {
-          height: 200px;
+          // height: 200px;
         }
       }
     }

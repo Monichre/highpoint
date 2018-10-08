@@ -7,6 +7,7 @@
     text-align: right;
     width: 100%;
     padding-right: 1.5rem;
+    @include font-secondary-reg;
 
     @include mq($desktop) {
       font-size: 0.8rem;
@@ -65,13 +66,16 @@
         padding: 0 0 0 20px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         overflow: hidden;
+        margin-top: 80px;
         @include mq($tablet-wide) {
-          justify-content: space-evenly;
+          // justify-content: flex-start;
+          margin-top: 40px;
         }
 
         h4.process_button__property-address {
+          @include font-secondary-reg;
           @include mq($phone-wide) {
             font-size: 0.7rem;
             font-weight: bolder;
@@ -83,6 +87,7 @@
           }
         }
         p {
+          @include font-secondary;
           @include minMq($desktop-up) {
             font-size: 0.55rem;
           }
@@ -102,12 +107,15 @@
           }
         }
         h4 {
+          @include font-secondary-reg;
+          margin: 0.5rem 0 0.25rem !important;
           @include minMq($desktop-up) {
             font-size: 0.8rem;
-            margin: 0.5rem 0 1rem;
+            // margin: 0.5rem 0 1rem;
           }
           @include mq($desktop) {
-            margin: 0.5rem 0 1rem;
+            margin: 0.55rem 0 0.45rem;
+            // margin: 0.5rem 0 1rem;
           }
         }
       }
@@ -128,7 +136,7 @@
           // height: auto;
         }
         @include mq($tablet-wide-2) {
-          height: 200px;
+          height: 100%;
         }
 
         &.mcCallister_management {
