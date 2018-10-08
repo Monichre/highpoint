@@ -70,6 +70,7 @@
       font-size: 0.7rem;
       text-align: center;
       margin: 10px 0;
+      @include font-secondary-reg;
       @include mq($phone-wide) {
         font-size: 0.5rem;
       }
@@ -105,6 +106,7 @@
     }
     h4 {
       font-size: 0.7rem;
+      @include font-secondary-reg;
       text-align: center;
       margin: 10px 0;
       @include mq($phone-wide) {

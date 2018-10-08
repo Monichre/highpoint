@@ -109,7 +109,7 @@
 
         h2 {
           font-size: 0.6rem;
-
+          @include font-secondary-reg;
           color: black;
           font-weight: bolder;
           font-family: N-Light;

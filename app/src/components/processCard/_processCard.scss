@@ -59,6 +59,7 @@
         font-weight: bolder;
         position: relative;
         text-transform: uppercase;
+        @include font-secondary-reg;
         text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
         transition: text-shadow $b-animSpeed $b-animType;
         // border-bottom: 1px solid #000;

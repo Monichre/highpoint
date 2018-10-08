@@ -1,18 +1,6 @@
-import React from 'react'
-import ThreeRowsGrid from './threeRows'
-import FourRowsGrid from './fourRows'
-import FiveRowsGrid from './fiveRows'
+import React from "react";
+import FourRowsGrid from "./fourRows";
 
-const renderGrid = props => {
-  if (props.process.beforeImages.length === 4) {
-    return <FourRowsGrid {...props} />
-  } else if (props.process.beforeImages.length === 5) {
-    return <FiveRowsGrid {...props} />
-  } else {
-    return <ThreeRowsGrid {...props} />
-  }
-}
+const ProcessCardGrid = props => <FourRowsGrid {...props} />;
 
-const ProcessCardGrid = props => renderGrid(props)
-
-export default ProcessCardGrid
+export default ProcessCardGrid;

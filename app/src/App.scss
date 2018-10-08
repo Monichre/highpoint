@@ -19,7 +19,6 @@
 @import "./components/processCard/processCard";
 @import "./components/viewProcessButton/index";
 @import "./components/processCardPreview/index";
-@import "./components/processCard/processCardGrid/fiveRows/five-rows";
 @import "./components/processCard/processCardGrid/fourRows/four-rows";
 
 body {
@@ -105,7 +104,7 @@ body {
     // text-align: center;
     margin: 10px 0;
     font-size: 1.1rem;
-    // font-weight: bolder;
+    @include font-secondary-reg;
     text-transform: uppercase;
     letter-spacing: 2px;
     @include mq($phone-wide) {
@@ -123,7 +122,7 @@ body {
     font-weight: 400;
     font-size: 0.75rem;
     text-transform: uppercase;
-    font-family: N-Light !important;
+    @include font-secondary-reg;
     color: #fff;
     line-height: 2;
     position: fixed;

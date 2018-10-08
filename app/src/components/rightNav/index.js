@@ -34,9 +34,7 @@ export default class RightNav extends Component {
   };
 
   linesIn = () => {
-    this.lines.animateLinesIn(() => {
-      console.log("this is the callback");
-    });
+    this.lines.animateLinesIn(() => {});
   };
 
   render() {

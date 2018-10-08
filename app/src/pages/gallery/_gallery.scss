@@ -96,10 +96,10 @@
               text-align: center;
               margin: 20px 0 10px;
               font-size: 0.8rem;
-              font-weight: bolder;
+              @include font-secondary-reg;
               text-transform: uppercase;
               letter-spacing: 2px;
-              font-family: $font-secondary;
+
               @include mq($tablet-wide-2) {
                 font-size: 0.6rem;
               }
@@ -107,11 +107,11 @@
             p {
               // font-size: 0.8rem;
               line-height: 1.2;
-              font-family: $font-secondary;
+              @include font-secondary;
               -webkit-transition: all 0.4s ease-in-out;
               -o-transition: all 0.4s ease-in-out;
               transition: all 0.4s ease-in-out;
-              font-weight: 400;
+
               letter-spacing: 1px;
               text-align: center;
               color: #fff;

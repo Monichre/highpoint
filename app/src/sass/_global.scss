@@ -1,16 +1,6 @@
 @import "base";
 @import "variables";
 
-@font-face {
-  font-family: "N-Black";
-  src: url("/fonts/NeuzeitGro-Bla.otf");
-}
-
-@font-face {
-  font-family: "N-Light";
-  src: url("/fonts/NeuzeitGro-Lig.otf");
-}
-
 // Box Model Hack
 html {
   box-sizing: border-box;

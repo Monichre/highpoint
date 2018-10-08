@@ -21,6 +21,9 @@ export default class Portfolio extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.activePropertyCard === 0) {
+      this._pageScroller.goToPage(1);
+    }
     if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
       this._pageScroller.goToPage(nextProps.activePropertyCard);
     }
@@ -39,7 +42,6 @@ export default class Portfolio extends Component {
   };
 
   pageOnChange = num => {
-    console.log(num);
     AppDispatcher.dispatch({
       action: "set-active-menu-item",
       menuItemIndex: num

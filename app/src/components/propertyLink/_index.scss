@@ -17,7 +17,7 @@
     @include link-style;
     @include font-secondary-bolder;
     @include minMq($desktop-up) {
-      transform: rotate(90deg) translate(180px, -35px);
+      transform: rotate(90deg) translate(150px, -170%);
     }
     @include mq($desktop-wide-2) {
       transform: rotate(90deg) translate(110px, -26px);

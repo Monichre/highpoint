@@ -107,6 +107,7 @@
           font-family: N-Light;
           margin: 0;
           width: 100% !important;
+          @include font-secondary-reg;
           color: #fff;
           line-height: 2;
           @include mq($desktop) {
