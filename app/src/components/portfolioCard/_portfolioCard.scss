@@ -76,6 +76,7 @@
       p {
         @include minMq($desktop-up) {
           font-size: 0.55rem;
+          line-height: 1.5;
         }
 
         @include mq($desktop) {

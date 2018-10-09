@@ -41,9 +41,6 @@ export const HorizontalPortfolioCard = ({ property }) => (
       <div className="text">
         <p>{property.description}</p>
         <ViewProcessButton property={property} />
-        {property.title === "McCallister Management" ? (
-          <FancyButtonCustomURL url={"http://mccallistergroup.net/"} />
-        ) : null}
       </div>
     </div>
   </div>
@@ -61,3 +58,9 @@ const Logos = ({ property }) => (
     ))}
   </div>
 );
+
+// {
+// property.title === "McCallister Management" ? (
+//   <FancyButtonCustomURL url={"http://mccallistergroup.net/"} />
+// ) : null
+// }

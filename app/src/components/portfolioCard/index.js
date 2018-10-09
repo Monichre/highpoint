@@ -3,6 +3,7 @@ import { HorizontalPortfolioCard } from "../portfolioCardHorizontal";
 import { VerticalPortfolioCard } from "../portfolioCardVertical";
 import PortfolioCardContainer from "./portfolioCardContainer";
 import PortfolioCardFooter from "../portfolioCardFooter";
+import { BROWSER } from "../../utils/browser";
 // import './_portfolioCard.scss'
 
 export const PortfolioCard = ({
@@ -12,7 +13,17 @@ export const PortfolioCard = ({
   index,
   property: { featuredImage }
 }) => {
-  if (
+  if (BROWSER.isExplorer) {
+    return (
+      <PortfolioCardContainer arrowClick={arrowClick} className="vertical">
+        <VerticalPortfolioCard
+          index={index}
+          arrowClick={arrowClick}
+          property={property}
+        />
+      </PortfolioCardContainer>
+    );
+  } else if (
     mobileStatus ||
     featuredImage.fields.file.details.image.width >
       featuredImage.fields.file.details.image.height

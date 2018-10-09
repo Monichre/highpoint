@@ -27,6 +27,11 @@ export default class FourRowGrid extends Component {
     const photoSet = galleryItems.map((image, i) => {
       let _image = {};
       _image.src = image.fields.file.url;
+      _image.alt =
+        image.fields.file.details.image.height >
+        image.fields.file.details.image.width
+          ? "object_fit__portrait"
+          : "object_fit__landscape";
 
       return _image;
     });
@@ -46,7 +51,6 @@ export default class FourRowGrid extends Component {
 
   openLightbox = (i, e) => {
     e.preventDefault();
-    console.log(i);
     this.setState({
       currentImage: i,
       lightboxIsOpen: true
@@ -57,15 +61,51 @@ export default class FourRowGrid extends Component {
     this.setState({
       currentImage: this.state.currentImage + 1
     });
+    setTimeout(() => {
+      const img = document.querySelector(".figure_10ki57k img");
+      const alt = img.getAttribute("alt");
+
+      if (alt === "object_fit__landscape") {
+        img.classList.remove("object_fit__portrait");
+        img.classList.add("object_fit__landscape");
+      } else {
+        img.classList.remove("object_fit__landscape");
+        img.classList.add("object_fit__portrait");
+      }
+    }, 50);
   };
 
   goToPrevious = () => {
+    setTimeout(() => {
+      const img = document.querySelector(".figure_10ki57k img");
+      const alt = img.getAttribute("alt");
+
+      if (alt === "object_fit__landscape") {
+        img.classList.remove("object_fit__portrait");
+        img.classList.add("object_fit__landscape");
+      } else {
+        img.classList.remove("object_fit__landscape");
+        img.classList.add("object_fit__portrait");
+      }
+    }, 50);
     this.setState({
       currentImage: this.state.currentImage - 1
     });
   };
 
   goToImage = index => {
+    setTimeout(() => {
+      const img = document.querySelector(".figure_10ki57k img");
+      const alt = img.getAttribute("alt");
+
+      if (alt === "object_fit__landscape") {
+        img.classList.remove("object_fit__portrait");
+        img.classList.add("object_fit__landscape");
+      } else {
+        img.classList.remove("object_fit__landscape");
+        img.classList.add("object_fit__portrait");
+      }
+    }, 50);
     this.setState({
       currentImage: index
     });
@@ -139,7 +179,7 @@ export default class FourRowGrid extends Component {
             onClickThumbnail={this.goToImage}
             currentImage={this.state.currentImage}
             isOpen={this.state.lightboxIsOpen}
-            theme={LightBoxTheme}
+            // theme={LightBoxTheme()}
           />
         </Swipeable>
       </Fragment>

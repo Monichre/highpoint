@@ -57,6 +57,7 @@ body {
 
 .process_page {
   height: 100vh;
+  overflow: hidden;
 }
 .process_page .grid {
   display: flex;
@@ -64,10 +65,11 @@ body {
   align-items: center;
   flex-wrap: wrap;
   height: auto !important;
-  padding: 4rem 4rem 15rem 4rem;
+  padding: 0rem 1rem 0 1rem;
+  overflow: hidden;
 
   @include mq($tablet-wide) {
-    padding: 4rem 2rem 15rem 2rem;
+    // padding: 4rem 2rem 15rem 2rem;
   }
 
   // MEDIA QUERIES
@@ -76,7 +78,7 @@ body {
   // $phone: 400px;
   // $phone-wide: 480px;
   @include mq($tablet) {
-    padding: 1rem 1rem 0rem 1rem;
+    // padding: 1rem 1rem 0rem 1rem;
   }
 }
 
@@ -115,6 +117,10 @@ body {
     width: calc(100% - 2px);
     height: calc(100% - 2px) !important;
     object-fit: none;
+
+    &.object_fit__landscape {
+      object-fit: contain;
+    }
   }
 
   .footer_60scne {

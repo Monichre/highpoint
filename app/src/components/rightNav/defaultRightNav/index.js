@@ -87,11 +87,11 @@ export default class DefaultRightNav extends Component {
         slideContent: false,
         animation: "slideBottom",
         beforeClose: () => {
-          sidebarBottom.classList.remove("sidebar_active");
+          // sidebarBottom.classList.remove('sidebar_active')
           this.props.parentAddLinesAnimation();
         },
         beforeOpen: () => {
-          sidebarBottom.classList.add("sidebar_active");
+          // sidebarBottom.classList.add('sidebar_active')
           this.props.parentRemoveLinesAnimation();
         },
         width: "10vw",
@@ -99,6 +99,7 @@ export default class DefaultRightNav extends Component {
       });
       this.sidebarMenu = sidebarMenu;
       if (activePropertyCard === 1) {
+        this.props.parentRemoveLinesAnimation();
         this.sidebarMenu.open();
         burgerIcon.classList.add("open");
       }

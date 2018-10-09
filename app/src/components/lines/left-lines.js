@@ -41,9 +41,9 @@ const iPhoneLines = [
     color: "#333",
     hidden: true,
     animation: {
-      duration: 3000,
+      duration: 1000,
       easing: "easeInOutExpo",
-      delay: 500,
+      delay: 0,
       direction: "TopBottom"
     }
   },
@@ -55,9 +55,9 @@ const iPhoneLines = [
     color: "#333",
     hidden: true,
     animation: {
-      duration: 3000,
+      duration: 1000,
       easing: "easeInOutExpo",
-      delay: 500,
+      delay: 0,
       direction: "LeftRight"
     }
   }

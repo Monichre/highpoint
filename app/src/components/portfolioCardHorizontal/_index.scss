@@ -142,7 +142,7 @@
     position: relative;
     width: 100%;
     @include minMq($desktop-up) {
-      height: 450px;
+      height: 350px;
     }
     @include mq($desktop-wide-2) {
       height: 350px;

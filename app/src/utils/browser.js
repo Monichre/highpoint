@@ -1,4 +1,5 @@
 import _ from "lodash";
+import { IE_HANDLER } from "./ie";
 import AppDispatcher from "../flux/dispatchers";
 
 class TheBrowser {
@@ -11,23 +12,46 @@ class TheBrowser {
     this.isDesktop = false;
     this.isMobileDevice = false;
     this.initialWindowSize = null;
+    this.isSafari = false;
+    this.isChrome = false;
+    this.isExplorer = false;
+    this.isFirefox = false;
+    this.isEdge = false;
   }
   mQ = num => window.matchMedia(`(max-width: ${num}px)`);
 
-  isSafari = () => navigator.userAgent.indexOf("Safari") > -1;
+  isSafariBrowser = () => {
+    this.isSafari = navigator.userAgent.indexOf("Safari") > -1;
+    return this.isSafari;
+  };
 
-  isChrome = () => navigator.userAgent.indexOf("Chrome") > -1;
+  isChromeBrowser = () => {
+    this.isChrome = navigator.userAgent.indexOf("Chrome") > -1;
+    return this.isChrome;
+  };
 
-  isExplorer = () =>
-    navigator.appName === "Microsoft Internet Explorer" ||
-    !!(
-      navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)
-    ) ||
-    navigator.userAgent.indexOf("MSIE") > -1;
+  isExplorerBrowser = () => {
+    this.isExplorer =
+      navigator.appName === "Microsoft Internet Explorer" ||
+      !!(
+        navigator.userAgent.match(/Trident/) ||
+        navigator.userAgent.match(/rv:11/)
+      ) ||
+      navigator.userAgent.indexOf("MSIE") > -1;
 
-  isFirefox = () => navigator.userAgent.indexOf("Firefox") > -1;
+    console.log("isExplorer", this.isExplorer);
+    return this.isExplorer;
+  };
 
-  isEdge = () => navigator.userAgent.indexOf("Edge/") > -1;
+  isFirefoxBrowser = () => {
+    this.isFirefox = navigator.userAgent.indexOf("Firefox") > -1;
+    return this.isFirefox;
+  };
+
+  isEdgeBrowser = () => {
+    this.isEdge = navigator.userAgent.indexOf("Edge/") > -1;
+    return this.isEdge;
+  };
 
   determineBrowser = () => {
     const body = document.querySelector("body");
@@ -41,9 +65,26 @@ class TheBrowser {
       isMobileDevice
     } = this.isMobile();
 
-    console.table([
-      {
-        "browser initial resize:": {
+    if (this.isSafariBrowser()) {
+      body.classList.add("isSafari");
+    }
+    if (this.isChromeBrowser()) {
+      body.classList.add("isChrome");
+    }
+    if (this.isExplorerBrowser()) {
+      body.classList.add("isExplorer");
+    }
+    if (this.isFirefoxBrowser()) {
+      body.classList.add("isFirefox");
+    }
+    if (this.isEdgeBrowser()) {
+      body.classList.add("isEdge");
+    }
+
+    if (this.isExplorer) {
+      console.ietable([
+        "browser initial resize:",
+        {
           windowWidth: windowWidth,
           status: status,
           isPhone: isPhone,
@@ -52,23 +93,21 @@ class TheBrowser {
           isDesktop: isDesktop,
           "this.isMobileDevice": this.isMobileDevice
         }
-      }
-    ]);
-
-    if (this.isSafari()) {
-      body.classList.add("isSafari");
-    }
-    if (this.isChrome()) {
-      body.classList.add("isChrome");
-    }
-    if (this.isExplorer()) {
-      body.classList.add("isExplorer");
-    }
-    if (this.isFirefox()) {
-      body.classList.add("isFirefox");
-    }
-    if (this.isEdge()) {
-      body.classList.add("isEdge");
+      ]);
+    } else {
+      console.table([
+        {
+          "browser initial resize:": {
+            windowWidth: windowWidth,
+            status: status,
+            isPhone: isPhone,
+            isTablet: isTablet,
+            isLargeTablet: isLargeTablet,
+            isDesktop: isDesktop,
+            "this.isMobileDevice": this.isMobileDevice
+          }
+        }
+      ]);
     }
   };
 
@@ -181,23 +220,6 @@ class TheBrowser {
         isMobileDevice
       } = _this.isMobile();
 
-      console.table([
-        {
-          "browser specs after resize:": {
-            "initial window size is larger than now":
-              _this.initialWindowSize > windowWidth,
-            "initial window size is smaller than now":
-              _this.initialWindowSize < windowWidth,
-            windowWidth: windowWidth,
-            status: status,
-            isPhone: isPhone,
-            isTablet: isTablet,
-            isLargeTablet: isLargeTablet,
-            isDesktop: isDesktop,
-            "this.isMobileDevice": this.isMobileDevice
-          }
-        }
-      ]);
       if (status) {
         document.querySelector("body").classList.add("isMobile");
       }
@@ -219,67 +241,6 @@ class TheBrowser {
     window.addEventListener("resize", _.debounce(this.handleResize, 100));
   };
 
-  addObjectFindPolyfill = () => {
-    if (!Array.prototype.find) {
-      return Object.defineProperty(Array.prototype, "find", {
-        value: function(predicate) {
-          if (this == null) {
-            throw new TypeError('"this" is null or not defined');
-          }
-
-          var o = Object(this);
-          var len = o.length >>> 0;
-
-          if (typeof predicate !== "function") {
-            throw new TypeError("predicate must be a function");
-          }
-
-          var thisArg = arguments[1];
-          var k = 0;
-
-          while (k < len) {
-            var kValue = o[k];
-            if (predicate.call(thisArg, kValue, k, o)) {
-              return kValue;
-            }
-            // e. Increase k by 1.
-            k++;
-          }
-
-          // 7. Return undefined.
-          return undefined;
-        }
-      });
-    }
-
-    if (typeof Object.assign !== "function") {
-      Object.assign = function(target, varArgs) {
-        // .length of function is 2
-        "use strict";
-        if (target == null) {
-          // TypeError if undefined or null
-          throw new TypeError("Cannot convert undefined or null to object");
-        }
-
-        var to = Object(target);
-
-        for (var index = 1; index < arguments.length; index++) {
-          var nextSource = arguments[index];
-
-          if (nextSource != null) {
-            // Skip over if undefined or null
-            for (var nextKey in nextSource) {
-              // Avoid bugs when hasOwnProperty is shadowed
-              if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-                to[nextKey] = nextSource[nextKey];
-              }
-            }
-          }
-        }
-        return to;
-      };
-    }
-  };
   lazyLoader = () => {
     !(function() {
       function i() {
@@ -316,7 +277,7 @@ class TheBrowser {
   init = () => {
     const winWidth = document.querySelector("body").clientWidth;
     this.initialWindowSize = winWidth;
-
+    IE_HANDLER.console();
     this.determineBrowser();
     this.listenForResize();
     this.lazyLoader();
