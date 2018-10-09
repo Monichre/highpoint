@@ -3,8 +3,11 @@ import Modal from "../modal";
 import ReactPlayer from "react-player";
 import { Close } from "../icons";
 
-export const VideoThumb = ({ item: { address, url, property }, openVideo }) => (
-  <div className={`grid__item__thumb video_thumb`} onClick={openVideo}>
+export const VideoThumb = ({
+  item: { address, url, property },
+  toggleVideo
+}) => (
+  <div className={`grid__item__thumb video_thumb`} onClick={toggleVideo}>
     <ReactPlayer
       playing
       playsinline
@@ -26,7 +29,7 @@ export const VideoThumb = ({ item: { address, url, property }, openVideo }) => (
 export const FullScreenVideo = ({ item: { url }, closeVideo }) => (
   <Modal className="fullscreen_video__modal">
     <span className="fullscreen_video__close" onClick={closeVideo}>
-      <Close />
+      <Close color="white" />
     </span>
     <ReactPlayer
       volume={0}

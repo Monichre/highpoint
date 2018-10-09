@@ -1,58 +1,5 @@
 @import "../../sass/variables";
 
-.cta {
-  position: relative;
-  margin: auto;
-  padding: 19px 22px;
-  transition: all 0.2s ease;
-}
-.cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-radius: 28px;
-  background: $c-accent;
-  width: 56px;
-  height: 56px;
-  transition: all 0.3s ease;
-}
-.cta span {
-  position: relative;
-  font-size: 16px;
-  line-height: 18px;
-  font-weight: 900;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  vertical-align: middle;
-}
-.cta svg {
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #111;
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.3s ease;
-}
-.cta:hover {
-  // color: $c-secondary;
-}
-.cta:hover:before {
-  width: 100%;
-  background: $c-accent;
-}
-.cta:hover svg {
-  transform: translateX(0);
-}
-.cta:active {
-  transform: scale(0.96);
-}
-
 .fancy_button {
   --offset: 10px;
   --border-size: 1px;
@@ -93,7 +40,7 @@
     --offset: 10px;
     padding: 20px;
     font-size: 0.35rem;
-    margin: 10px 0 0;
+    margin: 10px 0 -20px;
   }
 
   .button__horizontal,

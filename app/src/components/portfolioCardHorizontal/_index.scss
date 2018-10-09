@@ -62,7 +62,7 @@
     @include mq($phone-wide) {
       right: 20px;
       top: 15%;
-      height: 85%;
+      height: 91%;
     }
   }
   h3 {
@@ -119,7 +119,13 @@
         margin: 0.5rem 0 0.25rem !important;
       }
       @include mq($tablet) {
+        font-size: 0.6rem;
+        margin: 0.5rem 0 0.5rem !important;
         text-align: center;
+      }
+      @include mq($phone-wide) {
+        font-size: 0.7rem;
+        margin: 0.5rem 0 0.5rem !important;
       }
     }
     .text {

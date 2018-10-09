@@ -1,13 +1,15 @@
 import React from "react";
 import MenuLink from "../menuLink";
-import _ from "lodash";
+import { HoverLinkIcon } from "../hoverLinkIcon";
 import { modifiedPropertyTitles } from "../../utils";
+import _ from "lodash";
 import "./_index.scss";
 
 const MobilePortfolioSidebar = ({
   setActivePropertyCard,
   activeMenuItem,
-  properties
+  properties,
+  open
 }) => {
   const modProperties = modifiedPropertyTitles(properties);
 
@@ -18,7 +20,9 @@ const MobilePortfolioSidebar = ({
           <div className="left_side" onClick={e => setActivePropertyCard(0, e)}>
             Back to Top
           </div>
-          <div className="close_menu_side" />
+          <div className="close_menu_side">
+            <HoverLinkIcon className={`${open ? "open" : ""}`} />
+          </div>
         </li>
         {_.sortBy(modProperties, item => item.order).map(property => (
           <MenuLink

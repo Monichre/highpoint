@@ -21,13 +21,14 @@ export default class RightNav extends Component {
   }
 
   linesOut = () => {
+    // this.lines.animateLinesOut()
     this.lines.animateLineOut(0, {
-      duration: 500,
+      duration: 100,
       easing: "easeInOutExpo",
       delay: 0
     });
     this.lines.animateLineOut(1, {
-      duration: 500,
+      duration: 100,
       easing: "easeInOutExpo",
       delay: 0
     });

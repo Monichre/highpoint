@@ -137,7 +137,10 @@ export default class DefaultRightNav extends Component {
       <section className={`right_nav`}>
         <div className="inner" style={{ position: "relative" }}>
           <ul style={{ listStyle: "none" }} className="top">
-            <SideBarTrigger toggleSideBar={this.toggleSideBar}>
+            <SideBarTrigger
+              isPortfolioPage={isPortfolioPage}
+              toggleSideBar={this.toggleSideBar}
+            >
               {isPortfolioPage ? (
                 <PropertiesLink className={`${open ? "open" : ""}`} />
               ) : (
@@ -156,8 +159,11 @@ export default class DefaultRightNav extends Component {
   }
 }
 
-const SideBarTrigger = props => (
-  <li className="sidebar_trigger" onClick={props.toggleSideBar}>
-    {props.children}
+const SideBarTrigger = ({ isPortfolioPage, toggleSideBar, children }) => (
+  <li
+    className="sidebar_trigger"
+    onClick={isPortfolioPage ? toggleSideBar : null}
+  >
+    {children}
   </li>
 );

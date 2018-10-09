@@ -75,35 +75,28 @@ export const Phone = () => (
 export const Play = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="-4 -3 24 24"
     width="24"
     height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-play"
+    preserveAspectRatio="xMinYMin"
+    fill="#fff"
+    className="jam jam-play"
   >
-    <polygon points="5 3 19 12 5 21 5 3" />
+    <path d="M13.82 9.523a.976.976 0 0 0-.324-1.363L3.574 2.128a1.031 1.031 0 0 0-.535-.149c-.56 0-1.013.443-1.013.99V15.03c0 .185.053.366.153.523.296.464.92.606 1.395.317l9.922-6.031c.131-.08.243-.189.325-.317zm.746 1.997l-9.921 6.031c-1.425.867-3.3.44-4.186-.951A2.918 2.918 0 0 1 0 15.03V2.97C0 1.329 1.36 0 3.04 0c.567 0 1.123.155 1.605.448l9.921 6.032c1.425.866 1.862 2.696.975 4.088-.246.386-.58.712-.975.952z" />
   </svg>
 );
 
 export const Pause = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="-4 -3 24 24"
     width="24"
     height="24"
-    viewBox="0 0 24 24"
+    preserveAspectRatio="xMinYMin"
     fill="#fff"
-    stroke="currentColor"
-    strokeWidth="1"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-pause"
+    className="jam jam-pause"
   >
-    <rect x="6" y="4" width="4" height="16" />
-    <rect x="14" y="4" width="4" height="16" />
+    <path d="M2 0h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v14h2V2H2zm10-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v14h2V2h-2z" />
   </svg>
 );
 
@@ -225,34 +218,28 @@ export const Close = ({ color = false }) => (
 export const ArrowPrev = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="-4.5 -5 24 24"
+    fill="#fff"
     width="24"
     height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-chevron-left"
+    preserveAspectRatio="xMinYMin"
+    className="jam jam-chevrons-left"
   >
-    <polyline points="15 18 9 12 15 6" />
+    <path d="M8.828 7.071l4.95 4.95a1 1 0 1 1-1.414 1.414L6.707 7.778a1 1 0 0 1 0-1.414L12.364.707a1 1 0 0 1 1.414 1.414l-4.95 4.95zm-6 0l4.95 4.95a1 1 0 1 1-1.414 1.414L.707 7.778a1 1 0 0 1 0-1.414L6.364.707a1 1 0 1 1 1.414 1.414l-4.95 4.95z" />
   </svg>
 );
 
 export const ArrowNext = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="-5 -5 24 24"
+    fill="#fff"
     width="24"
     height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-chevron-right"
+    preserveAspectRatio="xMinYMin"
+    className="jam jam-chevrons-right"
   >
-    <polyline points="9 18 15 12 9 6" />
+    <path d="M11.314 7.071l-4.95-4.95A1 1 0 0 1 7.778.707l5.657 5.657a1 1 0 0 1 0 1.414l-5.657 5.657a1 1 0 0 1-1.414-1.414l4.95-4.95zm-6 0l-4.95-4.95A1 1 0 1 1 1.778.707l5.657 5.657a1 1 0 0 1 0 1.414l-5.657 5.657a1 1 0 0 1-1.414-1.414l4.95-4.95z" />
   </svg>
 );
 

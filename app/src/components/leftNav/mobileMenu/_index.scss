@@ -18,30 +18,6 @@
   // background: linear-gradient(transparent, #000);
 }
 
-#content-1 {
-  // background-image: url(../img/bg.jpg);
-}
-
-#content-2 {
-  // background-image: url(../img/bg1.jpg);
-}
-
-#content-3 {
-  // background-image: url(../img/bg2.jpg);
-}
-
-#content-4 {
-  // background-image: url(../img/bg3.jpg);
-}
-
-#content-5 {
-  // background-image: url(../img/bg4.jpg);
-}
-
-#content-6 {
-  // background-image: url(../img/bg5.jpg);
-}
-
 .menu-trigger {
   display: inline-block;
   background: none;
@@ -227,7 +203,7 @@
 .mobile-menu__item-title {
   @include menu-link;
   @include link-style;
-  font-size: 0.55rem !important;
+  font-size: 0.5rem !important;
   text-transform: uppercase;
 }
 

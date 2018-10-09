@@ -27,7 +27,7 @@
     height: 0;
     width: 0;
     box-sizing: border-box;
-    border: 0 solid #fe665c;
+    border: 0 solid #000;
     border-radius: 50%;
     -webkit-animation: loader-figure 1.15s infinite
       cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -61,10 +61,10 @@
     0% {
       height: 0;
       width: 0;
-      background-color: #fe665c;
+      background-color: #000;
     }
     29% {
-      background-color: #fe665c;
+      background-color: #000;
     }
     30% {
       height: 2em;
@@ -85,10 +85,10 @@
     0% {
       height: 0;
       width: 0;
-      background-color: #fe665c;
+      background-color: #000;
     }
     29% {
-      background-color: #fe665c;
+      background-color: #000;
     }
     30% {
       height: 2em;
@@ -109,10 +109,10 @@
     0% {
       height: 0;
       width: 0;
-      background-color: #fe665c;
+      background-color: #000;
     }
     29% {
-      background-color: #fe665c;
+      background-color: #000;
     }
     30% {
       height: 2em;

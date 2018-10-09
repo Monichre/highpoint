@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 import { VideoLogo } from "../../components/videoLogo";
 import Footer from "../../components/footer";
 import { homePageLines } from "../../components/lines";
+import ProgressBar from "../../components/progressBar";
 import anime from "animejs";
 import "./_home.scss";
 
@@ -29,6 +30,9 @@ export default class Home extends Component {
     const backgroundVideo = document.querySelector(".backgroundVideo");
     const border = document.querySelector(".border");
     const inner_svg = document.querySelector(".border .inner svg");
+
+    const progress = document.querySelector("progress_bar");
+    const progressPin = document.getElementById("progress-pin");
 
     const mainLineDrawing = anime({
       targets: ".inner .lines .main_path",
@@ -71,12 +75,13 @@ export default class Home extends Component {
   playOrPause = e => {
     const { isPlaying } = this.state;
     const internalPlayer = this.player.getInternalPlayer();
+    // internalPlayer.setAttribute('controls', true)
     this.setState(
       {
         isPlaying: !this.state.isPlaying
       },
       () => {
-        this.state.isPlaying ? internalPlayer.pause() : internalPlayer.play();
+        isPlaying ? internalPlayer.pause() : internalPlayer.play();
       }
     );
   };
@@ -84,6 +89,7 @@ export default class Home extends Component {
   rewind = () => {
     const current = this.player.getCurrentTime();
     const total = this.player.getDuration();
+
     this.player.seekTo(total - current);
   };
 
@@ -109,6 +115,7 @@ export default class Home extends Component {
             url={url}
             ref={player => (this.player = player)}
           />
+          <ProgressBar />
         </VideoLogo>
         <Footer
           isPlaying={isPlaying}

@@ -131,6 +131,7 @@ export default class MobileRightNav extends Component {
       <Modal>
         <MobilePortfolioSidebar
           {...this.props}
+          {...this.state}
           setActivePropertyCard={this.setActivePropertyCard}
         />
       </Modal>

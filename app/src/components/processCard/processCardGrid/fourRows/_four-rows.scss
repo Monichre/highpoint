@@ -2,10 +2,8 @@
 
 .four_rows_grid_container {
   height: 90vh;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
-
+  display: flex;
+  flex-wrap: nowrap;
   .blueprint,
   .before,
   .after {
@@ -20,7 +18,7 @@
     flex-wrap: wrap;
   }
   .blueprint {
-    grid-column: span 6 / auto;
+    width: 60%;
     height: 100%;
     @include mq($phone-wide) {
       grid-column: none;

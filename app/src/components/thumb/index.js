@@ -26,7 +26,7 @@ export default class MediaThumb extends Component {
     return this.props.item.media === "video" ? (
       <Fragment>
         {videoModal}
-        <VideoThumb {...this.props} openVideo={this.toggleVideo} />
+        <VideoThumb {...this.props} toggleVideo={this.toggleVideo} />
       </Fragment>
     ) : (
       <ImageThumb {...this.props} />
