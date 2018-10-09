@@ -111,8 +111,6 @@
           font-size: 0.6rem;
           @include font-secondary-reg;
           color: black;
-          font-weight: bolder;
-          font-family: N-Light;
           text-transform: uppercase;
           text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
           transition: text-shadow $b-animSpeed $b-animType;

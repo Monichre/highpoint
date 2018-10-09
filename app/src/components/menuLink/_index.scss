@@ -26,6 +26,9 @@
     &.active {
       @include link-style-hover;
     }
+    @include mq($tablet) {
+      font-size: 0.6rem;
+    }
   }
   &.mobile_sidebar_link {
     color: white !important;

@@ -6,7 +6,7 @@ import "./_index.scss";
 
 const MobilePortfolioSidebar = ({
   setActivePropertyCard,
-  activePropertyCard,
+  activeMenuItem,
   properties
 }) => {
   const modProperties = modifiedPropertyTitles(properties);
@@ -25,8 +25,8 @@ const MobilePortfolioSidebar = ({
             key={property.index}
             sidebar
             link={property.title}
-            index={property.index + 1}
-            actve={property.index + 2 === activePropertyCard}
+            index={property.index}
+            active={property.index === activeMenuItem - 1}
             onClick={setActivePropertyCard}
           />
         ))}

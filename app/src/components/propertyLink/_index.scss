@@ -20,7 +20,7 @@
       transform: rotate(90deg) translate(150px, -170%);
     }
     @include mq($desktop-wide-2) {
-      transform: rotate(90deg) translate(110px, -26px);
+      transform: rotate(90deg) translate(150px, -26px);
       // transform: rotate(90deg) translate(200px, 3px);
       // transform: rotate(90deg) translate(200px, -20px);
     }

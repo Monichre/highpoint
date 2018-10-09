@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { processPortfolioLines, cornerLines } from "../../components/lines";
+import { processPortfolioLines } from "../../components/lines";
 import Lightbox from "react-images";
 import MediaThumb from "../../components/thumb";
 import ScrollReveal from "scrollreveal";
@@ -26,7 +26,6 @@ export default class Gallery extends Component {
     if (!status) {
       processPortfolioLines();
     }
-    cornerLines();
 
     const { galleryItems } = AppStore.data;
     const gridContainer = document.querySelector(".thumb__scroller");

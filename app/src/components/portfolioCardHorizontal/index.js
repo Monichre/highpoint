@@ -1,11 +1,8 @@
 import React from "react";
 import ViewProcessButton from "../viewProcessButton";
 import { isAVenture } from "../../utils";
-import { BROWSER } from "../../utils/browser";
 import { mcCallisterStyle } from "../../utils";
 import { FancyButtonCustomURL } from "../viewProcessButton/fancyButton";
-
-const { isPhone, status, isTablet } = BROWSER.isMobile();
 
 export const HorizontalPortfolioCard = ({ property }) => (
   <div
@@ -18,12 +15,7 @@ export const HorizontalPortfolioCard = ({ property }) => (
     }`}
     style={mcCallisterStyle(property)}
   >
-    <h3>
-      {property.isAProcessItem && isPhone ? (
-        <span className="property_address">{property.address}</span>
-      ) : null}
-      {property.title}
-    </h3>
+    <h3>{property.title}</h3>
     <div
       className={`img_cont ${
         isAVenture(property) ? "is_highpoint_venture" : ""

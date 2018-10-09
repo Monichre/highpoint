@@ -1,4 +1,4 @@
-const defaultLines = status => {
+const defaultLines = isTablet => {
   const bottomLines = [
     {
       width: 3,
@@ -16,9 +16,9 @@ const defaultLines = status => {
     },
 
     {
-      top: status ? "90%" : "85%",
+      top: isTablet ? "90%" : "85%",
       left: "88%",
-      width: status ? "12vw" : "25vw",
+      width: isTablet ? "12vw" : "25vw",
       height: 3,
       color: "#333",
       hidden: true,
@@ -33,8 +33,8 @@ const defaultLines = status => {
   const topLines = [
     {
       width: 3,
-      height: "20vh",
-      left: status ? "90%" : "79.5%",
+      height: isTablet ? "12vh" : "20vh",
+      left: isTablet ? "90%" : "79.5%",
       top: "0",
       color: "#333",
       hidden: true,
@@ -47,9 +47,9 @@ const defaultLines = status => {
     },
 
     {
-      top: "15%",
-      left: status ? "88%" : "78%",
-      width: "25vw",
+      top: isTablet ? "10%" : "15%",
+      left: isTablet ? "88%" : "78%",
+      width: isTablet ? "12vw" : "25vw",
       height: 3,
       color: "#333",
       hidden: true,
@@ -61,7 +61,7 @@ const defaultLines = status => {
       }
     }
   ];
-  return status ? topLines : bottomLines;
+  return isTablet ? topLines : bottomLines;
 };
 
 const mobilePhoneLines = [
@@ -96,6 +96,7 @@ const mobilePhoneLines = [
 ];
 
 export const rightLines = isMobile => {
-  const { status, isPhone, isTablet, isDesktop } = isMobile;
-  return isPhone ? mobilePhoneLines : defaultLines(status);
+  const { isPhone, isTablet, isMobileDevice } = isMobile;
+  const mobileIsh = isTablet || isMobileDevice;
+  return isPhone ? mobilePhoneLines : defaultLines(mobileIsh);
 };

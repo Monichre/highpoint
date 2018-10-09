@@ -82,6 +82,9 @@
     @include mq($tablet-wide) {
     }
     @include mq($tablet) {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid black;
       font-size: 0.9rem;
       width: 100%;
     }
@@ -89,31 +92,14 @@
       font-size: 0.7rem;
       margin: 0;
     }
-    .property_address {
-      position: absolute;
-      left: 0;
-      // top: -10px;
-      font-size: 0.5rem;
-      font-weight: bolder;
-      width: max-content;
-      line-height: 1.5;
-      font-style: oblique;
-      text-transform: uppercase;
-      text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-      transition: text-shadow $b-animSpeed $b-animType;
-      @include mq($tablet-wide-2) {
-        display: none;
-      }
-      @include mq($phone-wide) {
-        display: block;
-      }
-    }
   }
   .content {
-    .subtitle {
-      @include mq($tablet) {
-        display: none;
-      }
+    @include mq($tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
     }
     h4 {
       margin: 1rem 0 0.4rem;
@@ -133,7 +119,7 @@
         margin: 0.5rem 0 0.25rem !important;
       }
       @include mq($tablet) {
-        display: none;
+        text-align: center;
       }
     }
     .text {
@@ -228,12 +214,15 @@
         object-fit: scale-down;
         &:nth-of-type(1) {
           padding: 34px 38px 20px;
-          @include mq($desktop) {
-            // padding: 26px;
+          @include mq($desktop-wide) {
+            padding: 44px 38px 20px;
           }
         }
         &:nth-of-type(3) {
           padding: 20px 20px 0;
+          @include mq($desktop-wide) {
+            padding: 30px 20px 0;
+          }
         }
 
         @include mq($tablet-wide-2) {

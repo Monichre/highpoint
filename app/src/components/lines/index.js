@@ -1,21 +1,15 @@
 import { LineMaker } from "./lineMaker";
 import { BROWSER } from "../../utils/browser";
 import { homeLines } from "./home-lines";
-import { siteCornerLines } from "./corner-lines";
 import { leftLines } from "./left-lines";
 import { rightLines } from "./right-lines";
 import { pageLines } from "./page-lines";
 
-const winWidth = document.querySelector("body").offsetWidth;
-const isMobile = BROWSER.isMobile(winWidth);
-
-const hl = homeLines(isMobile);
-const cl = siteCornerLines(isMobile);
-const pl = pageLines(isMobile);
-const ll = leftLines(isMobile);
-const rl = rightLines(isMobile);
-
 export const homePageLines = () => {
+  const winWidth = document.querySelector("body").offsetWidth;
+  const isMobile = BROWSER.isMobile(winWidth);
+  const hl = homeLines(isMobile);
+
   const lines = new LineMaker({
     position: "fixed",
     lines: hl
@@ -23,15 +17,10 @@ export const homePageLines = () => {
   lines.animateLinesIn();
 };
 
-export const cornerLines = () => {
-  const lines = new LineMaker({
-    position: "fixed",
-    lines: cl
-  });
-  lines.animateLinesIn();
-};
-
 export const leftNavigationLines = el => {
+  const winWidth = document.querySelector("body").offsetWidth;
+  const isMobile = BROWSER.isMobile(winWidth);
+  const ll = leftLines(isMobile);
   const lines = new LineMaker({
     position: "fixed",
     lines: ll,
@@ -44,6 +33,9 @@ export const leftNavigationLines = el => {
 };
 
 export const rightNavigationLines = el => {
+  const winWidth = document.querySelector("body").offsetWidth;
+  const isMobile = BROWSER.isMobile(winWidth);
+  const rl = rightLines(isMobile);
   const lines = new LineMaker({
     position: "fixed",
     lines: rl,
@@ -56,6 +48,9 @@ export const rightNavigationLines = el => {
 };
 
 export const processPortfolioLines = (sidebar = false) => {
+  const winWidth = document.querySelector("body").offsetWidth;
+  const isMobile = BROWSER.isMobile(winWidth);
+  const pl = pageLines(isMobile);
   const lines = new LineMaker({
     position: "fixed",
     lines: pl

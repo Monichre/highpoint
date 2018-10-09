@@ -111,7 +111,7 @@
   .burger {
     width: 50px;
     height: 50px;
-    position: absolute;
+    position: fixed;
     @include column-flex-center;
     border-radius: 50%;
     left: 50%;

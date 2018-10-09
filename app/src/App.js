@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    BROWSER.listenForResize();
+    BROWSER.init();
     AppStore.addChangeListener(this._onChange.bind(this));
   }
 

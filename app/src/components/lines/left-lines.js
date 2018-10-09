@@ -1,10 +1,10 @@
-const defaultLines = status => {
+const defaultLines = isTablet => {
   const lines = [
     {
       top: 0,
       left: "10%",
       width: 3,
-      height: "20vh",
+      height: isTablet ? "12vh" : "20vh",
       color: "#333",
       hidden: true,
       animation: {
@@ -15,7 +15,7 @@ const defaultLines = status => {
       }
     },
     {
-      top: "15%",
+      top: isTablet ? "10%" : "15%",
       left: 0,
       width: "12vw",
       height: 3,
@@ -64,6 +64,7 @@ const iPhoneLines = [
 ];
 
 export const leftLines = isMobile => {
-  const { status, isPhone, isTablet, isDesktop } = isMobile;
-  return isPhone ? iPhoneLines : defaultLines(status);
+  const { isPhone, isTablet, isMobileDevice } = isMobile;
+  const mobileIsh = isTablet || isMobileDevice;
+  return isPhone ? iPhoneLines : defaultLines(mobileIsh);
 };
