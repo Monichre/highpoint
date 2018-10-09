@@ -3,7 +3,8 @@ import {
   getStore,
   goToPropertyCard,
   launchPropertySideBar,
-  setActiveMenuItem
+  setActiveMenuItem,
+  redrawSideBarLines
 } from "../actions";
 
 const AppDispatcher = new Dispatcher();
@@ -26,6 +27,10 @@ AppDispatcher.register(payload => {
 
     case "set-active-menu-item":
       setActiveMenuItem(menuItemIndex);
+      break;
+
+    case "redraw-sidebar-lines":
+      redrawSideBarLines();
       break;
 
     default:

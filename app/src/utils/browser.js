@@ -1,4 +1,5 @@
 import _ from "lodash";
+import AppDispatcher from "../flux/dispatchers";
 
 class TheBrowser {
   constructor() {
@@ -9,6 +10,7 @@ class TheBrowser {
     this.isLargeTablet = false;
     this.isDesktop = false;
     this.isMobileDevice = false;
+    this.initialWindowSize = null;
   }
   mQ = num => window.matchMedia(`(max-width: ${num}px)`);
 
@@ -29,6 +31,30 @@ class TheBrowser {
 
   determineBrowser = () => {
     const body = document.querySelector("body");
+    const {
+      windowWidth,
+      status,
+      isPhone,
+      isTablet,
+      isLargeTablet,
+      isDesktop,
+      isMobileDevice
+    } = this.isMobile();
+
+    console.table([
+      {
+        "browser initial resize:": {
+          windowWidth: windowWidth,
+          status: status,
+          isPhone: isPhone,
+          isTablet: isTablet,
+          isLargeTablet: isLargeTablet,
+          isDesktop: isDesktop,
+          "this.isMobileDevice": this.isMobileDevice
+        }
+      }
+    ]);
+
     if (this.isSafari()) {
       body.classList.add("isSafari");
     }
@@ -88,7 +114,7 @@ class TheBrowser {
   isLandscape = () => window.orientation === 90;
 
   isMobile = () => {
-    const winWidth = document.querySelector("body").offsetWidth;
+    const winWidth = document.querySelector("body").clientWidth;
     let status = false;
     let isPhone = false;
     let isTablet = false;
@@ -109,23 +135,15 @@ class TheBrowser {
     } else {
       isDesktop = true;
     }
+    this.windowWidth = winWidth;
     this.status = status;
     this.isPhone = isPhone;
     this.isTablet = isTablet;
     this.isLargeTablet = isLargeTablet;
     this.isDesktop = isDesktop;
 
-    console.log(
-      status,
-      isPhone,
-      isTablet,
-      isLargeTablet,
-      isDesktop,
-      winWidth,
-      this.isMobileDevice
-    );
-
     return {
+      windowWidth: this.windowWidth,
       status: this.status,
       isPhone: this.isPhone,
       isTablet: this.isTablet,
@@ -137,19 +155,69 @@ class TheBrowser {
 
   isShrinkingVertically = browser_height => browser_height <= 600;
 
-  handleResize = () => {
-    console.log("browser is resizing");
-    const { status, isTablet } = this.isMobile();
-    if (status) {
-      document.querySelector("body").classList.add("isMobile");
-    }
-    if (isTablet) {
-      window.location.reload();
-    }
+  redrawSideBarLines = () => {
+    console.log(
+      "The browser utility class is dispatching the the redraw sidebar lines"
+    );
+    AppDispatcher.dispatch({
+      action: "redraw-sidebar-lines"
+    });
   };
 
-  listenForResize = () =>
+  handleResize = () => {
+    const _this = this;
+    let resizeTimer;
+
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(function() {
+      const {
+        windowWidth,
+        status,
+        isPhone,
+        isTablet,
+        isLargeTablet,
+        isDesktop,
+        isMobileDevice
+      } = _this.isMobile();
+
+      console.table([
+        {
+          "browser specs after resize:": {
+            "initial window size is larger than now":
+              _this.initialWindowSize > windowWidth,
+            "initial window size is smaller than now":
+              _this.initialWindowSize < windowWidth,
+            windowWidth: windowWidth,
+            status: status,
+            isPhone: isPhone,
+            isTablet: isTablet,
+            isLargeTablet: isLargeTablet,
+            isDesktop: isDesktop,
+            "this.isMobileDevice": this.isMobileDevice
+          }
+        }
+      ]);
+      if (status) {
+        document.querySelector("body").classList.add("isMobile");
+      }
+      if (_this.initialWindowSize > windowWidth && (isTablet || isPhone)) {
+        _this.redrawSideBarLines();
+        _this.initialWindowSize = windowWidth;
+      }
+      if (
+        _this.initialWindowSize < windowWidth &&
+        (isLargeTablet || isDesktop)
+      ) {
+        _this.redrawSideBarLines();
+        _this.initialWindowSize = windowWidth;
+      }
+    }, 250);
+  };
+
+  listenForResize = () => {
     window.addEventListener("resize", _.debounce(this.handleResize, 100));
+  };
 
   addObjectFindPolyfill = () => {
     if (!Array.prototype.find) {
@@ -246,6 +314,9 @@ class TheBrowser {
     })();
   };
   init = () => {
+    const winWidth = document.querySelector("body").clientWidth;
+    this.initialWindowSize = winWidth;
+
     this.determineBrowser();
     this.listenForResize();
     this.lazyLoader();

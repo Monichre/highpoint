@@ -1,5 +1,5 @@
-import { EventEmitter } from 'events'
-import _ from 'lodash'
+import { EventEmitter } from "events";
+import _ from "lodash";
 
 export default _.extend({}, EventEmitter.prototype, {
   data: {
@@ -7,18 +7,17 @@ export default _.extend({}, EventEmitter.prototype, {
     pages: [],
     properties: [],
     processes: [],
-    listings: [],
+    redrawLines: false,
     galleryItems: [],
     activePropertyCard: 0
   },
-  emitChange: function () {
-    this.emit('change')
+  emitChange: function() {
+    this.emit("change");
   },
-  addChangeListener: function (callback) {
-    this.on('change', callback)
+  addChangeListener: function(callback) {
+    this.on("change", callback);
   },
-  removeChangeListener: function (callback) {
-    this.removeListener('change', callback)
+  removeChangeListener: function(callback) {
+    this.removeListener("change", callback);
   }
-
-})
+});

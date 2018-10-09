@@ -12,13 +12,29 @@ export default class RightNav extends Component {
     this.state = {};
     this.lines = {};
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.redrawLines !== this.props.redrawLines &&
+      nextProps.redrawLines
+    ) {
+      this.linesOut();
+      this.lines.removeLines();
+      this.initLines();
+    }
+  }
+
   componentDidMount() {
+    this.initLines();
+  }
+
+  initLines = () => {
     const nav = document.querySelector(".right_nav");
     const lines = rightNavigationLines(nav);
 
     lines.animateLinesIn();
     this.lines = lines;
-  }
+  };
 
   linesOut = () => {
     // this.lines.animateLinesOut()

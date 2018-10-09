@@ -11,8 +11,6 @@ export const getStore = callback => {
   });
 
   cms.getEntries().then(async response => {
-    console.log(response.items);
-
     const properties = response.items
       .filter(item => item.sys.contentType.sys.id === "property")
       .map(item => {
@@ -115,7 +113,6 @@ export const goToPropertyCard = propertyId => {
 };
 
 export const setActiveMenuItem = menuItemIndex => {
-  console.log(menuItemIndex);
   AppStore.data.activeMenuItem = menuItemIndex;
   AppStore.emitChange();
 };
@@ -124,4 +121,14 @@ export const launchPropertySideBar = propertyId => {
   AppStore.data.activePropertyCard = propertyId;
   AppStore.data.launchPropertySideBar = true;
   AppStore.emitChange();
+};
+
+export const redrawSideBarLines = () => {
+  AppStore.data.redrawLines = true;
+  AppStore.emitChange();
+
+  setTimeout(() => {
+    AppStore.data.redrawLines = false;
+    AppStore.emitChange();
+  }, 2000);
 };

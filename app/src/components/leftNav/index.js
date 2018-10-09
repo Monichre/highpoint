@@ -12,13 +12,28 @@ export default class LeftNav extends Component {
     this.state = {};
     this.lines = {};
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.redrawLines !== this.props.redrawLines &&
+      nextProps.redrawLines
+    ) {
+      this.linesOut();
+      this.lines.removeLines();
+      this.initLines();
+    }
+  }
   componentDidMount() {
+    this.initLines();
+  }
+
+  initLines = () => {
     const nav = document.querySelector(".left_nav");
     const lines = leftNavigationLines(nav);
 
     lines.animateLinesIn();
     this.lines = lines;
-  }
+  };
 
   linesOut = () => {
     this.lines.animateLineOut(0, {
