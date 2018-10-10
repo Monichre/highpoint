@@ -60,7 +60,6 @@ export default class MobileRightNav extends Component {
 
   componentDidMount() {
     const { isPortfolioPage, activePropertyCard } = this.state;
-    const _this = this;
     if (isPortfolioPage) {
       const slider = document.getElementById("mobile_sidebar_menu");
       const content = document.querySelector(".sidebar_properties_list");
@@ -90,16 +89,24 @@ export default class MobileRightNav extends Component {
     }
   }
 
+  // componentWillUnmount() {
+  //   const closeMenu = document.querySelector('.close_menu_side')
+  //   closeMenu.removeEventListener('click', () => {
+  //     this.toggleSideBar()
+  //   })
+  //   this.sidebarMenu = null
+  // }
+
   sideBarCloseCallback = () => {
     document.querySelector("body").classList.remove("mobile_sidebar_open");
-    this.props.parentAddLinesAnimation();
+    // this.props.parentAddLinesAnimation();
     this.setState({
       open: false
     });
   };
 
   sideBarOpenCallback = () => {
-    this.props.parentRemoveLinesAnimation();
+    // this.props.parentRemoveLinesAnimation();
     document.querySelector("body").classList.add("mobile_sidebar_open");
     this.setState({
       open: true

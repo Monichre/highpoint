@@ -1,10 +1,16 @@
+@import "../../sass/variables";
+
 .footer {
   position: fixed;
   overflow: hidden;
   height: 105px;
   bottom: 0;
-  width: 100%;
+  width: 80vw;
   z-index: 3000;
+
+  @include mq($phone-wide) {
+    width: 100vw;
+  }
 
   .footer_nav {
     position: absolute;

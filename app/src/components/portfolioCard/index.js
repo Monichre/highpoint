@@ -13,7 +13,7 @@ export const PortfolioCard = ({
   index,
   property: { featuredImage }
 }) => {
-  if (BROWSER.isExplorer) {
+  if (BROWSER.isExplorer || BROWSER.isEdge) {
     return (
       <PortfolioCardContainer arrowClick={arrowClick} className="vertical">
         <VerticalPortfolioCard

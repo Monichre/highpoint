@@ -34,8 +34,6 @@ export default class DefaultRightNav extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.activeMenuItem !== this.props.activeMenuItem) {
       const { open, initialMenuHasRendered, activePropertyCard } = this.state;
-      console.log("nextProps.activeMenuItem", nextProps.activeMenuItem);
-      console.log("this.props.activeMenuItem", this.props.activeMenuItem);
       if (nextProps.activeMenuItem === 2) {
         if (!initialMenuHasRendered && !activePropertyCard) {
           this.setState(
@@ -98,11 +96,11 @@ export default class DefaultRightNav extends Component {
         height: "70vh"
       });
       this.sidebarMenu = sidebarMenu;
-      if (activePropertyCard === 1) {
-        this.props.parentRemoveLinesAnimation();
-        this.sidebarMenu.open();
-        burgerIcon.classList.add("open");
-      }
+      // if (activePropertyCard === 1) {
+      //   this.props.parentRemoveLinesAnimation();
+      //   this.sidebarMenu.open();
+      //   burgerIcon.classList.add("open");
+      // }
     }
   }
 

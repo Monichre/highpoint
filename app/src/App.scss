@@ -57,7 +57,9 @@ body {
 
 .process_page {
   height: 100vh;
-  overflow: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .process_page .grid {
   display: flex;
@@ -66,7 +68,9 @@ body {
   flex-wrap: wrap;
   height: auto !important;
   padding: 0rem 1rem 0 1rem;
-  overflow: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @include mq($tablet-wide) {
     // padding: 4rem 2rem 15rem 2rem;
@@ -113,10 +117,15 @@ body {
       font-size: 0.8rem;
     }
   }
-  .image_1swebtw-o_O-imageLoaded_zgbg08 {
-    width: calc(100% - 2px);
+  .figure_10ki57k {
+    width: calc(100% - 2px) !important;
     height: calc(100% - 2px) !important;
-    object-fit: none;
+    overflow: hidden;
+    img {
+      max-height: 100%;
+      transform: scale(1.05);
+      object-fit: contain;
+    }
 
     &.object_fit__landscape {
       object-fit: contain;

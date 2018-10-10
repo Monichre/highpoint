@@ -2,34 +2,37 @@
 
 .properties_link {
   transition: all 0.8s ease-in-out;
-  display: block !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
   height: 100%;
   width: 100%;
+  position: relative;
   @include font-secondary-bolder;
   .text {
     transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
-    transform: rotate(90deg) translate(150px, -30px);
+    transform: rotate(90deg);
     width: max-content;
-
     text-transform: capitalize;
-
-    position: relative;
     @include link-style;
     @include font-secondary-bolder;
-    @include minMq($desktop-up) {
-      // transform: rotate(90deg) translate(150px, -170%);
-      transform: rotate(90deg) translate(16vh, -2.5vw);
-    }
-    @include mq($desktop-wide-2) {
-      transform: rotate(90deg) translate(16vh, -2.5vw);
-      // transform: rotate(90deg) translate(150px, -5vw);
-      // transform: rotate(90deg) translate(200px, 3px);
-      // transform: rotate(90deg) translate(200px, -20px);
-    }
-    @include mq($desktop-wide) {
-    }
+    top: 125%;
+    left: 20%;
+    position: absolute;
+    // @include minMq($desktop-up) {
+    //   // transform: rotate(90deg) translate(150px, -170%);
+    //   transform: rotate(90deg) translate(16vh, -2.5vw);
+    // }
+    // @include mq($desktop-wide-2) {
+    //   transform: rotate(90deg) translate(16vh, -2.5vw);
+    //   // transform: rotate(90deg) translate(150px, -5vw);
+    //   // transform: rotate(90deg) translate(200px, 3px);
+    //   // transform: rotate(90deg) translate(200px, -20px);
+    // }
+    // @include mq($desktop-wide) {
+    // }
     @include mq($desktop) {
-      transform: rotate(90deg) translate(16vh, -2.5vw);
+      left: 22%;
     }
     @include mq($tablet-wide-2) {
       // transform: rotate(90deg) translate(95px, -17px);
@@ -74,11 +77,13 @@
   }
   &.open {
     .text {
-      opacity: 0;
+      display: none;
     }
   }
   .hover-link-icon {
-    transform: translateY(2.5vh);
+    // transform: translateY(2.5vh);
+    display: block !important;
+    margin: auto;
 
     @include mq($tablet-wide) {
       transform: translateY(0);

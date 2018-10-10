@@ -18,16 +18,7 @@ const PortfolioCardContainer = ({
   className
 }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-        padding: "2% 0"
-      }}
-    >
+    <div className="portfolio_card__wrapper">
       <div className={`portfolio_card portfolio_card--full ${className}`}>
         {children}
         <ArrowButton arrowClick={arrowClick} index={index} />

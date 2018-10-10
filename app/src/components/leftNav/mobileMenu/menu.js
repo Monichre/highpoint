@@ -42,7 +42,12 @@ class Menu {
   }
 
   toggle(action) {
-    if (this.isAnimating) return;
+    if (this.isAnimating) {
+      console.log("this.isAnimating", this.isAnimating);
+      return;
+    }
+    console.log("this is not Animating", this.isAnimating);
+    console.log(action);
     this.isAnimating = true;
     if (action === "open") {
       this.openBoxes();
@@ -56,30 +61,23 @@ class Menu {
   }
 
   closeBoxes(pos = 0) {
+    console.log(pos);
     this.toggleBoxes("close", pos);
   }
 
   toggleBoxes(action, pos) {
     if (pos >= this.itemsTotal) {
       this.isAnimating = false;
-      console.log(this.isAnimating);
       return;
     }
-    console.log(this.DOM.el);
-    console.log(this.DOM.el.classList);
+
     this.DOM.el.classList[action === "open" ? "add" : "remove"](
       "mobile-menu--open"
     );
+    console.log(this.DOM.el.classList);
     const box = this.boxes[pos];
-    console.log(this.boxes);
-    console.log(box);
     box[action === "open" ? "open" : "close"]().then(() =>
       this[action === "open" ? "openBoxes" : "closeBoxes"](pos + 1)
-    );
-    console.log(
-      box[action === "open" ? "open" : "close"]().then(() =>
-        this[action === "open" ? "openBoxes" : "closeBoxes"](pos + 1)
-      )
     );
   }
 }

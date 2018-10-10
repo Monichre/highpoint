@@ -31,9 +31,17 @@ export default class RightNav extends Component {
   initLines = () => {
     const nav = document.querySelector(".right_nav");
     const lines = rightNavigationLines(nav);
-
-    lines.animateLinesIn();
     this.lines = lines;
+
+    if (status) {
+      this.linesIn();
+    } else if (
+      this.props.activeMenuItem === 2 &&
+      this.props.activePropertyCard === 0
+    ) {
+    } else {
+      lines.animateLinesIn();
+    }
   };
 
   linesOut = () => {

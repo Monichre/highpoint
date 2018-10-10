@@ -21,7 +21,7 @@
   }
   .vertical__inner:not(.horizontal__inner) {
     width: 100%;
-    height: 90%;
+    height: 90vmin;
     position: relative;
     z-index: 10;
     display: flex;
@@ -58,9 +58,15 @@
       display: flex;
       flex-direction: row;
       height: 100%;
+      @include mq($tablet) {
+        flex-direction: column;
+      }
       .img_cont,
       .content {
         width: 50%;
+        @include mq($tablet) {
+          width: 100%;
+        }
       }
       .content {
         padding: 0 0 0 20px;
@@ -68,7 +74,7 @@
         flex-direction: column;
         justify-content: flex-start;
         overflow: hidden;
-        margin-top: 80px;
+        margin-top: 40px;
         @include mq($tablet-wide) {
           // justify-content: flex-start;
           margin-top: 40px;
@@ -88,18 +94,16 @@
         }
         p {
           @include font-secondary;
-          @include minMq($desktop-up) {
-            font-size: 0.55rem;
-          }
-          @include mq($desktop) {
-            font-size: 0.4rem;
-          }
-          @include mq($tablet-wide-2) {
-            font-size: 0.35rem;
-            max-height: 300px;
-            overflow: hidden;
-          }
+          font-size: 2vmin;
+
           @include mq($tablet-wide) {
+            font-size: 1.7vmin;
+            margin-top: 0;
+          }
+
+          @include mq($tablet-wide-2) {
+            font-size: 1.55vmin;
+            margin-top: 0;
           }
 
           @include mq($tablet) {
@@ -186,6 +190,14 @@
           }
         }
       }
+    }
+  }
+}
+
+.isEdge {
+  .vertical:not(.horizontal) {
+    .vertical__inner:not(.horizontal__inner) {
+      padding: 0rem 2rem 2rem 1rem;
     }
   }
 }

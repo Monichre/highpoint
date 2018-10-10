@@ -26,7 +26,9 @@ export default class FourRowGrid extends Component {
 
     const photoSet = galleryItems.map((image, i) => {
       let _image = {};
-      _image.src = image.fields.file.url;
+      _image.src = image.fields.file.url + "?w=2000&h=1000";
+      _image.thumb = image.fields.file.url + "?w=500&h=500&fit=thumb";
+      _image.srcSet = image.fields.file.url + "?w=2000&h=1000";
       _image.alt =
         image.fields.file.details.image.height >
         image.fields.file.details.image.width
@@ -35,7 +37,19 @@ export default class FourRowGrid extends Component {
 
       return _image;
     });
+    // const photoSet = galleryItems.map((image, i) => {
+    //   let _image = {}
+    //   _image.src = image.fields.file.url
+    //   _image.thumb = image.fields.file.url + '?w=500&h=500&fit=thumb'
+    //   _image.srcSet = `${image.fields.file.url}?w=1000&h=500&fit=crop , ${image.fields.file.url}`
+    //   _image.alt =
+    //     image.fields.file.details.image.height >
+    //       image.fields.file.details.image.width
+    //       ? 'object_fit__portrait'
+    //       : 'object_fit__landscape'
 
+    //   return _image
+    // })
     this.setState({
       photos: photoSet,
       galleryItems: galleryItems
@@ -61,51 +75,15 @@ export default class FourRowGrid extends Component {
     this.setState({
       currentImage: this.state.currentImage + 1
     });
-    setTimeout(() => {
-      const img = document.querySelector(".figure_10ki57k img");
-      const alt = img.getAttribute("alt");
-
-      if (alt === "object_fit__landscape") {
-        img.classList.remove("object_fit__portrait");
-        img.classList.add("object_fit__landscape");
-      } else {
-        img.classList.remove("object_fit__landscape");
-        img.classList.add("object_fit__portrait");
-      }
-    }, 50);
   };
 
   goToPrevious = () => {
-    setTimeout(() => {
-      const img = document.querySelector(".figure_10ki57k img");
-      const alt = img.getAttribute("alt");
-
-      if (alt === "object_fit__landscape") {
-        img.classList.remove("object_fit__portrait");
-        img.classList.add("object_fit__landscape");
-      } else {
-        img.classList.remove("object_fit__landscape");
-        img.classList.add("object_fit__portrait");
-      }
-    }, 50);
     this.setState({
       currentImage: this.state.currentImage - 1
     });
   };
 
   goToImage = index => {
-    setTimeout(() => {
-      const img = document.querySelector(".figure_10ki57k img");
-      const alt = img.getAttribute("alt");
-
-      if (alt === "object_fit__landscape") {
-        img.classList.remove("object_fit__portrait");
-        img.classList.add("object_fit__landscape");
-      } else {
-        img.classList.remove("object_fit__landscape");
-        img.classList.add("object_fit__portrait");
-      }
-    }, 50);
     this.setState({
       currentImage: index
     });

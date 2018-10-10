@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import ViewProcessButton from "../viewProcessButton";
-import { trim, isAVenture, mcCallisterStyle } from "../../utils";
+import { isAVenture, mcCallisterStyle } from "../../utils";
 
 import "./_index.scss";
 

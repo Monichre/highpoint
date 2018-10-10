@@ -2,7 +2,19 @@ import React from "react";
 import ReactPlayer from "react-player";
 import _ from "lodash";
 
-export const trim = str => {
+export const litteTrim = str => {
+  let trimmed = str;
+  if (str.length >= 605) {
+    trimmed = str.split("");
+    trimmed.length = 400;
+    trimmed.push("...");
+    trimmed.join("");
+    return trimmed;
+  }
+  return trimmed;
+};
+
+export const bigTrim = str => {
   let trimmed = str;
   if (str.length >= 1280) {
     trimmed = str.split("");
@@ -42,7 +54,7 @@ export const isAVenture = property => {
     "Compass",
     "Reonomy"
   ];
-  return !!titles.includes(property.title);
+  return titles.indexOf(property.title) >= 0;
 };
 
 export const modifiedPropertyTitles = properties => {

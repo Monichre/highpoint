@@ -51,7 +51,7 @@ const MobileMenu = ({ links, toggleMenu }) => (
         </a>
       </div>
 
-      {links.reverse().map((link, i) => (
+      {links.map((link, i) => (
         <MobileMenuLink link={link} i={i} />
       ))}
     </nav>

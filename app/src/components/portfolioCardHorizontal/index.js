@@ -1,7 +1,7 @@
 import React from "react";
 import ViewProcessButton from "../viewProcessButton";
 import { isAVenture } from "../../utils";
-import { mcCallisterStyle } from "../../utils";
+import { mcCallisterStyle, litteTrim } from "../../utils";
 import { FancyButtonCustomURL } from "../viewProcessButton/fancyButton";
 
 export const HorizontalPortfolioCard = ({ property }) => (

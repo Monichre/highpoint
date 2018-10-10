@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { modifiedPropertyTitles } from "../../utils";
 
 const AboutUs = ({ allVentures, goToPage, content }) => {
@@ -18,13 +19,15 @@ const AboutUs = ({ allVentures, goToPage, content }) => {
             style={{ cursor: "pointer" }}
             onClick={e => goToPage(e, property.index)}
           >
-            {i === 0 || i === modProperties.length - 1 ? "" : " / "}
             {property.title}
+            {i === modProperties.length - 1 || i === modProperties.length - 1
+              ? ""
+              : " / "}
           </span>
         ))}
       </h4>
       <div className="text">
-        <p>{content}</p>
+        <ReactMarkdown source={content} />
       </div>
     </div>
   );

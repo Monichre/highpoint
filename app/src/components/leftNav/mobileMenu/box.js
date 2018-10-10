@@ -38,7 +38,7 @@ class Box {
           duration: 1
         },
         scaleY: this.pos % 2 === 0 ? [0, 1] : 1,
-        scaleX: Math.abs(this.pos % 2) == 1 ? [0, 1] : 1,
+        scaleX: Math.abs(this.pos % 2) === 1 ? [0, 1] : 1,
         complete: () => {
           if (this.DOM.img && this.DOM.cover) {
             this.DOM.img.style.opacity = 1;
@@ -74,16 +74,18 @@ class Box {
     });
   }
   close() {
-    console.log(this.DOM.bg);
+    console.log(this);
     return new Promise((resolve, reject) => {
+      console.log(this);
       const animateBoxFn = () => {
+        console.log(this);
         this.DOM.bg.style.transformOrigin =
           this.pos % 2 === 0 ? "50% 0%" : "100% 50%";
-        console.log(this.DOM.bg);
         anime.remove(this.DOM.bg);
         anime({
           targets: this.DOM.bg,
-          duration: this.DOM.bg.dataset.duration || 80 + this.pos * 10,
+          // duration: this.DOM.bg.dataset.duration || 80 + this.pos * 10,
+          duration: 500,
           easing: this.DOM.bg.dataset.easing || "easeInOutQuad",
           opacity: {
             value: 0,
@@ -91,7 +93,7 @@ class Box {
             duration: 1
           },
           scaleY: this.pos % 2 === 0 ? [1, 0] : 1,
-          scaleX: Math.abs(this.pos % 2) == 1 ? [1, 0] : 1,
+          scaleX: Math.abs(this.pos % 2) === 1 ? [1, 0] : 1,
           complete: resolve
         });
       };

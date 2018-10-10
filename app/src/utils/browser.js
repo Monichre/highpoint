@@ -21,12 +21,15 @@ class TheBrowser {
   mQ = num => window.matchMedia(`(max-width: ${num}px)`);
 
   isSafariBrowser = () => {
-    this.isSafari = navigator.userAgent.indexOf("Safari") > -1;
+    this.isSafari =
+      navigator.userAgent.indexOf("Safari") > -1 && !this.isEdgeBrowser();
     return this.isSafari;
   };
 
   isChromeBrowser = () => {
-    this.isChrome = navigator.userAgent.indexOf("Chrome") > -1;
+    this.isChrome =
+      navigator.userAgent.indexOf("Chrome") > -1 &&
+      (!this.isSafariBrowser() && !this.isEdgeBrowser());
     return this.isChrome;
   };
 
@@ -39,7 +42,6 @@ class TheBrowser {
       ) ||
       navigator.userAgent.indexOf("MSIE") > -1;
 
-    console.log("isExplorer", this.isExplorer);
     return this.isExplorer;
   };
 
@@ -80,34 +82,8 @@ class TheBrowser {
     if (this.isEdgeBrowser()) {
       body.classList.add("isEdge");
     }
-
-    if (this.isExplorer) {
-      console.ietable([
-        "browser initial resize:",
-        {
-          windowWidth: windowWidth,
-          status: status,
-          isPhone: isPhone,
-          isTablet: isTablet,
-          isLargeTablet: isLargeTablet,
-          isDesktop: isDesktop,
-          "this.isMobileDevice": this.isMobileDevice
-        }
-      ]);
-    } else {
-      console.table([
-        {
-          "browser initial resize:": {
-            windowWidth: windowWidth,
-            status: status,
-            isPhone: isPhone,
-            isTablet: isTablet,
-            isLargeTablet: isLargeTablet,
-            isDesktop: isDesktop,
-            "this.isMobileDevice": this.isMobileDevice
-          }
-        }
-      ]);
+    if (this.isEdge || this.isExplorer) {
+      this.handlePolyfill();
     }
   };
 
@@ -134,18 +110,33 @@ class TheBrowser {
   };
 
   handlePolyfill = () => {
+    if (!Object.entries)
+      Object.entries = function(obj) {
+        var ownProps = Object.keys(obj),
+          i = ownProps.length,
+          resArray = new Array(i); // preallocate the Array
+        while (i--) resArray[i] = [ownProps[i], obj[ownProps[i]]];
+
+        return resArray;
+      };
+    this.addObjectFindPolyfill();
     const body = document.querySelector("body");
-    const polyfill = document.createElement("script");
-    polyfill.src =
+    const polyfillOne = document.createElement("script");
+    const polyfillTwo = document.createElement("script");
+
+    polyfillOne.src =
       "https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js";
-    polyfill.id = "polyfill";
-    body.appendChild(polyfill);
+    polyfillOne.id = "polyfillOne";
+
+    body.appendChild(polyfillTwo);
   };
 
   removePolyFill = () => {
     const body = document.querySelector("body");
-    const polyfill = document.getElementById("polyfill");
+    const polyfill = document.getElementById("polyfillOne");
+    const polyfillTwo = document.getElementById("polyfillTwo");
     body.removeChild(polyfill);
+    body.removeChild(polyfillTwo);
   };
 
   isSmallerThanTablet = num => num <= 780;
@@ -195,12 +186,9 @@ class TheBrowser {
   isShrinkingVertically = browser_height => browser_height <= 600;
 
   redrawSideBarLines = () => {
-    console.log(
-      "The browser utility class is dispatching the the redraw sidebar lines"
-    );
-    AppDispatcher.dispatch({
-      action: "redraw-sidebar-lines"
-    });
+    // AppDispatcher.dispatch({
+    //   action: 'redraw-sidebar-lines'
+    // })
   };
 
   handleResize = () => {
@@ -234,7 +222,7 @@ class TheBrowser {
         _this.redrawSideBarLines();
         _this.initialWindowSize = windowWidth;
       }
-    }, 250);
+    }, 1000);
   };
 
   listenForResize = () => {
@@ -273,6 +261,67 @@ class TheBrowser {
       }
       i(), window.addEventListener("scroll", i);
     })();
+  };
+  addObjectFindPolyfill = () => {
+    if (!Array.prototype.find) {
+      return Object.defineProperty(Array.prototype, "find", {
+        value: function(predicate) {
+          if (this == null) {
+            throw new TypeError('"this" is null or not defined');
+          }
+
+          var o = Object(this);
+          var len = o.length >>> 0;
+
+          if (typeof predicate !== "function") {
+            throw new TypeError("predicate must be a function");
+          }
+
+          var thisArg = arguments[1];
+          var k = 0;
+
+          while (k < len) {
+            var kValue = o[k];
+            if (predicate.call(thisArg, kValue, k, o)) {
+              return kValue;
+            }
+            // e. Increase k by 1.
+            k++;
+          }
+
+          // 7. Return undefined.
+          return undefined;
+        }
+      });
+    }
+
+    if (typeof Object.assign !== "function") {
+      Object.assign = function(target, varArgs) {
+        // .length of function is 2
+        "use strict";
+        if (target == null) {
+          // TypeError if undefined or null
+          throw new TypeError("Cannot convert undefined or null to object");
+        }
+
+        var to = Object(target);
+
+        for (var index = 1; index < arguments.length; index++) {
+          var nextSource = arguments[index];
+
+          if (nextSource != null) {
+            // Skip over if undefined or null
+            for (var nextKey in nextSource) {
+              // Avoid bugs when hasOwnProperty is shadowed
+              if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                to[nextKey] = nextSource[nextKey];
+              }
+            }
+          }
+        }
+        return to;
+      };
+    }
   };
   init = () => {
     const winWidth = document.querySelector("body").clientWidth;

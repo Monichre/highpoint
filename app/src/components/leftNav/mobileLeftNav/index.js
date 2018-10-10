@@ -28,9 +28,9 @@ class MobileLeftNav extends Component {
     const { mobileNavOpen } = this.state;
     if (mobileNavOpen) {
       this.DOM.menu.close();
-      this.props.parentAddLinesAnimation();
+      // this.props.parentAddLinesAnimation();
     } else {
-      this.props.parentRemoveLinesAnimation();
+      // this.props.parentRemoveLinesAnimation();
       this.DOM.menu.open();
     }
     this.setState({

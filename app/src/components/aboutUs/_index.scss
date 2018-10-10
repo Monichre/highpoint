@@ -37,6 +37,10 @@
     text-transform: uppercase;
     text-shadow: 1px 1px 0 $c-primary;
     transition: text-shadow $b-animSpeed $b-animType;
+    display: flex;
+    flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
     @include font-secondary-reg;
     @include minMq($desktop-up) {
       font-size: 0.95rem;
@@ -66,9 +70,15 @@
 
     @include mq($phone-wide) {
       margin: 20px 0 40px;
+      display: block !important;
     }
 
     span {
+      width: auto;
+      margin: 0 10px 0 0;
+      @include mq($phone-wide) {
+        margin: 0;
+      }
       &:hover {
         text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
       }
@@ -93,6 +103,7 @@
 
     p {
       @include font-secondary;
+      margin-bottom: 20px;
       @include minMq($desktop-up) {
         font-size: 0.55rem;
       }

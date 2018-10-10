@@ -8,14 +8,19 @@
     width: 85%;
     margin: auto;
     height: 100%;
-
     position: relative;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .thumb__scroller {
       padding: 50px 0 100px !important;
       height: 100%;
       clear: both;
       overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       @include mq($phone-wide) {
         padding: 150px 0 100px !important;
@@ -88,6 +93,9 @@
           transition: all 0.4s ease-in-out;
           opacity: 0;
 
+          @include mq($phone-wide) {
+            display: none;
+          }
           .inner {
             padding: 20px;
 
