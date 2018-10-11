@@ -52,9 +52,11 @@
       font-size: 0.7rem;
       margin: 0;
     }
-    @include mq($macbook-air) {
-      // font-size: 0.5rem;
+    @include mq($desktop) {
+      font-size: 3vh;
+      margin-top: 0;
     }
+
     @include mq($tablet-wide) {
       padding: 0 40px;
       // font-size: 0.9rem;
@@ -71,6 +73,10 @@
     @include mq($phone-wide) {
       margin: 20px 0 40px;
       display: block !important;
+    }
+
+    @include mq($phone--xs-small) {
+      font-size: 0.5rem;
     }
 
     span {
@@ -104,20 +110,22 @@
     p {
       @include font-secondary;
       margin-bottom: 20px;
+      font-size: 2vmin;
       @include minMq($desktop-up) {
-        font-size: 0.55rem;
+        font-size: 2vmin;
       }
       @include mq($desktop-wide-2) {
         font-size: 0.55rem;
       }
       @include mq($desktop) {
-        font-size: 0.475rem;
+        font-size: 1.95vmin;
       }
       @include mq($tablet-wide) {
         // font-size: 0.7rem;
       }
       @include mq($tablet-wide-2) {
         // font-size: 0.55rem;
+        font-size: 1.65vmin;
       }
       @include mq($phone-wide) {
         // font-size: 0.485rem;
@@ -126,6 +134,14 @@
       @include mq($phone) {
         // font-size: 0.5rem;
       }
+    }
+  }
+}
+
+body.isEdge {
+  .about_us_section--wrap {
+    h4 {
+      margin-top: 40px;
     }
   }
 }

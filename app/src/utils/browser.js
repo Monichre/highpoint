@@ -1,6 +1,5 @@
 import _ from "lodash";
 import { IE_HANDLER } from "./ie";
-import AppDispatcher from "../flux/dispatchers";
 
 class TheBrowser {
   constructor() {
@@ -185,12 +184,6 @@ class TheBrowser {
 
   isShrinkingVertically = browser_height => browser_height <= 600;
 
-  redrawSideBarLines = () => {
-    // AppDispatcher.dispatch({
-    //   action: 'redraw-sidebar-lines'
-    // })
-  };
-
   handleResize = () => {
     const _this = this;
     let resizeTimer;
@@ -212,14 +205,14 @@ class TheBrowser {
         document.querySelector("body").classList.add("isMobile");
       }
       if (_this.initialWindowSize > windowWidth && (isTablet || isPhone)) {
-        _this.redrawSideBarLines();
+        window.location.reload(true);
         _this.initialWindowSize = windowWidth;
       }
       if (
         _this.initialWindowSize < windowWidth &&
         (isLargeTablet || isDesktop)
       ) {
-        _this.redrawSideBarLines();
+        window.location.reload(true);
         _this.initialWindowSize = windowWidth;
       }
     }, 1000);

@@ -37,12 +37,18 @@
   //   margin: 20px 10px 0 0;
   // }
 
-  // @include mq($phone-wide) {
-  //   --offset: 10px;
-  //   padding: 20px;
-  //   font-size: 0.35rem;
-  //   margin: 10px 0 -20px;
-  // }
+  @include mq($phone-wide) {
+    --offset: 10px;
+    padding: 4vmin 5vmin;
+    font-size: 0.35rem;
+    margin: 10px 0 -20px;
+  }
+
+  @include mq($phone--xs-small) {
+    --offset: 5px;
+    padding: 2vmin 3vmin;
+    font-size: 0.3rem;
+  }
 
   .button__horizontal,
   .button__vertical {

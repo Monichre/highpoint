@@ -86,7 +86,7 @@ export const getStore = callback => {
     fullGallery.push({
       property: "Highpoint Property Group",
       address: "",
-      url: "/logos/logo-full.svg",
+      url: "/logos/HPPG-black.png",
       media: "image",
       isAVenture: true
     });
@@ -98,11 +98,6 @@ export const getStore = callback => {
     AppStore.data.videos = videos;
     AppStore.data.ready = true;
 
-    // const appCache = {
-    //   ...AppStore.data
-    // }
-
-    // localStorage.setItem('appCache', JSON.stringify(appCache))
     AppStore.emitChange();
   });
 };

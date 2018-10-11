@@ -21,6 +21,20 @@
 @import "./components/processCardPreview/index";
 @import "./components/processCard/processCardGrid/fourRows/four-rows";
 
+@viewport {
+  zoom: 1;
+  width: device-width;
+}
+
+@-ms-viewport {
+  width: extend-to-zoom;
+  zoom: 1;
+}
+
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 body {
   // transition: all 0.4s ease-in-out;
   position: relative;
@@ -59,6 +73,19 @@ body {
   height: 100vh;
   &::-webkit-scrollbar {
     display: none;
+  }
+  @include mq($phone--xs-small) {
+    height: 100%;
+  }
+  .inner {
+    @include mq($phone--xs-small) {
+      height: 100%;
+    }
+    .process_card {
+      @include mq($phone--xs-small) {
+        height: 100%;
+      }
+    }
   }
 }
 .process_page .grid {

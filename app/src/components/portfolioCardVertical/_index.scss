@@ -75,6 +75,9 @@
         justify-content: flex-start;
         overflow: hidden;
         margin-top: 40px;
+        @include mq($desktop-wide) {
+          margin-top: 0;
+        }
         @include mq($tablet-wide) {
           // justify-content: flex-start;
           margin-top: 40px;
@@ -96,8 +99,8 @@
           @include font-secondary;
           font-size: 2vmin;
 
-          @include mq($tablet-wide) {
-            font-size: 1.7vmin;
+          @include mq($desktop) {
+            font-size: 1.85vmin;
             margin-top: 0;
           }
 

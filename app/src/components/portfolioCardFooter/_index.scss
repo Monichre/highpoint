@@ -20,7 +20,7 @@
   }
 
   @include mq($phone-wide) {
-    // height: 15%;
+    height: 15vmin;
     padding-left: 0.5rem;
   }
 
@@ -53,9 +53,12 @@
   height: 100%;
   border-top: 2px solid #000;
   border-left: 2px solid #000;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 10;
   flex-direction: column;
   @include mq($tablet-wide-2) {
     width: 2.25rem;

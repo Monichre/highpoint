@@ -30,7 +30,7 @@
   }
   @include mq($tablet-wide-2) {
     padding: 0.5rem 2rem 0 1rem;
-    align-items: baseline;
+    // align-items: baseline;
     // justify-content: space-evenly;
     // height: 93%;
   }
@@ -40,9 +40,12 @@
     padding: 0.8rem 2rem 0 1.5rem;
   }
   @include mq($phone-wide) {
-    // height: 85%;
+    height: 110vmin;
     padding: 0rem 1.2rem 0 0.8rem;
     justify-content: space-evenly;
+  }
+  @include mq($phone-small) {
+    height: 140vmin;
   }
 
   &:after {
@@ -84,13 +87,13 @@
     @include mq($tablet) {
       text-align: center;
       padding-bottom: 20px;
-      border-bottom: 2px solid black;
       font-size: 0.9rem;
       width: 100%;
     }
     @include mq($phone-wide) {
       font-size: 0.7rem;
       margin: 0;
+      // padding-bottom: 5px;
     }
   }
   .content {
@@ -125,15 +128,15 @@
       }
       @include mq($phone-wide) {
         font-size: 0.7rem;
-        margin: 0.5rem 0 0.5rem !important;
+        margin: 0 !important;
       }
     }
     p {
       @include font-secondary;
       font-size: 2vmin;
 
-      @include mq($tablet-wide) {
-        font-size: 1.8vmin;
+      @include mq($desktop) {
+        font-size: 1.85vmin;
         margin-top: 0;
       }
 
@@ -176,6 +179,13 @@
       // height: 200px;
       height: 50vmin;
       // width: 100%;
+    }
+
+    @include mq($phone-small) {
+      height: 90vmin;
+    }
+    @include mq($phone--xs-small) {
+      height: 70vmin;
     }
 
     // &.is_highpoint_venture {
@@ -232,25 +242,25 @@
         width: 33.333%;
         -o-object-fit: scale-down;
         object-fit: scale-down;
-        &:nth-of-type(1) {
-          padding: 34px 38px 20px;
-          @include mq($desktop-wide) {
-            padding: 44px 38px 20px;
-          }
-        }
-        &:nth-of-type(3) {
-          padding: 20px 20px 0;
-          @include mq($desktop-wide) {
-            padding: 30px 20px 0;
-          }
-        }
+        // &:nth-of-type(1) {
+        //   padding: 34px 38px 20px;
+        //   @include mq($desktop-wide) {
+        //     padding: 44px 38px 20px;
+        //   }
+        // }
+        // &:nth-of-type(3) {
+        //   padding: 20px 20px 0;
+        //   @include mq($desktop-wide) {
+        //     padding: 30px 20px 0;
+        //   }
+        // }
 
-        @include mq($tablet-wide-2) {
-          &:nth-of-type(1),
-          &:nth-of-type(3) {
-            padding: 20px;
-          }
-        }
+        // @include mq($tablet-wide-2) {
+        //   &:nth-of-type(1),
+        //   &:nth-of-type(3) {
+        //     padding: 20px;
+        //   }
+        // }
       }
     }
   }
@@ -262,6 +272,9 @@
         @include mq($tablet) {
           display: block;
         }
+        @include mq($phone-wide) {
+          margin: 20px 0 0;
+        }
       }
       .subtitle {
         @include mq($tablet) {
@@ -270,14 +283,16 @@
       }
     }
     .img_cont {
+      height: 42vmin;
       @include minMq($desktop-up) {
-        height: 450px;
+        height: 42vmin;
       }
       @include mq($desktop-wide-2) {
-        height: 350px;
+        // height: 350px;
       }
       @include mq($desktop) {
-        height: 300px;
+        // height: 300px;
+        height: 40vmin;
       }
       @include mq($tablet-wide-2) {
         // height: 200px;
@@ -286,7 +301,7 @@
         height: 50vh;
       }
       @include mq($phone-wide) {
-        height: 200px;
+        height: 45vh;
         width: 100%;
       }
       &.is_highpoint_venture {
@@ -312,7 +327,7 @@
         justify-content: space-around;
       }
       .img_cont {
-        height: 350px;
+        height: 42vmin;
         // @include mq($desktop-wide-2) {
         //   height: 325px;
         // }
