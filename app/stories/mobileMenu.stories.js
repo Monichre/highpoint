@@ -33,7 +33,7 @@ const LeftNavDecorator = storyFunc => (
         </ul>
         <ul className="middle">
           {mobileLinks.map((link, i) => (
-            <div>Link</div>
+            <div key={i}>Link</div>
           ))}
         </ul>
         <ul className="bottom">

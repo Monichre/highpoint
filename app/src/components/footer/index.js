@@ -38,15 +38,16 @@ const Footer = props => {
     <div className="footer">
       <nav className="footer_nav">
         <div className="container">
-          {radialSkews.map(skew => (
+          {radialSkews.map((skew, i) => (
             <RadialSkew
+              key={i}
               onClick={skew.onClick}
               onMouseLeave={handleHoverLeave}
               onMouseEnter={handleHover}
             />
           ))}
-          {radialPanes.map(radial => (
-            <RadialPane onClick={radial.onClick}>
+          {radialPanes.map((radial, i) => (
+            <RadialPane onClick={radial.onClick} key={i}>
               {props.isPlaying ? radial.component : radial.play}
             </RadialPane>
           ))}

@@ -14,17 +14,31 @@ const AboutUs = ({ allVentures, goToPage, content }) => {
         <h1 className="page_title">Portfolio</h1>
       </header>
       <h4>
-        {modProperties.map((property, i) => (
-          <span
-            style={{ cursor: "pointer" }}
-            onClick={e => goToPage(e, property.index)}
-          >
-            {property.title}
-            {i === modProperties.length - 1 || i === modProperties.length - 1
-              ? ""
-              : " / "}
-          </span>
-        ))}
+        {modProperties
+          .filter(property => property.title !== undefined)
+          .map((property, i) => {
+            if (property.title === "Highpoint Ventures") {
+              return (
+                <span
+                  key={i}
+                  style={{ cursor: "pointer" }}
+                  onClick={e => goToPage(e, property.index)}
+                >
+                  {property.title}
+                </span>
+              );
+            } else {
+              return (
+                <span
+                  key={i}
+                  style={{ cursor: "pointer" }}
+                  onClick={e => goToPage(e, property.index)}
+                >
+                  {property.title} /
+                </span>
+              );
+            }
+          })}
       </h4>
       <div className="text">
         <ReactMarkdown source={content} />

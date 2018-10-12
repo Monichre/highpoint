@@ -5,9 +5,8 @@ import AppStore from "../stores";
 
 export const getStore = callback => {
   const cms = Contentful.createClient({
-    space: "ti8wha7hesc0",
-    accessToken:
-      "98d7ec3b817f2060b3f791d692339b9872b4866185bc4a35d98e886d704791a2"
+    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN
   });
 
   cms.getEntries().then(async response => {

@@ -9,7 +9,8 @@ import { BROWSER } from "../../utils/browser";
 import AboutUs from "../aboutUs";
 import _ from "lodash";
 
-const { status } = BROWSER.isMobile();
+const { isMobileDevice, isPhone, isTablet, isLargeTablet } = BROWSER.isMobile();
+const status = isMobileDevice || isPhone || isTablet;
 
 export default class DefaultPortfolio extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class DefaultPortfolio extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.activePropertyCard === 0) {
-      this._pageScroller.goToPage(1);
+      this._pageScroller.goToPage(0);
     }
     if (nextProps.activePropertyCard !== this.props.activePropertyCard) {
       this._pageScroller.goToPage(nextProps.activePropertyCard);
@@ -34,13 +35,6 @@ export default class DefaultPortfolio extends Component {
     if (!isPhone) {
       processPortfolioLines();
     }
-    console.log(this._pageScroller);
-    document.body.addEventListener("scroll", e => {
-      console.log(e.target);
-    });
-    document.querySelector(".grid div").addEventListener("scroll", e => {
-      console.log(e.target);
-    });
   }
 
   activeCardEmitter = (e, i) => {

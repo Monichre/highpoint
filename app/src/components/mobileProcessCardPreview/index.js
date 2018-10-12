@@ -22,8 +22,8 @@ const MobileProcessCardPreview = props => {
       <div className="previews">
         {props.process.blueprints
           .concat(props.process.beforeImages)
-          .map(photo => (
-            <div className="preview-image">
+          .map((photo, i) => (
+            <div className="preview-image" key={i}>
               <img src={`${photo.fields.file.url}?w=200&h=200`} />
             </div>
           ))}

@@ -25,7 +25,8 @@
   ul {
     @include column-flex-evenly;
     align-items: flex-end !important;
-    padding: 20px 10px 20px;
+    padding: 20px 10px 220px;
+
     position: relative;
     @include mq($tablet) {
       padding: 0;

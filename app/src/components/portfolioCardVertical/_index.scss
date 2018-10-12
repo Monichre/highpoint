@@ -74,9 +74,9 @@
         flex-direction: column;
         justify-content: flex-start;
         overflow: hidden;
-        margin-top: 40px;
+        margin-top: 5vmin;
         @include mq($desktop-wide) {
-          margin-top: 0;
+          // margin-top: 0;
         }
         @include mq($tablet-wide) {
           // justify-content: flex-start;
@@ -99,6 +99,10 @@
           @include font-secondary;
           font-size: 2vmin;
 
+          @include minMq($desktop-up) {
+            font-size: 1.8vmin;
+          }
+
           @include mq($desktop) {
             font-size: 1.85vmin;
             margin-top: 0;
@@ -115,10 +119,9 @@
         }
         h4 {
           @include font-secondary-reg;
-          margin: 0.5rem 0 0.25rem !important;
+          margin: 1rem 0 0.4rem;
           @include minMq($desktop-up) {
-            font-size: 0.8rem;
-            // margin: 0.5rem 0 1rem;
+            font-size: 3vmin;
           }
           @include mq($desktop) {
             margin: 0.55rem 0 0.45rem;

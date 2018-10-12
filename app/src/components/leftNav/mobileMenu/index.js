@@ -52,7 +52,7 @@ const MobileMenu = ({ links, toggleMenu }) => (
       </div>
 
       {links.map((link, i) => (
-        <MobileMenuLink link={link} i={i} />
+        <MobileMenuLink link={link} i={i} key={i} />
       ))}
     </nav>
   </Modal>

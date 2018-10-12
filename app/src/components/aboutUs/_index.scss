@@ -42,8 +42,9 @@
     -ms-flex-pack: center;
     justify-content: center;
     @include font-secondary-reg;
+
     @include minMq($desktop-up) {
-      font-size: 0.95rem;
+      font-size: 3vmin;
     }
     @include mq($desktop-wide-2) {
       font-size: 0.8rem;
@@ -53,7 +54,7 @@
       margin: 0;
     }
     @include mq($desktop) {
-      font-size: 3vh;
+      font-size: 2.5vh;
       margin-top: 0;
     }
 
@@ -83,7 +84,7 @@
       width: auto;
       margin: 0 10px 0 0;
       @include mq($phone-wide) {
-        margin: 0;
+        // margin: 0;
       }
       &:hover {
         text-shadow: (-$b-shadowSize) (-$b-shadowSize) 0 $c-secondary;
@@ -112,13 +113,13 @@
       margin-bottom: 20px;
       font-size: 2vmin;
       @include minMq($desktop-up) {
-        font-size: 2vmin;
+        font-size: 1.85vmin;
       }
       @include mq($desktop-wide-2) {
         font-size: 0.55rem;
       }
       @include mq($desktop) {
-        font-size: 1.95vmin;
+        font-size: 1.85vmin;
       }
       @include mq($tablet-wide) {
         // font-size: 0.7rem;

@@ -19,18 +19,10 @@
     top: 125%;
     left: 20%;
     position: absolute;
-    // @include minMq($desktop-up) {
-    //   // transform: rotate(90deg) translate(150px, -170%);
-    //   transform: rotate(90deg) translate(16vh, -2.5vw);
-    // }
-    // @include mq($desktop-wide-2) {
-    //   transform: rotate(90deg) translate(16vh, -2.5vw);
-    //   // transform: rotate(90deg) translate(150px, -5vw);
-    //   // transform: rotate(90deg) translate(200px, 3px);
-    //   // transform: rotate(90deg) translate(200px, -20px);
-    // }
-    // @include mq($desktop-wide) {
-    // }
+    @include minMq($desktop-up) {
+      left: 26%;
+    }
+
     @include mq($desktop) {
       left: 22%;
     }

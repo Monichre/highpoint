@@ -64,7 +64,7 @@ const iPhoneLines = [
 ];
 
 export const leftLines = isMobile => {
-  const { isPhone, isTablet, isMobileDevice } = isMobile;
-  const mobileIsh = isTablet || isMobileDevice;
-  return isPhone ? iPhoneLines : defaultLines(mobileIsh);
+  const { isPhone, isTablet } = isMobile;
+
+  return isPhone ? iPhoneLines : defaultLines(isTablet);
 };

@@ -20,15 +20,12 @@ class TheBrowser {
   mQ = num => window.matchMedia(`(max-width: ${num}px)`);
 
   isSafariBrowser = () => {
-    this.isSafari =
-      navigator.userAgent.indexOf("Safari") > -1 && !this.isEdgeBrowser();
+    this.isSafari = /constructor/i.test(window.HTMLElement);
     return this.isSafari;
   };
 
   isChromeBrowser = () => {
-    this.isChrome =
-      navigator.userAgent.indexOf("Chrome") > -1 &&
-      (!this.isSafariBrowser() && !this.isEdgeBrowser());
+    this.isChrome = !!window.chrome && !!window.chrome.webstore;
     return this.isChrome;
   };
 
@@ -159,7 +156,7 @@ class TheBrowser {
       isPhone = true;
     } else if (winWidth > 480 && winWidth < 768) {
       isTablet = true;
-    } else if (winWidth > 768) {
+    } else if (winWidth > 768 && winWidth < 1282) {
       isLargeTablet = true;
     } else {
       isDesktop = true;
@@ -212,7 +209,7 @@ class TheBrowser {
         _this.initialWindowSize < windowWidth &&
         (isLargeTablet || isDesktop)
       ) {
-        window.location.reload(true);
+        // window.location.reload(true);
         _this.initialWindowSize = windowWidth;
       }
     }, 1000);

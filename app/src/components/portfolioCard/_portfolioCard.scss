@@ -7,7 +7,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   height: 100%;
-  padding: 2% 0;
+  padding: 1% 0;
 
   @include mq($phone-wide) {
     position: relative;
@@ -26,6 +26,9 @@
     overflow: hidden !important;
     padding: 40px 20px 20px;
     pointer-events: none !important;
+  }
+  @include mq($phone-small) {
+    padding: 20px 20px 20px;
   }
 }
 .portfolio_card {
@@ -78,17 +81,6 @@
       text-transform: uppercase;
       text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
       transition: text-shadow $b-animSpeed $b-animType;
-
-      // @include mq($desktop) {
-      //   margin: 0.5rem 0 0.1rem;
-      //   font-size: 0.6rem;
-      // }
-
-      // @include mq($phone-wide) {
-      //   font-size: 0.5rem;
-      //   margin: 0;
-      //   display: none;
-      // }
     }
     .text {
       @include mq($tablet-wide-2) {

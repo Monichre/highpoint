@@ -96,7 +96,7 @@ const mobilePhoneLines = [
 ];
 
 export const rightLines = isMobile => {
-  const { isPhone, isTablet, isMobileDevice } = isMobile;
-  const mobileIsh = isTablet || isMobileDevice;
-  return isPhone ? mobilePhoneLines : defaultLines(mobileIsh);
+  const { isPhone, isTablet } = isMobile;
+
+  return isPhone ? mobilePhoneLines : defaultLines(isTablet);
 };

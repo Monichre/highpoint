@@ -10,29 +10,12 @@
   z-index: 10;
   display: flex;
 
-  &.mcCallister_management {
-    background-size: cover;
-    background-position: 200% 200%;
-    background-repeat: no-repeat;
-    @include mq($tablet-wide) {
-      background-size: cover;
-      background-position: top;
-      background-repeat: no-repeat;
-    }
-
-    @include mq($tablet) {
-      background-position: center;
-    }
-  }
-
   @include mq($desktop) {
     padding: 0.8rem 2rem 0 1.5rem;
   }
   @include mq($tablet-wide-2) {
     padding: 0.5rem 2rem 0 1rem;
-    // align-items: baseline;
-    // justify-content: space-evenly;
-    // height: 93%;
+    height: 120vmin;
   }
   @include mq($tablet-wide) {
   }
@@ -68,6 +51,22 @@
       height: 91%;
     }
   }
+
+  &.mcCallister_management {
+    background-size: cover;
+    background-position: 200% 200%;
+    background-repeat: no-repeat;
+    @include mq($tablet-wide) {
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+    }
+
+    @include mq($tablet) {
+      background-position: center;
+    }
+  }
+
   h3 {
     font-size: 1rem;
     margin: 0 0 0.5rem;
@@ -106,19 +105,24 @@
     }
     h4 {
       margin: 1rem 0 0.4rem;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       color: black;
       @include font-secondary-reg;
       text-transform: uppercase;
       text-shadow: $b-shadowSize $b-shadowSize 0 $c-primary;
-      transition: text-shadow $b-animSpeed $b-animType;
+
+      @include minMq($desktop-up) {
+        font-size: 3vmin;
+      }
 
       @include mq($desktop) {
         margin: 0.55rem 0 0.45rem;
-        font-size: 0.6rem;
+      }
+      @include mq($tablet-wide-2) {
+        font-size: 0.7rem;
       }
       @include mq($tablet-wide) {
-        font-size: 0.55rem;
+        // font-size: 0.55rem;
         margin: 0.5rem 0 0.25rem !important;
       }
       @include mq($tablet) {
@@ -135,13 +139,24 @@
       @include font-secondary;
       font-size: 2vmin;
 
+      @include minMq($desktop-up) {
+        font-size: 1.8vmin;
+      }
+      // $tablet-wide-2: 915px;
+      // $tablet-wide: 1124px;
+      // $desktop: 1282px;
+      // $phablet: 560px;
+      // $tablet-small: 640px;
       @include mq($desktop) {
-        font-size: 1.85vmin;
+        font-size: 1.65vmin;
         margin-top: 0;
+      }
+      @include mq($tablet-wide) {
+        font-size: 1.5vmin;
       }
 
       @include mq($tablet-wide-2) {
-        font-size: 1.5vmin;
+        // font-size: 1.5vmin;
         margin-top: 0;
       }
 
@@ -182,7 +197,7 @@
     }
 
     @include mq($phone-small) {
-      height: 90vmin;
+      height: 60vmin;
     }
     @include mq($phone--xs-small) {
       height: 70vmin;
@@ -351,5 +366,39 @@
         }
       }
     }
+  }
+}
+
+body.isChrome {
+  // iPhone 6, 7, & 8 in portrait & landscape
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+    .portfolio_card {
+      top: 20px;
+      max-height: 90%;
+      width: 100%;
+      .horizontal__inner {
+        // height: 110vmin;
+
+        h3 {
+          padding-bottom: 0;
+        }
+        h4 {
+          font-size: 0.6rem;
+        }
+        .img_cont {
+          img {
+            padding: 20px;
+          }
+        }
+        .text {
+          // display: none;
+        }
+      }
+    }
+  }
+
+  // iPhone 6, 7, & 8 Plus in portrait & landscape
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+    /* STYLES GO HERE */
   }
 }
