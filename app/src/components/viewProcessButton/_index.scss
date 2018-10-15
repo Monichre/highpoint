@@ -36,6 +36,10 @@
   // @include mq($tablet-wide) {
   //   margin: 20px 10px 0 0;
   // }
+  @include mq($tablet-wide) {
+    --offset: 8px;
+    margin: 4vmin 0 0 2vmin;
+  }
 
   @include mq($phone-wide) {
     --offset: 10px;

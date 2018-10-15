@@ -32,6 +32,37 @@ const defaultLines = status => {
   return lines;
 };
 
+const tabletLines = [
+  {
+    top: 0,
+    left: "10%",
+    width: 3,
+    height: "12vh",
+    color: "#333",
+    hidden: true,
+    animation: {
+      duration: 1000,
+      easing: "easeInOutExpo",
+      delay: 0,
+      direction: "TopBottom"
+    }
+  },
+  {
+    top: "10%",
+    left: 0,
+    width: "12vw",
+    height: 3,
+    color: "#333",
+    hidden: true,
+    animation: {
+      duration: 1000,
+      easing: "easeInOutExpo",
+      delay: 0,
+      direction: "LeftRight"
+    }
+  }
+];
+
 const iPhoneLines = [
   {
     top: 0,
@@ -64,7 +95,18 @@ const iPhoneLines = [
 ];
 
 export const leftLines = isMobile => {
-  const { isPhone, isTablet, isLargeTablet, isMobileDevice } = isMobile;
-  const status = isLargeTablet || isMobileDevice;
-  return isPhone ? iPhoneLines : defaultLines(status);
+  const {
+    isPhone,
+    isTablet,
+    isMediumTablet,
+    isLargeTablet,
+    isMobileDevice
+  } = isMobile;
+  console.log(isPhone, isTablet, isMediumTablet, isLargeTablet, isMobileDevice);
+  const status = isMediumTablet || isMobileDevice || isLargeTablet;
+  return isPhone
+    ? iPhoneLines
+    : isTablet || isMediumTablet
+      ? tabletLines
+      : defaultLines(status);
 };

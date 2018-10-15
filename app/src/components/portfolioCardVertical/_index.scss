@@ -46,7 +46,7 @@
       height: 95%;
 
       background: #000;
-      @include mq($tablet-wide-2) {
+      @include mq($tablet-wide) {
         right: 1rem;
       }
 
@@ -107,7 +107,9 @@
             font-size: 1.85vmin;
             margin-top: 0;
           }
-
+          @include mq($tablet-wide) {
+            font-size: 1.725vmin;
+          }
           @include mq($tablet-wide-2) {
             font-size: 1.55vmin;
             margin-top: 0;

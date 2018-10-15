@@ -9,14 +9,16 @@
   height: 10vmin;
   padding-left: 1.5rem;
 
-  @include mq($tablet-wide-2) {
-    // height: 10%;
+  @include mq($tablet-wide) {
+    height: 8vmin;
     padding-left: 1rem;
   }
-  @include mq($tablet-wide) {
+  @include mq($tablet-wide-2) {
+    // height: 10%;
   }
 
   @include mq($tablet) {
+    height: 10vmin;
   }
 
   @include mq($phone-wide) {
@@ -60,10 +62,12 @@
   position: relative;
   z-index: 10;
   flex-direction: column;
+  @include mq($tablet-wide) {
+    width: 2.5rem;
+  }
+
   @include mq($tablet-wide-2) {
     width: 2.25rem;
-  }
-  @include mq($tablet-wide) {
   }
 
   @include mq($tablet) {

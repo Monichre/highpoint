@@ -7,6 +7,7 @@ class TheBrowser {
     this.status = false;
     this.isPhone = false;
     this.isTablet = false;
+    this.isMediumTablet = false;
     this.isLargeTablet = false;
     this.isDesktop = false;
     this.isMobileDevice = false;
@@ -144,6 +145,7 @@ class TheBrowser {
     let status = false;
     let isPhone = false;
     let isTablet = false;
+    let isMediumTablet = false;
     let isLargeTablet = false;
     let isDesktop = false;
     this.isUsingMobileDevice();
@@ -156,7 +158,9 @@ class TheBrowser {
       isPhone = true;
     } else if (winWidth > 480 && winWidth < 768) {
       isTablet = true;
-    } else if (winWidth > 768 && winWidth < 1282) {
+    } else if (winWidth > 768 && winWidth <= 915) {
+      isMediumTablet = true;
+    } else if (winWidth > 915 && winWidth <= 1124) {
       isLargeTablet = true;
     } else {
       isDesktop = true;
@@ -165,6 +169,7 @@ class TheBrowser {
     this.status = status;
     this.isPhone = isPhone;
     this.isTablet = isTablet;
+    this.isMediumTablet = isMediumTablet;
     this.isLargeTablet = isLargeTablet;
     this.isDesktop = isDesktop;
 
@@ -173,6 +178,7 @@ class TheBrowser {
       status: this.status,
       isPhone: this.isPhone,
       isTablet: this.isTablet,
+      isMediumTablet: this.isMediumTablet,
       isLargeTablet: this.isLargeTablet,
       isDesktop: this.isDesktop,
       isMobileDevice: this.isMobileDevice

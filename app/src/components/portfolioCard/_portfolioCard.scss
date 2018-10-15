@@ -51,7 +51,7 @@
   margin: auto;
   height: stretch;
   @include mq($tablet-wide) {
-    height: 75vh;
+    height: 98vh;
   }
   @include mq($tablet) {
     height: 80vh;

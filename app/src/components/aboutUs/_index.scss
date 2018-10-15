@@ -62,18 +62,17 @@
       padding: 0 40px;
       // font-size: 0.9rem;
       margin: 0;
-      margin: 80px 0 40px;
     }
     @include mq($tablet-wide-2) {
       line-height: 1.75;
       padding: 0 1rem;
       font-size: 0.7rem;
-      margin: 20px 0;
     }
 
     @include mq($phone-wide) {
       margin: 20px 0 40px;
       display: block !important;
+      font-size: 0.65rem;
     }
 
     @include mq($phone--xs-small) {
@@ -99,12 +98,11 @@
       margin: 1.5rem auto 0;
     }
 
-    @include mq($tablet-wide-2) {
+    @include mq($tablet-wide) {
       margin: 1rem auto 0;
     }
 
-    @include mq($tablet-wide) {
-      // margin: 3rem auto 0;
+    @include mq($tablet-wide-2) {
       display: none;
     }
 
@@ -122,12 +120,13 @@
         font-size: 1.85vmin;
       }
       @include mq($tablet-wide) {
-        // font-size: 0.7rem;
-      }
-      @include mq($tablet-wide-2) {
-        // font-size: 0.55rem;
         font-size: 1.65vmin;
       }
+
+      @include mq($tablet-wide-2) {
+        display: none;
+      }
+
       @include mq($phone-wide) {
         // font-size: 0.485rem;
       }
@@ -143,6 +142,18 @@ body.isEdge {
   .about_us_section--wrap {
     h4 {
       margin-top: 40px;
+    }
+  }
+}
+
+body.isChrome {
+  .about_us_section--wrap {
+    h4 {
+      @include mq($phone-wide) {
+        margin: 30px 0 40px;
+        display: block !important;
+        font-size: 0.65rem;
+      }
     }
   }
 }

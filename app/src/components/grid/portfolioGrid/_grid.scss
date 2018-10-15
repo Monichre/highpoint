@@ -8,6 +8,9 @@
   @include mq($desktop-wide-2) {
     padding: 0 1rem;
   }
+  @include mq($tablet-wide) {
+    padding: 0 0.5rem;
+  }
   @include mq($tablet-wide-2) {
     // padding: 0 1rem;
   }

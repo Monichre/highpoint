@@ -20,13 +20,6 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@7.0.0-beta.51":
-  version "7.0.0-beta.51"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.51.tgz#48b8ed18307034c6620f643514650ca2ccc0165a"
-  dependencies:
-    core-js "^2.5.7"
-    regenerator-runtime "^0.11.1"
-
 "@contentful/axios@^0.18.0":
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/@contentful/axios/-/axios-0.18.0.tgz#576e0e6047411a66971e82d40688a8c795e62f27"
@@ -7606,10 +7599,6 @@ pluralize@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-4.0.0.tgz#59b708c1c0190a2f692f1c7618c446b052fd1762"
 
-popper.js@^1.14.3:
-  version "1.14.4"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
-
 portfinder@^1.0.9:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -8477,12 +8466,6 @@ react-split-pane@^0.1.77:
     prop-types "^15.5.10"
     react-lifecycles-compat "^3.0.4"
     react-style-proptype "^3.0.0"
-
-react-spring@^5.4.3:
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.4.3.tgz#446102bfd9ccc17390554ae69a7d28159b9d0bc0"
-  dependencies:
-    "@babel/runtime" "7.0.0-beta.51"
 
 react-style-proptype@^3.0.0:
   version "3.2.2"
@@ -9748,10 +9731,6 @@ stylus@^0.54.5:
     sax "0.5.x"
     source-map "0.1.x"
 
-superslide.js@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/superslide.js/-/superslide.js-1.0.0.tgz#f2dd5472fb6193ab3e6a7f941e3e061781ad4729"
-
 supports-color@4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.4.0.tgz#883f7ddabc165142b2a61427f3352ded195d1a3e"
@@ -9948,12 +9927,6 @@ tiny-emitter@^2.0.0:
 tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
-
-tippy.js@^2.5.4:
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-2.5.4.tgz#69155d673761275dbf874c93175df443a006de46"
-  dependencies:
-    popper.js "^1.14.3"
 
 tmp@^0.0.33:
   version "0.0.33"

@@ -12,7 +12,7 @@
   left: auto !important;
   border-top: 2px solid black;
 
-  @include mq($tablet) {
+  @include mq($tablet-wide) {
     width: 10vw !important;
     top: 90vh !important;
   }
