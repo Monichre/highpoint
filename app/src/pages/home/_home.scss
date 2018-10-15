@@ -109,7 +109,7 @@
             opacity: 1;
             transition: all 0.8s ease-in-out;
 
-            @include mq($tablet) {
+            @include mq($tablet-wide) {
               -webkit-transform: none;
               -ms-transform: none;
               transform: none;
@@ -169,8 +169,13 @@
           height: 70vh !important;
           overflow: hidden !important;
 
-          @include mq($tablet) {
-            // height: 50vh !important;
+          @include mq($tablet-wide) {
+            position: fixed !important;
+            left: 0;
+            margin-top: 25vh;
+            z-index: -1;
+            width: 100vw !important;
+            height: 50vh !important;
           }
           @include mq($phone-wide) {
             position: fixed !important;

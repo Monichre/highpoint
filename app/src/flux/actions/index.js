@@ -56,7 +56,8 @@ export const getStore = callback => {
       .map(item => ({
         property: item.fields.property,
         address: item.fields.address,
-        url: item.fields.image.fields.file.url + "?w=500&h=500&fit=thumb",
+        url: item.fields.image.fields.file.url + "?w=2000&h=1000",
+        thumb: item.fields.image.fields.file.url + "?w=500&h=500&fit=thumb",
         media: isVideo(item.fields.image.fields.file.url) ? "video" : "image",
         isAVenture: isAVenture(item.fields.property)
       }));
@@ -65,7 +66,8 @@ export const getStore = callback => {
       item => ({
         property: item.title,
         address: item.address,
-        url: item.featuredImage.fields.file.url + "?w=500&h=500&fit=thumb",
+        url: item.featuredImage.fields.file.url + "?w=2000&h=1000",
+        thumb: item.featuredImage.fields.file.url + "?w=500&h=500&fit=thumb",
         media: isVideo(item.featuredImage.fields.file.url) ? "video" : "image",
         isAVenture: isAVenture(item)
       })

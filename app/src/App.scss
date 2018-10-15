@@ -100,19 +100,6 @@ body {
   &::-webkit-scrollbar {
     display: none;
   }
-
-  @include mq($tablet-wide) {
-    // padding: 4rem 2rem 15rem 2rem;
-  }
-
-  // MEDIA QUERIES
-  // $phone--xs-small: 320px;
-  // $phone-small: 375px;
-  // $phone: 400px;
-  // $phone-wide: 480px;
-  @include mq($tablet) {
-    // padding: 1rem 1rem 0rem 1rem;
-  }
 }
 
 // LOADERS
@@ -222,5 +209,33 @@ body {
       width: 80%;
       margin: auto;
     }
+  }
+}
+
+body.isChrome .about_us_section--wrap h4 {
+  @include mq($phone-wide) {
+    margin: 40px 0 0px;
+
+    font-size: 0.5rem !important;
+  }
+
+  @include mq($phone) {
+    font-size: 0.5rem;
+    line-height: 1.25 !important;
+  }
+}
+
+body.isChrome .fancy_button .button__horizontal::before,
+body.isChrome .fancy_button .button__vertical::before {
+  @include mq($phone) {
+    display: none;
+  }
+}
+
+body.isChrome .fancy_button .button__horizontal,
+body.isChrome .fancy_button .button__vertical {
+  @include mq($phone-wide) {
+    border: none !important;
+    display: none;
   }
 }

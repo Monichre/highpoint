@@ -24,9 +24,9 @@
   ul {
     @include column-flex-evenly;
     align-items: flex-end !important;
-    padding: 20px 5px 20px;
+    // padding: 20px 5px 20px;
     position: relative;
-    @include mq($tablet) {
+    @include mq($tablet-wide) {
       padding: 0;
     }
     .menu_link.sidebar_link {

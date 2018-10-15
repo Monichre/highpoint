@@ -17,19 +17,6 @@ class Menu {
   initEvents() {
     for (let i = 0; i < this.itemsTotal; ++i) {
       const link = this.boxes[i].DOM.link;
-      // if (link) {
-      //   link.addEventListener("click", ev => {
-      //     ev.preventDefault();
-      //     if (this.isAnimating) return;
-      //     document
-      //       .querySelector(".content--switch-current")
-      //       .classList.remove("content--switch-current");
-      //     document
-      //       .querySelector(link.getAttribute("href"))
-      //       .classList.add("content--switch-current");
-      //     this.close();
-      //   });
-      // }
     }
   }
 
@@ -43,11 +30,9 @@ class Menu {
 
   toggle(action) {
     if (this.isAnimating) {
-      console.log("this.isAnimating", this.isAnimating);
       return;
     }
-    console.log("this is not Animating", this.isAnimating);
-    console.log(action);
+
     this.isAnimating = true;
     if (action === "open") {
       this.openBoxes();
@@ -74,7 +59,7 @@ class Menu {
     this.DOM.el.classList[action === "open" ? "add" : "remove"](
       "mobile-menu--open"
     );
-    console.log(this.DOM.el.classList);
+
     const box = this.boxes[pos];
     box[action === "open" ? "open" : "close"]().then(() =>
       this[action === "open" ? "openBoxes" : "closeBoxes"](pos + 1)

@@ -42,6 +42,7 @@ export default class Gallery extends Component {
     const photoSet = galleryItems.map((item, i) => {
       let gridItem = { ...item };
       gridItem.src = item.url;
+      gridItem.thumb = item.thumb;
       gridItem.caption = `${item.property}${
         item.address ? ", " + item.address : ""
       }`;

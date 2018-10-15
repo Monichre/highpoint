@@ -120,6 +120,7 @@
         h4 {
           @include font-secondary-reg;
           margin: 1rem 0 0.4rem;
+          font-size: 0.8rem;
           @include minMq($desktop-up) {
             font-size: 3vmin;
           }

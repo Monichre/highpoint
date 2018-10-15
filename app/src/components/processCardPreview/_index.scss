@@ -15,12 +15,6 @@
   cursor: pointer;
   z-index: 0;
   margin: 40px 20px;
-  flex-grow: 1;
-
-  // MEDIA QUERIES
-  // $phone--xs-small: 320px;
-  // $phone-small: 375px;
-  // $phone: 400px;
 
   @include mq($tablet) {
     width: 200px;

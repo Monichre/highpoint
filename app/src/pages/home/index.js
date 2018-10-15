@@ -5,6 +5,7 @@ import Footer from "../../components/footer";
 import { homePageLines } from "../../components/lines";
 import ProgressBar from "../../components/progressBar";
 import anime from "animejs";
+import { BROWSER } from "../../utils/browser";
 import "./_home.scss";
 
 export default class Home extends Component {
@@ -19,7 +20,12 @@ export default class Home extends Component {
   }
   componentDidMount() {
     homePageLines();
-
+    if (BROWSER.isSafari) {
+      const internalPlayer = this.player.getInternalPlayer();
+      if (internalPlayer) {
+        internalPlayer.setAttribute("controls", false);
+      }
+    }
     const logo_rects = Array.from(
       document.querySelectorAll(".clip__path__line")
     );
@@ -30,9 +36,6 @@ export default class Home extends Component {
     const backgroundVideo = document.querySelector(".backgroundVideo");
     const border = document.querySelector(".border");
     const inner_svg = document.querySelector(".border .inner svg");
-
-    const progress = document.querySelector("progress_bar");
-    const progressPin = document.getElementById("progress-pin");
 
     const mainLineDrawing = anime({
       targets: ".inner .lines .main_path",
@@ -75,7 +78,6 @@ export default class Home extends Component {
   playOrPause = e => {
     const { isPlaying } = this.state;
     const internalPlayer = this.player.getInternalPlayer();
-    // internalPlayer.setAttribute('controls', true)
     this.setState(
       {
         isPlaying: !this.state.isPlaying

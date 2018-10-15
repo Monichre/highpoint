@@ -34,7 +34,7 @@
         @include column-flex-center;
         height: 15vh;
         padding: 0;
-        @include mq($tablet) {
+        @include mq($tablet-wide) {
           height: 10vh;
         }
         @include mq($phone-wide) {
@@ -61,7 +61,7 @@
             margin: auto;
             height: 5.5vh;
             @include mq($tablet-wide) {
-              height: 4vh;
+              height: 3.5vh;
               display: block;
               width: auto;
               margin: auto;

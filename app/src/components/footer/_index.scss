@@ -142,6 +142,9 @@
       // object-fit: contain;
       height: 2.75vh;
       padding: 2px;
+      @include mq($tablet-wide) {
+        height: 2.5vh;
+      }
       path {
         fill: #fff !important;
       }
