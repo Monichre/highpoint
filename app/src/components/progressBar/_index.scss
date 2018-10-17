@@ -1,39 +1,70 @@
+@import "../../sass/variables";
+
 div.progress_bar {
-  background-color: darken(white, 50%);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 2px;
   cursor: pointer;
-  height: 2px;
+  height: 50px;
+  bottom: 50px;
   position: relative;
+  overflow: visible;
   width: 100%;
   opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  @include mq($phone-wide) {
+    height: 30px;
+    bottom: 30px;
+  }
+
+  @include mq($phone) {
+  }
+
+  @include mq($phone-small) {
+    height: 30px;
+    bottom: 65px;
+  }
+
+  @include mq($phone--xs-small) {
+    height: 30px;
+    bottom: 30px;
+  }
 
   div.progress {
-    background-color: salmon;
-    height: 100%;
-    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.7);
     position: absolute;
-    width: 0;
+    height: 2px;
+    left: 0;
+    top: auto;
+    pointer-events: none;
+    // transition: all 0.25s ease;
+  }
 
-    div.pin {
-      background-color: white;
-      border-radius: 8px;
-      height: 8px;
-      position: absolute;
-      pointer-events: all;
-      right: -5px;
-      top: -3px;
-      width: 8px;
-      box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.32);
-      transition: transform 0.25s ease;
+  div.pin {
+    background-color: white;
+    border-radius: 8px;
+    height: 8px;
+    position: absolute;
+    pointer-events: all;
+    z-index: 10;
+    left: 0;
+    top: auto;
+    width: 8px;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.32);
+    transition: left 0.5s ease;
 
-      &:active {
-        transform: scale(1.5);
-      }
+    &:active {
+      transform: scale(1.5);
     }
   }
 
-  &.active {
+  &.show_progress {
     opacity: 1;
   }
 }

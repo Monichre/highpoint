@@ -19,13 +19,15 @@ export default class Home extends Component {
     };
   }
   componentDidMount() {
+    const { isPlaying } = this.state;
+    const internalPlayer = this.player.getInternalPlayer();
     homePageLines();
     if (BROWSER.isSafari) {
-      const internalPlayer = this.player.getInternalPlayer();
       if (internalPlayer) {
         internalPlayer.setAttribute("controls", false);
       }
     }
+
     const logo_rects = Array.from(
       document.querySelectorAll(".clip__path__line")
     );
@@ -75,9 +77,51 @@ export default class Home extends Component {
     };
   }
 
+  progressIndicator = () => {
+    const internalPlayer = this.player.getInternalPlayer();
+    const progressBar = document.querySelector(".progress_bar");
+    const progressBarWidth = progressBar.offsetWidth;
+    const progress = document.querySelector(".progress");
+    const progressBarPin = document.querySelector(".pin");
+    const total = this.player.getDuration();
+    let currentTime = 0;
+
+    if (total) {
+      this.playInterval = setInterval(() => {
+        currentTime = this.player.getCurrentTime();
+        const percentagePlayed = Math.floor((currentTime / total) * 100);
+        const pinLeftValue = parseInt(
+          progressBarPin.style.left.replace("%", "")
+        );
+        const progressWidthValue = parseInt(
+          progress.style.width.replace("%", "")
+        );
+        let newLeftValue = pinLeftValue ? pinLeftValue : 0;
+        let newWidthValue = progressWidthValue ? progressWidthValue : 0;
+
+        newLeftValue += percentagePlayed - newLeftValue;
+
+        newWidthValue += percentagePlayed - newWidthValue;
+
+        progress.style.width = `${newWidthValue}%`;
+        progressBarPin.style.left = `${newLeftValue}%`;
+      }, 10);
+    }
+  };
+
+  progressFadeInterval = () => {
+    const progressBar = document.querySelector(".progress_bar");
+    progressBar.classList.add("show_progress");
+    setTimeout(() => {
+      progressBar.classList.remove("show_progress");
+    }, 5000);
+  };
+
   playOrPause = e => {
     const { isPlaying } = this.state;
     const internalPlayer = this.player.getInternalPlayer();
+    this.progressFadeInterval();
+
     this.setState(
       {
         isPlaying: !this.state.isPlaying
@@ -88,16 +132,25 @@ export default class Home extends Component {
     );
   };
 
+  componentWillUnmount() {
+    clearInterval(this.playInterval);
+  }
+
   rewind = () => {
     const current = this.player.getCurrentTime();
     const total = this.player.getDuration();
-
     this.player.seekTo(total - current);
+    clearInterval(this.playInterval);
+    this.progressIndicator();
+    this.progressFadeInterval();
   };
 
   fastForward = () => {
     const current = this.player.getCurrentTime();
     this.player.seekTo(current + 30);
+    clearInterval(this.playInterval);
+    this.progressIndicator();
+    this.progressFadeInterval();
   };
 
   render() {
@@ -105,26 +158,28 @@ export default class Home extends Component {
     return (
       <div className="home component">
         <VideoLogo>
-          <ReactPlayer
-            playing={isPlaying}
-            playsinline
-            loop={true}
-            volume={this.state.muted ? 0 : 1}
-            className="backgroundVideo"
-            height="100%"
-            width="100%"
-            muted={muted}
-            url={url}
-            ref={player => (this.player = player)}
-          />
-          <ProgressBar />
-        </VideoLogo>
+          <div className="backgroundVideo">
+            <ReactPlayer
+              playing={isPlaying}
+              playsinline
+              onPlay={this.progressIndicator}
+              loop={true}
+              volume={this.state.muted ? 0 : 1}
+              height="100%"
+              width="100%"
+              muted={muted}
+              url={url}
+              ref={player => (this.player = player)}
+            />{" "}
+            <ProgressBar />
+          </div>{" "}
+        </VideoLogo>{" "}
         <Footer
           isPlaying={isPlaying}
           rewind={this.rewind}
           pause={this.playOrPause}
           fastForward={this.fastForward}
-        />
+        />{" "}
       </div>
     );
   }
