@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Lightbox from "react-images";
 import Swipeable from "react-swipeable";
+import { mobileTouchSwipe } from "../../../../utils";
 import "./_four-rows.scss";
 
 export default class FourRowGrid extends Component {
@@ -25,7 +26,7 @@ export default class FourRowGrid extends Component {
 
     const photoSet = galleryItems.map((image, i) => {
       let _image = {};
-      _image.src = image.fields.file.url; //+ "?w=2000&h=1000";
+      _image.src = image.fields.file.url;
       _image.thumb = image.fields.file.url + "?w=2000&h=1000";
       _image.srcSet = image.fields.file.url + "?w=2000&h=1000";
       _image.alt =
@@ -56,6 +57,7 @@ export default class FourRowGrid extends Component {
       currentImage: i,
       lightboxIsOpen: true
     });
+    mobileTouchSwipe(this.goToNext, this.goToPrevious);
   };
 
   goToNext = () => {
@@ -96,7 +98,7 @@ export default class FourRowGrid extends Component {
             </div>
           </div>
           <div className="before">
-            <h4>BEFORE</h4>
+            <h4> BEFORE </h4>
             {galleryItems
               .filter(img => galleryItems.indexOf(img) % 2 === 0)
               .map((image, i) => (
@@ -113,7 +115,7 @@ export default class FourRowGrid extends Component {
               ))}
           </div>
           <div className="after">
-            <h4>AFTER</h4>
+            <h4> AFTER </h4>
             {galleryItems
               .filter(img => galleryItems.indexOf(img) % 2 !== 0)
               .map((image, i) => (

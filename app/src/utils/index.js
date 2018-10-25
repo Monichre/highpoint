@@ -100,3 +100,27 @@ export const mcCallisterStyle = property =>
         backgroundImage: `url(/logos/mccallister.svg)`
       }
     : null;
+
+export const mobileTouchSwipe = (goToNext, goToPrevious) =>
+  setTimeout(() => {
+    const popupImg = document.querySelector(
+      ".image_1swebtw-o_O-imageLoaded_zgbg08"
+    );
+    if (popupImg) {
+      const touches = [];
+      popupImg.addEventListener("touchstart", e => {
+        const firstTouch = e.changedTouches[0].pageX;
+        touches.push(firstTouch);
+      });
+
+      popupImg.addEventListener("touchend", e => {
+        const lastTouch = e.changedTouches[0].pageX;
+        touches.push(lastTouch);
+        if (lastTouch < touches[touches.indexOf(lastTouch) - 1]) {
+          goToNext();
+        } else {
+          goToPrevious();
+        }
+      });
+    }
+  }, 500);

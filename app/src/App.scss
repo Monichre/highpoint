@@ -21,6 +21,10 @@
 @import "./components/processCardPreview/index";
 @import "./components/processCard/processCardGrid/fourRows/four-rows";
 
+/*
+  Hide Scrollbar so it doesn't fuck with widths
+  MS, IE, Google Chrome
+*/
 @viewport {
   zoom: 1;
   width: device-width;
@@ -35,9 +39,14 @@ html {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+html > *::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   // transition: all 0.4s ease-in-out;
   position: relative;
+
   &:after {
     position: fixed;
     transition: transform 0.2s ease-in-out, opacity 0.8s ease-in-out;
@@ -52,6 +61,7 @@ body {
     z-index: 200;
     filter: blur(1px);
   }
+
   &.mobile_sidebar_open {
     &:after {
       transform: translateX(0);
@@ -62,6 +72,7 @@ body {
 
 .App {
   padding: 0 10% 0;
+
   @include mq($phone-wide) {
     padding: 0;
     overflow-x: hidden;
@@ -71,16 +82,20 @@ body {
 
 .process_page {
   height: 100vh;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
   @include mq($phone--xs-small) {
     height: 100%;
   }
+
   .inner {
     @include mq($phone--xs-small) {
       height: 100%;
     }
+
     .process_card {
       @include mq($phone--xs-small) {
         height: 100%;
@@ -88,6 +103,7 @@ body {
     }
   }
 }
+
 .process_page .grid {
   display: flex;
   justify-content: space-evenly;
@@ -97,6 +113,7 @@ body {
   margin: auto;
   max-width: 1124px;
   padding: 0rem 1rem 0 1rem;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -108,6 +125,7 @@ body {
 .cinder {
   transition: all 0.4s ease-in-out;
 }
+
 // UTILITY CLASSES
 .add_fill {
   fill: #000;
@@ -121,6 +139,7 @@ body {
     width: 100%;
     padding: 40px;
   }
+
   figcaption {
     color: white;
     // text-align: center;
@@ -129,14 +148,17 @@ body {
     @include font-secondary-reg;
     text-transform: uppercase;
     letter-spacing: 2px;
+
     @include mq($phone-wide) {
       font-size: 0.8rem;
     }
   }
+
   .figure_10ki57k {
     width: calc(100% - 2px) !important;
     height: calc(100% - 2px) !important;
     overflow: hidden;
+
     img {
       max-height: 100%;
       transform: scale(1.05);
@@ -172,22 +194,28 @@ body {
     right: 100px;
     padding: 0;
   }
+
   .arrow_b9bbag-o_O-arrow__direction__left_shhpn5-o_O-arrow__size__medium_9f7hgo,
   .arrow_b9bbag-o_O-arrow__direction__right_174p6a9-o_O-arrow__size__medium_9f7hgo {
     width: 40px;
   }
+
   .arrow_b9bbag-o_O-arrow__direction__left_shhpn5-o_O-arrow__size__medium_9f7hgo {
     left: 20% !important;
+
     @include mq($phone-wide) {
       left: 0 !important;
     }
   }
+
   .arrow_b9bbag-o_O-arrow__direction__right_174p6a9-o_O-arrow__size__medium_9f7hgo {
     right: 20% !important;
+
     @include mq($phone-wide) {
       right: 0 !important;
     }
   }
+
   .close_1x3s325 {
     vertical-align: bottom;
     background: none;
@@ -203,6 +231,7 @@ body {
     width: 40px;
     fill: white;
   }
+
   .content_13hv8io {
     @include mq($tablet) {
       position: relative !important;

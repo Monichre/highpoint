@@ -7,7 +7,8 @@ import AppStore from "../../flux/stores";
 import LightBoxTheme from "../../components/lightboxTheme";
 import Swipeable from "react-swipeable";
 import { BROWSER } from "../../utils/browser";
-
+import { mobileTouchSwipe } from "../../utils";
+import _ from "lodash";
 import "./_gallery.scss";
 
 const { status } = BROWSER.isMobile();
@@ -40,7 +41,9 @@ export default class Gallery extends Component {
     });
 
     const photoSet = galleryItems.map((item, i) => {
-      let gridItem = { ...item };
+      let gridItem = {
+        ...item
+      };
       gridItem.src = item.url;
       gridItem.thumb = item.thumb;
       gridItem.caption = `${item.property}${
@@ -63,10 +66,12 @@ export default class Gallery extends Component {
 
   openLightbox = (i, e) => {
     e.preventDefault();
+    const _this = this;
     this.setState({
       currentImage: i,
       lightboxIsOpen: true
     });
+    mobileTouchSwipe(this.goToNext, this.goToPrevious);
   };
 
   goToNext = () => {
@@ -85,6 +90,24 @@ export default class Gallery extends Component {
     this.setState({
       currentImage: index
     });
+    setTimeout(() => {
+      const popupImg = document.querySelector(
+        ".image_1swebtw-o_O-imageLoaded_zgbg08"
+      );
+      if (popupImg) {
+        console.log(popupImg);
+        popupImg.addEventListener("touchmove", e => {
+          console.log(e);
+          console.log(e.clientX);
+        });
+        popupImg.addEventListener("mousemove", e => {
+          console.log(e);
+          console.log(e.clientX);
+        });
+      } else {
+        console.log("no popupImg");
+      }
+    }, 1000);
   };
   handleClickImage = () => {
     if (this.state.currentImage === this.state.photos.length - 1) return;
@@ -96,20 +119,22 @@ export default class Gallery extends Component {
     const { photos } = this.state;
     return (
       <main className="gallery loading component gallery_component">
-        <h1 className="page_title">Gallery</h1>
+        <h1 className="page_title"> Gallery </h1>{" "}
         <section className="wrapper">
           <div className="thumb__scroller">
+            {" "}
             {galleryItems.map((item, i) => (
               <MediaThumb
                 item={item}
                 key={i}
                 openLightbox={this.openLightbox.bind(this, i)}
               />
-            ))}
-          </div>
-        </section>
+            ))}{" "}
+          </div>{" "}
+        </section>{" "}
         <Swipeable
           onSwipedRight={this.goToNext}
+          flickThreshold={0.3}
           onSwipedLeft={this.goToPrevious}
         >
           <Lightbox
@@ -123,8 +148,8 @@ export default class Gallery extends Component {
             currentImage={this.state.currentImage}
             isOpen={this.state.lightboxIsOpen}
             theme={LightBoxTheme}
-          />
-        </Swipeable>
+          />{" "}
+        </Swipeable>{" "}
       </main>
     );
   }
