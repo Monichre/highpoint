@@ -1,9 +1,8 @@
 import React from "react";
-// import '@babel/polyfill'
 import PropTypes from "prop-types";
+
 import _ from "lodash";
 
-// const Symbol = require('es6-symbol')
 const previousTouchMove = Symbol();
 const scrolling = Symbol();
 const wheelScroll = Symbol();
@@ -18,6 +17,7 @@ const setRenderComponents = Symbol();
 const ANIMATION_TIMER = 200;
 const KEY_UP = 38;
 const KEY_DOWN = 40;
+let scale = 1;
 
 export default class ReactPageScroller extends React.Component {
   static propTypes = {
@@ -38,7 +38,10 @@ export default class ReactPageScroller extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { componentIndex: 0, componentsToRenderLength: 0 };
+    this.state = {
+      componentIndex: 0,
+      componentsToRenderLength: 0
+    };
     this[previousTouchMove] = null;
     this[scrolling] = false;
   }
@@ -54,7 +57,9 @@ export default class ReactPageScroller extends React.Component {
       "wheel",
       _.debounce(this[wheelScroll], 10)
     );
+
     this._pageContainer.addEventListener("touchstart", function(event) {
+      console.log(event);
       this.allowUp = this.scrollTop > 0;
       this.allowDown = this.scrollTop < this.scrollHeight - this.clientHeight;
       this.prevTop = null;
@@ -141,10 +146,15 @@ export default class ReactPageScroller extends React.Component {
             }
 
             setTimeout(() => {
-              this.setState({ componentIndex: number }, () => {
-                this[scrolling] = false;
-                this[previousTouchMove] = null;
-              });
+              this.setState(
+                {
+                  componentIndex: number
+                },
+                () => {
+                  this[scrolling] = false;
+                  this[previousTouchMove] = null;
+                }
+              );
             }, this.props.animationTimer + ANIMATION_TIMER);
           }
         );
@@ -177,14 +187,23 @@ export default class ReactPageScroller extends React.Component {
           }}
           tabIndex={0}
         >
-          {this[setRenderComponents]()}
-        </div>
+          {" "}
+          {this[setRenderComponents]()}{" "}
+        </div>{" "}
       </div>
     );
   }
 
   [wheelScroll] = event => {
-    if (event.deltaY < 0) {
+    console.log("wheel event", event);
+    if (event.ctrlKey) {
+      event.preventDefault();
+      let s = Math.exp(-event.deltaY / 100);
+      scale *= s;
+      console.log("delta = " + event.deltaY);
+      console.log("scale = " + scale);
+      console.log("s = " + s);
+    } else if (event.deltaY < 0) {
       this[scrollWindowUp]();
     } else {
       this[scrollWindowDown]();
@@ -192,22 +211,32 @@ export default class ReactPageScroller extends React.Component {
   };
 
   [touchMove] = event => {
-    var up = event.pageY > this.lastY,
-      down = !up;
-    this.lastY = event.pageY;
+    console.log("touchmove event", event);
+    if (event.rotation === 0) {
+      var up = event.pageY > this.lastY,
+        down = !up;
+      this.lastY = event.pageY;
 
-    if (!_.isNull(this[previousTouchMove])) {
-      if (event.touches[0].clientY > this[previousTouchMove]) {
-        event.stopPropagation();
-        this[scrollWindowUp]();
+      if (!_.isNull(this[previousTouchMove])) {
+        if (event.touches[0].clientY > this[previousTouchMove]) {
+          event.stopPropagation();
+          this[scrollWindowUp]();
+        } else {
+          this[scrollWindowDown]();
+        }
       } else {
-        this[scrollWindowDown]();
+        this[previousTouchMove] = event.touches[0].clientY;
+        if ((up && this.allowUp) || (down && this.allowDown))
+          event.stopPropagation();
+        else event.preventDefault();
       }
     } else {
-      this[previousTouchMove] = event.touches[0].clientY;
-      if ((up && this.allowUp) || (down && this.allowDown))
-        event.stopPropagation();
-      else event.preventDefault();
+      event.preventDefault();
+      let s = Math.exp(-event.deltaY / 100);
+      scale *= s;
+      console.log("delta = " + event.deltaY);
+      console.log("scale = " + scale);
+      console.log("s = " + s);
     }
   };
 
@@ -256,9 +285,13 @@ export default class ReactPageScroller extends React.Component {
           <div
             key={i}
             ref={c => (this["container_" + i] = c)}
-            style={{ height: "100%", width: "100%" }}
+            style={{
+              height: "100%",
+              width: "100%"
+            }}
           >
-            {this.props.children[i]}
+            {" "}
+            {this.props.children[i]}{" "}
           </div>
         );
       } else {
@@ -270,7 +303,6 @@ export default class ReactPageScroller extends React.Component {
   };
 
   [scrollWindowUp] = () => {
-    console.log("im going up");
     if (!this[scrolling]) {
       if (!_.isNil(this["container_" + (this.state.componentIndex - 1)])) {
         this[scrolling] = true;
@@ -285,7 +317,9 @@ export default class ReactPageScroller extends React.Component {
 
         setTimeout(() => {
           this.setState(
-            prevState => ({ componentIndex: prevState.componentIndex - 1 }),
+            prevState => ({
+              componentIndex: prevState.componentIndex - 1
+            }),
             () => {
               this[scrolling] = false;
               this[previousTouchMove] = null;
@@ -299,7 +333,6 @@ export default class ReactPageScroller extends React.Component {
   };
 
   [scrollWindowDown] = () => {
-    console.log("im going down");
     if (!this[scrolling]) {
       if (!_.isNil(this["container_" + (this.state.componentIndex + 1)])) {
         this[scrolling] = true;
@@ -314,7 +347,9 @@ export default class ReactPageScroller extends React.Component {
 
         setTimeout(() => {
           this.setState(
-            prevState => ({ componentIndex: prevState.componentIndex + 1 }),
+            prevState => ({
+              componentIndex: prevState.componentIndex + 1
+            }),
             () => {
               this[scrolling] = false;
               this[previousTouchMove] = null;
