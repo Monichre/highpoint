@@ -18,6 +18,20 @@ const ANIMATION_TIMER = 200;
 const KEY_UP = 38;
 const KEY_DOWN = 40;
 let scale = 1;
+let rotation = 0;
+let gestureStartRotation = 0;
+let gestureStartScale = 0;
+let posX = 0;
+let posY = 0;
+let startX;
+let startY;
+
+const renderGesture = node => {
+  window.requestAnimationFrame(() => {
+    const val = `translate3D(${posX}px, ${posY}px, 0px) rotate(${rotation}deg) scale(${scale})`;
+    node.style.transform = val;
+  });
+};
 
 export default class ReactPageScroller extends React.Component {
   static propTypes = {
@@ -52,6 +66,30 @@ export default class ReactPageScroller extends React.Component {
     document.ontouchmove = event => {
       event.preventDefault();
     };
+
+    this._pageContainer.addEventListener("gesturestart", function(e) {
+      e.preventDefault();
+      startX = e.pageX - posX;
+      startY = e.pageY - posY;
+      gestureStartRotation = rotation;
+      gestureStartScale = scale;
+    });
+
+    this._pageContainer.addEventListener("gesturechange", function(e) {
+      e.preventDefault();
+
+      rotation = gestureStartRotation + e.rotation;
+      scale = gestureStartScale * e.scale;
+
+      posX = e.pageX - startX;
+      posY = e.pageY - startY;
+
+      renderGesture(e.target);
+    });
+
+    this._pageContainer.addEventListener("gestureend", function(e) {
+      e.preventDefault();
+    });
 
     this._pageContainer.addEventListener(
       "wheel",
