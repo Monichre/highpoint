@@ -13,12 +13,14 @@
       font-size: 0.8rem;
       // margin: 0 0 0.4rem;
     }
+
     @include mq($tablet) {
       text-align: right;
       font-size: 0.7rem;
       width: 100%;
     }
   }
+
   .vertical__inner:not(.horizontal__inner) {
     width: 100%;
     height: 90vmin;
@@ -28,11 +30,13 @@
     align-items: flex-end;
     // padding: 0rem 1.5rem 0 1.5rem; --> old styles
     padding: 0rem 2rem 0 1rem;
+
     // padding: .75rem 2rem 0 2rem;
     @include mq($desktop) {
       // padding: 0rem 1rem 0 1rem;  --> old styles
       // padding: 0rem 1rem 0 1.5rem;
     }
+
     @include mq($tablet) {
       height: 93%; // Because the footer only has a height of 7%
     }
@@ -46,6 +50,7 @@
       height: 95%;
 
       background: #000;
+
       @include mq($tablet-wide) {
         right: 1rem;
       }
@@ -54,20 +59,25 @@
         display: none;
       }
     }
+
     .inner_columns {
       display: flex;
       flex-direction: row;
       height: 100%;
+
       @include mq($tablet) {
         flex-direction: column;
       }
+
       .img_cont,
       .content {
         width: 50%;
+
         @include mq($tablet) {
           width: 100%;
         }
       }
+
       .content {
         padding: 0 0 0 20px;
         display: flex;
@@ -75,9 +85,11 @@
         justify-content: flex-start;
         overflow: hidden;
         margin-top: 5vmin;
+
         @include mq($desktop-wide) {
           // margin-top: 0;
         }
+
         @include mq($tablet-wide) {
           // justify-content: flex-start;
           margin-top: 40px;
@@ -85,6 +97,7 @@
 
         h4.process_button__property-address {
           @include font-secondary-reg;
+
           @include mq($phone-wide) {
             font-size: 0.7rem;
             font-weight: bolder;
@@ -95,6 +108,7 @@
             transition: text-shadow $b-animSpeed $b-animType;
           }
         }
+
         p {
           @include font-secondary;
           font-size: 2vmin;
@@ -104,12 +118,14 @@
           }
 
           @include mq($desktop) {
-            font-size: 1.85vmin;
+            font-size: 1.65vmin;
             margin-top: 0;
           }
+
           @include mq($tablet-wide) {
             font-size: 1.725vmin;
           }
+
           @include mq($tablet-wide-2) {
             font-size: 1.55vmin;
             margin-top: 0;
@@ -119,19 +135,23 @@
             display: none;
           }
         }
+
         h4 {
           @include font-secondary-reg;
           margin: 1rem 0 0.4rem;
           font-size: 0.8rem;
+
           @include minMq($desktop-up) {
             font-size: 3vmin;
           }
+
           @include mq($desktop) {
             margin: 0.55rem 0 0.45rem;
             // margin: 0.5rem 0 1rem;
           }
         }
       }
+
       .img_cont {
         height: auto;
         /* max-height: 85vh; */
@@ -148,6 +168,7 @@
           // margin-top: 0;
           // height: auto;
         }
+
         @include mq($tablet-wide-2) {
           height: 100%;
         }
@@ -156,6 +177,7 @@
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
+
           @include mq($tablet-wide) {
             background-size: cover;
             background-position: top;
@@ -166,9 +188,11 @@
             background-position: center;
           }
         }
+
         .img_inner {
           height: 100%;
         }
+
         img {
           object-fit: cover;
           height: 100%;
@@ -178,21 +202,26 @@
             object-fit: contain;
           }
         }
+
         .logos {
           width: 100%;
           height: 30%;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
+
           img {
             height: 100%;
             width: 33.333%;
             object-fit: scale-down;
+
             &:nth-of-type(1) {
               padding: 34px;
             }
+
             &:nth-of-type(2) {
             }
+
             &:nth-of-type(3) {
               padding: 34px;
             }

@@ -97,7 +97,6 @@ export default class ReactPageScroller extends React.Component {
     );
 
     this._pageContainer.addEventListener("touchstart", function(event) {
-      console.log(event);
       this.allowUp = this.scrollTop > 0;
       this.allowDown = this.scrollTop < this.scrollHeight - this.clientHeight;
       this.prevTop = null;
@@ -233,14 +232,10 @@ export default class ReactPageScroller extends React.Component {
   }
 
   [wheelScroll] = event => {
-    console.log("wheel event", event);
     if (event.ctrlKey) {
       event.preventDefault();
       let s = Math.exp(-event.deltaY / 100);
       scale *= s;
-      console.log("delta = " + event.deltaY);
-      console.log("scale = " + scale);
-      console.log("s = " + s);
     } else if (event.deltaY < 0) {
       this[scrollWindowUp]();
     } else {
@@ -249,7 +244,6 @@ export default class ReactPageScroller extends React.Component {
   };
 
   [touchMove] = event => {
-    console.log("touchmove event", event);
     if (event.rotation === 0) {
       var up = event.pageY > this.lastY,
         down = !up;
@@ -272,9 +266,6 @@ export default class ReactPageScroller extends React.Component {
       event.preventDefault();
       let s = Math.exp(-event.deltaY / 100);
       scale *= s;
-      console.log("delta = " + event.deltaY);
-      console.log("scale = " + scale);
-      console.log("s = " + s);
     }
   };
 

@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import ViewProcessButton from "../viewProcessButton";
 import { isAVenture, mcCallisterStyle } from "../../utils";
+import { FancyButtonCustomURL } from "../viewProcessButton/fancyButton";
 
 import "./_index.scss";
 
@@ -43,6 +44,9 @@ export const VerticalPortfolioCard = ({ property, arrowClick, index }) => (
           <h4>{property.address}</h4>
           <p>{property.description}</p>
           <ViewProcessButton property={property} />
+          {property.title === "McCallister Management" ? (
+            <FancyButtonCustomURL url={"www.mccallistermgmt.com"} />
+          ) : null}
         </div>
       </div>
     </div>
