@@ -10,7 +10,9 @@ export const FancyButton = ({ property }) => (
 
 export const FancyButtonCustomURL = ({ url }) => (
   <button className="fancy_button">
-    <a href={url}>View Site</a>
+    <a rel="noopener" target="_blank" href={url}>
+      View Site
+    </a>
     <div className="button__horizontal" />
     <div className="button__vertical" />
   </button>

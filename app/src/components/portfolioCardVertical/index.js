@@ -45,7 +45,7 @@ export const VerticalPortfolioCard = ({ property, arrowClick, index }) => (
           <p>{property.description}</p>
           <ViewProcessButton property={property} />
           {property.title === "McCallister Management" ? (
-            <FancyButtonCustomURL url={"www.mccallistermgmt.com"} />
+            <FancyButtonCustomURL url={"https://www.mccallistermgmt.com/"} />
           ) : null}
         </div>
       </div>
